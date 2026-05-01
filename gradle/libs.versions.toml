@@ -2,7 +2,7 @@
 compose-html = "1.10.0"
 compose-runtime = "1.10.2"
 kobweb = "0.24.0"
-kotlin = "2.3.10"
+kotlin = "2.3.21"
 
 [libraries]
 compose-html-core = { module = "org.jetbrains.compose.html:html-core", version.ref = "compose-html" }
