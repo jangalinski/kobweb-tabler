@@ -28,6 +28,7 @@ kotlin {
             implementation(libs.compose.runtime)
             implementation(libs.compose.html.core)
             implementation(libs.kobweb.core)
+            implementation(libs.kobweb.compose.js)
             implementation(libs.kobweb.silk)
         }
     }
