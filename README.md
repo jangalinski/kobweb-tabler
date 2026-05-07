@@ -1,3 +1,28 @@
+# Kobweb/Tabler
+
+`kobweb-tabler` is a reusable Kobweb/Silk support library for building Tabler-styled pages with Kotlin.
+
+Its goal is to let a Kobweb app render either:
+
+- a dynamic page that runs in the browser, or
+- a statically generated page that is exported during build time
+
+while still using the Tabler layout system and charting primitives.
+
+## Mission statement:
+
+> Build a Kobweb/Silk page that is either dynamic or static generated using Tabler layout and charts.
+
+### References:
+
+- Kobweb: https://kobweb.varabyte.com/docs/concepts/foundation/
+- Tabler docs: https://tabler.io/docs
+- ApexCharts docs: https://apexcharts.com/docs/
+- Tabler icons: https://tabler.io/icons
+
+
+## Kobweb Library
+
 This is a [Kobweb](https://github.com/varabyte/kobweb) project bootstrapped with the `library` template.
 
 This template is useful if you want to create a re-usable library that can be consumed by other Kobweb projects. The

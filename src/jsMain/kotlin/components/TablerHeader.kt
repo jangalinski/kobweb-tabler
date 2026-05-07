@@ -5,25 +5,33 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.classNames
+import net.janhoo.kotlin.kobweb.tabler.styles.ClassNames
+import net.janhoo.kotlin.kobweb.tabler.styles.ClassNames.modifier
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
+/**
+ * Renders the main Tabler page header block.
+ */
 @Composable
 fun TablerHeader(
   title: String,
   subtitle: String,
   modifier: Modifier = Modifier,
 ) {
-  Box(modifier = modifier.classNames("page-header", "d-print-none")) {
-    Column(modifier = Modifier.classNames("container-xl")) {
-      Row(modifier = Modifier.classNames("row", "g-2", "align-items-center")) {
-        Column(modifier = Modifier.classNames("col")) {
-          H1(attrs = { attr("class", "page-title") }) {
+  Box(modifier = modifier.then(ClassNames.pageHeader.modifier())) {
+    Column(modifier = ClassNames.containerXl.modifier()) {
+      Row(
+        modifier = ClassNames.row.modifier()
+          .then(ClassNames.g2.modifier())
+          .then(ClassNames.alignItemsCenter.modifier()),
+      ) {
+        Column(modifier = ClassNames.pageHeaderCol.modifier()) {
+          H1(attrs = { attr("class", ClassNames.pageTitle) }) {
             Text(title)
           }
-          P(attrs = { attr("class", "text-secondary subheader") }) {
+          P(attrs = { attr("class", ClassNames.textSecondarySubheader) }) {
             Text(subtitle)
           }
         }

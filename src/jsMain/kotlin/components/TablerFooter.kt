@@ -3,16 +3,25 @@ package net.janhoo.kotlin.kobweb.tabler.components
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
+import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.classNames
+import net.janhoo.kotlin.kobweb.tabler.styles.ClassNames
+import net.janhoo.kotlin.kobweb.tabler.styles.ClassNames.modifier
 
+/**
+ * Renders the Tabler page footer block.
+ */
 @Composable
 fun TablerFooter(
   modifier: Modifier = Modifier,
-  content: @Composable () -> Unit,
+  content: @Composable ColumnScope.() -> Unit,
 ) {
-  Box(modifier = modifier.classNames("footer", "footer-transparent", "d-print-none")) {
-    Column(modifier = Modifier.classNames("container-xl")) {
+  Box(
+    modifier = modifier.then(ClassNames.footer.modifier())
+      .then(ClassNames.footerTransparent.modifier())
+      .then(ClassNames.dPrintNone.modifier()),
+  ) {
+    Column(modifier = ClassNames.containerXl.modifier()) {
       content()
     }
   }
