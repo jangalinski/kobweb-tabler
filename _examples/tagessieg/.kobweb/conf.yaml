@@ -1,0 +1,13 @@
+site:
+  title: "Tagessieg"
+  basePath: "tagessieg"
+server:
+  files:
+    dev:
+      contentRoot: "build/generated/kobweb/app/src/jsMain/resources"
+      script: "build/kotlin-webpack/js/developmentExecutable/kobweb-tabler-examples.js"
+    prod:
+      script: "build/kotlin-webpack/js/productionExecutable/kobweb-tabler-examples.js"
+      siteRoot: ".kobweb/site"
+
+  port: 10101

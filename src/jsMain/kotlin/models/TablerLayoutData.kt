@@ -19,4 +19,6 @@ data class TablerLayoutData(
 data class TablerPageMeta(
   val title: String,
   val subtitle: String? = null,
+  /** Breadcrumbs rendered above the page title in the shared header. */
+  val breadcrumbs: List<BreadcrumbItem> = emptyList(),
 )

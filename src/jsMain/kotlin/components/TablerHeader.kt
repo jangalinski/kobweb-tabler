@@ -5,6 +5,7 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
+import net.janhoo.kotlin.kobweb.tabler.models.BreadcrumbItem
 import net.janhoo.kotlin.kobweb.tabler.styles.ClassNames
 import net.janhoo.kotlin.kobweb.tabler.styles.ClassNames.modifier
 import org.jetbrains.compose.web.dom.H1
@@ -18,10 +19,17 @@ import org.jetbrains.compose.web.dom.Text
 fun TablerHeader(
   title: String,
   subtitle: String? = null,
+  breadcrumbs: List<BreadcrumbItem> = emptyList(),
   modifier: Modifier = Modifier,
 ) {
   Box(modifier = modifier.then(ClassNames.pageHeader.modifier())) {
     Column(modifier = ClassNames.containerXl.modifier()) {
+      if (breadcrumbs.isNotEmpty()) {
+        TablerBreadcrumbs(
+          items = breadcrumbs,
+          modifier = Modifier.then(ClassNames.mb2.modifier()),
+        )
+      }
       Row(
         modifier = ClassNames.row.modifier()
           .then(ClassNames.g2.modifier())

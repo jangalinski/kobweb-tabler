@@ -3,6 +3,7 @@ compose-html = "1.10.0"
 compose-runtime = "1.10.2"
 kobweb = "0.24.0"
 kotlin = "2.3.21"
+jetbrains-compose = "1.10.2"
 
 [libraries]
 compose-html-core = { module = "org.jetbrains.compose.html:html-core", version.ref = "compose-html" }
@@ -17,9 +18,12 @@ kobwebx-serialization-kotlinx = { module = "com.varabyte.kobwebx:kobwebx-seriali
 silk-foundation = { module = "com.varabyte.kobweb:silk-foundation", version.ref = "kobweb" }
 silk-icons-fa = { module = "com.varabyte.kobwebx:silk-icons-fa", version.ref = "kobweb" }
 silk-icons-mdi = { module = "com.varabyte.kobwebx:silk-icons-mdi", version.ref = "kobweb" }
+kobweb-tabler = { module = "net.janhoo.kotlin.kobweb:kobweb-tabler", version = "0.1.0-SNAPSHOT" }
 
 [plugins]
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "jetbrains-compose" }
+ktx-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kobweb-application = { id = "com.varabyte.kobweb.application", version.ref = "kobweb" }
 kobweb-library = { id = "com.varabyte.kobweb.library", version.ref = "kobweb" }
 kobweb-worker = { id = "com.varabyte.kobweb.worker", version.ref = "kobweb" }

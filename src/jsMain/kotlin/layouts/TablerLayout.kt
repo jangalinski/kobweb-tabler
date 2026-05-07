@@ -26,9 +26,7 @@ import net.janhoo.kotlin.kobweb.tabler.models.TablerPageMeta
 @Composable
 fun TablerLayout(ctx: PageContext, content: @Composable () -> Unit) {
   val layoutData = ctx.data.getValue<TablerLayoutData>()
-    ?: error("TablerLayoutData missing for ${ctx.route.path}")
   val pageMeta = ctx.data.getValue<TablerPageMeta>()
-    ?: error("TablerPageMeta missing for ${ctx.route.path}")
 
   Box(modifier = ClassNames.page.modifier()) {
     layoutData.navigation.render()
@@ -38,6 +36,7 @@ fun TablerLayout(ctx: PageContext, content: @Composable () -> Unit) {
         TablerHeader(
           title = pageMeta.title,
           subtitle = pageMeta.subtitle,
+          breadcrumbs = pageMeta.breadcrumbs,
         )
       }
 

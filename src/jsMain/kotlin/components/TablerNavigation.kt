@@ -7,7 +7,6 @@ import com.varabyte.kobweb.compose.css.textTransform
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.core.AppGlobals
-import net.janhoo.kotlin.kobweb.tabler.KobwebTabler.publicResourcePath
 import net.janhoo.kotlin.kobweb.tabler.models.Image
 import net.janhoo.kotlin.kobweb.tabler.models.NavigationItem
 import net.janhoo.kotlin.kobweb.tabler.models.navigationItems
@@ -18,7 +17,6 @@ import org.jetbrains.compose.web.dom.Aside
 import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Header
-import org.jetbrains.compose.web.dom.Img
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import kotlinx.browser.document
@@ -354,64 +352,6 @@ private fun renderNavDropdown(item: NavigationItem.Dropdown) {
     }
   }
 }
-
-@Composable
-private fun renderImage(image: Image?, defaultAlt: String, className: String) {
-  val size = when (className) {
-    ClassNames.navbarBrandImage -> 40
-    ClassNames.navItemIcon -> 16
-    ClassNames.dropdownItemIcon -> 16
-    else -> null
-  }
-  when (image) {
-    null -> Unit
-    is Image.None -> Unit
-    is Image.ImageResource -> Img(
-      src = publicResourcePath(image.resource),
-      alt = image.altText ?: defaultAlt,
-      attrs = {
-        attr(
-          "class",
-          when (className) {
-            ClassNames.navbarBrandImage -> "${className} ${ClassNames.me2}"
-            ClassNames.navItemIcon -> "${className} ${ClassNames.me2}"
-            ClassNames.dropdownItemIcon -> "${className} ${ClassNames.me2}"
-            else -> className
-          },
-        )
-        size?.let {
-          attr("width", it.toString())
-          attr("height", it.toString())
-        }
-      },
-    )
-    is Image.InlineSvg -> Img(
-      src = svgDataUri(image.svg),
-      alt = image.altText ?: defaultAlt,
-      attrs = {
-        attr(
-          "class",
-          when (className) {
-            ClassNames.navbarBrandImage -> "${className} ${ClassNames.me2}"
-            ClassNames.navItemIcon -> "${className} ${ClassNames.me2}"
-            ClassNames.dropdownItemIcon -> "${className} ${ClassNames.me2}"
-            else -> className
-          },
-        )
-        size?.let {
-          attr("width", it.toString())
-          attr("height", it.toString())
-        }
-      },
-    )
-  }
-}
-
-private fun svgDataUri(svg: String): String =
-  "data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}"
-
-@Suppress("UnsafeCastFromDynamic")
-private fun encodeURIComponent(value: String): String = js("encodeURIComponent(value)") as String
 
 private fun dropdownId(name: String): String =
   "nav-dropdown-" + name.lowercase().replace(Regex("[^a-z0-9]+"), "-").trim('-')

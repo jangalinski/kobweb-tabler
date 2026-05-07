@@ -359,6 +359,18 @@ data object ClassNames {
   /** Small icon inside a footer link. */
   const val footerLinkIcon = "me-2"
 
+  /** Breadcrumb container used in the page header. */
+  const val breadcrumb = "breadcrumb m-0"
+
+  /** Breadcrumb item wrapper. */
+  const val breadcrumbItem = "breadcrumb-item"
+
+  /** Active breadcrumb item wrapper. */
+  const val breadcrumbItemActive = "active text-secondary"
+
+  /** Breadcrumb link styled like the other quiet shell links. */
+  const val breadcrumbLink = "link-secondary text-decoration-none link-opacity-75 link-opacity-100-hover d-inline-flex align-items-center"
+
   /** Wrapper that enables horizontal scrolling for wide tables. */
   const val tableResponsive = "table-responsive"
 

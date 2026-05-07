@@ -1,0 +1,3 @@
+
+_list:
+  just --list
