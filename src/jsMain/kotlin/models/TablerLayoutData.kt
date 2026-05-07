@@ -1,5 +1,7 @@
 package net.janhoo.kotlin.kobweb.tabler.models
 
+import androidx.compose.runtime.Composable
+import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 import net.janhoo.kotlin.kobweb.tabler.components.TablerNavigation
 
 /**
@@ -7,6 +9,8 @@ import net.janhoo.kotlin.kobweb.tabler.components.TablerNavigation
  */
 data class TablerLayoutData(
   val navigation: TablerNavigation = TablerNavigation.None,
+  /** Footer content rendered by the shared Tabler shell. */
+  val footer: @Composable ColumnScope.() -> Unit = {},
 )
 
 /**

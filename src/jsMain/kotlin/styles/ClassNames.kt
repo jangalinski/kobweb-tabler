@@ -323,6 +323,9 @@ data object ClassNames {
   /** Flex row for the left side of a list item, usually badge plus label. */
   const val listGroupRow = "d-flex align-items-center gap-2"
 
+  /** Horizontal gap used between inline footer links. */
+  const val gap3 = "gap-3"
+
   /** Semibold text for the list label. */
   const val fwSemibold = "fw-semibold"
 
@@ -340,6 +343,21 @@ data object ClassNames {
 
   /** Small, muted helper text. */
   const val smallTextSecondary = "text-secondary small"
+
+  /** Compact footer row that spreads left and right content across the full width. */
+  const val footerRow = "d-flex align-items-center w-100"
+
+  /** Footer left-side text block. */
+  const val footerLeft = "text-secondary small"
+
+  /** Footer right-side link group. */
+  const val footerRight = "ms-auto d-flex align-items-center gap-3"
+
+  /** Footer link styled as quiet secondary text with a subtler hover state. */
+  const val footerLink = "link-secondary text-decoration-none link-opacity-75 link-opacity-100-hover d-inline-flex align-items-center"
+
+  /** Small icon inside a footer link. */
+  const val footerLinkIcon = "me-2"
 
   /** Wrapper that enables horizontal scrolling for wide tables. */
   const val tableResponsive = "table-responsive"

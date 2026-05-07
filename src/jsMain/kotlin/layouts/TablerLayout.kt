@@ -46,9 +46,7 @@ fun TablerLayout(ctx: PageContext, content: @Composable () -> Unit) {
       }
 
       TablerFooter {
-        org.jetbrains.compose.web.dom.P {
-          org.jetbrains.compose.web.dom.Text("Generated with kobweb-tabler.")
-        }
+        layoutData.footer(this)
       }
     }
   }
