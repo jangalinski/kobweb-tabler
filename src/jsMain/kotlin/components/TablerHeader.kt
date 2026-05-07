@@ -17,7 +17,7 @@ import org.jetbrains.compose.web.dom.Text
 @Composable
 fun TablerHeader(
   title: String,
-  subtitle: String,
+  subtitle: String? = null,
   modifier: Modifier = Modifier,
 ) {
   Box(modifier = modifier.then(ClassNames.pageHeader.modifier())) {
@@ -31,8 +31,10 @@ fun TablerHeader(
           H1(attrs = { attr("class", ClassNames.pageTitle) }) {
             Text(title)
           }
-          P(attrs = { attr("class", ClassNames.textSecondarySubheader) }) {
-            Text(subtitle)
+          subtitle?.takeIf { it.isNotBlank() }?.let {
+            P(attrs = { attr("class", ClassNames.textSecondarySubheader) }) {
+              Text(it)
+            }
           }
         }
       }
