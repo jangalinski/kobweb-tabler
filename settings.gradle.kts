@@ -1,9 +1,3 @@
-pluginManagement {
-    repositories {
-        gradlePluginPortal()
-    }
-}
-
 dependencyResolutionManagement {
     repositories {
         mavenCentral()
@@ -11,5 +5,14 @@ dependencyResolutionManagement {
     }
 }
 
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+        google()
+    }
+
+    includeBuild("gradle/build-logic")
+}
 
 rootProject.name = "kobweb-tabler"

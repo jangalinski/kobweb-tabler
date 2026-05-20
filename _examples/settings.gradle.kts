@@ -4,6 +4,9 @@ pluginManagement {
     mavenCentral()
     google()
   }
+
+  // Make the build-logic composite available as a plugin source for `plugins {}` resolution.
+  includeBuild("../gradle/build-logic")
 }
 
 dependencyResolutionManagement {
@@ -12,6 +15,7 @@ dependencyResolutionManagement {
     google()
   }
 
+  // `_examples` is its own Gradle build, so it needs to import the shared version catalog explicitly.
   versionCatalogs {
     create("libs") {
       from(files("../gradle/libs.versions.toml"))

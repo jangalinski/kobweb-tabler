@@ -1,5 +1,4 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
-import org.gradle.api.tasks.Copy
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
 
@@ -8,6 +7,7 @@ plugins {
   alias(libs.plugins.ktx.compose)
   alias(libs.plugins.jetbrains.compose)
   alias(libs.plugins.kobweb.application)
+  id("net.janhoo.kotlin.kobweb.tabler.buildlogic.tagessieg-preview")
 }
 
 kobweb {
@@ -29,32 +29,9 @@ kotlin {
     jsMain.dependencies {
       implementation(libs.kobweb.tabler)
       implementation(libs.kobweb.silk)
-      implementation("org.jetbrains.compose.runtime:runtime:1.10.2")
-      implementation("org.jetbrains.compose.html:html-core:1.10.0")
+      implementation(libs.compose.runtime)
+      implementation(libs.compose.html.core)
       implementation(libs.kobweb.compose.js)
     }
-  }
-}
-
-val copyPublicResourcesToKobwebDevRoot by tasks.registering(Copy::class) {
-  from("src/jsMain/resources/public")
-  into(layout.buildDirectory.dir("generated/kobweb/app/src/jsMain/resources"))
-}
-
-tasks {
-  named("kobwebStart") {
-    dependsOn(copyPublicResourcesToKobwebDevRoot)
-  }
-
-  named("kobwebCacheAppFrontendData") {
-    dependsOn(copyPublicResourcesToKobwebDevRoot)
-  }
-
-  named("kobwebGenSiteEntry") {
-    dependsOn(copyPublicResourcesToKobwebDevRoot)
-  }
-
-  named("kobwebCopySupplementalResources") {
-    dependsOn(copyPublicResourcesToKobwebDevRoot)
   }
 }
