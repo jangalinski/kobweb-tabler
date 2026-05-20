@@ -66,7 +66,7 @@ abstract class MirrorStaticExportTask : DefaultTask() {
   }
 }
 
-class TagessiegPreviewPlugin : Plugin<Project> {
+class ExamplePreviewPlugin : Plugin<Project> {
   override fun apply(project: Project) {
     registerMirrorTask(project)
   }
@@ -75,7 +75,7 @@ class TagessiegPreviewPlugin : Plugin<Project> {
     project.tasks.register("mirrorExportForPlainStaticServer", MirrorStaticExportTask::class.java) {
       group = "kobweb"
       description = "Mirrors Kobweb export output into a base-path directory tree for plain static servers."
-      basePath.convention("tagessieg")
+      basePath.convention(project.name)
       siteRoot.convention(project.layout.projectDirectory.dir(".kobweb/site"))
     }
 }
