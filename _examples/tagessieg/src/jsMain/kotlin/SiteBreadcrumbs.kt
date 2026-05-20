@@ -1,5 +1,6 @@
 package net.janhoo.kotlin.kobweb.tabler.example.tagessieg
 
+import com.varabyte.kobweb.navigation.BasePath
 import net.janhoo.kotlin.kobweb.tabler.models.BreadcrumbItem
 
 /**
@@ -12,11 +13,11 @@ fun siteBreadcrumbs(activeRoute: String): List<BreadcrumbItem> =
   when (activeRoute) {
     SiteRoutes.Root -> emptyList()
     SiteRoutes.Analyse -> listOf(
-      BreadcrumbItem(label = "Home", href = siteHref(SiteRoutes.Root)),
+      BreadcrumbItem(label = "Home", href = BasePath.prependTo(SiteRoutes.Root)),
       BreadcrumbItem(label = "Analysis", active = true),
     )
     SiteRoutes.Liga -> listOf(
-      BreadcrumbItem(label = "Home", href = siteHref(SiteRoutes.Root)),
+      BreadcrumbItem(label = "Home", href = BasePath.prependTo(SiteRoutes.Root)),
       BreadcrumbItem(label = "Liga", active = true),
     )
     SiteRoutes.Liga2023 -> ligaSeasonBreadcrumbs("2023")
@@ -24,7 +25,7 @@ fun siteBreadcrumbs(activeRoute: String): List<BreadcrumbItem> =
     SiteRoutes.Liga2025 -> ligaSeasonBreadcrumbs("2025")
     SiteRoutes.Liga2026 -> ligaSeasonBreadcrumbs("2026")
     else -> listOf(
-      BreadcrumbItem(label = "Home", href = siteHref(SiteRoutes.Root)),
+      BreadcrumbItem(label = "Home", href = BasePath.prependTo(SiteRoutes.Root)),
       BreadcrumbItem(label = activeRoute.removePrefix("/").ifBlank { "Page" }, active = true),
     )
   }
@@ -33,7 +34,7 @@ fun siteBreadcrumbs(activeRoute: String): List<BreadcrumbItem> =
  * Builds the breadcrumb trail for a Liga season page.
  */
 private fun ligaSeasonBreadcrumbs(year: String): List<BreadcrumbItem> = listOf(
-  BreadcrumbItem(label = "Home", href = siteHref(SiteRoutes.Root)),
-  BreadcrumbItem(label = "Liga", href = siteHref(SiteRoutes.Liga)),
+  BreadcrumbItem(label = "Home", href = BasePath.prependTo(SiteRoutes.Root)),
+  BreadcrumbItem(label = "Liga", href = BasePath.prependTo(SiteRoutes.Liga)),
   BreadcrumbItem(label = year, active = true),
 )

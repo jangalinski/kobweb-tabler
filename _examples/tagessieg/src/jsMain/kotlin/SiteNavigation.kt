@@ -1,6 +1,7 @@
 package net.janhoo.kotlin.kobweb.tabler.example.tagessieg
 
 import androidx.compose.runtime.Composable
+import com.varabyte.kobweb.navigation.BasePath
 import net.janhoo.kotlin.kobweb.tabler.components.TablerNavigation.HeaderNavigation
 import net.janhoo.kotlin.kobweb.tabler.models.navigationItems
 import net.janhoo.kotlin.kobweb.tabler.styles.ClassNames
@@ -15,25 +16,25 @@ import org.jetbrains.compose.web.dom.Text
  */
 fun sharedNavigation(activeRoute: String): HeaderNavigation {
   return HeaderNavigation(
-    href = siteHref(SiteRoutes.Root),
+    href = BasePath.prependTo(SiteRoutes.Root),
     logo = SiteConfig.LOGO,
     items = navigationItems {
       link(
         name = "Analyse",
-        href = siteHref(SiteRoutes.Analyse),
+        href = BasePath.prependTo(SiteRoutes.Analyse),
         icon = SiteIcons.Analyse,
         active = activeRoute == SiteRoutes.Analyse,
       )
       dropdown(
         name = "Liga",
-        href = siteHref(SiteRoutes.Liga),
+        href = BasePath.prependTo(SiteRoutes.Liga),
         icon = SiteIcons.Liga,
         active = activeRoute.startsWith(SiteRoutes.Liga),
         items = {
-          link("2026", siteHref(SiteRoutes.Liga2026), active = activeRoute == SiteRoutes.Liga2026)
-          link("2025", siteHref(SiteRoutes.Liga2025), active = activeRoute == SiteRoutes.Liga2025)
-          link("2024", siteHref(SiteRoutes.Liga2024), active = activeRoute == SiteRoutes.Liga2024)
-          link("2023", siteHref(SiteRoutes.Liga2023), active = activeRoute == SiteRoutes.Liga2023)
+          link("2026", BasePath.prependTo(SiteRoutes.Liga2026), active = activeRoute == SiteRoutes.Liga2026)
+          link("2025", BasePath.prependTo(SiteRoutes.Liga2025), active = activeRoute == SiteRoutes.Liga2025)
+          link("2024", BasePath.prependTo(SiteRoutes.Liga2024), active = activeRoute == SiteRoutes.Liga2024)
+          link("2023", BasePath.prependTo(SiteRoutes.Liga2023), active = activeRoute == SiteRoutes.Liga2023)
         },
       )
     },
