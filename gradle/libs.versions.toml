@@ -1,7 +1,7 @@
 [versions]
 compose-html = "1.11.0"
 compose-runtime = "1.11.2"
-kobweb = "0.24.0"
+kobweb = "0.25.0"
 kotlin = "2.3.21"
 jetbrains-compose = "1.11.0"
 
