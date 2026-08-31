@@ -1,4 +1,4 @@
-package net.janhoo.kotlin.kobweb.tabler.layouts
+package io.github.jangalinski.kotlin.kobweb.tabler.layouts
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -8,13 +8,13 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.core.data.getValue
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.layout.Layout
-import net.janhoo.kotlin.kobweb.tabler.components.TablerFooter
-import net.janhoo.kotlin.kobweb.tabler.components.TablerHeader
-import net.janhoo.kotlin.kobweb.tabler.components.render
-import net.janhoo.kotlin.kobweb.tabler.styles.ClassNames
-import net.janhoo.kotlin.kobweb.tabler.styles.ClassNames.modifier
-import net.janhoo.kotlin.kobweb.tabler.models.TablerLayoutData
-import net.janhoo.kotlin.kobweb.tabler.models.TablerPageMeta
+import io.github.jangalinski.kotlin.kobweb.tabler.components.TablerFooter
+import io.github.jangalinski.kotlin.kobweb.tabler.components.TablerHeader
+import io.github.jangalinski.kotlin.kobweb.tabler.components.render
+import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames
+import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames.modifier
+import io.github.jangalinski.kotlin.kobweb.tabler.models.TablerLayoutData
+import io.github.jangalinski.kotlin.kobweb.tabler.models.TablerPageMeta
 
 /**
  * Renders the shared Tabler shell around a page body.

@@ -1,8 +1,8 @@
-package net.janhoo.kotlin.kobweb.tabler.models
+package io.github.jangalinski.kotlin.kobweb.tabler.models
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
-import net.janhoo.kotlin.kobweb.tabler.components.TablerNavigation
+import io.github.jangalinski.kotlin.kobweb.tabler.components.TablerNavigation
 
 /**
  * Data supplied before route render for the shared Tabler layout shell.

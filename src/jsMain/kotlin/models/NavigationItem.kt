@@ -1,6 +1,6 @@
-package net.janhoo.kotlin.kobweb.tabler.models
+package io.github.jangalinski.kotlin.kobweb.tabler.models
 
-import net.janhoo.kotlin.kobweb.tabler.components.TablerDsl
+import io.github.jangalinski.kotlin.kobweb.tabler.components.TablerDsl
 
 /**
  * Hierarchical navigation model for Tabler menus.

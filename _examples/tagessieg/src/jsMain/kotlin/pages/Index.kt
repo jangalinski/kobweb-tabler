@@ -1,6 +1,6 @@
-@file:Layout("net.janhoo.kotlin.kobweb.tabler.layouts.TablerLayout")
+@file:Layout("io.github.jangalinski.kotlin.kobweb.tabler.layouts.TablerLayout")
 
-package net.janhoo.kotlin.kobweb.tabler.example.tagessieg.pages
+package io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.pages
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.core.data.add
@@ -8,12 +8,12 @@ import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.core.layout.Layout
-import net.janhoo.kotlin.kobweb.tabler.example.tagessieg.SiteRoutes
-import net.janhoo.kotlin.kobweb.tabler.example.tagessieg.siteBreadcrumbs
-import net.janhoo.kotlin.kobweb.tabler.example.tagessieg.siteLayoutData
-import net.janhoo.kotlin.kobweb.tabler.example.tagessieg.sitePageMeta
-import net.janhoo.kotlin.kobweb.tabler.components.TablerCards
-import net.janhoo.kotlin.kobweb.tabler.styles.GridWidth.QUARTER
+import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.SiteRoutes
+import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.siteBreadcrumbs
+import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.siteLayoutData
+import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.sitePageMeta
+import io.github.jangalinski.kotlin.kobweb.tabler.components.TablerCards
+import io.github.jangalinski.kotlin.kobweb.tabler.styles.GridWidth.QUARTER
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 

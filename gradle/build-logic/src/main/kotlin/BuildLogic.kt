@@ -1,4 +1,4 @@
-package net.janhoo.kotlin.kobweb.tabler.buildlogic
+package io.github.jangalinski.kotlin.kobweb.tabler.buildlogic
 
 data object BuildLogic {
   // marker for root project

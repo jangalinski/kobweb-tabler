@@ -1,4 +1,4 @@
-package net.janhoo.kotlin.kobweb.tabler.example.tagessieg
+package io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg
 
 import kotlin.js.Date
 

@@ -1,4 +1,4 @@
-package net.janhoo.kotlin.kobweb.tabler.styles
+package io.github.jangalinski.kotlin.kobweb.tabler.styles
 
 data object TablerStyles {
   /** Badge class with an optional contextual background variant. */

@@ -1,4 +1,4 @@
-package net.janhoo.kotlin.kobweb.tabler.models
+package io.github.jangalinski.kotlin.kobweb.tabler.models
 
 import com.varabyte.kobweb.compose.ui.Modifier
 

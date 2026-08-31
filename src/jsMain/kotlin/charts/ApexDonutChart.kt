@@ -1,4 +1,4 @@
-package net.janhoo.kotlin.kobweb.tabler.charts
+package io.github.jangalinski.kotlin.kobweb.tabler.charts
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect

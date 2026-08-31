@@ -6,8 +6,8 @@ plugins {
 gradlePlugin {
   plugins {
     create("tagessiegPreview") {
-      id = "net.janhoo.kotlin.kobweb.tabler.buildlogic.tagessieg-preview"
-      implementationClass = "net.janhoo.kotlin.kobweb.tabler.buildlogic.ExamplePreviewPlugin"
+      id = "io.github.jangalinski.kotlin.kobweb.tabler.buildlogic.tagessieg-preview"
+      implementationClass = "io.github.jangalinski.kotlin.kobweb.tabler.buildlogic.ExamplePreviewPlugin"
     }
   }
 }

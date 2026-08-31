@@ -17,7 +17,7 @@ plugins {
     alias(libs.plugins.kobweb.library)
 }
 
-group = "net.janhoo.kotlin.kobweb"
+group = "io.github.jangalinski.kotlin.kobweb"
 version = "0.1.0-SNAPSHOT"
 
 kotlin {

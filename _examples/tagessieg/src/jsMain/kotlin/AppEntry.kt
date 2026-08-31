@@ -1,11 +1,11 @@
-package net.janhoo.kotlin.kobweb.tabler.example.tagessieg
+package io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import com.varabyte.kobweb.core.App
 import com.varabyte.kobweb.core.KobwebApp
 import kotlinx.browser.document
-import net.janhoo.kotlin.kobweb.tabler.models.Image.InlineSvg
+import io.github.jangalinski.kotlin.kobweb.tabler.models.Image.InlineSvg
 
 @App
 @Composable
