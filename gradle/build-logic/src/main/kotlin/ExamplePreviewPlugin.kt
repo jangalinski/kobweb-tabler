@@ -68,7 +68,8 @@ abstract class MirrorStaticExportTask : DefaultTask() {
 
 class ExamplePreviewPlugin : Plugin<Project> {
   override fun apply(project: Project) {
-    registerMirrorTask(project)
+    val mirrorTask = registerMirrorTask(project)
+    wireTaskDependencies(project, mirrorTask)
   }
 
   private fun registerMirrorTask(project: Project): TaskProvider<MirrorStaticExportTask> =
@@ -78,6 +79,15 @@ class ExamplePreviewPlugin : Plugin<Project> {
       basePath.convention(project.name)
       siteRoot.convention(project.layout.projectDirectory.dir(".kobweb/site"))
     }
+
+  private fun wireTaskDependencies(project: Project, mirrorTask: TaskProvider<MirrorStaticExportTask>) {
+    project.tasks.matching { it.name == "kobwebExport" }.configureEach {
+      finalizedBy(mirrorTask)
+    }
+    project.tasks.matching { it.name == "kobwebStart" }.configureEach {
+      dependsOn(mirrorTask)
+    }
+  }
 }
 
 private fun deleteRecursively(path: Path) {
