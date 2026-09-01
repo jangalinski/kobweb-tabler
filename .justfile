@@ -12,10 +12,15 @@ examples:
 clean-preview-artifacts:
     @find . -maxdepth 1 -type d \( -name '127.0.0.1:*' -o -name 'localhost:*' \) -prune -exec rm -rf {} +
 
-# Run an example, for example: `just run tagessieg`
+# Run an example via kobweb dev server in static layout (hot-reload, no export needed), for example: `just run tagessieg`
 [group("examples")]
 run example:
     kobweb run -p _examples/{{ example }} -l static --env=dev
+
+# Run an example using the direct kobweb server (fullstack mode), for example: `just serve tagessieg`
+[group("examples")]
+serve example:
+    kobweb run -p _examples/{{ example }}
 
 # Export an example, for example: `just export tagessieg`
 [group("examples")]
@@ -37,19 +42,27 @@ preview example:
 stop:
     @for port in 10101 10102; do pids="$(lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)"; if [ -n "$pids" ]; then echo "Stopping listeners on port $port: $pids"; kill $pids; fi; done; sleep 1; for port in 10101 10102; do pids="$(lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)"; if [ -n "$pids" ]; then echo "Force-stopping listeners on port $port: $pids"; kill -9 $pids; fi; done; just clean-preview-artifacts
 
-# Backwards-compatible aliases for the current example.
-[group("examples")]
+# (*) Run tagessieg via kobweb in hot-reload
+[group("tagessieg")]
 run-tagessieg:
     just run tagessieg
 
-[group("examples")]
+# create tagessieg static files
+[group("tagessieg")]
 export-tagessieg:
     just export tagessieg
 
-[group("examples")]
+# create tagessieg static files and serve via python3 http.server
+[group("tagessieg")]
 preview-tagessieg:
     just preview tagessieg
 
-[group("examples")]
+# stop servers
+[group("tagessieg")]
 stop-tagessieg:
     just stop
+
+# Serve tagessieg via kobweb server (fullstack mode)
+[group("tagessieg")]
+serve-tagessieg:
+    just serve tagessieg
