@@ -226,6 +226,12 @@ data object ClassNames {
   /** Card body section. */
   const val cardBody = "card-body"
 
+  /** Container for compact activity-monitoring blocks. */
+  const val tracking = "tracking"
+
+  /** Individual activity-monitoring block inside a tracking container. */
+  const val trackingBlock = "tracking-block"
+
   /** Generic dropdown menu container. */
   const val dropdownMenu = "dropdown-menu"
 
@@ -301,6 +307,9 @@ data object ClassNames {
 
   /** Top margin used to separate card sections. */
   const val mt3 = "mt-3"
+
+  /** Small top margin used to separate a tracking component from its summary. */
+  const val mt2 = "mt-2"
 
   /** Larger top margin used around chart/table blocks. */
   const val mt4 = "mt-4"

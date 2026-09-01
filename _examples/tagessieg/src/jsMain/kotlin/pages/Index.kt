@@ -13,6 +13,12 @@ import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.siteBreadcru
 import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.siteLayoutData
 import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.sitePageMeta
 import io.github.jangalinski.kotlin.kobweb.tabler.components.TablerCards
+import io.github.jangalinski.kotlin.kobweb.tabler.components.TablerTracking
+import io.github.jangalinski.kotlin.kobweb.tabler.components.TrackingBlock
+import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames
+import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames.modifier
+import io.github.jangalinski.kotlin.kobweb.tabler.styles.GridWidth
+import io.github.jangalinski.kotlin.kobweb.tabler.styles.GridWidth.HALF
 import io.github.jangalinski.kotlin.kobweb.tabler.styles.GridWidth.QUARTER
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
@@ -46,6 +52,35 @@ fun Index() {
       P {
         Text("Use Analysis for the analysis page.")
       }
+    }
+    card(title = "Status monitoring", width = GridWidth.THIRD) {
+      P(attrs = { attr("class", ClassNames.textSecondaryM0) }) {
+        Text("Recent Tagessieg data refreshes")
+      }
+      TablerTracking(
+        blocks = listOf(
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "High source load", variantClass = "bg-warning"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Source unavailable", variantClass = "bg-danger"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "No refresh data"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "High source load", variantClass = "bg-warning"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+          TrackingBlock(tooltip = "Refresh completed", variantClass = "bg-success"),
+        ),
+        modifier = ClassNames.mt2.modifier(),
+      )
     }
   }
 }
