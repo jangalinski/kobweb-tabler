@@ -45,8 +45,11 @@ abstract class MirrorStaticExportTask : DefaultTask() {
 
         when {
           relative.startsWith("pages/") -> {
+            // pages/*.html are empty Kobweb routing shells; serve system/index.html (real app shell) for every route
             val alias = stripKobwebExportPrefix(relative)
-            copyMirroredFile(source, mirrorRoot.resolve(mirrorAliasPath(alias)))
+            val systemIndex = exportSitePath.resolve("system/index.html")
+            val appShell = if (Files.exists(systemIndex)) systemIndex else source
+            copyMirroredFile(appShell, mirrorRoot.resolve(mirrorAliasPath(alias)))
           }
 
           relative.startsWith("resources/") -> {
@@ -56,12 +59,17 @@ abstract class MirrorStaticExportTask : DefaultTask() {
 
           relative.startsWith("system/") -> {
             val alias = stripKobwebExportPrefix(relative)
-            if (alias != "index.html") {
-              copyMirroredFile(source, mirrorRoot.resolve(alias))
-            }
+            copyMirroredFile(source, mirrorRoot.resolve(alias))
           }
         }
       }
+    }
+
+    // system/index.html is the real app shell with the JS bootstrap; always write it last
+    // so it overrides the empty Kobweb routing shell placed by pages/index.html
+    val systemIndex = exportSitePath.resolve("system/index.html")
+    if (Files.exists(systemIndex)) {
+      copyMirroredFile(systemIndex, mirrorRoot.resolve("index.html"))
     }
   }
 }
@@ -83,9 +91,6 @@ class ExamplePreviewPlugin : Plugin<Project> {
   private fun wireTaskDependencies(project: Project, mirrorTask: TaskProvider<MirrorStaticExportTask>) {
     project.tasks.matching { it.name == "kobwebExport" }.configureEach {
       finalizedBy(mirrorTask)
-    }
-    project.tasks.matching { it.name == "kobwebStart" }.configureEach {
-      dependsOn(mirrorTask)
     }
   }
 }
