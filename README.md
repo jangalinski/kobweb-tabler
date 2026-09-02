@@ -1,4 +1,4 @@
-# kobweb-tabler
+# <img src=".idea/icon.svg" alt="" height="32" style="vertical-align: -0.18em;"> kobweb-tabler
 
 [![JitPack](https://jitpack.io/v/jangalinski/kobweb-tabler.svg)](https://jitpack.io/#jangalinski/kobweb-tabler)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.4.10-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
@@ -150,4 +150,3 @@ source replacement.
 - Tabler docs: https://tabler.io/docs
 - ApexCharts docs: https://apexcharts.com/docs/
 - Tabler icons: https://tabler.io/icons
-
