@@ -1,4 +1,4 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.components
+package com.github.jangalinski.kobweb.tabler.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -7,11 +7,11 @@ import com.varabyte.kobweb.compose.css.textTransform
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.core.AppGlobals
-import io.github.jangalinski.kotlin.kobweb.tabler.models.Image
-import io.github.jangalinski.kotlin.kobweb.tabler.models.NavigationItem
-import io.github.jangalinski.kotlin.kobweb.tabler.models.navigationItems
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames.modifier
+import com.github.jangalinski.kobweb.tabler.models.Image
+import com.github.jangalinski.kobweb.tabler.models.NavigationItem
+import com.github.jangalinski.kobweb.tabler.models.navigationItems
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Aside
 import org.jetbrains.compose.web.dom.Button
@@ -220,7 +220,7 @@ private fun renderNavItems(items: List<NavigationItem>) {
 /**
  * Builds a hierarchy of navigation items.
  */
-fun navItems(block: io.github.jangalinski.kotlin.kobweb.tabler.models.NavigationItemsBuilder.() -> Unit): List<NavigationItem> =
+fun navItems(block: com.github.jangalinski.kobweb.tabler.models.NavigationItemsBuilder.() -> Unit): List<NavigationItem> =
   navigationItems(block)
 
 @Composable

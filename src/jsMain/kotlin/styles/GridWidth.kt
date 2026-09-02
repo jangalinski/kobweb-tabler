@@ -1,4 +1,4 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.styles
+package com.github.jangalinski.kobweb.tabler.styles
 
 /**
  * Responsive width presets for blocks in the Tabler grid.

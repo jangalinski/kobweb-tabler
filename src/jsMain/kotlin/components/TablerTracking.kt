@@ -1,4 +1,4 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.components
+package com.github.jangalinski.kobweb.tabler.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -6,8 +6,8 @@ import androidx.compose.runtime.remember
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.id
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames.modifier
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
 import kotlinx.browser.document
 import org.jetbrains.compose.web.dom.Div
 import org.w3c.dom.Element

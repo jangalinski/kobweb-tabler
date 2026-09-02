@@ -1,13 +1,13 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.components
+package com.github.jangalinski.kobweb.tabler.components
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
-import io.github.jangalinski.kotlin.kobweb.tabler.models.BreadcrumbItem
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames.modifier
+import com.github.jangalinski.kobweb.tabler.models.BreadcrumbItem
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
 import org.jetbrains.compose.web.dom.H1
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text

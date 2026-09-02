@@ -1,7 +1,7 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg
+package com.github.jangalinski.kobweb.tabler.example.tagessieg
 
 import com.varabyte.kobweb.navigation.BasePath
-import io.github.jangalinski.kotlin.kobweb.tabler.models.BreadcrumbItem
+import com.github.jangalinski.kobweb.tabler.models.BreadcrumbItem
 
 /**
  * Builds the breadcrumb trail for a given site route.

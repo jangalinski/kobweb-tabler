@@ -1,4 +1,4 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.styles
+package com.github.jangalinski.kobweb.tabler.styles
 
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames

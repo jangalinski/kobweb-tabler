@@ -1,4 +1,4 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.models
+package com.github.jangalinski.kobweb.tabler.models
 
 /**
  * A single crumb in a Tabler breadcrumb trail.

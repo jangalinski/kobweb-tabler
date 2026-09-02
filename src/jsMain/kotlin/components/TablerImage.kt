@@ -1,9 +1,9 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.components
+package com.github.jangalinski.kobweb.tabler.components
 
 import androidx.compose.runtime.Composable
-import io.github.jangalinski.kotlin.kobweb.tabler.KobwebTabler.publicResourcePath
-import io.github.jangalinski.kotlin.kobweb.tabler.models.Image
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames
+import com.github.jangalinski.kobweb.tabler.KobwebTabler.publicResourcePath
+import com.github.jangalinski.kobweb.tabler.models.Image
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames
 import org.jetbrains.compose.web.dom.Img
 
 /**

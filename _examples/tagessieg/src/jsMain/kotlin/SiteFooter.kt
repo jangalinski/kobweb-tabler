@@ -1,8 +1,8 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg
+package com.github.jangalinski.kobweb.tabler.example.tagessieg
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Img

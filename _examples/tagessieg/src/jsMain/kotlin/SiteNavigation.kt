@@ -1,10 +1,10 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg
+package com.github.jangalinski.kobweb.tabler.example.tagessieg
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.navigation.BasePath
-import io.github.jangalinski.kotlin.kobweb.tabler.components.TablerNavigation.HeaderNavigation
-import io.github.jangalinski.kotlin.kobweb.tabler.models.navigationItems
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames
+import com.github.jangalinski.kobweb.tabler.components.TablerNavigation.HeaderNavigation
+import com.github.jangalinski.kobweb.tabler.models.navigationItems
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
 

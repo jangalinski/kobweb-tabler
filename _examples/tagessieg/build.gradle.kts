@@ -7,11 +7,11 @@ plugins {
   alias(libs.plugins.ktx.compose)
   alias(libs.plugins.jetbrains.compose)
   alias(libs.plugins.kobweb.application)
-  id("io.github.jangalinski.kotlin.kobweb.tabler.buildlogic.tagessieg-preview")
+  id("com.github.jangalinski.kobweb.tabler.buildlogic.tagessieg-preview")
 }
 
 kobweb {
-  pagesPackage = "io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.pages"
+  pagesPackage = "com.github.jangalinski.kobweb.tabler.example.tagessieg.pages"
 }
 
 rootProject.plugins.withType<YarnPlugin> {

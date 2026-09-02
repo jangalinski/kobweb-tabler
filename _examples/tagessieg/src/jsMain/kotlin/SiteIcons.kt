@@ -1,6 +1,6 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg
+package com.github.jangalinski.kobweb.tabler.example.tagessieg
 
-import io.github.jangalinski.kotlin.kobweb.tabler.models.Image
+import com.github.jangalinski.kobweb.tabler.models.Image
 
 object SiteIcons {
   /**

@@ -1,4 +1,4 @@
-package io.github.jangalinski.kotlin.kobweb.tabler
+package com.github.jangalinski.kobweb.tabler
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.navigation.BasePath

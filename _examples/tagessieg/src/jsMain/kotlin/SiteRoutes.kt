@@ -1,4 +1,4 @@
-package io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg
+package com.github.jangalinski.kobweb.tabler.example.tagessieg
 
 data object SiteRoutes {
   const val Analyse = "/analysis"

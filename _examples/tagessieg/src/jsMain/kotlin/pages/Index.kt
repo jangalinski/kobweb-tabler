@@ -1,6 +1,6 @@
-@file:Layout("io.github.jangalinski.kotlin.kobweb.tabler.layouts.TablerLayout")
+@file:Layout("com.github.jangalinski.kobweb.tabler.layouts.TablerLayout")
 
-package io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.pages
+package com.github.jangalinski.kobweb.tabler.example.tagessieg.pages
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.core.data.add
@@ -8,18 +8,18 @@ import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.core.layout.Layout
-import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.SiteRoutes
-import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.siteBreadcrumbs
-import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.siteLayoutData
-import io.github.jangalinski.kotlin.kobweb.tabler.example.tagessieg.sitePageMeta
-import io.github.jangalinski.kotlin.kobweb.tabler.components.TablerCards
-import io.github.jangalinski.kotlin.kobweb.tabler.components.TablerTracking
-import io.github.jangalinski.kotlin.kobweb.tabler.components.TrackingBlock
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.ClassNames.modifier
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.GridWidth
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.GridWidth.HALF
-import io.github.jangalinski.kotlin.kobweb.tabler.styles.GridWidth.QUARTER
+import com.github.jangalinski.kobweb.tabler.example.tagessieg.SiteRoutes
+import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteBreadcrumbs
+import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteLayoutData
+import com.github.jangalinski.kobweb.tabler.example.tagessieg.sitePageMeta
+import com.github.jangalinski.kobweb.tabler.components.TablerCards
+import com.github.jangalinski.kobweb.tabler.components.TablerTracking
+import com.github.jangalinski.kobweb.tabler.components.TrackingBlock
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames
+import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
+import com.github.jangalinski.kobweb.tabler.styles.GridWidth
+import com.github.jangalinski.kobweb.tabler.styles.GridWidth.HALF
+import com.github.jangalinski.kobweb.tabler.styles.GridWidth.QUARTER
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 

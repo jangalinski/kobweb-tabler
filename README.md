@@ -28,7 +28,7 @@ while still using the Tabler layout system and charting primitives.
 ```
 kobweb-tabler/          ← the public library (this repo root)
 ├── src/jsMain/…        ← library source
-├── build.gradle.kts    ← publishes io.github.jangalinski.kotlin.kobweb:kobweb-tabler
+├── build.gradle.kts    ← publishes com.github.jangalinski:kobweb-tabler
 └── _examples/          ← standalone Kobweb apps that consume the library
     ├── settings.gradle.kts
     └── tagessieg/      ← example Kobweb app
@@ -46,7 +46,7 @@ includeBuild("../")   // ← substitutes the library dependency from source
 ### How the two builds relate
 
 Because `_examples` uses `includeBuild("../")`, Gradle **substitutes** the published Maven artifact
-(`io.github.jangalinski.kotlin.kobweb:kobweb-tabler`) with the local source automatically.
+(`com.github.jangalinski:kobweb-tabler`) with the local source automatically.
 You do **not** need to run `publishToMavenLocal` first — any change you make in the library source is
 picked up immediately when you build inside `_examples`.
 
