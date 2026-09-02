@@ -34,6 +34,23 @@ dependencies {
 
 The repository is public: consumers and GitHub Actions do not need JitPack credentials.
 
+### Development snapshots
+
+JitPack can build the latest commit on a branch. To use the current `main` branch instead of a tagged release:
+
+```kotlin
+implementation("com.github.jangalinski.kobweb-tabler:kobweb-tabler:main-SNAPSHOT")
+```
+
+Snapshots are changing dependencies, so refresh Gradle's dependency cache when checking a new commit:
+
+```bash
+./gradlew compileKotlinJs --refresh-dependencies
+```
+
+For a reproducible pre-release check, depend on a specific commit hash instead. See [JitPack's snapshot
+documentation](https://docs.jitpack.io/intro/#snapshots) for both forms.
+
 
 ## Build Locally
 
@@ -54,7 +71,7 @@ It is not a sub-project of the root build; it is a sibling that references the l
 
 ### How the examples use the local library
 
-The examples' shared version catalog declares the public JitPack-style development dependency:
+The examples' shared version catalog declares a local development coordinate:
 
 ```kotlin
 implementation("com.github.jangalinski.kobweb-tabler:kobweb-tabler:0.0.1-SNAPSHOT")
