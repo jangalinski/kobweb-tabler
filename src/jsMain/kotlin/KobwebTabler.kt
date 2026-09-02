@@ -6,7 +6,6 @@ import com.varabyte.kobweb.silk.init.InitSilk
 import com.varabyte.kobweb.silk.init.InitSilkContext
 import com.varabyte.kobweb.silk.style.layer.SilkLayer
 import com.varabyte.kobweb.silk.style.layer.add
-import org.w3c.files.File
 
 data object KobwebTabler {
   const val TABLER_LAYER = "kobweb-tabler"

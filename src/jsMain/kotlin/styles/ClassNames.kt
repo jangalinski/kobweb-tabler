@@ -256,6 +256,9 @@ data object ClassNames {
   /** Generic inline icon class. */
   const val icon = "icon"
 
+  /** Base Tabler avatar. */
+  const val avatar = "avatar"
+
   /**
    * Half-width on small screens and one-quarter width on large screens.
    *
