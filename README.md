@@ -115,7 +115,7 @@ No JitPack credentials are required for this public repository. Before tagging a
 publications locally:
 
 ```bash
-./gradlew build publishToMavenLocal
+./gradlew publishToMavenLocal
 ```
 
 JitPack runs the same command using Java 17, as configured in [`jitpack.yml`](jitpack.yml).
