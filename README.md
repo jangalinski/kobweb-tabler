@@ -165,5 +165,6 @@ source replacement.
     `com.varabyte.kobweb.library` Gradle plugin instead in its build script.
 
 - Tabler docs: https://tabler.io/docs
+  - Tabler Demo: https://tabler.io/admin-template/preview 
+  - Tabler icons: https://tabler.io/icons
 - ApexCharts docs: https://apexcharts.com/docs/
-- Tabler icons: https://tabler.io/icons
