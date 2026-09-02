@@ -12,6 +12,12 @@ data class TablerAvatarData(
   val ariaLabel: String? = null,
 )
 
+/** Pure configuration for a horizontal collection of Tabler avatars. */
+data class TablerAvatarListData(
+  val avatars: List<TablerAvatarData>,
+  val stacked: Boolean = false,
+)
+
 /** Content rendered inside a Tabler avatar. */
 sealed interface TablerAvatarContent {
   /** An image from the consuming Kobweb application's public resources. */
@@ -24,22 +30,25 @@ sealed interface TablerAvatarContent {
   data class Initials(val value: String) : TablerAvatarContent
 }
 
-/** Tabler light background colors for initials and icons. */
-enum class TablerAvatarColor(internal val className: String) {
-  BLUE("bg-blue-lt"),
-  AZURE("bg-azure-lt"),
-  INDIGO("bg-indigo-lt"),
-  PURPLE("bg-purple-lt"),
-  PINK("bg-pink-lt"),
-  RED("bg-red-lt"),
-  ORANGE("bg-orange-lt"),
-  YELLOW("bg-yellow-lt"),
-  LIME("bg-lime-lt"),
-  GREEN("bg-green-lt"),
-  TEAL("bg-teal-lt"),
-  CYAN("bg-cyan-lt"),
-  GRAY("bg-secondary-lt"),
-  PRIMARY("bg-primary-lt"),
+/** Opaque Tabler background colors for initials and icons. */
+enum class TablerAvatarColor(
+  internal val backgroundClassName: String,
+  internal val foregroundClassName: String = "text-white",
+) {
+  BLUE("bg-blue"),
+  AZURE("bg-azure"),
+  INDIGO("bg-indigo"),
+  PURPLE("bg-purple"),
+  PINK("bg-pink"),
+  RED("bg-red"),
+  ORANGE("bg-orange"),
+  YELLOW("bg-yellow", "text-dark"),
+  LIME("bg-lime", "text-dark"),
+  GREEN("bg-green"),
+  TEAL("bg-teal"),
+  CYAN("bg-cyan"),
+  GRAY("bg-secondary"),
+  PRIMARY("bg-primary"),
 }
 
 /** Tabler's documented avatar sizes. */

@@ -4,7 +4,9 @@ import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.KobwebTabler.publicResourcePath
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarContent
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarData
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarListData
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames
+import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Img
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
@@ -16,10 +18,13 @@ fun TablerAvatar(data: TablerAvatarData) {
   Span(
     attrs = {
       classes(ClassNames.avatar)
-      data.color?.let { classes(it.className) }
+      data.color?.let { classes(it.backgroundClassName, it.foregroundClassName) }
       data.size.className?.let(::classes)
       data.shape.className?.let(::classes)
       data.ariaLabel?.let { attr("aria-label", it) }
+      if (content is TablerAvatarContent.ImageResource) {
+        attr("style", "background-color: var(--tblr-bg-surface)")
+      }
     },
   ) {
     when (content) {
@@ -52,6 +57,19 @@ fun TablerAvatar(data: TablerAvatarData) {
       }) {
         status.label?.let { Text(it) }
       }
+    }
+  }
+}
+
+/** Renders Tabler's `avatar-list`, optionally using its overlapping stacked variant. */
+@Composable
+fun TablerAvatarList(data: TablerAvatarListData) {
+  Div(attrs = {
+    classes(ClassNames.avatarList)
+    if (data.stacked) classes(ClassNames.avatarListStacked)
+  }) {
+    data.avatars.forEach { avatar ->
+      TablerAvatar(avatar)
     }
   }
 }

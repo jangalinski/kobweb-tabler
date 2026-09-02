@@ -258,6 +258,8 @@ data object ClassNames {
 
   /** Base Tabler avatar. */
   const val avatar = "avatar"
+  const val avatarList = "avatar-list"
+  const val avatarListStacked = "avatar-list-stacked"
 
   /**
    * Half-width on small screens and one-quarter width on large screens.

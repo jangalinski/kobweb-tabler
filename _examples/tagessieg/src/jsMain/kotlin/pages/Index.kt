@@ -13,12 +13,14 @@ import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteBreadcrumbs
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteLayoutData
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.sitePageMeta
 import com.github.jangalinski.kobweb.tabler.components.TablerAvatar
+import com.github.jangalinski.kobweb.tabler.components.TablerAvatarList
 import com.github.jangalinski.kobweb.tabler.components.TablerCards
 import com.github.jangalinski.kobweb.tabler.components.TablerTracking
 import com.github.jangalinski.kobweb.tabler.components.TrackingBlock
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarColor
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarContent
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarData
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarListData
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarShape
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarSize
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarStatus
@@ -107,6 +109,36 @@ fun Index() {
           ),
         )
       }
+      val listAvatars = listOf(
+        TablerAvatarData(
+          content = TablerAvatarContent.ImageResource("jan-g-avatar.png", altText = "Jan Galinski"),
+          size = TablerAvatarSize.SMALL,
+          shape = TablerAvatarShape.CIRCLE,
+          ariaLabel = "Jan Galinski",
+        ),
+        TablerAvatarData(
+          content = TablerAvatarContent.Initials("JG"),
+          color = TablerAvatarColor.PURPLE,
+          size = TablerAvatarSize.SMALL,
+          shape = TablerAvatarShape.CIRCLE,
+          ariaLabel = "Jan Galinski",
+        ),
+        TablerAvatarData(
+          content = TablerAvatarContent.Icon(svg = USER_ICON_SVG, altText = "User profile"),
+          color = TablerAvatarColor.AZURE,
+          size = TablerAvatarSize.SMALL,
+          shape = TablerAvatarShape.CIRCLE,
+          ariaLabel = "User profile",
+        ),
+      )
+      P(attrs = { attr("class", "text-secondary mt-3 mb-1") }) {
+        Text("Avatar list")
+      }
+      TablerAvatarList(TablerAvatarListData(avatars = listAvatars))
+      P(attrs = { attr("class", "text-secondary mt-3 mb-1") }) {
+        Text("Stacked avatar list")
+      }
+      TablerAvatarList(TablerAvatarListData(avatars = listAvatars, stacked = true))
     }
     card(title = "Status monitoring", width = GridWidth.THIRD) {
       P(attrs = { attr("class", ClassNames.textSecondaryM0) }) {
