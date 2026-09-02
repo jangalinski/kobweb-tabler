@@ -101,13 +101,13 @@ dependencyResolutionManagement {
     mavenCentral()
     maven {
       url = uri("https://jitpack.io")
-      content { includeGroup("com.github.jangalinski") }
+      content { includeGroupByRegex("com\\.github\\.jangalinski(\\..+)?") }
     }
   }
 }
 
 dependencies {
-  implementation("com.github.jangalinski:kobweb-tabler:0.0.1")
+  implementation("com.github.jangalinski.kobweb-tabler:kobweb-tabler:0.0.1")
 }
 ```
 

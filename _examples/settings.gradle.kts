@@ -27,4 +27,8 @@ rootProject.name = "kobweb-tabler-examples"
 
 include(":tagessieg")
 
-includeBuild("../")
+includeBuild("../") {
+  dependencySubstitution {
+    substitute(module("com.github.jangalinski.kobweb-tabler:kobweb-tabler")).using(project(":"))
+  }
+}

@@ -18,7 +18,7 @@ kobwebx-serialization-kotlinx = { module = "com.varabyte.kobwebx:kobwebx-seriali
 silk-foundation = { module = "com.varabyte.kobweb:silk-foundation", version.ref = "kobweb" }
 silk-icons-fa = { module = "com.varabyte.kobwebx:silk-icons-fa", version.ref = "kobweb" }
 silk-icons-mdi = { module = "com.varabyte.kobwebx:silk-icons-mdi", version.ref = "kobweb" }
-kobweb-tabler = { module = "com.github.jangalinski:kobweb-tabler", version = "0.0.1-SNAPSHOT" }
+kobweb-tabler = { module = "com.github.jangalinski.kobweb-tabler:kobweb-tabler", version = "0.0.1-SNAPSHOT" }
 
 [plugins]
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
