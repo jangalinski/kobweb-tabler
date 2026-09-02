@@ -12,13 +12,14 @@ val TABLER_JS = "https://cdn.jsdelivr.net/npm/@tabler/core@$TABLER_VERSION/dist/
 val APEXCHARTS_JS = "https://cdn.jsdelivr.net/npm/apexcharts"
 
 plugins {
+    `maven-publish`
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kobweb.library)
 }
 
-group = "com.github.jangalinski"
-version = "0.0.1-SNAPSHOT"
+group = providers.environmentVariable("GROUP").orElse("com.github.jangalinski").get()
+version = providers.environmentVariable("VERSION").orElse("0.0.1-SNAPSHOT").get()
 
 kotlin {
     configAsKobwebLibrary(includeServer = false)
