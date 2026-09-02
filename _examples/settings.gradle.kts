@@ -13,6 +13,9 @@ dependencyResolutionManagement {
   repositories {
     mavenCentral()
     google()
+    maven {
+      url = uri("https://jitpack.io")
+    }
   }
 
   // `_examples` is its own Gradle build, so it needs to import the shared version catalog explicitly.
