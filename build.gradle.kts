@@ -32,6 +32,11 @@ kotlin {
             implementation(libs.kobweb.compose.js)
             implementation(libs.kobweb.silk)
         }
+
+        jsTest.dependencies {
+            implementation(kotlin("test-js"))
+            implementation(libs.compose.html.test.utils)
+        }
     }
 }
 
