@@ -390,4 +390,8 @@ data object ClassNames {
 
   /** Tabler table with card styling and vertical cell alignment. */
   const val table = "table card-table table-vcenter"
+
+  const val tableNoWrap = "table-nowrap"
+  const val stickyTop = "sticky-top"
+  const val textNoWrap = "text-nowrap"
 }

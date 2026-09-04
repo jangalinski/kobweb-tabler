@@ -3,33 +3,23 @@
 package com.github.jangalinski.kobweb.tabler.example.tagessieg.pages
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.core.data.add
-import com.varabyte.kobweb.core.Page
-import com.varabyte.kobweb.core.init.InitRoute
-import com.varabyte.kobweb.core.init.InitRouteContext
-import com.varabyte.kobweb.core.layout.Layout
+import com.github.jangalinski.kobweb.tabler.components.*
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.SiteRoutes
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteBreadcrumbs
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteLayoutData
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.sitePageMeta
-import com.github.jangalinski.kobweb.tabler.components.TablerAvatar
-import com.github.jangalinski.kobweb.tabler.components.TablerAvatarList
-import com.github.jangalinski.kobweb.tabler.components.TablerCards
-import com.github.jangalinski.kobweb.tabler.components.TablerTracking
-import com.github.jangalinski.kobweb.tabler.components.TrackingBlock
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarColor
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarContent
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarData
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarListData
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarShape
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarSize
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarStatus
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarStatusColor
+import com.github.jangalinski.kobweb.tabler.models.*
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarContent.ImageResource
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
 import com.github.jangalinski.kobweb.tabler.styles.GridWidth
 import com.github.jangalinski.kobweb.tabler.styles.GridWidth.HALF
 import com.github.jangalinski.kobweb.tabler.styles.GridWidth.QUARTER
+import com.varabyte.kobweb.core.Page
+import com.varabyte.kobweb.core.data.add
+import com.varabyte.kobweb.core.init.InitRoute
+import com.varabyte.kobweb.core.init.InitRouteContext
+import com.varabyte.kobweb.core.layout.Layout
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
@@ -63,6 +53,14 @@ fun Index() {
       P {
         Text("Use Analysis for the analysis page.")
       }
+      TablerAvatar(
+        TablerAvatarData(
+          content = ImageResource("heiko-w-l.png", altText = "Heiko W."),
+          size = TablerAvatarSize.EXTRA_LARGE,
+          shape = TablerAvatarShape.LARGE_ROUNDED,
+          ariaLabel = "HW",
+        ),
+      )
     }
     card(title = "Avatar profiles", width = HALF) {
       P(attrs = { attr("class", ClassNames.textSecondaryM0) }) {
@@ -71,7 +69,7 @@ fun Index() {
       Div(attrs = { attr("class", "d-flex align-items-center gap-3 mt-3") }) {
         TablerAvatar(
           TablerAvatarData(
-            content = TablerAvatarContent.ImageResource("jan-g-avatar.png", altText = "Jan Galinski"),
+            content = ImageResource("jan-g-avatar.png", altText = "Jan Galinski"),
             size = TablerAvatarSize.LARGE,
             shape = TablerAvatarShape.CIRCLE,
             status = TablerAvatarStatus(TablerAvatarStatusColor.SUCCESS),
@@ -102,7 +100,7 @@ fun Index() {
         )
         TablerAvatar(
           TablerAvatarData(
-            content = TablerAvatarContent.ImageResource("jan-g-avatar.png", altText = "Jan Galinski"),
+            content = ImageResource("jan-g-avatar.png", altText = "Jan Galinski"),
             size = TablerAvatarSize.EXTRA_LARGE,
             shape = TablerAvatarShape.LARGE_ROUNDED,
             ariaLabel = "Jan Galinski, online",
@@ -111,7 +109,7 @@ fun Index() {
       }
       val listAvatars = listOf(
         TablerAvatarData(
-          content = TablerAvatarContent.ImageResource("jan-g-avatar.png", altText = "Jan Galinski"),
+          content = ImageResource("jan-g-avatar.png", altText = "Jan Galinski"),
           size = TablerAvatarSize.SMALL,
           shape = TablerAvatarShape.CIRCLE,
           ariaLabel = "Jan Galinski",
@@ -169,7 +167,68 @@ fun Index() {
         modifier = ClassNames.mt2.modifier(),
       )
     }
+    card(title = "Recent matches", width = HALF) {
+      TablerTable(
+        TablerTableData(
+          columns = listOf(
+            TablerTableColumn("Date", noWrap = true),
+            TablerTableColumn("Opponent"),
+            TablerTableColumn("Score", noWrap = true),
+            TablerTableColumn("Status"),
+          ),
+          rows = listOf(
+            TablerTableRow(
+              listOf(
+                TablerTableCell("01 Sep 2026", isRowHeader = true),
+                TablerTableCell("FC Beispiel"),
+                TablerTableCell("3 – 1"),
+                TablerTableCell("Won", muted = true),
+              ),
+              variant = TablerTableRowVariant.SUCCESS,
+            ),
+            TablerTableRow(
+              listOf(
+                TablerTableCell("27 Aug 2026", isRowHeader = true),
+                TablerTableCell("SV Vorlage"),
+                TablerTableCell("2 – 2"),
+                TablerTableCell("Draw", muted = true),
+              ),
+              variant = TablerTableRowVariant.WARNING,
+            ),
+            TablerTableRow(
+              listOf(
+                TablerTableCell("21 Aug 2026", isRowHeader = true),
+                TablerTableCell("TSV Daten"),
+                TablerTableCell("0 – 1"),
+                TablerTableCell("Lost", muted = true),
+              ),
+              variant = TablerTableRowVariant.DANGER,
+            ),
+          ),
+          responsive = TablerTableResponsive.SMALL,
+          noWrap = true,
+          stickyHeader = true,
+        ),
+      )
+    }
+    card(title = "Hahahaha", width = QUARTER) {
+      P {
+        Text("This is the home page.")
+      }
+      P {
+        Text("Use Analysis for the analysis page.")
+      }
+      TablerAvatar(
+        TablerAvatarData(
+          content = ImageResource("heiko-w-r.png", altText = "Heiko W."),
+          size = TablerAvatarSize.EXTRA_LARGE,
+          shape = TablerAvatarShape.LARGE_ROUNDED,
+          ariaLabel = "HW",
+        ),
+      )
+    }
   }
+
 }
 
 private const val USER_ICON_SVG = """
