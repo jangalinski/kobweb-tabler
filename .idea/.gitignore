@@ -1,0 +1,6 @@
+# Ignore all IDEA metadata by default.
+/*
+
+# Keep the project icon and this allowlist.
+!/.gitignore
+!/icon.svg

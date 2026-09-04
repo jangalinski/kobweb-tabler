@@ -12,6 +12,10 @@ examples:
 clean-preview-artifacts:
     @find . -maxdepth 1 -type d \( -name '127.0.0.1:*' -o -name 'localhost:*' \) -prune -exec rm -rf {} +
 
+# Reset all ignored local state while preserving tracked files and unignored files.
+clean mode="":
+    @if test "{{mode}}" = "-n"; then git clean -ndX -- .; elif test -z "{{mode}}"; then ./gradlew --stop; git clean -fdX -- .; else echo "Usage: just clean [-n]" >&2; exit 2; fi
+
 # Run an example via kobweb dev server in static layout (hot-reload, no export needed), for example: `just run tagessieg`
 [group("examples")]
 run example:
