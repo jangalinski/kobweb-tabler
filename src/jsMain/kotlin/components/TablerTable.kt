@@ -113,6 +113,14 @@ internal fun renderTableMarkup(data: TablerTableData): String = buildString {
     }
     append("</tr>")
   }
+  val placeholderRows = ((data.expectedDisplayRows ?: 0) - data.rows.size).coerceAtLeast(0)
+  repeat(placeholderRows) {
+    append("<tr class=\"${ClassNames.tablePlaceholderRow}\" aria-hidden=\"true\">")
+    repeat(data.columns.size) {
+      append("<td>&nbsp;</td>")
+    }
+    append("</tr>")
+  }
   append("</tbody></table>")
 }
 

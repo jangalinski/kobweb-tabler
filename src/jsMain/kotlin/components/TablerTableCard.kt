@@ -2,7 +2,10 @@ package com.github.jangalinski.kobweb.tabler.components
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.models.TablerPaginationData
+import com.github.jangalinski.kobweb.tabler.models.TablerTableColumn
 import com.github.jangalinski.kobweb.tabler.models.TablerTableData
+import com.github.jangalinski.kobweb.tabler.models.TablerTableResponsive
+import com.github.jangalinski.kobweb.tabler.models.TablerTableRows
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
 import com.varabyte.kobweb.compose.foundation.layout.Column
@@ -11,7 +14,6 @@ import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.H3
 import org.jetbrains.compose.web.dom.Li
 import org.jetbrains.compose.web.dom.P
-import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.Ul
 import org.w3c.dom.HTMLDivElement
@@ -71,6 +73,46 @@ fun TablerTableCard(
   }
 }
 
+/**
+ * Renders a table card from a row source that may own table behaviour such as pagination.
+ *
+ * Static row sources render all rows directly. Paginated row sources provide their current
+ * page slice, footer metadata, and page-change handler so callers do not need to repeat
+ * pagination calculations in page code.
+ *
+ * @param title headline shown in the `.card-header`
+ * @param subtitle optional secondary line shown below the title inside the card header
+ * @param columns visible column headings
+ * @param rows row source to render; paginated sources also provide footer state
+ * @param responsive breakpoint at which horizontal scrolling starts
+ * @param noWrap prevents text wrapping in all cells when `true`
+ * @param stickyHeader makes the header row stick to the viewport top when scrolling
+ */
+@Composable
+fun TablerTableCard(
+  title: String,
+  subtitle: String? = null,
+  columns: List<TablerTableColumn>,
+  rows: TablerTableRows,
+  responsive: TablerTableResponsive = TablerTableResponsive.ALWAYS,
+  noWrap: Boolean = false,
+  stickyHeader: Boolean = false,
+) {
+  TablerTableCard(
+    title = title,
+    subtitle = subtitle,
+    data = TablerTableData(
+      columns = columns,
+      rows = rows,
+      responsive = responsive,
+      noWrap = noWrap,
+      stickyHeader = stickyHeader,
+    ),
+    pagination = rows.pagination,
+    onPageChange = rows::goToPage,
+  )
+}
+
 @Composable
 private fun PaginationFooter(
   pagination: TablerPaginationData,
@@ -84,11 +126,9 @@ private fun PaginationFooter(
         if (pageSize != null && totalItems != null) {
           val firstItem = if (totalItems == 0) 0 else (pagination.currentPage - 1) * pageSize + 1
           val lastItem = minOf(pagination.currentPage * pageSize, totalItems)
+          val index = if (firstItem == lastItem) firstItem.toString() else "$firstItem to $lastItem"
           P(attrs = { attr("class", "${ClassNames.m0} ${ClassNames.textSecondary}") }) {
-            Text("Showing ")
-            Span(attrs = { attr("class", ClassNames.fwSemibold) }) { Text("$firstItem to $lastItem") }
-            Text(" of ")
-            Span(attrs = { attr("class", ClassNames.fwSemibold) }) { Text("$totalItems entries") }
+            Text(pagination.texts.summaryTemplate.replace("{index}", index).replace("{max}", totalItems.toString()))
           }
         }
       }
@@ -96,7 +136,7 @@ private fun PaginationFooter(
         Ul(attrs = { attr("class", ClassNames.pagination) }) {
           PaginationItem(
             page = pagination.currentPage - 1,
-            label = "\u00ab",
+            label = pagination.texts.previousPageLabel,
             disabled = pagination.currentPage <= 1,
             onPageChange = onPageChange,
           )
@@ -110,7 +150,7 @@ private fun PaginationFooter(
           }
           PaginationItem(
             page = pagination.currentPage + 1,
-            label = "\u00bb",
+            label = pagination.texts.nextPageLabel,
             disabled = pagination.currentPage >= pagination.totalPages,
             onPageChange = onPageChange,
           )

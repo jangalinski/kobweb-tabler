@@ -5,11 +5,13 @@ import assertk.assertions.contains
 import assertk.assertions.doesNotContain
 import assertk.assertions.isEqualTo
 import com.github.jangalinski.kobweb.tabler.models.TablerPaginationData
+import com.github.jangalinski.kobweb.tabler.models.TablerPaginationTexts
 import com.github.jangalinski.kobweb.tabler.models.TablerTableCell
 import com.github.jangalinski.kobweb.tabler.models.TablerTableColumn
 import com.github.jangalinski.kobweb.tabler.models.TablerTableData
 import com.github.jangalinski.kobweb.tabler.models.TablerTableResponsive
 import com.github.jangalinski.kobweb.tabler.models.TablerTableRow
+import com.github.jangalinski.kobweb.tabler.models.rememberPaginatedTableRows
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import org.w3c.dom.HTMLElement
@@ -244,5 +246,38 @@ class TablerTableCardTest {
     (root.querySelector("[data-page=\"2\"]") as HTMLElement).click()
 
     assertThat(selectedPage).isEqualTo(2)
+  }
+
+  @Test
+  fun tableCardRowSourceHandlesPaginationClicks() = runTest {
+    val allRows = listOf("Alice", "Bob", "Cara", "Dan", "Eve")
+      .map { name -> TablerTableRow(listOf(TablerTableCell.Text(name))) }
+
+    composition {
+      val rows = rememberPaginatedTableRows(
+        rows = allRows,
+        pageSize = 2,
+        texts = TablerPaginationTexts(summaryTemplate = "Showing {index} of {max} players"),
+      )
+      TablerTableCard(
+        title = "Players",
+        columns = listOf(TablerTableColumn("Name")),
+        rows = rows,
+      )
+    }
+
+    assertThat(root.innerHTML).contains("Alice")
+    assertThat(root.innerHTML).doesNotContain("Cara")
+
+    (root.querySelector("[data-page=\"3\"]") as HTMLElement).click()
+    waitForRecompositionComplete()
+
+    val html = root.innerHTML
+    assertThat(html).contains("Eve")
+    assertThat(html).doesNotContain("Alice")
+    assertThat(html).contains("5 players")
+    assertThat(html).contains("Showing 5 of 5 players")
+    assertThat(html).doesNotContain("5 to 5")
+    assertThat(html).contains("table-placeholder-row")
   }
 }

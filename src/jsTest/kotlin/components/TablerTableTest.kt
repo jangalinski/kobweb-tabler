@@ -3,6 +3,7 @@ package com.github.jangalinski.kobweb.tabler.components
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
+import assertk.assertions.isEqualTo
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarContent
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarData
 import com.github.jangalinski.kobweb.tabler.models.TablerTableCell
@@ -228,6 +229,21 @@ class TablerTableTest {
     val html = root.innerHTML
     assertThat(html).contains("checkbox")
     assertThat(html).doesNotContain("checked")
+  }
+
+  @Test
+  fun rendersPlaceholderRowsForExpectedDisplayRows() = runTest {
+    val data = TablerTableData(
+      columns = listOf(TablerTableColumn("Name")),
+      rows = listOf(TablerTableRow(listOf(TablerTableCell.Text("Alice")))),
+      expectedDisplayRows = 3,
+    )
+
+    composition { TablerTable(data) }
+
+    val html = root.innerHTML
+    assertThat(html).contains("Alice")
+    assertThat(html.split("table-placeholder-row").size - 1).isEqualTo(2)
   }
 
   // --- DSL overload tests ---

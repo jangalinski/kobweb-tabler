@@ -3,8 +3,6 @@
 package com.github.jangalinski.kobweb.tabler.example.tagessieg.pages
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import com.github.jangalinski.kobweb.tabler.components.*
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.SiteRoutes
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteBreadcrumbs
@@ -41,78 +39,75 @@ fun initIndexPage(ctx: InitRouteContext) {
 @Page
 @Composable
 fun Index() {
-  val recentMatchPageSize = 3
-  val recentMatchRows = listOf(
-    TablerTableRow(
-      listOf(
-        TablerTableCell.Text("01 Sep 2026", isRowHeader = true),
-        TablerTableCell.Text("FC Beispiel"),
-        TablerTableCell.Text("3 – 1"),
-        TablerTableCell.Text("Won", muted = true),
+  val recentMatchRows = rememberPaginatedTableRows(
+    rows = listOf(
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("01 Sep 2026", isRowHeader = true),
+          TablerTableCell.Text("FC Beispiel"),
+          TablerTableCell.Text("3 – 1"),
+          TablerTableCell.Text("Won", muted = true),
+        ),
+        variant = TablerTableRowVariant.SUCCESS,
       ),
-      variant = TablerTableRowVariant.SUCCESS,
-    ),
-    TablerTableRow(
-      listOf(
-        TablerTableCell.Text("27 Aug 2026", isRowHeader = true),
-        TablerTableCell.Text("SV Vorlage"),
-        TablerTableCell.Text("2 – 2"),
-        TablerTableCell.Text("Draw", muted = true),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("27 Aug 2026", isRowHeader = true),
+          TablerTableCell.Text("SV Vorlage"),
+          TablerTableCell.Text("2 – 2"),
+          TablerTableCell.Text("Draw", muted = true),
+        ),
+        variant = TablerTableRowVariant.WARNING,
       ),
-      variant = TablerTableRowVariant.WARNING,
-    ),
-    TablerTableRow(
-      listOf(
-        TablerTableCell.Text("21 Aug 2026", isRowHeader = true),
-        TablerTableCell.Text("TSV Daten"),
-        TablerTableCell.Text("0 – 1"),
-        TablerTableCell.Text("Lost", muted = true),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("21 Aug 2026", isRowHeader = true),
+          TablerTableCell.Text("TSV Daten"),
+          TablerTableCell.Text("0 – 1"),
+          TablerTableCell.Text("Lost", muted = true),
+        ),
+        variant = TablerTableRowVariant.DANGER,
       ),
-      variant = TablerTableRowVariant.DANGER,
-    ),
-    TablerTableRow(
-      listOf(
-        TablerTableCell.Text("14 Aug 2026", isRowHeader = true),
-        TablerTableCell.Text("SC Sample"),
-        TablerTableCell.Text("4 – 2"),
-        TablerTableCell.Text("Won", muted = true),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("14 Aug 2026", isRowHeader = true),
+          TablerTableCell.Text("SC Sample"),
+          TablerTableCell.Text("4 – 2"),
+          TablerTableCell.Text("Won", muted = true),
+        ),
+        variant = TablerTableRowVariant.SUCCESS,
       ),
-      variant = TablerTableRowVariant.SUCCESS,
-    ),
-    TablerTableRow(
-      listOf(
-        TablerTableCell.Text("08 Aug 2026", isRowHeader = true),
-        TablerTableCell.Text("VfL Demo"),
-        TablerTableCell.Text("1 – 1"),
-        TablerTableCell.Text("Draw", muted = true),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("08 Aug 2026", isRowHeader = true),
+          TablerTableCell.Text("VfL Demo"),
+          TablerTableCell.Text("1 – 1"),
+          TablerTableCell.Text("Draw", muted = true),
+        ),
+        variant = TablerTableRowVariant.WARNING,
       ),
-      variant = TablerTableRowVariant.WARNING,
-    ),
-    TablerTableRow(
-      listOf(
-        TablerTableCell.Text("02 Aug 2026", isRowHeader = true),
-        TablerTableCell.Text("FC Fixture"),
-        TablerTableCell.Text("2 – 0"),
-        TablerTableCell.Text("Won", muted = true),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("02 Aug 2026", isRowHeader = true),
+          TablerTableCell.Text("FC Fixture"),
+          TablerTableCell.Text("2 – 0"),
+          TablerTableCell.Text("Won", muted = true),
+        ),
+        variant = TablerTableRowVariant.SUCCESS,
       ),
-      variant = TablerTableRowVariant.SUCCESS,
-    ),
-    TablerTableRow(
-      listOf(
-        TablerTableCell.Text("29 Jul 2026", isRowHeader = true),
-        TablerTableCell.Text("TSG Mock"),
-        TablerTableCell.Text("1 – 3"),
-        TablerTableCell.Text("Lost", muted = true),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("29 Jul 2026", isRowHeader = true),
+          TablerTableCell.Text("TSG Mock"),
+          TablerTableCell.Text("1 – 3"),
+          TablerTableCell.Text("Lost", muted = true),
+        ),
+        variant = TablerTableRowVariant.DANGER,
       ),
-      variant = TablerTableRowVariant.DANGER,
     ),
+    pageSize = 3,
+    texts = TablerPaginationTexts(summaryTemplate = "Showing {index} of {max} matches"),
   )
-  val recentMatchTotalPages = (recentMatchRows.size + recentMatchPageSize - 1) / recentMatchPageSize
-  val recentMatchCurrentPageState = remember { mutableStateOf(1) }
-  val recentMatchCurrentPage = recentMatchCurrentPageState.value.coerceIn(1, recentMatchTotalPages)
-  val recentMatchPageRows = recentMatchRows
-    .drop((recentMatchCurrentPage - 1) * recentMatchPageSize)
-    .take(recentMatchPageSize)
 
   TablerCards {
     statCard(
@@ -244,29 +239,18 @@ fun Index() {
     }
     tableCard(
       title = "Recent matches",
-      subtitle = "Page $recentMatchCurrentPage of $recentMatchTotalPages",
+      subtitle = "Client-side static pagination",
       width = HALF,
-      data = TablerTableData(
-        columns = listOf(
-          TablerTableColumn("Date", noWrap = true),
-          TablerTableColumn("Opponent"),
-          TablerTableColumn("Score", noWrap = true),
-          TablerTableColumn("Status"),
-        ),
-        rows = recentMatchPageRows,
-        responsive = TablerTableResponsive.SMALL,
-        noWrap = true,
-        stickyHeader = true,
+      columns = listOf(
+        TablerTableColumn("Date", noWrap = true),
+        TablerTableColumn("Opponent"),
+        TablerTableColumn("Score", noWrap = true),
+        TablerTableColumn("Status"),
       ),
-      pagination = TablerPaginationData(
-        currentPage = recentMatchCurrentPage,
-        totalPages = recentMatchTotalPages,
-        pageSize = recentMatchPageSize,
-        totalItems = recentMatchRows.size,
-      ),
-      onPageChange = { page ->
-        recentMatchCurrentPageState.value = page.coerceIn(1, recentMatchTotalPages)
-      },
+      rows = recentMatchRows,
+      responsive = TablerTableResponsive.SMALL,
+      noWrap = true,
+      stickyHeader = true,
     )
     // --- AvatarName + Badge + Tags cells ---
     tableCard(

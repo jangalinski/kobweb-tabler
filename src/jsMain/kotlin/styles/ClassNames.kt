@@ -397,6 +397,9 @@ data object ClassNames {
   /** Tabler table with card styling and vertical cell alignment. */
   const val table = "table card-table table-vcenter"
 
+  /** Empty body row used to keep paginated table height stable on short pages. */
+  const val tablePlaceholderRow = "table-placeholder-row"
+
   const val tableNoWrap = "table-nowrap"
   const val stickyTop = "sticky-top"
   const val textNoWrap = "text-nowrap"

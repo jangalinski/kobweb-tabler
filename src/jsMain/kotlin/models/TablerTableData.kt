@@ -1,17 +1,52 @@
 package com.github.jangalinski.kobweb.tabler.models
 
-/** Pure configuration for a [com.github.jangalinski.kobweb.tabler.components.TablerTable]. */
+/**
+ * Pure configuration for a [com.github.jangalinski.kobweb.tabler.components.TablerTable].
+ *
+ * @param columns visible column headings
+ * @param rows table body rows to render
+ * @param responsive breakpoint at which horizontal scrolling starts
+ * @param noWrap prevents text wrapping in all cells when `true`
+ * @param stickyHeader makes the header row stick to the viewport top when scrolling
+ * @param expectedDisplayRows optional body-row count to reserve visually with placeholder
+ *                            rows when [rows] is shorter
+ */
 data class TablerTableData(
   val columns: List<TablerTableColumn>,
   val rows: List<TablerTableRow>,
   val responsive: TablerTableResponsive = TablerTableResponsive.ALWAYS,
   val noWrap: Boolean = false,
   val stickyHeader: Boolean = false,
+  val expectedDisplayRows: Int? = null,
 ) {
+  /**
+   * Creates table data from a [TablerTableRows] source.
+   *
+   * This constructor keeps pagination-owned row slicing and expected display height with
+   * the row source while preserving the normal [TablerTableData] rendering path.
+   */
+  constructor(
+    columns: List<TablerTableColumn>,
+    rows: TablerTableRows,
+    responsive: TablerTableResponsive = TablerTableResponsive.ALWAYS,
+    noWrap: Boolean = false,
+    stickyHeader: Boolean = false,
+  ) : this(
+    columns = columns,
+    rows = rows.rows,
+    responsive = responsive,
+    noWrap = noWrap,
+    stickyHeader = stickyHeader,
+    expectedDisplayRows = rows.expectedDisplayRows,
+  )
+
   init {
     require(columns.isNotEmpty()) { "A Tabler table requires at least one column." }
     require(rows.all { it.cells.size == columns.size }) {
       "Every Tabler table row must have the same number of cells as there are columns."
+    }
+    require(expectedDisplayRows == null || expectedDisplayRows >= 0) {
+      "expectedDisplayRows must be >= 0 when set."
     }
   }
 }
