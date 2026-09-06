@@ -154,6 +154,9 @@ data object ClassNames {
   /** Small left margin for inline text next to an icon or label. */
   const val generatedAtText = "ms-1"
 
+  /** Small left margin for inline text, e.g. subtitle next to a title. */
+  const val ms2 = "ms-2"
+
   /** Small right margin for inline icons next to text. */
   const val me2 = "me-2"
 
@@ -310,6 +313,9 @@ data object ClassNames {
   /** Removes all margins from supporting text. */
   const val m0 = "m-0"
 
+  /** Smallest top margin used for inline subtitle spacing. */
+  const val mt1 = "mt-1"
+
   /** Top margin used to separate card sections. */
   const val mt3 = "mt-3"
 
@@ -394,4 +400,33 @@ data object ClassNames {
   const val tableNoWrap = "table-nowrap"
   const val stickyTop = "sticky-top"
   const val textNoWrap = "text-nowrap"
+
+  // --- Pagination ---
+
+  /** Card footer bar below a table, used for pagination controls and summary text. */
+  const val cardFooter = "card-footer"
+
+  /** Flex row that distributes the summary text left and page links right inside the card footer. */
+  const val paginationRow = "row g-2 justify-content-center justify-content-sm-between"
+
+  /** Left column of the pagination footer — flex-aligned for the summary paragraph. */
+  const val paginationSummaryCol = "col-auto d-flex align-items-center"
+
+  /** Right column of the pagination footer — holds the `ul.pagination` list. */
+  const val paginationLinksCol = "col-auto"
+
+  /** Tabler/Bootstrap pagination list with auto left margin. */
+  const val pagination = "pagination m-0 ms-auto"
+
+  /** A single pagination list item (page number or prev/next button). */
+  const val pageItem = "page-item"
+
+  /** A pagination item styled as the currently active page. */
+  const val pageItemActive = "page-item active"
+
+  /** A pagination item that is not clickable (e.g. prev on first page). */
+  const val pageItemDisabled = "page-item disabled"
+
+  /** The visible anchor link inside a pagination item. */
+  const val pageLink = "page-link"
 }

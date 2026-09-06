@@ -3,6 +3,8 @@
 package com.github.jangalinski.kobweb.tabler.example.tagessieg.pages
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import com.github.jangalinski.kobweb.tabler.components.*
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.SiteRoutes
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteBreadcrumbs
@@ -39,6 +41,79 @@ fun initIndexPage(ctx: InitRouteContext) {
 @Page
 @Composable
 fun Index() {
+  val recentMatchPageSize = 3
+  val recentMatchRows = listOf(
+    TablerTableRow(
+      listOf(
+        TablerTableCell.Text("01 Sep 2026", isRowHeader = true),
+        TablerTableCell.Text("FC Beispiel"),
+        TablerTableCell.Text("3 – 1"),
+        TablerTableCell.Text("Won", muted = true),
+      ),
+      variant = TablerTableRowVariant.SUCCESS,
+    ),
+    TablerTableRow(
+      listOf(
+        TablerTableCell.Text("27 Aug 2026", isRowHeader = true),
+        TablerTableCell.Text("SV Vorlage"),
+        TablerTableCell.Text("2 – 2"),
+        TablerTableCell.Text("Draw", muted = true),
+      ),
+      variant = TablerTableRowVariant.WARNING,
+    ),
+    TablerTableRow(
+      listOf(
+        TablerTableCell.Text("21 Aug 2026", isRowHeader = true),
+        TablerTableCell.Text("TSV Daten"),
+        TablerTableCell.Text("0 – 1"),
+        TablerTableCell.Text("Lost", muted = true),
+      ),
+      variant = TablerTableRowVariant.DANGER,
+    ),
+    TablerTableRow(
+      listOf(
+        TablerTableCell.Text("14 Aug 2026", isRowHeader = true),
+        TablerTableCell.Text("SC Sample"),
+        TablerTableCell.Text("4 – 2"),
+        TablerTableCell.Text("Won", muted = true),
+      ),
+      variant = TablerTableRowVariant.SUCCESS,
+    ),
+    TablerTableRow(
+      listOf(
+        TablerTableCell.Text("08 Aug 2026", isRowHeader = true),
+        TablerTableCell.Text("VfL Demo"),
+        TablerTableCell.Text("1 – 1"),
+        TablerTableCell.Text("Draw", muted = true),
+      ),
+      variant = TablerTableRowVariant.WARNING,
+    ),
+    TablerTableRow(
+      listOf(
+        TablerTableCell.Text("02 Aug 2026", isRowHeader = true),
+        TablerTableCell.Text("FC Fixture"),
+        TablerTableCell.Text("2 – 0"),
+        TablerTableCell.Text("Won", muted = true),
+      ),
+      variant = TablerTableRowVariant.SUCCESS,
+    ),
+    TablerTableRow(
+      listOf(
+        TablerTableCell.Text("29 Jul 2026", isRowHeader = true),
+        TablerTableCell.Text("TSG Mock"),
+        TablerTableCell.Text("1 – 3"),
+        TablerTableCell.Text("Lost", muted = true),
+      ),
+      variant = TablerTableRowVariant.DANGER,
+    ),
+  )
+  val recentMatchTotalPages = (recentMatchRows.size + recentMatchPageSize - 1) / recentMatchPageSize
+  val recentMatchCurrentPageState = remember { mutableStateOf(1) }
+  val recentMatchCurrentPage = recentMatchCurrentPageState.value.coerceIn(1, recentMatchTotalPages)
+  val recentMatchPageRows = recentMatchRows
+    .drop((recentMatchCurrentPage - 1) * recentMatchPageSize)
+    .take(recentMatchPageSize)
+
   TablerCards {
     statCard(
       title = "Home",
@@ -167,65 +242,169 @@ fun Index() {
         modifier = ClassNames.mt2.modifier(),
       )
     }
-    card(title = "Recent matches", width = HALF) {
-      TablerTable(
-        TablerTableData(
-          columns = listOf(
-            TablerTableColumn("Date", noWrap = true),
-            TablerTableColumn("Opponent"),
-            TablerTableColumn("Score", noWrap = true),
-            TablerTableColumn("Status"),
-          ),
-          rows = listOf(
-            TablerTableRow(
-              listOf(
-                TablerTableCell("01 Sep 2026", isRowHeader = true),
-                TablerTableCell("FC Beispiel"),
-                TablerTableCell("3 – 1"),
-                TablerTableCell("Won", muted = true),
-              ),
-              variant = TablerTableRowVariant.SUCCESS,
-            ),
-            TablerTableRow(
-              listOf(
-                TablerTableCell("27 Aug 2026", isRowHeader = true),
-                TablerTableCell("SV Vorlage"),
-                TablerTableCell("2 – 2"),
-                TablerTableCell("Draw", muted = true),
-              ),
-              variant = TablerTableRowVariant.WARNING,
-            ),
-            TablerTableRow(
-              listOf(
-                TablerTableCell("21 Aug 2026", isRowHeader = true),
-                TablerTableCell("TSV Daten"),
-                TablerTableCell("0 – 1"),
-                TablerTableCell("Lost", muted = true),
-              ),
-              variant = TablerTableRowVariant.DANGER,
-            ),
-          ),
-          responsive = TablerTableResponsive.SMALL,
-          noWrap = true,
-          stickyHeader = true,
+    tableCard(
+      title = "Recent matches",
+      subtitle = "Page $recentMatchCurrentPage of $recentMatchTotalPages",
+      width = HALF,
+      data = TablerTableData(
+        columns = listOf(
+          TablerTableColumn("Date", noWrap = true),
+          TablerTableColumn("Opponent"),
+          TablerTableColumn("Score", noWrap = true),
+          TablerTableColumn("Status"),
         ),
-      )
-    }
-    card(title = "Hahahaha", width = QUARTER) {
-      P {
-        Text("This is the home page.")
-      }
-      P {
-        Text("Use Analysis for the analysis page.")
-      }
-      TablerAvatar(
-        TablerAvatarData(
-          content = ImageResource("heiko-w-r.png", altText = "Heiko W."),
-          size = TablerAvatarSize.EXTRA_LARGE,
-          shape = TablerAvatarShape.LARGE_ROUNDED,
-          ariaLabel = "HW",
+        rows = recentMatchPageRows,
+        responsive = TablerTableResponsive.SMALL,
+        noWrap = true,
+        stickyHeader = true,
+      ),
+      pagination = TablerPaginationData(
+        currentPage = recentMatchCurrentPage,
+        totalPages = recentMatchTotalPages,
+        pageSize = recentMatchPageSize,
+        totalItems = recentMatchRows.size,
+      ),
+      onPageChange = { page ->
+        recentMatchCurrentPageState.value = page.coerceIn(1, recentMatchTotalPages)
+      },
+    )
+    // --- AvatarName + Badge + Tags cells ---
+    tableCard(
+      title = "Player roster",
+      subtitle = "Active squad with roles and tags",
+      width = GridWidth.FULL,
+      data = TablerTableData(
+        columns = listOf(
+          TablerTableColumn("Player"),
+          TablerTableColumn("Status"),
+          TablerTableColumn("Tags"),
         ),
-      )
+        rows = listOf(
+          TablerTableRow(
+            listOf(
+              TablerTableCell.AvatarName(
+                avatar = TablerAvatarData(
+                  content = ImageResource("jan-g-avatar.png", altText = "Jan Galinski"),
+                  size = TablerAvatarSize.SMALL,
+                  shape = TablerAvatarShape.CIRCLE,
+                  ariaLabel = "Jan Galinski",
+                ),
+                name = "Jan Galinski",
+              ),
+              TablerTableCell.Badge("Active", "bg-success"),
+              TablerTableCell.Tags(listOf("striker", "captain")),
+            ),
+          ),
+          TablerTableRow(
+            listOf(
+              TablerTableCell.AvatarName(
+                avatar = TablerAvatarData(
+                  content = TablerAvatarContent.Initials("HW"),
+                  color = TablerAvatarColor.ORANGE,
+                  size = TablerAvatarSize.SMALL,
+                  shape = TablerAvatarShape.CIRCLE,
+                  ariaLabel = "Heiko W.",
+                ),
+                name = "Heiko W.",
+              ),
+              TablerTableCell.Badge("Injured", "bg-danger"),
+              TablerTableCell.Tags(listOf("midfielder", "left-foot")),
+            ),
+          ),
+          TablerTableRow(
+            listOf(
+              TablerTableCell.AvatarName(
+                avatar = TablerAvatarData(
+                  content = TablerAvatarContent.Icon(svg = USER_ICON_SVG, altText = "Unknown"),
+                  color = TablerAvatarColor.AZURE,
+                  size = TablerAvatarSize.SMALL,
+                  shape = TablerAvatarShape.CIRCLE,
+                  ariaLabel = "Unknown player",
+                ),
+                name = "Unknown",
+              ),
+              TablerTableCell.Badge("Scouting", "badge-outline text-blue"),
+              TablerTableCell.Tags(emptyList()),
+            ),
+          ),
+        ),
+        responsive = TablerTableResponsive.SMALL,
+      ),
+    )
+
+    // --- Checkbox cells ---
+    tableCard(
+      title = "Pre-match checklist",
+      subtitle = "Tasks before kick-off",
+      width = HALF,
+      data = TablerTableData(
+        columns = listOf(
+          TablerTableColumn("Done"),
+          TablerTableColumn("Task"),
+        ),
+        rows = listOf(
+          TablerTableRow(listOf(TablerTableCell.Checkbox(checked = true), TablerTableCell.Text("Warm-up completed"))),
+          TablerTableRow(listOf(TablerTableCell.Checkbox(checked = true), TablerTableCell.Text("Tactics briefing done"))),
+          TablerTableRow(listOf(TablerTableCell.Checkbox(checked = false), TablerTableCell.Text("Kit check pending"))),
+          TablerTableRow(listOf(TablerTableCell.Checkbox(checked = false, label = "!"), TablerTableCell.Text("Referee notification"))),
+        ),
+      ),
+    )
+
+    // --- DSL builder table ---
+    card(title = "Top scorers (DSL)", width = HALF) {
+      TablerTable {
+        header {
+          cell { Text("Player") }
+          cell { Text("Goals") }
+          cell { Text("Assists") }
+        }
+        row {
+          cell {
+            TablerAvatar(
+              TablerAvatarData(
+                content = ImageResource("jan-g-avatar.png", altText = "Jan G."),
+                size = TablerAvatarSize.SMALL,
+                shape = TablerAvatarShape.CIRCLE,
+                status = TablerAvatarStatus(TablerAvatarStatusColor.SUCCESS),
+                ariaLabel = "Jan Galinski",
+              ),
+            )
+          }
+          cell { Text("12") }
+          cell { Text("7") }
+        }
+        row {
+          cell {
+            TablerAvatar(
+              TablerAvatarData(
+                content = TablerAvatarContent.Initials("HW"),
+                color = TablerAvatarColor.ORANGE,
+                size = TablerAvatarSize.SMALL,
+                shape = TablerAvatarShape.CIRCLE,
+                ariaLabel = "Heiko W.",
+              ),
+            )
+          }
+          cell { Text("8") }
+          cell { Text("5") }
+        }
+        row(variant = TablerTableRowVariant.SUCCESS) {
+          cell {
+            TablerAvatar(
+              TablerAvatarData(
+                content = TablerAvatarContent.Icon(svg = USER_ICON_SVG, altText = "Scout pick"),
+                color = TablerAvatarColor.AZURE,
+                size = TablerAvatarSize.SMALL,
+                shape = TablerAvatarShape.CIRCLE,
+                ariaLabel = "Scout pick",
+              ),
+            )
+          }
+          cell { Text("5") }
+          cell { Text("9") }
+        }
+      }
     }
   }
 

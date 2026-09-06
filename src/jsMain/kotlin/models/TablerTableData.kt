@@ -28,12 +28,66 @@ data class TablerTableRow(
   val variant: TablerTableRowVariant? = null,
 )
 
-/** Text content in one table cell. */
-data class TablerTableCell(
-  val text: String,
-  val muted: Boolean = false,
-  val isRowHeader: Boolean = false,
-)
+/**
+ * Sealed content model for a single Tabler table cell.
+ *
+ * Use [Text] for the common plain-text case, or one of the richer subtypes
+ * ([AvatarName], [Badge], [Tags], [Checkbox]) for structured content.
+ */
+sealed interface TablerTableCell {
+  /** Whether this cell acts as a row header (`<th scope="row">` instead of `<td>`). */
+  val isRowHeader: Boolean get() = false
+
+  /**
+   * A plain-text cell, optionally muted and/or acting as a row header.
+   *
+   * This is the direct replacement for the former `TablerTableCell` data class.
+   */
+  data class Text(
+    val value: String,
+    val muted: Boolean = false,
+    override val isRowHeader: Boolean = false,
+  ) : TablerTableCell
+
+  /**
+   * A cell containing a small avatar image followed by a display name.
+   *
+   * The avatar is rendered using the same markup conventions as [com.github.jangalinski.kobweb.tabler.components.TablerAvatar].
+   */
+  data class AvatarName(
+    val avatar: TablerAvatarData,
+    val name: String,
+  ) : TablerTableCell
+
+  /**
+   * A cell containing a Tabler badge / status chip.
+   *
+   * @param label  visible badge text
+   * @param variant optional Bootstrap/Tabler colour modifier, e.g. `"bg-success"` or `"badge-outline text-green"`
+   */
+  data class Badge(
+    val label: String,
+    val variant: String? = null,
+  ) : TablerTableCell
+
+  /**
+   * A cell containing a horizontal list of tag spans.
+   *
+   * An empty [tags] list renders an empty cell without error.
+   */
+  data class Tags(val tags: List<String>) : TablerTableCell
+
+  /**
+   * A cell containing a checkbox input.
+   *
+   * @param checked whether the checkbox is ticked
+   * @param label   optional visible label placed next to the checkbox
+   */
+  data class Checkbox(
+    val checked: Boolean,
+    val label: String? = null,
+  ) : TablerTableCell
+}
 
 /** Breakpoint at which a table stops scrolling horizontally. */
 enum class TablerTableResponsive(internal val className: String?) {

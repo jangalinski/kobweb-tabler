@@ -1,0 +1,54 @@
+# Agent Instructions
+
+This repository is a Kotlin Multiplatform Kobweb component library with a Tagessieg example app.
+
+## Required Context
+
+- Always read and apply `.agents/**/*.md` before making non-trivial changes.
+- Treat `.agents` as required project context, not scratch space. Do not delete, move, or ignore it.
+- Local decisions in `.agents/decisions/` are authoritative for their topic unless the user explicitly changes direction.
+- Shared conventions in `.agents/shared/` apply together with this file.
+- If `.agents` is missing or unreadable, stop and report that required agent context is unavailable.
+
+## Working Rules
+
+- Preserve existing public APIs unless the user explicitly asks for a breaking change.
+- Keep changes small and aligned with the existing Kotlin/Compose/Kobweb style.
+- Use KDoc for new public declarations.
+- Do not introduce Python helper scripts for local automation. Use Kotlin Gradle build logic first, then expose user-facing commands through `just` when useful.
+- Prefer `rg` for repository search.
+- Do not revert existing user or agent work in the worktree unless explicitly requested.
+
+## Table And Pagination Notes
+
+- `TablerTable(data: TablerTableData)` is the data/configuration API and must remain backward compatible.
+- Rich structured table cells belong in the sealed `TablerTableCell` model.
+- Arbitrary composable cell content belongs in the `TablerTable { header { } row { cell { } } }` DSL overload.
+- Pagination is a table-card sub-feature. Do not add a standalone pagination component unless the user explicitly changes that decision.
+- Pagination must work in a generated static site without a backend server. This means client-side state and `onPageChange` handlers are expected; pure HTML with JavaScript disabled is not a supported interactive mode.
+
+## Verification
+
+- Library browser tests:
+
+```bash
+./gradlew jsBrowserTest --console=plain
+```
+
+- Tagessieg example compile:
+
+```bash
+GRADLE_USER_HOME=/private/tmp/kobweb-tabler-gradle ./gradlew --no-daemon -p _examples :tagessieg:compileKotlinJs --console=plain
+```
+
+- Tagessieg static export:
+
+```bash
+GRADLE_USER_HOME=/private/tmp/kobweb-tabler-gradle ./gradlew --no-daemon -p _examples :tagessieg:kobwebExport --console=plain
+```
+
+- Whitespace check:
+
+```bash
+git diff --check
+```

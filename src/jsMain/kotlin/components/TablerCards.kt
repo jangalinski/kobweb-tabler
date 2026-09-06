@@ -7,6 +7,8 @@ import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
+import com.github.jangalinski.kobweb.tabler.models.TablerPaginationData
+import com.github.jangalinski.kobweb.tabler.models.TablerTableData
 import com.github.jangalinski.kobweb.tabler.styles.GridWidth
 import com.github.jangalinski.kobweb.tabler.styles.GridWidth.QUARTER
 
@@ -31,6 +33,33 @@ class TablerCardsScope internal constructor() {
         title = title,
         modifier = ClassNames.cardH100.modifier(),
         content = content,
+      )
+    }
+  }
+
+  /**
+   * Adds a [TablerTableCard] to the grid, rendering the table flush to the card edges.
+   *
+   * @param pagination   optional pagination state; when set a `.card-footer` is rendered
+   * @param onPageChange callback invoked with the 1-based target page number on page link clicks
+   */
+  @Composable
+  fun tableCard(
+    title: String,
+    subtitle: String? = null,
+    width: GridWidth = GridWidth.FULL,
+    modifier: Modifier = Modifier,
+    data: TablerTableData,
+    pagination: TablerPaginationData? = null,
+    onPageChange: ((Int) -> Unit)? = null,
+  ) {
+    Box(modifier = modifier.then(width.classNames.modifier())) {
+      TablerTableCard(
+        title = title,
+        subtitle = subtitle,
+        data = data,
+        pagination = pagination,
+        onPageChange = onPageChange,
       )
     }
   }
