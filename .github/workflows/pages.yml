@@ -34,6 +34,12 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Patch basePath for GitHub Pages
+        run: >
+          sed -i
+          's/basePath: "tagessieg"/basePath: "kobweb-tabler"/'
+          _examples/tagessieg/.kobweb/conf.yaml
+
       - name: Export static site
         run: >
           ./gradlew
@@ -46,7 +52,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _examples/tagessieg/.kobweb/site/tagessieg
+          path: _examples/tagessieg/.kobweb/site/kobweb-tabler
 
   deploy:
     needs: build
