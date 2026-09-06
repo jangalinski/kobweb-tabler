@@ -27,8 +27,8 @@ fun siteFooter(): @Composable ColumnScope.() -> Unit = {
         href = "https://github.com/bstdoom/tagessieg",
       )
       repoLink(
-        label = "janhoo-net/kobweb-tabler",
-        href = "https://github.com/janhoo-net/kobweb-tabler",
+        label = "jangalinski/kobweb-tabler",
+        href = "https://github.com/jangalinski/kobweb-tabler",
       )
     }
   }
