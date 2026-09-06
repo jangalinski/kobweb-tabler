@@ -36,6 +36,7 @@ kotlin {
         jsTest.dependencies {
             implementation(kotlin("test-js"))
             implementation(libs.compose.html.test.utils)
+            implementation(libs.assertk)
         }
     }
 }
