@@ -2,7 +2,9 @@
 .DS_Store
 build/
 out/
+
 gradle/kotlin-js-store/
+_examples/gradle/kotlin-js-store/
 
 # IntelliJ ignores
 *.iml
