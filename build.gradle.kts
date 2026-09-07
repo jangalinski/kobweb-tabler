@@ -12,57 +12,57 @@ val TABLER_JS = "https://cdn.jsdelivr.net/npm/@tabler/core@$TABLER_VERSION/dist/
 val APEXCHARTS_JS = "https://cdn.jsdelivr.net/npm/apexcharts"
 
 plugins {
-    `maven-publish`
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.kobweb.library)
+  `maven-publish`
+  alias(libs.plugins.kotlin.multiplatform)
+  alias(libs.plugins.compose.compiler)
+  alias(libs.plugins.kobweb.library)
 }
 
 group = providers.environmentVariable("GROUP").orElse("com.github.jangalinski").get()
 version = providers.environmentVariable("VERSION").orElse("0.0.1-SNAPSHOT").get()
 
 kotlin {
-    configAsKobwebLibrary(includeServer = false)
+  configAsKobwebLibrary(includeServer = false)
 
-    sourceSets {
-        jsMain.dependencies {
-            implementation(libs.compose.runtime)
-            implementation(libs.compose.html.core)
-            implementation(libs.kobweb.core)
-            implementation(libs.kobweb.compose.js)
-            implementation(libs.kobweb.silk)
-        }
-
-        jsTest.dependencies {
-            implementation(kotlin("test-js"))
-            implementation(libs.compose.html.test.utils)
-            implementation(libs.assertk)
-        }
+  sourceSets {
+    jsMain.dependencies {
+      implementation(libs.compose.runtime)
+      implementation(libs.compose.html.core)
+      implementation(libs.kobweb.core)
+      implementation(libs.kobweb.compose.js)
+      implementation(libs.kobweb.silk)
     }
+
+    jsTest.dependencies {
+      implementation(kotlin("test-js"))
+      implementation(libs.compose.html.test.utils)
+      implementation(libs.assertk)
+    }
+  }
 }
 
 kobweb {
-    library {
-        index {
-            head.add {
-                style {
-                    importCss(
-                        url = TABLER_CSS,
-                        layerName = TABLER_LAYER
-                    )
-                }
-                script {
-                    src = TABLER_JS
-                }
-                script {
-                    src = APEXCHARTS_JS
-                }
-            }
+  library {
+    index {
+      head.add {
+        style {
+          importCss(
+            url = TABLER_CSS,
+            layerName = TABLER_LAYER
+          )
         }
+        script {
+          src = TABLER_JS
+        }
+        script {
+          src = APEXCHARTS_JS
+        }
+      }
     }
+  }
 }
 
 
 rootProject.plugins.withType<YarnPlugin> {
-    rootProject.extensions.getByType<YarnRootExtension>().lockFileDirectory = rootProject.file("gradle/kotlin-js-store")
+  rootProject.extensions.getByType<YarnRootExtension>().lockFileDirectory = rootProject.file("gradle/kotlin-js-store")
 }
