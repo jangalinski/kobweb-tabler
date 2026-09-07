@@ -104,9 +104,127 @@ fun Index() {
         ),
         variant = TablerTableRowVariant.DANGER,
       ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("22 Jul 2026", isRowHeader = true),
+          TablerTableCell.Text("DJK Musterstadt"),
+          TablerTableCell.Text("2 – 1"),
+          TablerTableCell.Text("Won", muted = true),
+        ),
+        variant = TablerTableRowVariant.SUCCESS,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("18 Jul 2026", isRowHeader = true),
+          TablerTableCell.Text("FC Kontroll"),
+          TablerTableCell.Text("0 – 0"),
+          TablerTableCell.Text("Draw", muted = true),
+        ),
+        variant = TablerTableRowVariant.WARNING,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("11 Jul 2026", isRowHeader = true),
+          TablerTableCell.Text("SV Tabellen"),
+          TablerTableCell.Text("1 – 2"),
+          TablerTableCell.Text("Lost", muted = true),
+        ),
+        variant = TablerTableRowVariant.DANGER,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("04 Jul 2026", isRowHeader = true),
+          TablerTableCell.Text("TuS Ansicht"),
+          TablerTableCell.Text("5 – 2"),
+          TablerTableCell.Text("Won", muted = true),
+        ),
+        variant = TablerTableRowVariant.SUCCESS,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("28 Jun 2026", isRowHeader = true),
+          TablerTableCell.Text("VfB Seitenzahl"),
+          TablerTableCell.Text("3 – 3"),
+          TablerTableCell.Text("Draw", muted = true),
+        ),
+        variant = TablerTableRowVariant.WARNING,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("21 Jun 2026", isRowHeader = true),
+          TablerTableCell.Text("SC Kontrolle"),
+          TablerTableCell.Text("4 – 0"),
+          TablerTableCell.Text("Won", muted = true),
+        ),
+        variant = TablerTableRowVariant.SUCCESS,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("14 Jun 2026", isRowHeader = true),
+          TablerTableCell.Text("TSV Beispiel II"),
+          TablerTableCell.Text("2 – 4"),
+          TablerTableCell.Text("Lost", muted = true),
+        ),
+        variant = TablerTableRowVariant.DANGER,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("07 Jun 2026", isRowHeader = true),
+          TablerTableCell.Text("FC Pagination"),
+          TablerTableCell.Text("1 – 0"),
+          TablerTableCell.Text("Won", muted = true),
+        ),
+        variant = TablerTableRowVariant.SUCCESS,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("31 May 2026", isRowHeader = true),
+          TablerTableCell.Text("SV Fenster"),
+          TablerTableCell.Text("2 – 2"),
+          TablerTableCell.Text("Draw", muted = true),
+        ),
+        variant = TablerTableRowVariant.WARNING,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("24 May 2026", isRowHeader = true),
+          TablerTableCell.Text("VfL Anzeige"),
+          TablerTableCell.Text("0 – 2"),
+          TablerTableCell.Text("Lost", muted = true),
+        ),
+        variant = TablerTableRowVariant.DANGER,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("17 May 2026", isRowHeader = true),
+          TablerTableCell.Text("TSG Demo II"),
+          TablerTableCell.Text("3 – 0"),
+          TablerTableCell.Text("Won", muted = true),
+        ),
+        variant = TablerTableRowVariant.SUCCESS,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("10 May 2026", isRowHeader = true),
+          TablerTableCell.Text("SC Static"),
+          TablerTableCell.Text("1 – 1"),
+          TablerTableCell.Text("Draw", muted = true),
+        ),
+        variant = TablerTableRowVariant.WARNING,
+      ),
+      TablerTableRow(
+        listOf(
+          TablerTableCell.Text("03 May 2026", isRowHeader = true),
+          TablerTableCell.Text("DJK Export"),
+          TablerTableCell.Text("2 – 3"),
+          TablerTableCell.Text("Lost", muted = true),
+        ),
+        variant = TablerTableRowVariant.DANGER,
+      ),
     ),
     pageSize = 3,
     texts = TablerPaginationTexts(summaryTemplate = "Showing {index} of {max} matches"),
+    window = TablerPaginationWindow(maxVisiblePageNumbers = 5),
   )
 
   TablerCards {

@@ -52,6 +52,7 @@ class PaginatedTablerTableRows internal constructor(
   private val pageSize: Int,
   private val currentPage: Int,
   private val texts: TablerPaginationTexts,
+  private val window: TablerPaginationWindow,
   private val onPageSelected: (Int) -> Unit,
 ) : TablerTableRows {
   private val totalPages = maxOf(1, (allRows.size + pageSize - 1) / pageSize)
@@ -70,6 +71,7 @@ class PaginatedTablerTableRows internal constructor(
     pageSize = pageSize,
     totalItems = allRows.size,
     texts = texts,
+    window = window,
   )
 
   override fun goToPage(page: Int) {
@@ -90,6 +92,7 @@ fun rememberPaginatedTableRows(
   pageSize: Int,
   initialPage: Int = 1,
   texts: TablerPaginationTexts = TablerPaginationTexts(),
+  window: TablerPaginationWindow = TablerPaginationWindow(),
 ): PaginatedTablerTableRows {
   require(pageSize > 0) { "pageSize must be > 0 (got $pageSize)" }
 
@@ -102,6 +105,7 @@ fun rememberPaginatedTableRows(
     pageSize = pageSize,
     currentPage = currentPage,
     texts = texts,
+    window = window,
     onPageSelected = { page -> currentPageState.value = page.coerceIn(1, totalPages) },
   )
 }

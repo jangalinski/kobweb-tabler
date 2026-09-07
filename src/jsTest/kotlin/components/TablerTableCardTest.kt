@@ -6,6 +6,7 @@ import assertk.assertions.doesNotContain
 import assertk.assertions.isEqualTo
 import com.github.jangalinski.kobweb.tabler.models.TablerPaginationData
 import com.github.jangalinski.kobweb.tabler.models.TablerPaginationTexts
+import com.github.jangalinski.kobweb.tabler.models.TablerPaginationWindow
 import com.github.jangalinski.kobweb.tabler.models.TablerTableCell
 import com.github.jangalinski.kobweb.tabler.models.TablerTableColumn
 import com.github.jangalinski.kobweb.tabler.models.TablerTableData
@@ -228,6 +229,101 @@ class TablerTableCardTest {
     val html = root.innerHTML
     // 4 numbered pages + prev + next = 6 page-link elements
     assertThat(html.split("page-link").size - 1).isEqualTo(6)
+  }
+
+  @Test
+  fun limitsPageLinksAroundCurrentPage() = runTest {
+    composition {
+      TablerTableCard(
+        title = "Players",
+        data = simpleData(),
+        pagination = TablerPaginationData(
+          currentPage = 15,
+          totalPages = 40,
+          window = TablerPaginationWindow(maxVisiblePageNumbers = 5),
+        ),
+      )
+    }
+
+    val html = root.innerHTML
+    assertThat(html).contains("data-page=\"1\"")
+    assertThat(html).contains("data-page=\"14\"")
+    assertThat(html).contains("data-page=\"15\"")
+    assertThat(html).contains("data-page=\"16\"")
+    assertThat(html).contains("data-page=\"40\"")
+    assertThat(html).contains("..")
+    // 5 numbered pages + 2 ellipses + prev + next = 9 page-link elements
+    assertThat(html.split("page-link").size - 1).isEqualTo(9)
+  }
+
+  @Test
+  fun usesFollowingPagesNearStartOfLimitedPagination() = runTest {
+    composition {
+      TablerTableCard(
+        title = "Players",
+        data = simpleData(),
+        pagination = TablerPaginationData(
+          currentPage = 1,
+          totalPages = 40,
+          window = TablerPaginationWindow(maxVisiblePageNumbers = 5),
+        ),
+      )
+    }
+
+    val html = root.innerHTML
+    assertThat(html).contains("data-page=\"1\"")
+    assertThat(html).contains("data-page=\"2\"")
+    assertThat(html).contains("data-page=\"3\"")
+    assertThat(html).contains("data-page=\"40\"")
+    assertThat(html).doesNotContain("data-page=\"4\"")
+  }
+
+  @Test
+  fun usesPreviousPagesNearEndOfLimitedPagination() = runTest {
+    composition {
+      TablerTableCard(
+        title = "Players",
+        data = simpleData(),
+        pagination = TablerPaginationData(
+          currentPage = 40,
+          totalPages = 40,
+          window = TablerPaginationWindow(maxVisiblePageNumbers = 5),
+        ),
+      )
+    }
+
+    val html = root.innerHTML
+    assertThat(html).contains("data-page=\"1\"")
+    assertThat(html).contains("data-page=\"38\"")
+    assertThat(html).contains("data-page=\"39\"")
+    assertThat(html).contains("data-page=\"40\"")
+    assertThat(html).doesNotContain("data-page=\"37\"")
+  }
+
+  @Test
+  fun rendersConfigurablePaginationEllipsisWithoutPageChange() = runTest {
+    var selectedPage: Int? = null
+
+    composition {
+      TablerTableCard(
+        title = "Players",
+        data = simpleData(),
+        pagination = TablerPaginationData(
+          currentPage = 15,
+          totalPages = 40,
+          texts = TablerPaginationTexts(ellipsisLabel = "..."),
+          window = TablerPaginationWindow(maxVisiblePageNumbers = 5),
+        ),
+        onPageChange = { selectedPage = it },
+      )
+    }
+
+    val ellipsis = root.querySelector(".page-item.disabled .page-link") as HTMLElement
+    ellipsis.click()
+
+    assertThat(root.innerHTML).contains("...")
+    assertThat(ellipsis.getAttribute("data-page")).isEqualTo(null)
+    assertThat(selectedPage).isEqualTo(null)
   }
 
   @Test

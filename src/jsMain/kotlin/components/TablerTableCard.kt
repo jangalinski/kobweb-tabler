@@ -140,13 +140,16 @@ private fun PaginationFooter(
             disabled = pagination.currentPage <= 1,
             onPageChange = onPageChange,
           )
-          (1..pagination.totalPages).forEach { page ->
-            PaginationItem(
-              page = page,
-              label = page.toString(),
-              active = page == pagination.currentPage,
-              onPageChange = onPageChange,
-            )
+          paginationTokens(pagination).forEach { token ->
+            when (token) {
+              PaginationToken.Ellipsis -> PaginationEllipsis(pagination.texts.ellipsisLabel)
+              is PaginationToken.Page -> PaginationItem(
+                page = token.page,
+                label = token.page.toString(),
+                active = token.page == pagination.currentPage,
+                onPageChange = onPageChange,
+              )
+            }
           }
           PaginationItem(
             page = pagination.currentPage + 1,
@@ -156,6 +159,77 @@ private fun PaginationFooter(
           )
         }
       }
+    }
+  }
+}
+
+private sealed interface PaginationToken {
+  data class Page(val page: Int) : PaginationToken
+  data object Ellipsis : PaginationToken
+}
+
+private fun paginationTokens(pagination: TablerPaginationData): List<PaginationToken> {
+  val maxVisiblePageNumbers = pagination.window.maxVisiblePageNumbers
+    ?: return (1..pagination.totalPages).map(PaginationToken::Page)
+
+  if (pagination.totalPages <= maxVisiblePageNumbers) {
+    return (1..pagination.totalPages).map(PaginationToken::Page)
+  }
+
+  val boundaryCount = pagination.window.boundaryCount
+  val siblingCount = pagination.window.siblingCount
+  val visiblePages = mutableSetOf<Int>()
+
+  (1..boundaryCount).forEach { page ->
+    if (page in 1..pagination.totalPages) visiblePages += page
+  }
+  ((pagination.totalPages - boundaryCount + 1)..pagination.totalPages).forEach { page ->
+    if (page in 1..pagination.totalPages) visiblePages += page
+  }
+  val currentWindowSize = siblingCount * 2 + 1
+  var currentWindowStart = pagination.currentPage - siblingCount
+  var currentWindowEnd = pagination.currentPage + siblingCount
+  if (currentWindowStart < 1) {
+    currentWindowEnd += 1 - currentWindowStart
+    currentWindowStart = 1
+  }
+  if (currentWindowEnd > pagination.totalPages) {
+    currentWindowStart -= currentWindowEnd - pagination.totalPages
+    currentWindowEnd = pagination.totalPages
+  }
+  currentWindowStart = currentWindowStart.coerceAtLeast(1)
+  currentWindowEnd = currentWindowEnd.coerceAtMost(pagination.totalPages)
+  if (currentWindowEnd - currentWindowStart + 1 > currentWindowSize) {
+    currentWindowEnd = currentWindowStart + currentWindowSize - 1
+  }
+  (currentWindowStart..currentWindowEnd).forEach { page ->
+    if (page in 1..pagination.totalPages) visiblePages += page
+  }
+
+  return visiblePages.sorted()
+    .fold(mutableListOf<PaginationToken>()) { tokens, page ->
+      val previousPage = (tokens.lastOrNull() as? PaginationToken.Page)?.page
+      if (previousPage != null && page - previousPage > 1) {
+        tokens += PaginationToken.Ellipsis
+      }
+      tokens += PaginationToken.Page(page)
+      tokens
+    }
+}
+
+@Composable
+private fun PaginationEllipsis(label: String) {
+  Li(attrs = { attr("class", ClassNames.pageItemDisabled) }) {
+    A(attrs = {
+      attr("class", ClassNames.pageLink)
+      attr("href", "#")
+      attr("tabindex", "-1")
+      attr("aria-disabled", "true")
+      onClick {
+        it.preventDefault()
+      }
+    }) {
+      Text(label)
     }
   }
 }
