@@ -11,6 +11,7 @@ import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.core.layout.Layout
+import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
@@ -32,6 +33,11 @@ fun Index() {
   TablerCard(title = "Hello world") {
     P {
       Text("kobweb-tabler documentation site")
+    }
+    P {
+      A(href = "https://jangalinski.github.io/kobweb-tabler/examples/tagessieg/") {
+        Text("Open the Tagessieg example")
+      }
     }
   }
 }
