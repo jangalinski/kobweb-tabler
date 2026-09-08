@@ -1,9 +1,5 @@
 package com.github.jangalinski.kobweb.tabler.models
 
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-
 /**
  * Row source for data-driven Tabler tables.
  *
@@ -44,7 +40,7 @@ data class StaticTablerTableRows(
 /**
  * Client-side paginated [TablerTableRows] view over a complete row list.
  *
- * Use [rememberPaginatedTableRows] from composable code so the current page survives
+ * Use `rememberPaginatedTableRows` from composable code so the current page survives
  * recomposition and page-link clicks update the visible row slice.
  */
 class PaginatedTablerTableRows internal constructor(
@@ -77,37 +73,6 @@ class PaginatedTablerTableRows internal constructor(
   override fun goToPage(page: Int) {
     onPageSelected(page.coerceIn(1, totalPages))
   }
-}
-
-/**
- * Creates a remembered client-side paginated row source.
- *
- * The caller provides the full row list and a [pageSize]. The returned row source owns
- * current-page state, exposes the current page slice via [TablerTableRows.rows], and
- * exposes pagination metadata plus a [TablerTableRows.goToPage] transition handler.
- */
-@Composable
-fun rememberPaginatedTableRows(
-  rows: List<TablerTableRow>,
-  pageSize: Int,
-  initialPage: Int = 1,
-  texts: TablerPaginationTexts = TablerPaginationTexts(),
-  window: TablerPaginationWindow = TablerPaginationWindow(),
-): PaginatedTablerTableRows {
-  require(pageSize > 0) { "pageSize must be > 0 (got $pageSize)" }
-
-  val totalPages = maxOf(1, (rows.size + pageSize - 1) / pageSize)
-  val currentPageState = remember { mutableStateOf(initialPage.coerceIn(1, totalPages)) }
-  val currentPage = currentPageState.value.coerceIn(1, totalPages)
-
-  return PaginatedTablerTableRows(
-    allRows = rows,
-    pageSize = pageSize,
-    currentPage = currentPage,
-    texts = texts,
-    window = window,
-    onPageSelected = { page -> currentPageState.value = page.coerceIn(1, totalPages) },
-  )
 }
 
 /** Wraps a plain row list as static [TablerTableRows]. */

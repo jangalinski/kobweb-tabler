@@ -1,7 +1,7 @@
 package com.github.jangalinski.kobweb.tabler.models
 
 /**
- * Pure configuration for a [com.github.jangalinski.kobweb.tabler.components.TablerAvatar].
+ * Pure configuration for a Tabler avatar.
  */
 data class TablerAvatarData(
   val content: TablerAvatarContent,

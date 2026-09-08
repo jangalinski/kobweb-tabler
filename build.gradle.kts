@@ -25,6 +25,10 @@ kotlin {
   configAsKobwebLibrary(includeServer = false)
 
   sourceSets {
+    commonMain.dependencies {
+      // Keep generated data/model code free of Compose and Kobweb runtime dependencies.
+    }
+
     jsMain.dependencies {
       implementation(libs.compose.runtime)
       implementation(libs.compose.html.core)
