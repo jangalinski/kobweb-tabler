@@ -32,6 +32,6 @@ include(":tagessieg")
 
 includeBuild("../") {
   dependencySubstitution {
-    substitute(module("com.github.jangalinski.kobweb-tabler:kobweb-tabler")).using(project(":"))
+    substitute(module("com.github.jangalinski.kobweb-tabler:kobweb-tabler")).using(project(":lib"))
   }
 }

@@ -34,25 +34,49 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Patch basePath for GitHub Pages
-        run: >
-          sed -i
-          's/basePath: "tagessieg"/basePath: "kobweb-tabler"/'
-          _examples/tagessieg/.kobweb/conf.yaml
-
-      - name: Export static site
+      - name: Export documentation site
         run: >
           ./gradlew
           --no-daemon
           --no-watch-fs
           --console=plain
+          -PkobwebReuseServer=false
+          -PkobwebEnv=DEV
+          -PkobwebRunLayout=STATIC
+          -PkobwebBuildTarget=RELEASE
+          -PkobwebExportLayout=STATIC
+          :site:kobwebExport
+
+      - name: Patch Tagessieg basePath for GitHub Pages
+        run: >
+          sed -i
+          's/basePath: "tagessieg"/basePath: "kobweb-tabler\/examples\/tagessieg"/'
+          _examples/tagessieg/.kobweb/conf.yaml
+
+      - name: Export Tagessieg example
+        run: >
+          ./gradlew
+          --no-daemon
+          --no-watch-fs
+          --console=plain
+          -PkobwebReuseServer=false
+          -PkobwebEnv=DEV
+          -PkobwebRunLayout=STATIC
+          -PkobwebBuildTarget=RELEASE
+          -PkobwebExportLayout=STATIC
           -p _examples
           :tagessieg:kobwebExport
+
+      - name: Assemble Pages artifact
+        run: |
+          mkdir -p build/gh-pages/examples/tagessieg
+          cp -R site/.kobweb/site/. build/gh-pages/
+          rsync -a --exclude tagessieg/ _examples/tagessieg/.kobweb/site/ build/gh-pages/examples/tagessieg/
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _examples/tagessieg/.kobweb/site/tagessieg
+          path: build/gh-pages
 
   deploy:
     needs: build

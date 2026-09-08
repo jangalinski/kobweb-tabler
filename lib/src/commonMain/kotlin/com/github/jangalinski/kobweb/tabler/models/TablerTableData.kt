@@ -1,7 +1,7 @@
 package com.github.jangalinski.kobweb.tabler.models
 
 /**
- * Pure configuration for a [com.github.jangalinski.kobweb.tabler.components.TablerTable].
+ * Pure configuration for a Tabler table.
  *
  * @param columns visible column headings
  * @param rows table body rows to render
@@ -87,7 +87,7 @@ sealed interface TablerTableCell {
   /**
    * A cell containing a small avatar image followed by a display name.
    *
-   * The avatar is rendered using the same markup conventions as [com.github.jangalinski.kobweb.tabler.components.TablerAvatar].
+   * The avatar is rendered using the same markup conventions as Tabler avatars.
    */
   data class AvatarName(
     val avatar: TablerAvatarData,

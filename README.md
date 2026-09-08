@@ -57,17 +57,25 @@ documentation](https://docs.jitpack.io/intro/#snapshots) for both forms.
 ### Project layout
 
 ```
-kobweb-tabler/          ← the public library (this repo root)
-├── src/jsMain/…        ← library source
-├── build.gradle.kts    ← Maven publication configuration
+kobweb-tabler/
+├── build.gradle.kts    ← shared container build
+├── lib/                ← published Kobweb Tabler library
+├── site/               ← documentation/demo site exported to GitHub Pages
 └── _examples/          ← standalone Kobweb apps that consume the library
-    ├── settings.gradle.kts
     └── tagessieg/      ← example Kobweb app
 ```
 
 `_examples` is a **separate Gradle build** — it has its own `settings.gradle.kts` and its own Gradle wrapper.
-It is not a sub-project of the root build; it is a sibling that references the library via a
+It is not a sub-project of the root build; it references the `:lib` project via a
 [composite build](https://docs.gradle.org/current/userguide/composite_builds.html).
+
+The root build contains two subprojects:
+
+- `:lib` is the published library. Its artifact name remains `kobweb-tabler` for JitPack consumers.
+- `:site` is the repository documentation site. GitHub Pages publishes it at `/kobweb-tabler/`.
+
+GitHub Pages also publishes selected standalone examples below `/kobweb-tabler/examples/<example>/`. The first
+published example is `/kobweb-tabler/examples/tagessieg/`.
 
 ### How the examples use the local library
 
@@ -78,7 +86,7 @@ implementation("com.github.jangalinski.kobweb-tabler:kobweb-tabler:0.0.1-SNAPSHO
 ```
 
 Its `settings.gradle.kts` uses `includeBuild("../")` with an explicit dependency substitution to replace that
-coordinate with the root project's source. Therefore, `_examples` never downloads the snapshot and does not need
+coordinate with the `:lib` project's source. Therefore, `_examples` never downloads the snapshot and does not need
 `publishToMavenLocal`; library changes are compiled directly when you build an example.
 
 This is intentional for development, but it also means `_examples` cannot prove that JitPack serves a release.
@@ -101,6 +109,14 @@ just preview tagessieg    # export + mirror + serve at http://localhost:10102/ta
 just stop                 # stop all local preview/dev servers
 ```
 
+#### Working with the documentation site
+
+```bash
+just run-site             # run docs dev server (static layout, dev env)
+just export-site          # export docs site
+just preview-site         # export + serve at http://localhost:10102/kobweb-tabler/
+```
+
 Backwards-compatible single-example aliases also exist:
 
 ```bash
@@ -120,7 +136,7 @@ Before creating a Git tag, test the exact release version locally. Using a tempo
 test publication out of your normal `~/.m2` cache:
 
 ```bash
-VERSION=0.0.1 ./gradlew publishToMavenLocal \
+VERSION=0.0.1 ./gradlew :lib:publishToMavenLocal \
   -Dmaven.repo.local=/tmp/kobweb-tabler-m2
 ```
 
@@ -134,11 +150,15 @@ git push origin 0.0.1
 Also compile the source-backed example to verify normal development usage:
 
 ```bash
+./gradlew :lib:compileKotlinJs
+./gradlew :site:compileKotlinJs
 ./gradlew -p _examples :tagessieg:compileKotlinJs
 ```
 
-After pushing a release tag, JitPack runs the same publication command with Java 17 (see
-[`jitpack.yml`](jitpack.yml)). For a quick local verification using Tagessieg:
+After pushing a release tag, JitPack publishes only `:lib` with Java 17 (see [`jitpack.yml`](jitpack.yml)).
+The Gradle subproject is named `lib`, but the published artifact remains `kobweb-tabler`.
+
+For a quick local verification using Tagessieg:
 
 1. In `gradle/libs.versions.toml`, change `kobweb-tabler` from `0.0.1-SNAPSHOT` to the release version, for example
    `0.0.1`.

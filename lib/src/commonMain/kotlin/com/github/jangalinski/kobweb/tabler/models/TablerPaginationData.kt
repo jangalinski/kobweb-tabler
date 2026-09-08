@@ -1,7 +1,7 @@
 package com.github.jangalinski.kobweb.tabler.models
 
 /**
- * Presentational pagination state for a [com.github.jangalinski.kobweb.tabler.components.TablerTableCard].
+ * Presentational pagination state for a Tabler table card.
  *
  * The component itself is display-only: the caller is responsible for tracking the active page
  * and slicing the data accordingly. Prefer [PaginatedTablerTableRows] when the table should
@@ -9,9 +9,9 @@ package com.github.jangalinski.kobweb.tabler.models
  *
  * @param currentPage 1-based index of the currently visible page
  * @param totalPages  total number of pages available
- * @param pageSize    optional — rows per page; when provided together with [totalItems] the
+ * @param pageSize    optional -- rows per page; when provided together with [totalItems] the
  *                    card footer shows a summary built from [TablerPaginationTexts.summaryTemplate]
- * @param totalItems  optional — total number of items across all pages; used with [pageSize]
+ * @param totalItems  optional -- total number of items across all pages; used with [pageSize]
  *                    for the summary text
  * @param texts       visible labels used by the pagination footer
  * @param window      optional page-number display window for large result sets
