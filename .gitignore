@@ -8,6 +8,9 @@ gradle/kotlin-js-store/
 _examples/gradle/kotlin-js-store/
 _examples/.idea/
 
+**/.kobweb/server/
+**/.kobweb/site/
+
 # IntelliJ ignores
 *.iml
 /*.ipr

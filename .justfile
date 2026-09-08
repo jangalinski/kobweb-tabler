@@ -16,6 +16,32 @@ clean-preview-artifacts:
 clean mode="":
     @if test "{{mode}}" = "-n"; then git clean -ndX -- .; elif test -z "{{mode}}"; then ./gradlew --stop; git clean -fdX -- .; else echo "Usage: just clean [-n]" >&2; exit 2; fi
 
+# Run the documentation site via kobweb in static layout.
+[group("site")]
+run-site:
+    kobweb run -p site -l static --env=dev
+
+# Export the documentation site.
+[group("site")]
+export-site:
+    ./gradlew --no-daemon --no-watch-fs :site:kobwebExport -PkobwebReuseServer=false -PkobwebEnv=DEV -PkobwebRunLayout=STATIC -PkobwebBuildTarget=RELEASE -PkobwebExportLayout=STATIC --console=plain
+
+# Export and preview the documentation site.
+[group("site")]
+preview-site:
+    just clean-preview-artifacts
+    just export-site
+    rm -rf build/site-preview
+    mkdir -p build/site-preview/kobweb-tabler
+    cp -R site/.kobweb/site/. build/site-preview/kobweb-tabler/
+    echo "Preview at http://localhost:13131/kobweb-tabler/"
+    python3 -m http.server 13131 --directory ./build/site-preview
+
+# Stop local documentation site servers.
+[group("site")]
+stop-site:
+    just stop
+
 # Run an example via kobweb dev server in static layout (hot-reload, no export needed), for example: `just run tagessieg`
 [group("examples")]
 run example:
@@ -30,7 +56,7 @@ serve example:
 [group("examples")]
 export example:
     just clean-preview-artifacts
-    @GRADLE_USER_HOME=/private/tmp/{{ example }}-gradle ./gradlew --no-daemon --no-watch-fs -p _examples :{{ example }}:kobwebExport --console=plain
+    @GRADLE_USER_HOME=/private/tmp/{{ example }}-gradle ./gradlew --no-daemon --no-watch-fs -p _examples :{{ example }}:kobwebExport -PkobwebReuseServer=false -PkobwebEnv=DEV -PkobwebRunLayout=STATIC -PkobwebBuildTarget=RELEASE -PkobwebExportLayout=STATIC --console=plain
 
 # Export and preview an example, for example: `just preview tagessieg`
 [group("examples")]
@@ -44,7 +70,7 @@ preview example:
 # Stop local example servers listening on the preview ports.
 [group("examples")]
 stop:
-    @for port in 10101 10102; do pids="$(lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)"; if [ -n "$pids" ]; then echo "Stopping listeners on port $port: $pids"; kill $pids; fi; done; sleep 1; for port in 10101 10102; do pids="$(lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)"; if [ -n "$pids" ]; then echo "Force-stopping listeners on port $port: $pids"; kill -9 $pids; fi; done; just clean-preview-artifacts
+    @for port in 10101 10102 13130 13131; do pids="$(lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)"; if [ -n "$pids" ]; then echo "Stopping listeners on port $port: $pids"; kill $pids; fi; done; sleep 1; for port in 10101 10102 13130 13131; do pids="$(lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)"; if [ -n "$pids" ]; then echo "Force-stopping listeners on port $port: $pids"; kill -9 $pids; fi; done; just clean-preview-artifacts
 
 # (*) Run tagessieg via kobweb in hot-reload
 [group("tagessieg")]

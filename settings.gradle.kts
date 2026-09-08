@@ -16,3 +16,6 @@ pluginManagement {
 }
 
 rootProject.name = "kobweb-tabler"
+
+include(":lib")
+include(":site")

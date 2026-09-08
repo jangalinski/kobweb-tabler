@@ -1,0 +1,14 @@
+site:
+  title: "kobweb-tabler"
+  basePath: "kobweb-tabler"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/kotlin-webpack/js/developmentExecutable/com-github-jangalinski.js"
+    prod:
+      script: "build/kotlin-webpack/js/productionExecutable/com-github-jangalinski.js"
+      siteRoot: ".kobweb/site"
+
+  port: 13130
