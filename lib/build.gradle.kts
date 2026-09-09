@@ -70,7 +70,7 @@ dokka {
   }
   dokkaSourceSets.configureEach {
     includes.from(
-      fileTree(rootProject.file("docs/dokka")) {
+      fileTree("dokka") {
         include("**/*.md")
       }
     )

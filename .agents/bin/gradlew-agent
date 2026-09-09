@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+
+cd "$repo_root"
+export GRADLE_USER_HOME=/private/tmp/kobweb-tabler-gradle
+exec ./gradlew --no-daemon "$@"
