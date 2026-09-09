@@ -1,9 +1,9 @@
 # <img src=".idea/icon.svg" alt="" height="32" style="vertical-align: -0.18em;"> kobweb-tabler
 
 [![JitPack](https://jitpack.io/v/jangalinski/kobweb-tabler.svg)](https://jitpack.io/#jangalinski/kobweb-tabler)
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.4.10-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.4.10-7F52FF?logo=kotlin&logoColor=7F52FF)](https://kotlinlang.org/)
 [![Kobweb](https://img.shields.io/badge/Kobweb-0.25.1-3B82F6)](https://kobweb.varabyte.com/)
-[![Dokka Docs](https://img.shields.io/badge/Dokka-docs-7F52FF?logo=javascript&logoColor=white)](https://jangalinski.github.io/kobweb-tabler/docs/)
+[![Dokka Docs](https://img.shields.io/badge/Dokka-docs-7F52FF?logo=kotlin&logoColor=CCCCCC)](https://jangalinski.github.io/kobweb-tabler/docs/)
 
 > Build a Kobweb/Silk page that is either dynamic or static generated using Tabler layout and charts.
 
