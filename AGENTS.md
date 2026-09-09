@@ -16,6 +16,7 @@ This repository is a Kotlin Multiplatform Kobweb component library with a Tagess
 - Keep changes small and aligned with the existing Kotlin/Compose/Kobweb style.
 - Use KDoc for new public declarations.
 - Do not introduce Python helper scripts for local automation. Use Kotlin Gradle build logic first, then expose user-facing commands through `just` when useful.
+- Use `.agents/bin/gh-agent` for GitHub CLI access to this repository. It loads local GitHub auth and defaults commands to `jangalinski/kobweb-tabler`, keeping the command prefix stable for agent approval rules.
 - Prefer `rg` for repository search.
 - Do not revert existing user or agent work in the worktree unless explicitly requested.
 
@@ -29,22 +30,26 @@ This repository is a Kotlin Multiplatform Kobweb component library with a Tagess
 
 ## Verification
 
+Use `.agents/bin/gradlew-agent` for Gradle verification. It runs the repository Gradle wrapper with
+`GRADLE_USER_HOME=/private/tmp/kobweb-tabler-gradle` and `--no-daemon`, keeping the command prefix stable for agent
+approval rules.
+
 - Library browser tests:
 
 ```bash
-./gradlew jsBrowserTest --console=plain
+.agents/bin/gradlew-agent jsBrowserTest --console=plain
 ```
 
 - Tagessieg example compile:
 
 ```bash
-GRADLE_USER_HOME=/private/tmp/kobweb-tabler-gradle ./gradlew --no-daemon -p _examples :tagessieg:compileKotlinJs --console=plain
+.agents/bin/gradlew-agent -p _examples :tagessieg:compileKotlinJs --console=plain
 ```
 
 - Tagessieg static export:
 
 ```bash
-GRADLE_USER_HOME=/private/tmp/kobweb-tabler-gradle ./gradlew --no-daemon -p _examples :tagessieg:kobwebExport --console=plain
+.agents/bin/gradlew-agent -p _examples :tagessieg:kobwebExport --console=plain
 ```
 
 - Whitespace check:

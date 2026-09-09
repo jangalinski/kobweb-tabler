@@ -13,7 +13,7 @@ import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteBreadcrumbs
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteLayoutData
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.sitePageMeta
 import com.github.jangalinski.kobweb.tabler.components.TablerCards
-import com.github.jangalinski.kobweb.tabler.models.tbIcon
+import com.github.jangalinski.kobweb.tabler.elements.tbIcon
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.color

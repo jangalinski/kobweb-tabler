@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+
+cd "$repo_root"
+
+if [[ -f .env.agent ]]; then
+  set -a
+  # shellcheck source=/dev/null
+  source .env.agent
+  set +a
+fi
+
+if [[ -z "${GH_TOKEN:-}" && -f "$HOME/.config/gh/token" ]]; then
+  export GH_TOKEN="$(<"$HOME/.config/gh/token")"
+fi
+
+has_repo_arg=false
+for arg in "$@"; do
+  if [[ "$arg" == "--repo" || "$arg" == "-R" || "$arg" == --repo=* ]]; then
+    has_repo_arg=true
+    break
+  fi
+done
+
+if [[ "$has_repo_arg" == true ]]; then
+  exec gh "$@"
+fi
+
+exec gh "$@" --repo jangalinski/kobweb-tabler

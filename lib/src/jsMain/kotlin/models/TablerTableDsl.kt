@@ -49,7 +49,7 @@ internal class TablerTableDslCell(
 )
 
 /**
- * Top-level scope for building a [components.TablerTable]
+ * Top-level scope for building a [com.github.jangalinski.kobweb.tabler.components.TablerTable]
  * using the composable DSL.
  *
  * Example:

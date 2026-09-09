@@ -2,6 +2,7 @@
 .DS_Store
 build/
 out/
+java_pid*.hprof
 
 gradle/kotlin-js-store/
 

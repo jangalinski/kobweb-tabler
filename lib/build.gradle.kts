@@ -4,26 +4,18 @@ import kotlinx.html.script
 import kotlinx.html.style
 import org.gradle.api.publish.maven.MavenPublication
 
-val TABLER_LAYER = "kobweb-tabler"
-
-val TABLER_VERSION = "1.4.0"
-val TABLER_ICONS_VERSION = "3.46.0"
-
-val TABLER_CSS = "https://cdn.jsdelivr.net/npm/@tabler/core@$TABLER_VERSION/dist/css/tabler.min.css"
-val TABLER_JS = "https://cdn.jsdelivr.net/npm/@tabler/core@$TABLER_VERSION/dist/js/tabler.min.js"
-val TABLER_ICONS_CSS = "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@$TABLER_ICONS_VERSION/dist/tabler-icons.min.css"
-
-val APEXCHARTS_JS = "https://cdn.jsdelivr.net/npm/apexcharts"
+val KOBWEB_TABLER = "kobweb-tabler"
 
 plugins {
   `maven-publish`
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose.compiler)
+  alias(libs.plugins.dokka)
   alias(libs.plugins.kobweb.library)
 }
 
 base {
-  archivesName.set("kobweb-tabler")
+  archivesName.set(KOBWEB_TABLER)
 }
 
 kotlin {
@@ -52,30 +44,44 @@ kobweb {
       head.add {
         style {
           importCss(
-            url = TABLER_CSS,
-            layerName = TABLER_LAYER
+            url = "https://cdn.jsdelivr.net/npm/@tabler/core@${libs.versions.cdn.tabler.core.get()}/dist/css/tabler.min.css",
+            layerName = KOBWEB_TABLER
           )
           importCss(
-            url = TABLER_ICONS_CSS,
-            layerName = TABLER_LAYER
+            url = "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@${libs.versions.cdn.tabler.icons.get()}/dist/tabler-icons.min.css",
+            layerName = KOBWEB_TABLER
           )
         }
         script {
-          src = TABLER_JS
+          src = "https://cdn.jsdelivr.net/npm/@tabler/core@${libs.versions.cdn.tabler.core.get()}/dist/js/tabler.min.js"
         }
         script {
-          src = APEXCHARTS_JS
+          src = "https://cdn.jsdelivr.net/npm/apexcharts"
         }
       }
     }
   }
 }
 
+dokka {
+  dokkaPublications.html {
+    moduleName.set(KOBWEB_TABLER)
+    moduleVersion.set(project.version.toString())
+  }
+  dokkaSourceSets.configureEach {
+    includes.from(
+      fileTree(rootProject.file("docs/dokka")) {
+        include("**/*.md")
+      }
+    )
+  }
+}
+
 publishing {
   publications.withType<MavenPublication>().configureEach {
     artifactId = when (name) {
-      "kotlinMultiplatform" -> "kobweb-tabler"
-      "js" -> "kobweb-tabler-js"
+      "kotlinMultiplatform" -> KOBWEB_TABLER
+      "js" -> "$KOBWEB_TABLER-js"
       else -> artifactId
     }
   }
