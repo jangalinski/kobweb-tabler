@@ -3,7 +3,14 @@ package com.github.jangalinski.kobweb.tabler.components
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
-import com.github.jangalinski.kobweb.tabler.models.*
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarColor
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarContent
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarData
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarListData
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarShape
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarSize
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarStatus
+import com.github.jangalinski.kobweb.tabler.models.TablerAvatarStatusColor
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Test

@@ -4,15 +4,7 @@ import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.kobweb.tabler.models.TablerPaginationData
-import com.github.jangalinski.kobweb.tabler.models.TablerPaginationTexts
-import com.github.jangalinski.kobweb.tabler.models.TablerPaginationWindow
-import com.github.jangalinski.kobweb.tabler.models.TablerTableCell
-import com.github.jangalinski.kobweb.tabler.models.TablerTableColumn
-import com.github.jangalinski.kobweb.tabler.models.TablerTableData
-import com.github.jangalinski.kobweb.tabler.models.TablerTableResponsive
-import com.github.jangalinski.kobweb.tabler.models.TablerTableRow
-import com.github.jangalinski.kobweb.tabler.models.rememberPaginatedTableRows
+import com.github.jangalinski.kobweb.tabler.models.*
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import org.w3c.dom.HTMLElement

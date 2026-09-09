@@ -9,6 +9,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.core.AppGlobals
 import com.github.jangalinski.kobweb.tabler.models.Image
 import com.github.jangalinski.kobweb.tabler.models.NavigationItem
+import com.github.jangalinski.kobweb.tabler.models.NavigationItemsBuilder
 import com.github.jangalinski.kobweb.tabler.models.navigationItems
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
@@ -220,7 +221,7 @@ private fun renderNavItems(items: List<NavigationItem>) {
 /**
  * Builds a hierarchy of navigation items.
  */
-fun navItems(block: com.github.jangalinski.kobweb.tabler.models.NavigationItemsBuilder.() -> Unit): List<NavigationItem> =
+fun navItems(block: NavigationItemsBuilder.() -> Unit) =
   navigationItems(block)
 
 @Composable

@@ -4,10 +4,15 @@ import kotlinx.html.script
 import kotlinx.html.style
 import org.gradle.api.publish.maven.MavenPublication
 
-val TABLER_VERSION = "1.4.0"
 val TABLER_LAYER = "kobweb-tabler"
+
+val TABLER_VERSION = "1.4.0"
+val TABLER_ICONS_VERSION = "3.46.0"
+
 val TABLER_CSS = "https://cdn.jsdelivr.net/npm/@tabler/core@$TABLER_VERSION/dist/css/tabler.min.css"
 val TABLER_JS = "https://cdn.jsdelivr.net/npm/@tabler/core@$TABLER_VERSION/dist/js/tabler.min.js"
+val TABLER_ICONS_CSS = "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@$TABLER_ICONS_VERSION/dist/tabler-icons.min.css"
+
 val APEXCHARTS_JS = "https://cdn.jsdelivr.net/npm/apexcharts"
 
 plugins {
@@ -25,10 +30,6 @@ kotlin {
   configAsKobwebLibrary(includeServer = false)
 
   sourceSets {
-    commonMain.dependencies {
-      // Keep generated data/model code free of Compose and Kobweb runtime dependencies.
-    }
-
     jsMain.dependencies {
       implementation(libs.compose.runtime)
       implementation(libs.compose.html.core)
@@ -52,6 +53,10 @@ kobweb {
         style {
           importCss(
             url = TABLER_CSS,
+            layerName = TABLER_LAYER
+          )
+          importCss(
+            url = TABLER_ICONS_CSS,
             layerName = TABLER_LAYER
           )
         }

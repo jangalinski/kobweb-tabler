@@ -4,13 +4,7 @@ import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarContent
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarData
-import com.github.jangalinski.kobweb.tabler.models.TablerTableCell
-import com.github.jangalinski.kobweb.tabler.models.TablerTableColumn
-import com.github.jangalinski.kobweb.tabler.models.TablerTableData
-import com.github.jangalinski.kobweb.tabler.models.TablerTableRow
-import com.github.jangalinski.kobweb.tabler.models.TablerTableRowVariant
+import com.github.jangalinski.kobweb.tabler.models.*
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest

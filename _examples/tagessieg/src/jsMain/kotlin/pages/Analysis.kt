@@ -14,7 +14,6 @@ import com.github.jangalinski.kobweb.tabler.example.tagessieg.sitePageMeta
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.SiteRoutes
 import com.github.jangalinski.kobweb.tabler.charts.ApexDonutChart
 import com.github.jangalinski.kobweb.tabler.charts.DonutSlice
-import com.github.jangalinski.kobweb.tabler.components.TablerCard
 import com.github.jangalinski.kobweb.tabler.components.TablerCards
 import com.github.jangalinski.kobweb.tabler.styles.GridWidth.QUARTER
 import org.jetbrains.compose.web.dom.P
