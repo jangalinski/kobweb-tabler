@@ -3,6 +3,7 @@
 [![JitPack](https://jitpack.io/v/jangalinski/kobweb-tabler.svg)](https://jitpack.io/#jangalinski/kobweb-tabler)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.4.10-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org/)
 [![Kobweb](https://img.shields.io/badge/Kobweb-0.25.1-3B82F6)](https://kobweb.varabyte.com/)
+[![Dokka Docs](https://img.shields.io/badge/Dokka-docs-7F52FF?logo=kotlin&logoColor=white)](https://jangalinski.github.io/kobweb-tabler/docs/)
 
 > Build a Kobweb/Silk page that is either dynamic or static generated using Tabler layout and charts.
 
