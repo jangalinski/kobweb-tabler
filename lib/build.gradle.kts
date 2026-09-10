@@ -8,18 +8,10 @@ val KOBWEB_TABLER = "kobweb-tabler"
 
 plugins {
   `maven-publish`
-  id("com.github.jangalinski.kobweb.tabler.buildlogic.tabler-icons")
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.dokka)
   alias(libs.plugins.kobweb.library)
-}
-
-tablerIcons {
-  version.set(libs.versions.cdn.tabler.icons)
-  cssUrl.set(
-    "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@${libs.versions.cdn.tabler.icons.get()}/dist/tabler-icons.min.css"
-  )
 }
 
 base {
@@ -56,6 +48,10 @@ kobweb {
             layerName = KOBWEB_TABLER
           )
           importCss(
+            url = "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@${libs.versions.cdn.tabler.core.get()}/dist/css/tabler-vendors.min.css",
+            layerName = KOBWEB_TABLER
+          )
+          importCss(
             url = "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@${libs.versions.cdn.tabler.icons.get()}/dist/tabler-icons.min.css",
             layerName = KOBWEB_TABLER
           )
@@ -64,7 +60,7 @@ kobweb {
           src = "https://cdn.jsdelivr.net/npm/@tabler/core@${libs.versions.cdn.tabler.core.get()}/dist/js/tabler.min.js"
         }
         script {
-          src = "https://cdn.jsdelivr.net/npm/apexcharts"
+          src = "https://cdn.jsdelivr.net/npm/@tabler/core@${libs.versions.cdn.tabler.core.get()}/dist/libs/apexcharts/dist/apexcharts.min.js"
         }
       }
     }
