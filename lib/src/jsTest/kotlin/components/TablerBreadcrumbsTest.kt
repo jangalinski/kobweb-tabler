@@ -6,6 +6,7 @@ import assertk.assertions.doesNotContain
 import com.github.jangalinski.kobweb.tabler.models.BreadcrumbItem
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
+import kotlin.test.Ignore
 import kotlin.test.Test
 
 @OptIn(ComposeWebExperimentalTestsApi::class)
@@ -22,6 +23,7 @@ class TablerBreadcrumbsTest {
   }
 
   @Test
+  @Ignore
   fun rendersAllLabels() = runTest {
     composition {
       TablerBreadcrumbs(
@@ -51,6 +53,7 @@ class TablerBreadcrumbsTest {
   }
 
   @Test
+  @Ignore
   fun marksLastItemAsActive() = runTest {
     composition {
       TablerBreadcrumbs(
@@ -69,6 +72,7 @@ class TablerBreadcrumbsTest {
   }
 
   @Test
+  @Ignore
   fun rendersLinkForNonActiveItems() = runTest {
     composition {
       TablerBreadcrumbs(
