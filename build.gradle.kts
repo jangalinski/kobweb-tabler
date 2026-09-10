@@ -19,10 +19,3 @@ plugins.withType<YarnPlugin> {
   rootProject.extensions.getByType<YarnRootExtension>().lockFileDirectoryProperty =
     rootProject.file("gradle/kotlin-js-store")
 }
-
-subprojects {
-  plugins.withType<YarnPlugin> {
-    rootProject.extensions.getByType<YarnRootExtension>().lockFileDirectoryProperty =
-      rootProject.file("gradle/kotlin-js-store")
-  }
-}
