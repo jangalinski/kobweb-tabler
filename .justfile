@@ -4,14 +4,6 @@ set shell := ["zsh", "-lc"]
 _list:
     just --list
 
-# Remove stray origin-named preview directories created by local browser or server sessions.
-clean-preview-artifacts:
-    @find . -maxdepth 1 -type d \( -name '127.0.0.1:*' -o -name 'localhost:*' \) -prune -exec rm -rf {} +
-
-# Reset all ignored local state while preserving tracked files and unignored files.
-clean mode="":
-    @if test "{{mode}}" = "-n"; then git clean -ndX -- .; elif test -z "{{mode}}"; then ./gradlew --stop; git clean -fdX -- .; else echo "Usage: just clean [-n]" >&2; exit 2; fi
-
 # Run the documentation site via kobweb in static layout.
 [group("site")]
 run-site:
@@ -44,10 +36,23 @@ stop-site:
 stop:
     @for port in 13130 13131; do pids="$(lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)"; if [ -n "$pids" ]; then echo "Stopping listeners on port $port: $pids"; kill $pids; fi; done; sleep 1; for port in 13130 13131; do pids="$(lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)"; if [ -n "$pids" ]; then echo "Force-stopping listeners on port $port: $pids"; kill -9 $pids; fi; done; just clean-preview-artifacts
 
-[group("gradle")]
+
+# Remove stray origin-named preview directories created by local browser or server sessions.
+[group("project")]
+clean-preview-artifacts:
+    @find . -maxdepth 1 -type d \( -name '127.0.0.1:*' -o -name 'localhost:*' \) -prune -exec rm -rf {} +
+
+# Reset all ignored local state while preserving tracked files and unignored files.
+[group("project")]
+clean mode="":
+    @if test "{{mode}}" = "-n"; then git clean -ndX -- .; elif test -z "{{mode}}"; then ./gradlew --stop; git clean -fdX -- .; else echo "Usage: just clean [-n]" >&2; exit 2; fi
+
+# generate dokka html
+[group("project")]
 generate-dokka-html:
   @./gradlew --no-daemon --no-watch-fs --console=plain :lib:dokkaGeneratePublicationHtml
 
-[group("gradle")]
+# tabler icon from css
+[group("project")]
 generate-tabler-icon:
   @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateTablerIcon
