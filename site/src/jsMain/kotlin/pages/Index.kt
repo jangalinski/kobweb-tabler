@@ -44,11 +44,6 @@ fun Index() {
       Text("kobweb-tabler documentation site")
     }
     P {
-      A(href = "https://jangalinski.github.io/kobweb-tabler/examples/tagessieg/") {
-        Text("Open the Tagessieg example")
-      }
-    }
-    P {
       A(href = "https://jangalinski.github.io/kobweb-tabler/docs/") {
         Text("Open the API documentation")
       }

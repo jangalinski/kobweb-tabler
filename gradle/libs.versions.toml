@@ -9,6 +9,9 @@ dokka = "2.2.0"
 
 cdn-tabler-core = "1.4.0"
 cdn-tabler-icons = "3.46.0"
+# Uncomment this line and comment out the release version below to verify main-SNAPSHOT.
+# kobweb-tabler = "main-SNAPSHOT"
+kobweb-tabler = "0.0.1"
 
 [libraries]
 compose-html-core = { module = "org.jetbrains.compose.html:html-core", version.ref = "compose-html" }
@@ -24,7 +27,7 @@ kobwebx-serialization-kotlinx = { module = "com.varabyte.kobwebx:kobwebx-seriali
 silk-foundation = { module = "com.varabyte.kobweb:silk-foundation", version.ref = "kobweb" }
 silk-icons-fa = { module = "com.varabyte.kobwebx:silk-icons-fa", version.ref = "kobweb" }
 silk-icons-mdi = { module = "com.varabyte.kobwebx:silk-icons-mdi", version.ref = "kobweb" }
-kobweb-tabler = { module = "com.github.jangalinski.kobweb-tabler:kobweb-tabler", version = "0.0.1-SNAPSHOT" }
+kobweb-tabler = { module = "com.github.jangalinski.kobweb-tabler:kobweb-tabler", version.ref = "kobweb-tabler" }
 
 test-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertk" }
 

@@ -1,5 +1,13 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
 
+val useLocalKobwebTabler =
+  providers.gradleProperty("site.useLocalKobwebTabler")
+    .map { value ->
+      value.toBooleanStrictOrNull()
+        ?: error("site.useLocalKobwebTabler must be true or false, but was '$value'.")
+    }
+    .getOrElse(true)
+
 plugins {
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose.compiler)
@@ -26,7 +34,11 @@ kotlin {
     }
 
     jsMain.dependencies {
-      implementation(project(":lib"))
+      if (useLocalKobwebTabler) {
+        implementation(project(":lib"))
+      } else {
+        implementation(libs.kobweb.tabler)
+      }
       implementation(libs.compose.runtime)
       implementation(libs.compose.html.core)
       implementation(libs.kobweb.compose.js)

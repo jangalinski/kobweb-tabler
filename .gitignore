@@ -21,6 +21,7 @@ _examples/.idea/
 
 # Kotlin ignores
 .kotlin/
+__pycache__/
 
 .env.agent
 .env.local
