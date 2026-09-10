@@ -1,6 +1,6 @@
 site:
   title: "kobweb-tabler"
-  basePath: "kobweb-tabler"
+  basePath: "/"
 
 server:
   files:

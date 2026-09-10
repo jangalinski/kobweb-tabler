@@ -36,6 +36,7 @@ jobs:
 
       - name: Export documentation site
         run: >
+          sed -i 's/basePath: "\/"/basePath: "kobweb-tabler"/' site/.kobweb/conf.yaml &&
           ./gradlew
           --no-daemon
           --no-watch-fs
@@ -59,6 +60,7 @@ jobs:
         run: |
           mkdir -p build/gh-pages/docs
           cp -R site/.kobweb/site/. build/gh-pages/
+          cp site/.kobweb/site/resources/favicon.ico build/gh-pages/favicon.ico
           cp -R lib/build/dokka/html/. build/gh-pages/docs/
 
       - name: Upload Pages artifact
