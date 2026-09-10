@@ -1,7 +1,7 @@
 # <img src=".idea/icon.svg" alt="" height="32" style="vertical-align: -0.18em;"> kobweb-tabler
 
 [![JitPack](https://jitpack.io/v/jangalinski/kobweb-tabler.svg)](https://jitpack.io/#jangalinski/kobweb-tabler)
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.4.10-blue?logo=kotlin)](https://kotlinlang.org/)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.4.20-blue?logo=kotlin)](https://kotlinlang.org/)
 [![Kobweb](https://img.shields.io/badge/kobweb-0.25.1-blue)](https://kobweb.varabyte.com/)
 [![API Docs](https://img.shields.io/badge/API_Reference-grey?logo=readthedocs)](https://jangalinski.github.io/kobweb-tabler/docs/)
 
