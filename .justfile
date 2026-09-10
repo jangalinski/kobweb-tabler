@@ -30,12 +30,10 @@ preview-site:
 stop-site:
     just stop
 
-
 # Stop local kobweb/python servers listening on the preview ports.
 [group("kobweb")]
 stop:
     @for port in 13130 13131; do pids="$(lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)"; if [ -n "$pids" ]; then echo "Stopping listeners on port $port: $pids"; kill $pids; fi; done; sleep 1; for port in 13130 13131; do pids="$(lsof -tiTCP:$port -sTCP:LISTEN 2>/dev/null || true)"; if [ -n "$pids" ]; then echo "Force-stopping listeners on port $port: $pids"; kill -9 $pids; fi; done; just clean-preview-artifacts
-
 
 # Remove stray origin-named preview directories created by local browser or server sessions.
 [group("project")]
@@ -56,3 +54,4 @@ generate-dokka-html:
 [group("project")]
 generate-tabler-icon:
   @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateTablerIcon
+
