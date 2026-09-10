@@ -7,6 +7,9 @@ import com.varabyte.kobweb.compose.css.textTransform
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.core.AppGlobals
+import com.varabyte.kobweb.navigation.Anchor
+import com.varabyte.kobweb.navigation.BasePath
+import com.varabyte.kobweb.navigation.remove
 import com.github.jangalinski.kobweb.tabler.models.Image
 import com.github.jangalinski.kobweb.tabler.models.NavigationItem
 import com.github.jangalinski.kobweb.tabler.models.NavigationItemsBuilder
@@ -22,6 +25,7 @@ import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
 import kotlinx.browser.document
 import org.w3c.dom.Element
+import org.w3c.dom.Node
 import org.w3c.dom.events.Event
 
 /**
@@ -71,6 +75,8 @@ sealed interface TablerNavigation {
 }
 
 private const val SIDEBAR_MENU_ID = "sidebar-menu"
+private const val CLOSE_DROPDOWNS_ON_CLICK =
+  "document.querySelectorAll('.dropdown-menu.show').forEach(function(menu){menu.classList.remove('show');});"
 
 /**
  * Renders the selected navigation block.
@@ -175,33 +181,53 @@ private fun renderBrand(
   logo: Image,
   href: String?,
 ) {
-  A(attrs = {
-    attr(
-      "class",
-      "$brandClass ${ClassNames.navLink} ${ClassNames.textReset} ${ClassNames.textDecorationNone}",
-    )
-    if (!href.isNullOrBlank()) {
-      attr("href", href)
-    }
-  }) {
-    Div(attrs = {
-      attr("class", "${ClassNames.dFlex} ${ClassNames.alignItemsCenter}")
+  if (href.isNullOrBlank()) {
+    A(attrs = {
+      attr(
+        "class",
+        "$brandClass ${ClassNames.navLink} ${ClassNames.textReset} ${ClassNames.textDecorationNone}",
+      )
     }) {
-      renderImage(logo, defaultAlt = title, className = ClassNames.navbarBrandImage)
-      Div(attrs = { attr("class", ClassNames.dFlexColumn) }) {
-        Span(
-          attrs = {
-            style {
-              textTransform(TextTransform.Lowercase)
-            }
+      renderBrandContent(title, caption, logo)
+    }
+  } else {
+    Anchor(
+      href = BasePath.remove(href),
+      attrs = {
+        attr(
+          "class",
+          "$brandClass ${ClassNames.navLink} ${ClassNames.textReset} ${ClassNames.textDecorationNone}",
+        )
+      },
+    ) {
+      renderBrandContent(title, caption, logo)
+    }
+  }
+}
+
+@Composable
+private fun renderBrandContent(
+  title: String,
+  caption: String?,
+  logo: Image,
+) {
+  Div(attrs = {
+    attr("class", "${ClassNames.dFlex} ${ClassNames.alignItemsCenter}")
+  }) {
+    renderImage(logo, defaultAlt = title, className = ClassNames.navbarBrandImage)
+    Div(attrs = { attr("class", ClassNames.dFlexColumn) }) {
+      Span(
+        attrs = {
+          style {
+            textTransform(TextTransform.Lowercase)
           }
-        ) {
-          Text(title)
         }
-        caption?.let {
-          Span(attrs = { attr("class", ClassNames.smallTextSecondary) }) {
-            Text(it)
-          }
+      ) {
+        Text(title)
+      }
+      caption?.let {
+        Span(attrs = { attr("class", ClassNames.smallTextSecondary) }) {
+          Text(it)
         }
       }
     }
@@ -234,13 +260,16 @@ private fun renderNavLink(item: NavigationItem.Link) {
   Div(attrs = {
     attr("class", if (item.active) "${ClassNames.navItem} ${ClassNames.navItemActive}" else ClassNames.navItem)
   }) {
-    A(attrs = {
-      attr("class", linkClass)
-      attr("href", item.href)
-      if (item.active) {
-        attr("aria-current", "page")
-      }
-    }) {
+    Anchor(
+      href = BasePath.remove(item.href),
+      attrs = {
+        attr("class", linkClass)
+        attr("onclick", CLOSE_DROPDOWNS_ON_CLICK)
+        if (item.active) {
+          attr("aria-current", "page")
+        }
+      },
+    ) {
       renderImage(item.icon, defaultAlt = item.name, className = ClassNames.navItemIcon)
       Span(attrs = { attr("class", ClassNames.navLinkTitle) }) {
         Text(item.name)
@@ -254,8 +283,8 @@ private fun renderNavDropdown(item: NavigationItem.Dropdown) {
   val dropdownId = dropdownId(item.name)
   DisposableEffect(dropdownId) {
     val listener = fun(event: Event) {
-      val target = event.target as? Element ?: return
       val root = document.getElementById(dropdownId) ?: return
+      val target = event.target as? Node ?: return
       if (root.contains(target)) return
       root.querySelector(".dropdown-menu")?.classList?.remove("show")
     }
@@ -280,20 +309,23 @@ private fun renderNavDropdown(item: NavigationItem.Dropdown) {
     Div(attrs = {
       attr("class", "${ClassNames.dFlex} ${ClassNames.alignItemsCenter}")
     }) {
-      A(attrs = {
-        attr(
-          "class",
+      Anchor(
+        href = BasePath.remove(item.href),
+        attrs = {
+          attr(
+            "class",
+            if (item.active) {
+              "${ClassNames.navLink} ${ClassNames.navLinkActive}"
+            } else {
+              ClassNames.navLink
+            },
+          )
+          attr("onclick", CLOSE_DROPDOWNS_ON_CLICK)
           if (item.active) {
-            "${ClassNames.navLink} ${ClassNames.navLinkActive}"
-          } else {
-            ClassNames.navLink
-          },
-        )
-        attr("href", item.href)
-        if (item.active) {
-          attr("aria-current", "page")
-        }
-      }) {
+            attr("aria-current", "page")
+          }
+        },
+      ) {
         renderImage(item.icon, defaultAlt = item.name, className = ClassNames.navItemIcon)
         Span(attrs = { attr("class", ClassNames.navLinkTitle) }) {
           Text(item.name)
@@ -332,20 +364,23 @@ private fun renderNavDropdown(item: NavigationItem.Dropdown) {
       )
     }) {
       item.items.forEach { dropdownItem ->
-        A(attrs = {
-          attr(
-            "class",
+        Anchor(
+          href = BasePath.remove(dropdownItem.href),
+          attrs = {
+            attr(
+              "class",
+              if (dropdownItem.active) {
+                "${ClassNames.dropdownItem} ${ClassNames.dropdownItemActive}"
+              } else {
+                ClassNames.dropdownItem
+              },
+            )
+            attr("onclick", CLOSE_DROPDOWNS_ON_CLICK)
             if (dropdownItem.active) {
-              "${ClassNames.dropdownItem} ${ClassNames.dropdownItemActive}"
-            } else {
-              ClassNames.dropdownItem
-            },
-          )
-          attr("href", dropdownItem.href)
-          if (dropdownItem.active) {
-            attr("aria-current", "page")
-          }
-        }) {
+              attr("aria-current", "page")
+            }
+          },
+        ) {
           renderImage(dropdownItem.icon, defaultAlt = dropdownItem.name, className = ClassNames.dropdownItemIcon)
           Text(dropdownItem.name)
         }

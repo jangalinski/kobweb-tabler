@@ -6,7 +6,9 @@ import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
-import org.jetbrains.compose.web.dom.A
+import com.varabyte.kobweb.navigation.Anchor
+import com.varabyte.kobweb.navigation.BasePath
+import com.varabyte.kobweb.navigation.remove
 import org.jetbrains.compose.web.dom.Li
 import org.jetbrains.compose.web.dom.Nav
 import org.jetbrains.compose.web.dom.Ol
@@ -44,10 +46,12 @@ fun TablerBreadcrumbs(
             )
           }) {
             when {
-              !isLast && !item.active && !item.href.isNullOrBlank() -> A(attrs = {
-                attr("class", ClassNames.breadcrumbLink)
-                attr("href", item.href)
-              }) {
+              !isLast && !item.active && !item.href.isNullOrBlank() -> Anchor(
+                href = BasePath.remove(item.href),
+                attrs = {
+                  attr("class", ClassNames.breadcrumbLink)
+                },
+              ) {
                 Text(item.label)
               }
               else -> Span(attrs = {

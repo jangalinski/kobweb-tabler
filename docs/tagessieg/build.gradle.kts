@@ -10,14 +10,6 @@ plugins {
   id("com.github.jangalinski.kobweb.tabler.buildlogic.tagessieg-preview")
 }
 
-kobweb {
-  pagesPackage = "com.github.jangalinski.kobweb.tabler.example.tagessieg.pages"
-}
-
-rootProject.plugins.withType<YarnPlugin> {
-  rootProject.extensions.getByType<YarnRootExtension>().lockFileDirectory = rootProject.file("gradle/kotlin-js-store")
-}
-
 kotlin {
   configAsKobwebApplication()
 

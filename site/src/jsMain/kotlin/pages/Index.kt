@@ -1,15 +1,18 @@
-@file:Layout("com.github.jangalinski.kobweb.tabler.layouts.TablerLayout")
+@file:Layout("com.github.jangalinski.kobweb.tabler.site.SiteLayout")
 
 package com.github.jangalinski.kobweb.tabler.site.pages
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.components.TablerCard
+import com.github.jangalinski.kobweb.tabler.components.TablerCards
 import com.github.jangalinski.kobweb.tabler.elements.TablerIcon
 import com.github.jangalinski.kobweb.tabler.elements.TablerIcon.TI_BRAND_GITHUB
 import com.github.jangalinski.kobweb.tabler.elements.TablerIcon.TI_FOOTSTEPS
 import com.github.jangalinski.kobweb.tabler.elements.invoke
-import com.github.jangalinski.kobweb.tabler.models.TablerLayoutData
-import com.github.jangalinski.kobweb.tabler.models.TablerPageMeta
+import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
+import com.github.jangalinski.kobweb.tabler.site.siteLayoutData
+import com.github.jangalinski.kobweb.tabler.site.sitePageMeta
+import com.github.jangalinski.kobweb.tabler.styles.GridWidth.HALF
+import com.github.jangalinski.kobweb.tabler.styles.GridWidth.QUARTER
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.color
@@ -29,8 +32,8 @@ import org.jetbrains.compose.web.dom.Text
  */
 @InitRoute
 fun initIndexPage(ctx: InitRouteContext) {
-  ctx.data.add(TablerPageMeta(title = "kobweb-tabler", subtitle = "Documentation"))
-  ctx.data.add(TablerLayoutData())
+  ctx.data.add(sitePageMeta("kobweb-tabler", "Documentation and examples"))
+  ctx.data.add(siteLayoutData(SiteRoutes.Home))
 }
 
 /**
@@ -39,27 +42,30 @@ fun initIndexPage(ctx: InitRouteContext) {
 @Page
 @Composable
 fun Index() {
-  TablerCard(title = "Hello world") {
-    P {
-      Text("kobweb-tabler documentation site")
-    }
-    P {
-      A(href = "https://jangalinski.github.io/kobweb-tabler/docs/") {
-        Text("Open the API documentation")
+  TablerCards {
+    statCard(
+      title = "Components",
+      value = "12",
+      note = "Reusable UI building blocks",
+      width = QUARTER,
+    )
+    statCard(
+      title = "Elements",
+      value = "24",
+      note = "Low-level Tabler elements",
+      width = QUARTER,
+    )
+    card(title = "Welcome", width = HALF) {
+      P { Text("This site is the live component showcase for kobweb-tabler.") }
+      P {
+        A(href = "https://jangalinski.github.io/kobweb-tabler/docs/") {
+          Text("Open the API documentation")
+        }
       }
     }
-  }
-
-  TablerCard {
-    TI_BRAND_GITHUB(Modifier.fontSize(128.px).color(Colors.Pink))
-
-    TI_FOOTSTEPS(Modifier.fontSize(128.px).color(Colors.Green))
-  }
-
-
-  TablerCard {
-    TablerIcon.entries.forEach {
-      it()
+    card(title = "Icons", width = HALF) {
+      TI_BRAND_GITHUB(Modifier.fontSize(128.px).color(Colors.Pink))
+      TI_FOOTSTEPS(Modifier.fontSize(128.px).color(Colors.Green))
     }
   }
 }
