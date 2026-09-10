@@ -13,7 +13,8 @@ import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteBreadcrumbs
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteLayoutData
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.sitePageMeta
 import com.github.jangalinski.kobweb.tabler.components.TablerCards
-import com.github.jangalinski.kobweb.tabler.elements.tbIcon
+import com.github.jangalinski.kobweb.tabler.elements.TablerIcon
+import com.github.jangalinski.kobweb.tabler.elements.invoke
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.color
@@ -70,7 +71,7 @@ fun seasonPage(year: String) {
         Text("Dummy season page for $year.")
       }
       //<i class="ti ti-brand-github"></i>
-      tbIcon(name = com.github.jangalinski.kobweb.tabler.IconNames.BRAND_GITHUB, modifier = Modifier
+      TablerIcon.TI_BRAND_APPLE(modifier = Modifier
         .fontSize(256.px)
         .color(Colors.Red))
     }

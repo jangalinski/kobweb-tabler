@@ -12,6 +12,7 @@ import com.github.jangalinski.kobweb.tabler.example.tagessieg.SiteRoutes
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteBreadcrumbs
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteLayoutData
 import com.github.jangalinski.kobweb.tabler.example.tagessieg.sitePageMeta
+import com.varabyte.kobweb.compose.foundation.layout.Box
 
 /**
  * Registers the Liga 2023 page metadata and shared layout data before the page renders.
@@ -26,6 +27,8 @@ fun initYear2023Page(ctx: InitRouteContext) {
     ),
   )
   ctx.data.add(siteLayoutData(activeRoute = SiteRoutes.Liga2023))
+
+  Box {  }
 }
 
 /**

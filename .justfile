@@ -96,3 +96,11 @@ stop-tagessieg:
 [group("tagessieg")]
 serve-tagessieg:
     just serve tagessieg
+
+[group("gradle")]
+generate-dokka-html:
+  @./gradlew --no-daemon --no-watch-fs --console=plain :lib:dokkaGeneratePublicationHtml
+
+[group("gradle")]
+generate-tabler-icon:
+  @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateTablerIcon

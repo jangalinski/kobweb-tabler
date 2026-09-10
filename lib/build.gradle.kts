@@ -8,10 +8,18 @@ val KOBWEB_TABLER = "kobweb-tabler"
 
 plugins {
   `maven-publish`
+  id("com.github.jangalinski.kobweb.tabler.buildlogic.tabler-icons")
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.dokka)
   alias(libs.plugins.kobweb.library)
+}
+
+tablerIcons {
+  version.set(libs.versions.cdn.tabler.icons)
+  cssUrl.set(
+    "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@${libs.versions.cdn.tabler.icons.get()}/dist/tabler-icons.min.css"
+  )
 }
 
 base {
@@ -33,7 +41,7 @@ kotlin {
     jsTest.dependencies {
       implementation(kotlin("test-js"))
       implementation(libs.compose.html.test.utils)
-      implementation(libs.assertk)
+      implementation(libs.test.assertk)
     }
   }
 }
