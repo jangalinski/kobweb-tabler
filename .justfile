@@ -9,10 +9,13 @@ _list:
 run-site:
     kobweb run -p site -l static --env=dev
 
-# Export the documentation site.
+# Export the documentation site using the same static layout as the deployment
+# workflow. Local exports intentionally keep the local base path `/`; only the
+# GitHub Pages workflow adds the repository prefix.
 [group("site")]
 export-site:
-    ./gradlew --no-daemon --no-watch-fs :site:kobwebExport -PkobwebReuseServer=false -PkobwebEnv=DEV -PkobwebRunLayout=STATIC -PkobwebBuildTarget=RELEASE -PkobwebExportLayout=STATIC --console=plain
+    @just stop-site
+    .agents/bin/gradlew-agent --no-watch-fs :site:kobwebExport -PkobwebReuseServer=false -PkobwebEnv=DEV -PkobwebRunLayout=STATIC -PkobwebBuildTarget=RELEASE -PkobwebExportLayout=STATIC --console=plain
 
 # Export and preview the documentation site.
 [group("site")]
@@ -20,9 +23,9 @@ preview-site:
     just clean-preview-artifacts
     just export-site
     rm -rf build/site-preview
-    mkdir -p build/site-preview/kobweb-tabler
-    cp -R site/.kobweb/site/. build/site-preview/kobweb-tabler/
-    echo "Preview at http://localhost:13131/kobweb-tabler/"
+    mkdir -p build/site-preview
+    cp -R site/.kobweb/site/. build/site-preview/
+    echo "Preview at http://localhost:13131/"
     python3 -m http.server 13131 --directory ./build/site-preview
 
 # Stop local documentation site servers.
@@ -54,4 +57,3 @@ generate-dokka-html:
 [group("project")]
 generate-tabler-icon:
   @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateTablerIcon
-

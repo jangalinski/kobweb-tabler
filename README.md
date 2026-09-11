@@ -115,7 +115,7 @@ just stop                 # stop all local preview/dev servers
 ```bash
 just run-site             # run docs dev server (static layout, dev env)
 just export-site          # export docs site
-just preview-site         # export + serve at http://localhost:10102/kobweb-tabler/
+just preview-site         # export + serve at http://localhost:13131/
 ```
 
 Backwards-compatible single-example aliases also exist:
