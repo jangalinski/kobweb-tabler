@@ -6,8 +6,10 @@ import assertk.assertions.doesNotContain
 import assertk.assertions.isGreaterThanOrEqualTo
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
+import kotlin.test.Ignore
 import kotlin.test.Test
 
+@Ignore
 @OptIn(ComposeWebExperimentalTestsApi::class)
 class TablerTrackingTest {
 

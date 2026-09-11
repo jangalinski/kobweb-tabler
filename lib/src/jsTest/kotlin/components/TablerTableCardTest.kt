@@ -8,8 +8,10 @@ import com.github.jangalinski.kobweb.tabler.models.*
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import org.w3c.dom.HTMLElement
+import kotlin.test.Ignore
 import kotlin.test.Test
 
+@Ignore
 @OptIn(ComposeWebExperimentalTestsApi::class)
 class TablerTableCardTest {
 

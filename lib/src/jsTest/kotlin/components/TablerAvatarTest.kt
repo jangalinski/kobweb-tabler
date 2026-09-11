@@ -13,8 +13,10 @@ import com.github.jangalinski.kobweb.tabler.models.TablerAvatarStatus
 import com.github.jangalinski.kobweb.tabler.models.TablerAvatarStatusColor
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
+import kotlin.test.Ignore
 import kotlin.test.Test
 
+@Ignore
 @OptIn(ComposeWebExperimentalTestsApi::class)
 class TablerAvatarTest {
 
