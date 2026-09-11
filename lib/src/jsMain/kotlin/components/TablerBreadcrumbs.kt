@@ -2,8 +2,8 @@ package com.github.jangalinski.kobweb.tabler.components
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.models.BreadcrumbItem
-import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.toAttrs
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
 import com.varabyte.kobweb.navigation.Anchor
@@ -28,7 +28,7 @@ fun TablerBreadcrumbs(
 ) {
   if (items.isEmpty()) return
 
-  Box(modifier = modifier) {
+  org.jetbrains.compose.web.dom.Div(attrs = modifier.toAttrs()) {
     Nav(attrs = {
       attr("aria-label", "breadcrumb")
     }) {

@@ -17,14 +17,11 @@ export-site:
     @just stop-site
     .agents/bin/gradlew-agent --no-watch-fs :site:kobwebExport -PkobwebReuseServer=false -PkobwebEnv=DEV -PkobwebRunLayout=STATIC -PkobwebBuildTarget=RELEASE -PkobwebExportLayout=STATIC --console=plain
 
-# Export and preview the documentation site.
+# Export and preview the documentation site. Pass `true` to serve
+# the most recent existing export without cleaning or exporting again.
 [group("site")]
-preview-site:
-    just clean-preview-artifacts
-    just export-site
-    rm -rf build/site-preview
-    mkdir -p build/site-preview
-    cp -R site/.kobweb/site/. build/site-preview/
+preview-site skip_export="false":
+    @if test "{{skip_export}}" = "true"; then if ! test -f build/site-preview/index.html; then echo "No previous static export found at build/site-preview. Run 'just export-site' first." >&2; exit 1; fi; else if test "{{skip_export}}" != "false"; then echo "Usage: just preview-site [true|false]" >&2; exit 2; fi; just clean-preview-artifacts; just export-site; rm -rf build/site-preview; mkdir -p build/site-preview; cp -R site/.kobweb/site/. build/site-preview/; fi
     echo "Preview at http://localhost:13131/"
     python3 -m http.server 13131 --directory ./build/site-preview
 

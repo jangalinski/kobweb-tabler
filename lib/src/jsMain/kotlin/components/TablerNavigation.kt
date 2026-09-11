@@ -4,8 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import com.varabyte.kobweb.compose.css.TextTransform
 import com.varabyte.kobweb.compose.css.textTransform
-import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.AppGlobals
 import com.varabyte.kobweb.navigation.Anchor
 import com.varabyte.kobweb.navigation.BasePath
@@ -92,7 +92,7 @@ internal fun TablerNavigation.render() {
 
 @Composable
 private fun TablerNavigation.HeaderNavigation.renderHeaderNavigation() {
-  Box(modifier = modifier) {
+  Div(attrs = modifier.toAttrs()) {
     Header(attrs = {
       attr("class", ClassNames.navbarHeader)
     }) {
@@ -129,12 +129,12 @@ private fun TablerNavigation.HeaderNavigation.renderHeaderNavigation() {
 
 @Composable
 private fun TablerNavigation.SidebarNavigation.renderSidebarNavigation() {
-  Box(modifier = modifier) {
+  Div(attrs = modifier.toAttrs()) {
     Aside(attrs = {
       attr("class", ClassNames.navbarVertical)
       attr("data-bs-theme", "dark")
     }) {
-      Box(modifier = ClassNames.containerFluid.modifier()) {
+      Div(attrs = ClassNames.containerFluid.modifier().toAttrs()) {
         Button(
           attrs = {
             attr("class", ClassNames.navbarToggler)

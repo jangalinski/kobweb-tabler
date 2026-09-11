@@ -20,7 +20,6 @@ kotlin {
 
     jsMain.dependencies {
       implementation(libs.kobweb.tabler)
-      implementation(libs.kobweb.silk)
       implementation(libs.compose.runtime)
       implementation(libs.compose.html.core)
       implementation(libs.kobweb.compose.js)

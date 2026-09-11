@@ -1,10 +1,8 @@
 package com.github.jangalinski.kobweb.tabler.layouts
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.foundation.layout.Box
-import com.varabyte.kobweb.compose.foundation.layout.Column
-import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.data.getValue
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.layout.Layout
@@ -28,17 +26,15 @@ fun TablerLayout(ctx: PageContext, content: @Composable () -> Unit) {
   val layoutData = ctx.data.getValue<TablerLayoutData>()
   val pageMeta = ctx.data.getValue<TablerPageMeta>()
 
-  Box(modifier = ClassNames.page.modifier()) {
+  org.jetbrains.compose.web.dom.Div(attrs = ClassNames.page.modifier().toAttrs()) {
     layoutData.navigation.render()
 
-    Column(modifier = ClassNames.pageWrapper.modifier()) {
-      PagePart(ClassNames.pageHeader.modifier()) {
-        TablerHeader(
-          title = pageMeta.title,
-          subtitle = pageMeta.subtitle,
-          breadcrumbs = pageMeta.breadcrumbs,
-        )
-      }
+    org.jetbrains.compose.web.dom.Div(attrs = ClassNames.pageWrapper.modifier().toAttrs()) {
+      TablerHeader(
+        title = pageMeta.title,
+        subtitle = pageMeta.subtitle,
+        breadcrumbs = pageMeta.breadcrumbs,
+      )
 
       PagePart(ClassNames.pageBody.modifier()) {
         content()
@@ -54,10 +50,10 @@ fun TablerLayout(ctx: PageContext, content: @Composable () -> Unit) {
 @Composable
 private fun PagePart(
   modifier: Modifier,
-  block: @Composable ColumnScope.() -> Unit,
+  block: @Composable () -> Unit,
 ) {
-  Column(modifier = modifier) {
-    Column(modifier = ClassNames.containerXl.modifier()) {
+  org.jetbrains.compose.web.dom.Div(attrs = modifier.toAttrs()) {
+    org.jetbrains.compose.web.dom.Div(attrs = ClassNames.containerXl.modifier().toAttrs()) {
       block()
     }
   }

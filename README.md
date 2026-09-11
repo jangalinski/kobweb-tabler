@@ -6,7 +6,7 @@
 [![Kobweb](https://img.shields.io/badge/kobweb-0.25.1-blue)](https://kobweb.varabyte.com/)
 [![API Docs](https://img.shields.io/badge/API_Reference-grey?logo=readthedocs)](https://jangalinski.github.io/kobweb-tabler/docs/)
 
-> Build a Kobweb/Silk page that is either dynamic or static generated using Tabler layout and charts.
+> Build a Kobweb page that is either dynamically served or statically generated using Tabler layout and charts.
 
 
 - a dynamic page that runs in the browser, or

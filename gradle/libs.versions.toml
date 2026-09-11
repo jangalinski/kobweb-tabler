@@ -20,13 +20,9 @@ compose-runtime = { module = "androidx.compose.runtime:runtime", version.ref = "
 kobweb-api = { module = "com.varabyte.kobweb:kobweb-api", version.ref = "kobweb" }
 kobweb-core = { module = "com.varabyte.kobweb:kobweb-core", version.ref = "kobweb" }
 kobweb-compose-js = { module = "com.varabyte.kobweb:kobweb-compose-js", version.ref = "kobweb" }
-kobweb-silk = { module = "com.varabyte.kobweb:kobweb-silk", version.ref = "kobweb" }
 kobweb-worker = { module = "com.varabyte.kobweb:kobweb-worker", version.ref = "kobweb" }
 kobwebx-markdown = { module = "com.varabyte.kobwebx:kobwebx-markdown", version.ref = "kobweb" }
 kobwebx-serialization-kotlinx = { module = "com.varabyte.kobwebx:kobwebx-serialization-kotlinx", version.ref = "kobweb" }
-silk-foundation = { module = "com.varabyte.kobweb:silk-foundation", version.ref = "kobweb" }
-silk-icons-fa = { module = "com.varabyte.kobwebx:silk-icons-fa", version.ref = "kobweb" }
-silk-icons-mdi = { module = "com.varabyte.kobwebx:silk-icons-mdi", version.ref = "kobweb" }
 kobweb-tabler = { module = "com.github.jangalinski.kobweb-tabler:kobweb-tabler", version.ref = "kobweb-tabler" }
 
 test-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertk" }
