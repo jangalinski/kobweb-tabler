@@ -8,6 +8,10 @@
 
 > Build a Kobweb page that is either dynamically served or statically generated using Tabler layout and charts.
 
+Original kobweb-tabler source code is licensed under the Apache License,
+Version 2.0. Third-party materials and references retain their respective
+licenses; see [NOTICE](NOTICE).
+
 
 - a dynamic page that runs in the browser, or
 - a statically generated page that is exported during build time

@@ -12,6 +12,9 @@ _examples/.idea/
 **/.kobweb/server/
 **/.kobweb/site/
 
+# Local-only Tabler preview reference; refresh with `just fetch-tabler-preview`.
+docs/preview.tabler.io/
+
 # IntelliJ ignores
 *.iml
 /*.ipr

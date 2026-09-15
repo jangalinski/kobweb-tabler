@@ -1,0 +1,22 @@
+# Third-party notices
+
+The original source code of kobweb-tabler is licensed under the Apache
+License, Version 2.0. See [LICENSE](LICENSE).
+
+This repository also contains source code, generated identifiers, documentation,
+and build-time/runtime references for third-party projects. Those materials
+retain their own licenses:
+
+- **Tabler** — MIT License: <https://github.com/tabler/tabler>
+- **Tabler Icons** — MIT License: <https://github.com/tabler/tabler-icons>
+- **ApexCharts** — applicable Community, Commercial, or OEM license:
+  <https://apexcharts.com/license/>
+
+The files under docs/ are development documentation and reference material.
+They are not intended to change the license of the third-party projects they
+describe or reference.
+
+ApexCharts is referenced through a public CDN by the generated Kobweb library
+metadata; it is not included as a library dependency or bundled by this
+repository. Users of applications that load ApexCharts remain responsible for
+complying with the applicable ApexCharts license.

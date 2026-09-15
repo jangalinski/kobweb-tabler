@@ -4,6 +4,22 @@ set shell := ["zsh", "-lc"]
 _list:
     just --list
 
+# Refresh the local Tabler preview reference from its private source repository. The snapshot is intentionally ignored by Git and is only used for local HTML and CSS comparisons.
+[group("project")]
+fetch-tabler-preview:
+    #!/usr/bin/env zsh
+    set -euo pipefail
+    tmp_dir="$(mktemp -d)"
+    trap 'rm -rf "$tmp_dir"' EXIT
+    archive="$tmp_dir/preview.tar.gz"
+    gh api repos/jangalinski/preview.tabler.io/tarball/main > "$archive"
+    archive_root="$(tar -tzf "$archive" | sed -n '1s#/.*##p')"
+    test -n "$archive_root"
+    rm -rf docs/preview.tabler.io
+    mkdir -p docs
+    tar -xzf "$archive" -C "$tmp_dir"
+    mv "$tmp_dir/$archive_root/site" docs/preview.tabler.io
+
 # Run the documentation site via kobweb in static layout.
 [group("site")]
 run-site:
