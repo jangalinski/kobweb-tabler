@@ -21,17 +21,23 @@ import org.jetbrains.compose.web.dom.Aside
 import org.jetbrains.compose.web.dom.Button
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Header
+import org.jetbrains.compose.web.dom.Li
+import org.jetbrains.compose.web.dom.Nav
 import org.jetbrains.compose.web.dom.Span
 import org.jetbrains.compose.web.dom.Text
+import org.jetbrains.compose.web.dom.Ul
 import kotlinx.browser.document
 import org.w3c.dom.Element
 import org.w3c.dom.Node
 import org.w3c.dom.events.Event
 
 /**
- * Sealed navigation slot for a Tabler page shell.
+ * Sealed navigation specification for one Tabler page-shell navigation region.
  *
- * Exactly one navigation mode should be used at a time.
+ * A [HeaderNavigation] and a [SidebarNavigation] can be supplied together via
+ * [com.github.jangalinski.kobweb.tabler.models.TablerLayoutData] for the
+ * standard shell. Supplying one value through the legacy `navigation` slot is
+ * still useful for condensed layouts.
  */
 sealed interface TablerNavigation {
 
@@ -48,7 +54,7 @@ sealed interface TablerNavigation {
   }
 
   /**
-   * Header-style navigation rendered above the page content.
+ * Header-style navigation rendered in the preview's `BEGIN NAVBAR` region.
    */
   data class HeaderNavigation(
     override val modifier: Modifier = Modifier,
@@ -61,7 +67,7 @@ sealed interface TablerNavigation {
   ) : TablerNavigation
 
   /**
-   * Sidebar-style navigation rendered beside the page content.
+ * Sidebar-style navigation rendered in the preview's `BEGIN SIDEBAR` region.
    */
   data class SidebarNavigation(
     override val modifier: Modifier = Modifier,
@@ -75,6 +81,7 @@ sealed interface TablerNavigation {
 }
 
 private const val SIDEBAR_MENU_ID = "sidebar-menu"
+private const val NAVBAR_MENU_ID = "navbar-menu"
 private const val CLOSE_DROPDOWNS_ON_CLICK =
   "document.querySelectorAll('.dropdown-menu.show').forEach(function(menu){menu.classList.remove('show');});"
 
@@ -85,42 +92,54 @@ private const val CLOSE_DROPDOWNS_ON_CLICK =
 internal fun TablerNavigation.render() {
   when (this) {
     TablerNavigation.None -> Unit
-    is TablerNavigation.HeaderNavigation -> renderHeaderNavigation()
-    is TablerNavigation.SidebarNavigation -> renderSidebarNavigation()
+    is TablerNavigation.HeaderNavigation -> renderNavbar()
+    is TablerNavigation.SidebarNavigation -> renderSidebar()
   }
 }
 
 @Composable
-private fun TablerNavigation.HeaderNavigation.renderHeaderNavigation() {
+internal fun TablerNavigation.HeaderNavigation.renderNavbar(includeBrand: Boolean = true) {
   Div(attrs = modifier.toAttrs()) {
-    Header(attrs = {
-      attr("class", ClassNames.navbarHeader)
-    }) {
-      Div(attrs = {
-        attr(
-          "class",
-          "${ClassNames.containerXl} ${ClassNames.dFlex} ${ClassNames.alignItemsCenter}",
-        )
-      }) {
-        renderBrand(
-          brandClass = ClassNames.navbarBrandHeader,
-          title = title,
-          caption = caption,
-          logo = logo,
-          href = href,
-        )
-        Div(attrs = {
-          attr("class", "${ClassNames.navbarNavHeader} ${ClassNames.ms3}")
+    Header(attrs = { attr("class", ClassNames.navbar) }) {
+      Div(attrs = { attr("class", ClassNames.containerXl) }) {
+        Button(attrs = {
+          attr("class", ClassNames.navbarToggler)
+          attr("type", "button")
+          attr("data-bs-toggle", "collapse")
+          attr("data-bs-target", "#$NAVBAR_MENU_ID")
+          attr("aria-controls", NAVBAR_MENU_ID)
+          attr("aria-expanded", "false")
+          attr("aria-label", "Toggle primary navigation")
         }) {
-          renderNavItems(items)
+          Span(attrs = { attr("class", ClassNames.navbarTogglerIcon) })
         }
-        Div(attrs = {
-          attr("class", ClassNames.flexGrow1)
-        })
-        Div(attrs = {
-          attr("class", "${ClassNames.dFlex} ${ClassNames.alignItemsCenter} ${ClassNames.msAuto}")
-        }) {
+        if (includeBrand) {
+          renderBrand(
+            brandClass = ClassNames.navbarBrand,
+            title = title,
+            caption = caption,
+            logo = logo,
+            href = href,
+          )
+        }
+        Div(attrs = { attr("class", "${ClassNames.navbarNav} ${ClassNames.msAuto}") }) {
           content()
+        }
+      }
+    }
+    Div(attrs = { attr("class", ClassNames.navbarExpandMd) }) {
+      Div(attrs = {
+        attr("class", ClassNames.navbarCollapse)
+        attr("id", NAVBAR_MENU_ID)
+      }) {
+        Div(attrs = { attr("class", ClassNames.navbar) }) {
+          Div(attrs = { attr("class", ClassNames.containerXl) }) {
+            Nav(attrs = { attr("aria-label", "Primary") }) {
+              Ul(attrs = { attr("class", ClassNames.navbarNavPrimary) }) {
+                renderNavItems(items)
+              }
+            }
+          }
         }
       }
     }
@@ -128,7 +147,7 @@ private fun TablerNavigation.HeaderNavigation.renderHeaderNavigation() {
 }
 
 @Composable
-private fun TablerNavigation.SidebarNavigation.renderSidebarNavigation() {
+internal fun TablerNavigation.SidebarNavigation.renderSidebar() {
   Div(attrs = modifier.toAttrs()) {
     Aside(attrs = {
       attr("class", ClassNames.navbarVertical)
@@ -157,13 +176,12 @@ private fun TablerNavigation.SidebarNavigation.renderSidebarNavigation() {
           href = href,
         )
 
-        Div(attrs = {
+        Nav(attrs = {
           attr("class", ClassNames.navbarCollapse)
           attr("id", SIDEBAR_MENU_ID)
+          attr("aria-label", "Sidebar")
         }) {
-          Div(attrs = {
-            attr("class", ClassNames.navbarNavSidebar)
-          }) {
+          Ul(attrs = { attr("class", ClassNames.navbarNavSidebar) }) {
             renderNavItems(items)
             content()
           }
@@ -245,7 +263,14 @@ private fun renderNavItems(items: List<NavigationItem>) {
 }
 
 /**
- * Builds a hierarchy of navigation items.
+ * Builds the navigation-item hierarchy used by a Tabler shell.
+ *
+ * The resulting items can be rendered in either the preview's
+ * `BEGIN NAVBAR` or `BEGIN SIDEBAR` region through [TablerNavigation]. This
+ * keeps navigation data independent from the Kobweb layout slot that displays
+ * it.
+ *
+ * @param block declarations of links and dropdowns in navigation order.
  */
 fun navItems(block: NavigationItemsBuilder.() -> Unit) =
   navigationItems(block)
@@ -257,7 +282,7 @@ private fun renderNavLink(item: NavigationItem.Link) {
   } else {
     ClassNames.navLink
   }
-  Div(attrs = {
+  Li(attrs = {
     attr("class", if (item.active) "${ClassNames.navItem} ${ClassNames.navItemActive}" else ClassNames.navItem)
   }) {
     Anchor(
@@ -295,7 +320,7 @@ private fun renderNavDropdown(item: NavigationItem.Dropdown) {
     }
   }
 
-  Div(attrs = {
+  Li(attrs = {
     attr(
       "class",
       if (item.active) {

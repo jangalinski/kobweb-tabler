@@ -1,8 +1,9 @@
-package com.github.jangalinski.kobweb.tabler.components
+package com.github.jangalinski.kobweb.tabler.layouts
 
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
+import com.github.jangalinski.kobweb.tabler.layouts.TablerPageHeader
 import com.github.jangalinski.kobweb.tabler.models.BreadcrumbItem
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
@@ -11,12 +12,12 @@ import kotlin.test.Test
 
 @Ignore
 @OptIn(ComposeWebExperimentalTestsApi::class)
-class TablerHeaderTest {
+class TablerPageHeaderTest {
 
   @Test
   fun rendersTitleText() = runTest {
     composition {
-      TablerHeader(title = "Dashboard")
+      TablerPageHeader(title = "Dashboard")
     }
 
     val html = root.innerHTML
@@ -26,7 +27,7 @@ class TablerHeaderTest {
   @Test
   fun rendersPageHeaderClass() = runTest {
     composition {
-      TablerHeader(title = "Overview")
+      TablerPageHeader(title = "Overview")
     }
 
     val html = root.innerHTML
@@ -36,7 +37,7 @@ class TablerHeaderTest {
   @Test
   fun rendersOptionalSubtitle() = runTest {
     composition {
-      TablerHeader(title = "Reports", subtitle = "Last 30 days")
+      TablerPageHeader(title = "Reports", subtitle = "Last 30 days")
     }
 
     val html = root.innerHTML
@@ -46,7 +47,7 @@ class TablerHeaderTest {
   @Test
   fun omitsSubtitleWhenNotProvided() = runTest {
     composition {
-      TablerHeader(title = "Reports")
+      TablerPageHeader(title = "Reports")
     }
 
     val html = root.innerHTML
@@ -57,7 +58,7 @@ class TablerHeaderTest {
   @Ignore
   fun rendersBreadcrumbsWhenProvided() = runTest {
     composition {
-      TablerHeader(
+      TablerPageHeader(
         title = "Users",
         breadcrumbs = listOf(
           BreadcrumbItem(label = "Home", href = "/"),
@@ -74,7 +75,7 @@ class TablerHeaderTest {
   @Test
   fun omitsBreadcrumbsWhenListIsEmpty() = runTest {
     composition {
-      TablerHeader(title = "Users")
+      TablerPageHeader(title = "Users")
     }
 
     val html = root.innerHTML

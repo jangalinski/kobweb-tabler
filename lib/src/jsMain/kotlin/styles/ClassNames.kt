@@ -29,10 +29,10 @@ data object ClassNames {
   const val navbar = "navbar navbar-expand-md d-print-none"
 
   /** Horizontal page navbar used for the dashboard header layout. */
-  const val navbarHeader = "navbar navbar-expand-sm navbar-light d-print-none"
+  const val navbarHeader = "navbar navbar-expand-md d-print-none"
 
   /** Vertical page navbar used for the sidebar layout. */
-  const val navbarVertical = "navbar navbar-vertical navbar-expand-sm position-absolute"
+  const val navbarVertical = "navbar navbar-vertical navbar-expand-lg"
 
   /** Breakpoint behavior that expands the navbar at medium widths and up. */
   const val navbarExpandMd = "navbar-expand-md"
@@ -84,6 +84,9 @@ data object ClassNames {
 
   /** Horizontal navbar list aligned to the right on desktop. */
   const val navbarNav = "navbar-nav flex-row order-md-last"
+
+  /** Plain navigation list used by the primary top-navbar menu. */
+  const val navbarNavPrimary = "navbar-nav"
 
   /** Navbar list in the header layout. */
   const val navbarNavHeader = "navbar-nav flex-row"

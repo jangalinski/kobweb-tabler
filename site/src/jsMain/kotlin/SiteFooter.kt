@@ -3,12 +3,13 @@ package com.github.jangalinski.kobweb.tabler.site
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames
+import com.varabyte.kobweb.compose.foundation.layout.RowScope
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
 
 /** Builds the site-specific content inside the shared Tabler footer. */
-fun siteFooter(): @Composable ColumnScope.() -> Unit = {
+fun siteFooter(): @Composable RowScope.() -> Unit = {
   Div(attrs = { attr("class", ClassNames.footerRow) }) {
     Div(attrs = { attr("class", ClassNames.footerLeft) }) {
       Text("kobweb-tabler component documentation")

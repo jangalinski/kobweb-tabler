@@ -1,5 +1,3 @@
-@file:Layout("com.github.jangalinski.kobweb.tabler.site.SiteLayout")
-
 package com.github.jangalinski.kobweb.tabler.site.pages
 
 import androidx.compose.runtime.Composable
