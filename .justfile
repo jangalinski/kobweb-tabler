@@ -20,24 +20,39 @@ fetch-tabler-preview:
     tar -xzf "$archive" -C "$tmp_dir"
     mv "$tmp_dir/$archive_root/site" docs/preview.tabler.io
 
+
+# Refresh the local KotlinBootstrap reference. The snapshot is intentionally ignored by Git and is only used as a local Kobweb Bootstrap implementation reference.
+[group("project")]
+fetch-kobweb-bootstrap:
+    #!/usr/bin/env zsh
+    set -euo pipefail
+    tmp_dir="$(mktemp -d)"
+    trap 'rm -rf "$tmp_dir"' EXIT
+    archive="$tmp_dir/kotlin-bootstrap.tar.gz"
+    gh api repos/stevdza-san/KotlinBootstrap/tarball/master > "$archive"
+    archive_root="$(tar -tzf "$archive" | sed -n '1s#/.*##p')"
+    test -n "$archive_root"
+    rm -rf docs/kobweb-bootstrap
+    mkdir -p docs
+    tar -xzf "$archive" -C "$tmp_dir"
+    mv "$tmp_dir/$archive_root/bootstrap" docs/kobweb-bootstrap
+    cp "$tmp_dir/$archive_root/README.md" docs/kobweb-bootstrap/README.md
+
 # Run the documentation site via kobweb in static layout.
 [group("site")]
 run-site:
     kobweb run -p site -l static --env=dev
 
-# Export the documentation site using the same static layout as the deployment
-# workflow. Local exports intentionally keep the local base path `/`; only the
-# GitHub Pages workflow adds the repository prefix.
+# Export the documentation site using the same static layout as the deployment workflow. Local exports intentionally keep the local base path `/`; only the GitHub Pages workflow adds the repository prefix.
 [group("site")]
 export-site:
     @just stop-site
-    .agents/bin/gradlew-agent --no-watch-fs :site:kobwebExport -PkobwebReuseServer=false -PkobwebEnv=DEV -PkobwebRunLayout=STATIC -PkobwebBuildTarget=RELEASE -PkobwebExportLayout=STATIC --console=plain
+    .agents/bin/gradlew-agent --no-watch-fs :site:kobwebExport -PkobwebReuseServer=true -PkobwebEnv=DEV -PkobwebRunLayout=STATIC -PkobwebBuildTarget=RELEASE -PkobwebExportLayout=STATIC --console=plain
 
-# Export and preview the documentation site. Pass `true` to serve
-# the most recent existing export without cleaning or exporting again.
+# Export and preview the documentation site. Pass `true` to serve the most recent existing export without cleaning or exporting again.
 [group("site")]
 preview-site skip_export="false":
-    @if test "{{skip_export}}" = "true"; then if ! test -f build/site-preview/index.html; then echo "No previous static export found at build/site-preview. Run 'just export-site' first." >&2; exit 1; fi; else if test "{{skip_export}}" != "false"; then echo "Usage: just preview-site [true|false]" >&2; exit 2; fi; just clean-preview-artifacts; just export-site; rm -rf build/site-preview; mkdir -p build/site-preview; cp -R site/.kobweb/site/. build/site-preview/; fi
+    @if test "{{ skip_export }}" = "true"; then if ! test -f build/site-preview/index.html; then echo "No previous static export found at build/site-preview. Run 'just export-site' first." >&2; exit 1; fi; else if test "{{ skip_export }}" != "false"; then echo "Usage: just preview-site [true|false]" >&2; exit 2; fi; just clean-preview-artifacts; just export-site; rm -rf build/site-preview; mkdir -p build/site-preview; cp -R site/.kobweb/site/. build/site-preview/; fi
     echo "Preview at http://localhost:13131/"
     python3 -m http.server 13131 --directory ./build/site-preview
 
@@ -59,14 +74,14 @@ clean-preview-artifacts:
 # Reset all ignored local state while preserving tracked files and unignored files.
 [group("project")]
 clean mode="":
-    @if test "{{mode}}" = "-n"; then git clean -ndX -- .; elif test -z "{{mode}}"; then ./gradlew --stop; git clean -fdX -- .; else echo "Usage: just clean [-n]" >&2; exit 2; fi
+    @if test "{{ mode }}" = "-n"; then git clean -ndX -- .; elif test -z "{{ mode }}"; then ./gradlew --stop; git clean -fdX -- .; else echo "Usage: just clean [-n]" >&2; exit 2; fi
 
 # generate dokka html
 [group("project")]
 generate-dokka-html:
-  @./gradlew --no-daemon --no-watch-fs --console=plain :lib:dokkaGeneratePublicationHtml
+    @./gradlew --no-daemon --no-watch-fs --console=plain :lib:dokkaGeneratePublicationHtml
 
 # tabler icon from css
 [group("project")]
 generate-tabler-icon:
-  @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateTablerIcon
+    @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateTablerIcon

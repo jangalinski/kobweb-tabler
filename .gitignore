@@ -15,6 +15,9 @@ _examples/.idea/
 # Local-only Tabler preview reference; refresh with `just fetch-tabler-preview`.
 docs/preview.tabler.io/
 
+# Local-only KotlinBootstrap reference; refresh with `just fetch-kobweb-bootstrap`.
+docs/kobweb-bootstrap/
+
 # IntelliJ ignores
 *.iml
 /*.ipr
