@@ -1,6 +1,7 @@
 package com.github.jangalinski.kobweb.tabler.site
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import com.varabyte.kobweb.core.App
 import com.varabyte.kobweb.core.KobwebApp
@@ -17,6 +18,8 @@ fun AppEntry(content: @Composable () -> Unit) {
   }
 
   KobwebApp {
-    content()
+    CompositionLocalProvider(LocalSiteUi provides SiteUi) {
+      content()
+    }
   }
 }
