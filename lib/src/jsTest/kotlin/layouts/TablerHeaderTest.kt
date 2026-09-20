@@ -1,9 +1,8 @@
-package com.github.jangalinski.kobweb.tabler.layouts
+package com.github.jangalinski.kobweb.tabler._compose
 
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
-import com.github.jangalinski.kobweb.tabler.layouts.TablerPageHeader
 import com.github.jangalinski.kobweb.tabler.models.BreadcrumbItem
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest

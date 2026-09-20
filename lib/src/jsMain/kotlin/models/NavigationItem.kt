@@ -5,6 +5,9 @@ import com.github.jangalinski.kobweb.tabler.components.TablerDsl
 /**
  * Hierarchical navigation model for Tabler menus.
  */
+@Deprecated(
+  message = "Use navbar.TablerNavbarItem for new navbar work. This legacy model remains for sidebar compatibility.",
+)
 sealed interface NavigationItem {
 
   /**

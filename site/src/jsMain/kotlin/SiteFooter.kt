@@ -9,7 +9,7 @@ import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Text
 
 /** Builds the site-specific content inside the shared Tabler footer. */
-fun siteFooter(): @Composable RowScope.() -> Unit = {
+fun siteFooter(): @Composable () -> Unit = {
   Div(attrs = { attr("class", ClassNames.footerRow) }) {
     Div(attrs = { attr("class", ClassNames.footerLeft) }) {
       Text("kobweb-tabler component documentation")

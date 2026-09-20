@@ -39,6 +39,9 @@ import org.w3c.dom.events.Event
  * standard shell. Supplying one value through the legacy `navigation` slot is
  * still useful for condensed layouts.
  */
+@Deprecated(
+  message = "Use navbar.TablerNavbarData for new navbar work. This legacy model remains for sidebar compatibility.",
+)
 sealed interface TablerNavigation {
 
   /**

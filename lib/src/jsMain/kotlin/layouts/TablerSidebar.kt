@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.layouts
+package com.github.jangalinski.kobweb.tabler._compose
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.components.TablerNavigation

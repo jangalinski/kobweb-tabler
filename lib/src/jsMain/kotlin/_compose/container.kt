@@ -1,10 +1,7 @@
-package com.github.jangalinski.kobweb.tabler.layouts
+package com.github.jangalinski.kobweb.tabler._compose
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.styles.ClassNames
-import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
-import com.varabyte.kobweb.compose.foundation.layout.Row
-import com.varabyte.kobweb.compose.foundation.layout.RowScope
+import com.github.jangalinski.kobweb.tabler._compose.BaseCss.CONTAINER_XL
 import com.varabyte.kobweb.compose.ui.Modifier
 
 
@@ -18,9 +15,5 @@ import com.varabyte.kobweb.compose.ui.Modifier
 @Composable
 fun ContainerXL(
   modifier: Modifier = Modifier,
-  content: @Composable RowScope.() -> Unit,
-) {
-  Row(modifier = modifier.then(ClassNames.containerXl.modifier())) {
-    content()
-  }
-}
+  content: @Composable () -> Unit
+) = KDiv(modifier = modifier + CONTAINER_XL, content = content)

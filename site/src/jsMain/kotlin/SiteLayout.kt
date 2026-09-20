@@ -3,11 +3,10 @@ package com.github.jangalinski.kobweb.tabler.site
 import com.github.jangalinski.kobweb.tabler.models.TablerLayoutData
 import com.github.jangalinski.kobweb.tabler.models.TablerPageMeta
 
-/** Provides the site-owned navbar and footer to the shared Tabler layout. */
+/** Supplies route-specific layout state to the shared Tabler layout. */
 fun siteLayoutData(activeRoute: String): TablerLayoutData =
   TablerLayoutData(
-    navbar = siteNavigation(activeRoute),
-    footer = siteFooter(),
+    activeRoute = activeRoute,
   )
 
 /** Builds the page header metadata consumed by the shared Tabler layout. */

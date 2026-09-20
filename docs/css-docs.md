@@ -1,0 +1,14 @@
+- navbar navbar-expand-md: a Tabler/Bootstrap navbar; primary navigation changes to its expanded desktop form at md (768px).
+- container-xl: horizontally centers content and limits it to Tabler’s extra-large content width.
+- navbar-nav flex-row order-md-last: an action bar. flex-row makes its entries horizontal; order-md-last places it at the far end on medium+ layouts.
+- nav-item: one navbar action / dropdown.
+- nav-link px-0: interactive navbar styling with no horizontal padding — important for compact icon actions.
+- d-none d-md-flex: hide this action on small screens; show it as flex from md upward.
+- me-3: right margin separating action groups.
+- dropdown-menu-end: align the dropdown’s right edge with its trigger.
+- dropdown-menu-arrow: Tabler’s small arrow pointer.
+- dropdown-menu-card: makes rich dropdown content look like a card.
+- data-bs-toggle="dropdown" / "collapse": Bootstrap behavior hooks. They require the runtime JS behavior; the HTML and CSS alone only provide the static appearance.
+- data-bs-auto-close="outside": keep the menu open when the user interacts inside it.
+- navbar-brand-autodark: makes the brand/logo adapt to Tabler light/dark colors.
+- d-none d-xl-block: retain the avatar at smaller widths; only show the user name/job text on wide screens.

@@ -4,8 +4,6 @@ import org.gradle.api.DefaultTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.file.DirectoryProperty
-import org.gradle.api.provider.Property
-import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.InputDirectory
 import org.gradle.api.tasks.PathSensitive
 import org.gradle.api.tasks.PathSensitivity
@@ -19,29 +17,33 @@ import java.nio.file.StandardCopyOption.REPLACE_EXISTING
 
 @WorkDisableCachingByDefault(because = "Mirrors generated export output into a serving layout.")
 abstract class MirrorStaticExportTask : DefaultTask() {
-  @get:Input
-  abstract val basePath: Property<String>
-
   @get:InputDirectory
   @get:PathSensitive(PathSensitivity.RELATIVE)
   abstract val siteRoot: DirectoryProperty
 
+  @get:org.gradle.api.tasks.OutputDirectory
+  abstract val mirrorRoot: DirectoryProperty
+
   @TaskAction
   fun mirror() {
     val exportSitePath = siteRoot.get().asFile.toPath()
-    val basePathValue = basePath.get()
-    val mirrorRoot = exportSitePath.resolve(basePathValue)
+    val mirrorSitePath = mirrorRoot.get().asFile.toPath()
+    val mirrorRelative = if (mirrorSitePath.startsWith(exportSitePath)) {
+      exportSitePath.relativize(mirrorSitePath).toString().replace('\\', '/')
+    } else {
+      null
+    }
 
-    logger.lifecycle("Mirroring exported site to ${mirrorRoot.toAbsolutePath()}")
-    deleteRecursively(mirrorRoot)
-    Files.createDirectories(mirrorRoot)
+    logger.lifecycle("Mirroring exported site to ${mirrorSitePath.toAbsolutePath()}")
+    deleteRecursively(mirrorSitePath)
+    Files.createDirectories(mirrorSitePath)
 
     Files.walk(exportSitePath).use { stream ->
       stream.filter { Files.isRegularFile(it) }.forEach { source ->
         val relative = exportSitePath.relativize(source).toString().replace('\\', '/')
-        if (relative == basePathValue || relative.startsWith("$basePathValue/")) return@forEach
-
-        copyMirroredFile(source, mirrorRoot.resolve(relative))
+        if (mirrorRelative != null && (relative == mirrorRelative || relative.startsWith("$mirrorRelative/"))) {
+          return@forEach
+        }
 
         when {
           relative.startsWith("pages/") -> {
@@ -49,18 +51,24 @@ abstract class MirrorStaticExportTask : DefaultTask() {
             val alias = stripKobwebExportPrefix(relative)
             val systemIndex = exportSitePath.resolve("system/index.html")
             val appShell = if (Files.exists(systemIndex)) systemIndex else source
-            copyMirroredFile(appShell, mirrorRoot.resolve(mirrorAliasPath(alias)))
+            copyMirroredFile(appShell, mirrorSitePath.resolve(mirrorAliasPath(alias)))
+          }
+
+          relative.endsWith(".html") && relative != "index.html" -> {
+            copyMirroredFile(source, mirrorSitePath.resolve(mirrorAliasPath(relative)))
           }
 
           relative.startsWith("resources/") -> {
             val alias = stripKobwebExportPrefix(relative)
-            copyMirroredFile(source, mirrorRoot.resolve(alias))
+            copyMirroredFile(source, mirrorSitePath.resolve(alias))
           }
 
           relative.startsWith("system/") -> {
             val alias = stripKobwebExportPrefix(relative)
-            copyMirroredFile(source, mirrorRoot.resolve(alias))
+            copyMirroredFile(source, mirrorSitePath.resolve(alias))
           }
+
+          else -> copyMirroredFile(source, mirrorSitePath.resolve(relative))
         }
       }
     }
@@ -69,7 +77,7 @@ abstract class MirrorStaticExportTask : DefaultTask() {
     // so it overrides the empty Kobweb routing shell placed by pages/index.html
     val systemIndex = exportSitePath.resolve("system/index.html")
     if (Files.exists(systemIndex)) {
-      copyMirroredFile(systemIndex, mirrorRoot.resolve("index.html"))
+      copyMirroredFile(systemIndex, mirrorSitePath.resolve("index.html"))
     }
   }
 }
@@ -84,11 +92,26 @@ class ExamplePreviewPlugin : Plugin<Project> {
     project.tasks.register("mirrorExportForPlainStaticServer", MirrorStaticExportTask::class.java) {
       group = "kobweb"
       description = "Mirrors Kobweb export output into a base-path directory tree for plain static servers."
-      basePath.convention(project.name)
       siteRoot.convention(project.layout.projectDirectory.dir(".kobweb/site"))
+      mirrorRoot.convention(project.layout.projectDirectory.dir(".kobweb/site/${project.name}"))
     }
 
   private fun wireTaskDependencies(project: Project, mirrorTask: TaskProvider<MirrorStaticExportTask>) {
+    project.tasks.matching { it.name == "kobwebExport" }.configureEach {
+      finalizedBy(mirrorTask)
+    }
+  }
+}
+
+class SitePreviewPlugin : Plugin<Project> {
+  override fun apply(project: Project) {
+    val mirrorTask = project.tasks.register("mirrorExportForPlainStaticServer", MirrorStaticExportTask::class.java) {
+      group = "kobweb"
+      description = "Mirrors the site export into directory routes for a plain static server."
+      siteRoot.convention(project.layout.projectDirectory.dir(".kobweb/site"))
+      mirrorRoot.convention(project.rootProject.layout.buildDirectory.dir("site-preview"))
+    }
+
     project.tasks.matching { it.name == "kobwebExport" }.configureEach {
       finalizedBy(mirrorTask)
     }

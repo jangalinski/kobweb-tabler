@@ -10,7 +10,7 @@ package com.github.jangalinski.kobweb.tabler.models
  * configuration rather than separate layouts because the preview variants
  * share the same page, navigation, page-wrapper, main, and footer blocks.
  *
- * This model is intentionally not consumed by [com.github.jangalinski.kobweb.tabler.layouts.TablerLayout]
+ * This model is intentionally not consumed by [com.github.jangalinski.kobweb.tabler._compose.TablerLayout]
  * yet. It establishes the type-safe configuration boundary for a later
  * layout implementation without changing the current layout behavior.
  *

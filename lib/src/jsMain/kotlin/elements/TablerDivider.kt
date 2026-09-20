@@ -1,7 +1,7 @@
 package com.github.jangalinski.kobweb.tabler.elements
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.layouts.KDiv
+import com.github.jangalinski.kobweb.tabler._compose.KDiv
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import org.jetbrains.compose.web.dom.Text
@@ -21,6 +21,6 @@ fun TablerDivider(
         Text(text)
       }
     } else {
-      KDiv(modifier.then(Modifier.classNames("hr")))
+      KDiv(modifier.then(Modifier.classNames("hr"))) {}
     }
 }

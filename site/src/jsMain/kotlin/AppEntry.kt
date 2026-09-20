@@ -1,10 +1,10 @@
 package com.github.jangalinski.kobweb.tabler.site
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
+import com.github.jangalinski.kobweb.tabler.*
+import com.github.jangalinski.kobweb.tabler.KobwebTabler.KobwebTablerApp
 import com.varabyte.kobweb.core.App
-import com.varabyte.kobweb.core.KobwebApp
 import kotlinx.browser.document
 
 /**
@@ -17,9 +17,15 @@ fun AppEntry(content: @Composable () -> Unit) {
     document.body?.className = "bg-body"
   }
 
-  KobwebApp {
-    CompositionLocalProvider(LocalSiteUi provides SiteUi) {
-      content()
-    }
+  KobwebTablerApp(
+    site = TablerSiteConfig(
+      shell = TablerShellConfig(
+        navbar = ::siteNavbar,
+        navbarActions = { SiteThemeToggle() },
+        footer = siteFooter(),
+      ),
+    ),
+  ) {
+    content()
   }
 }

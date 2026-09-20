@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="100 48 778 503"
+  role="img"
+  aria-label="Geometric logo"
+  style="--dark:#294950; --blue:#087EFF; --light-blue:#2A97FF"
+>
+  <title>Geometric logo</title>
+
+  <!-- Rear diamond -->
+  <rect
+    x="166"
+    y="125"
+    width="318"
+    height="318"
+    rx="34"
+    ry="34"
+    transform="rotate(45 325 284)"
+    fill="var(--dark)"
+  />
+
+  <!-- Front blue shape, with the left tip clipped -->
+  <path
+    d="
+      M 484 48
+      C 499 48, 510 57, 523 70
+      L 714 261
+      C 729 276, 736 286, 736 300
+      C 736 314, 729 325, 714 340
+      L 523 530
+      C 510 543, 499 551, 484 551
+      C 469 551, 459 543, 446 530
+      L 305 390
+      L 305 200
+      L 446 61
+      C 459 50, 470 48, 484 48
+      Z"
+    fill="var(--blue)"
+  />
+
+  <!-- Light-blue inner face -->
+  <path
+    d="
+      M 483 78
+      L 493 76
+      L 709 300
+      L 493 523
+      L 483 527
+      Z"
+    fill="var(--light-blue)"
+  />
+
+  <!-- Underscore -->
+  <rect
+    x="648"
+    y="452"
+    width="230"
+    height="82"
+    rx="41"
+    ry="41"
+    fill="var(--blue)"
+  />
+</svg>

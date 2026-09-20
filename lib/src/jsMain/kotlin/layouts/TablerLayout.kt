@@ -1,13 +1,14 @@
-package com.github.jangalinski.kobweb.tabler.layouts
+package com.github.jangalinski.kobweb.tabler._compose
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.kobweb.tabler.LocalTablerSiteConfig
 import com.github.jangalinski.kobweb.tabler.components.TablerFooter
 import com.github.jangalinski.kobweb.tabler.components.render
 import com.github.jangalinski.kobweb.tabler.models.TablerLayoutData
 import com.github.jangalinski.kobweb.tabler.models.TablerPageMeta
+import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbar
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames
 import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
-import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.data.getValue
@@ -41,18 +42,29 @@ import org.jetbrains.compose.web.dom.Div
  */
 @Layout
 @Composable
-fun TablerLayout(ctx: PageContext, content: @Composable () -> Unit) {
+fun TablerLayout(
+  ctx: PageContext,
+  content: @Composable () -> Unit
+) {
+  val site = LocalTablerSiteConfig.current
   val layoutData = ctx.data.getValue<TablerLayoutData>()
   val pageMeta = ctx.data.getValue<TablerPageMeta>()
+  val footer = layoutData.footer ?: site.shell.footer
 
   TablerPage {
 
-    if (layoutData.sidebar == null && layoutData.navbar == null) {
-      layoutData.navigation.render()
-    } else {
-      layoutData.sidebar?.let { TablerSidebar(it) }
-      layoutData.navbar?.let { TablerNavbar(it) }
-    }
+    TablerNavbar(
+      brand = site.shell.brand,
+      data = site.shell.navbar.create(layoutData.activeRoute),
+      actions = site.shell.navbarActions,
+    )
+
+//    if (layoutData.sidebar == null && layoutData.navbar == null) {
+//      navigation.render()
+//    } else {
+//      layoutData.sidebar?.let { TablerSidebar(it) }
+//      layoutData.navbar?.let { TablerNavbar(it) }
+//    }
 
     TablerPageWrapper {
 
@@ -67,7 +79,7 @@ fun TablerLayout(ctx: PageContext, content: @Composable () -> Unit) {
       }
 
       TablerFooter {
-        layoutData.footer(this)
+        footer()
       }
     }
   }

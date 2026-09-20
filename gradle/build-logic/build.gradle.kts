@@ -14,6 +14,10 @@ gradlePlugin {
       id = "com.github.jangalinski.kobweb.tabler.buildlogic.tagessieg-preview"
       implementationClass = "com.github.jangalinski.kobweb.tabler.buildlogic.ExamplePreviewPlugin"
     }
+    create("sitePreview") {
+      id = "com.github.jangalinski.kobweb.tabler.buildlogic.site-preview"
+      implementationClass = "com.github.jangalinski.kobweb.tabler.buildlogic.SitePreviewPlugin"
+    }
     create("tablerIcons") {
       id = "com.github.jangalinski.kobweb.tabler.buildlogic.tabler-icons"
       implementationClass = "com.github.jangalinski.kobweb.tabler.buildlogic.TablerIconsPlugin"

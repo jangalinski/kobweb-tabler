@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.layouts
+package com.github.jangalinski.kobweb.tabler._compose
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.RowScope
@@ -23,7 +23,7 @@ import org.jetbrains.compose.web.dom.Main
 @Composable
 fun TablerPageBody(
   modifier: Modifier = Modifier,
-  content: @Composable RowScope.() -> Unit,
+  content: @Composable () -> Unit,
 ) {
   Main(attrs = modifier.then(Modifier.classNames("page-body")).toAttrs {
     attr("id", "content")

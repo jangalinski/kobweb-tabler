@@ -2,12 +2,12 @@ package com.github.jangalinski.kobweb.tabler.site.pages
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.components.TablerCards
+import com.github.jangalinski.kobweb.tabler._compose.KDiv
 import com.github.jangalinski.kobweb.tabler.elements.TablerDivider
-import com.github.jangalinski.kobweb.tabler.elements.TablerIcon.TI_BRAND_GITHUB
-import com.github.jangalinski.kobweb.tabler.elements.TablerIcon.TI_FOOTSTEPS
+import com.github.jangalinski.kobweb.tabler.icon.TablerIcon.TI_BRAND_GITHUB
+import com.github.jangalinski.kobweb.tabler.icon.TablerIcon.TI_FOOTSTEPS
 import com.github.jangalinski.kobweb.tabler.elements.TablerLink
-import com.github.jangalinski.kobweb.tabler.elements.invoke
-import com.github.jangalinski.kobweb.tabler.layouts.KDiv
+import com.github.jangalinski.kobweb.tabler.icon.invoke
 import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
 import com.github.jangalinski.kobweb.tabler.site.siteLayoutData
 import com.github.jangalinski.kobweb.tabler.site.sitePageMeta
@@ -19,6 +19,7 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
+import com.varabyte.kobweb.compose.ui.modifiers.size
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
@@ -72,14 +73,14 @@ fun Index() {
       }
     }
     card(title = "Icons", width = HALF) {
-      TI_BRAND_GITHUB(Modifier.fontSize(128.px).color(Colors.Pink))
-      TI_FOOTSTEPS(Modifier.fontSize(128.px).color(Colors.Green))
+      TI_BRAND_GITHUB(Modifier.fontSize(128.px).size(128.px).color(Colors.Pink))
+      TI_FOOTSTEPS(Modifier.fontSize(128.px).size(128.px).color(Colors.Green))
     }
 
     @Composable
     fun colorCard(colorName: String, colorClass: String? = null) {
       KDiv(modifier = Modifier.classNames("text-center")) {
-        KDiv(modifier = Modifier.classNames("p-6", "rounded", "border", colorClass ?: "bg-${colorName.lowercase()}"))
+        KDiv(modifier = Modifier.classNames("p-6", "rounded", "border", colorClass ?: "bg-${colorName.lowercase()}")){}
         KDiv(modifier = Modifier.classNames("small")) { Text(colorName) }
       }
     }

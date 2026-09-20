@@ -173,14 +173,14 @@ class TablerTableTest {
   fun rendersTagsCell() = runTest {
     val data = TablerTableData(
       columns = listOf(TablerTableColumn("Tags")),
-      rows = listOf(TablerTableRow(listOf(TablerTableCell.Tags(listOf("kotlin", "compose", "tabler"))))),
+      rows = listOf(TablerTableRow(listOf(TablerTableCell.Tags(listOf("kotlin", "_compose", "tabler"))))),
     )
 
     composition { TablerTable(data) }
 
     val html = root.innerHTML
     assertThat(html).contains("kotlin")
-    assertThat(html).contains("compose")
+    assertThat(html).contains("_compose")
     assertThat(html).contains("tabler")
   }
 

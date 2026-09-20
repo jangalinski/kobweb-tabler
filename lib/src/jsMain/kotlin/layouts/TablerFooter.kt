@@ -1,7 +1,7 @@
 package com.github.jangalinski.kobweb.tabler.components
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.layouts.ContainerXL
+import com.github.jangalinski.kobweb.tabler._compose.ContainerXL
 import com.varabyte.kobweb.compose.foundation.layout.RowScope
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
@@ -23,7 +23,7 @@ import org.jetbrains.compose.web.dom.Footer
 @Composable
 fun TablerFooter(
   modifier: Modifier = Modifier,
-  content: @Composable RowScope.() -> Unit,
+  content: @Composable () -> Unit,
 ) {
   Footer(attrs = modifier.then(Modifier.classNames("footer", "footer-transparent", "d-print-none")).toAttrs()) {
     ContainerXL {

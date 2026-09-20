@@ -1,10 +1,19 @@
-package com.github.jangalinski.kobweb.tabler.elements
+package com.github.jangalinski.kobweb.tabler.icon
 
+import androidx.compose.runtime.Composable
+import com.github.jangalinski.kobweb.tabler.styles.CssClass
+import com.github.jangalinski.kobweb.tabler.styles.LazyClassNameModifier
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
-/** Generated from Tabler Icons CSS 3.46.0. Do not edit manually. */
-enum class TablerIcon(private val style: String) : Modifier {
+/**
+ * Generated from Tabler Icons CSS 3.46.0. Do not edit manually.
+ */
+enum class TablerIcon(
+  val value: String, delegate: LazyClassNameModifier = LazyClassNameModifier(
+    name = value,
+    fn = { listOf("ti", it) }
+  )
+) : CssClass by delegate, Icon {
   TI_12_HOURS("ti-12-hours"),
   TI_123("ti-123"),
   TI_24_HOURS("ti-24-hours"),
@@ -5200,13 +5209,8 @@ enum class TablerIcon(private val style: String) : Modifier {
   TI_ZZZ_OFF("ti-zzz-off"),
   ;
 
-  private val modifier: Modifier by lazy {
-    Modifier.classNames("ti", style)
+  @Composable
+  override fun compose(modifier: Modifier) {
+    icon(this).compose(modifier)
   }
-
-  override fun then(other: Modifier): Modifier {
-    return modifier.then(other)
-  }
-
-  override fun <R> fold(initial: R, operation: (R, Modifier.Element) -> R): R = modifier.fold(initial, operation)
 }

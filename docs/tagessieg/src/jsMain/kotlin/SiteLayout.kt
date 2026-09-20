@@ -13,6 +13,7 @@ import com.github.jangalinski.kobweb.tabler.models.TablerPageMeta
  */
 fun siteLayoutData(activeRoute: String): TablerLayoutData =
   TablerLayoutData(
+    activeRoute = activeRoute,
     navigation = sharedNavigation(activeRoute),
     footer = siteFooter(),
   )

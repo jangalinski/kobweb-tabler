@@ -9,6 +9,7 @@ val useLocalKobwebTabler =
     .getOrElse(true)
 
 plugins {
+  id("com.github.jangalinski.kobweb.tabler.buildlogic.site-preview")
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.jetbrains.compose)

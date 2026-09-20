@@ -3,6 +3,8 @@ package com.github.jangalinski.kobweb.tabler.styles
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
+fun cssClass(name: String) : CssClass = LazyClassNameModifier(name)
+
 /**
  * A marker interface for modifiers that represent a CSS class name.
  */
