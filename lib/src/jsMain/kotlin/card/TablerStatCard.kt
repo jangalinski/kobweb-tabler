@@ -3,13 +3,13 @@ package com.github.jangalinski.kobweb.tabler.card
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KH1
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KP
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
-import org.jetbrains.compose.web.dom.H1
-import org.jetbrains.compose.web.dom.P
-import org.jetbrains.compose.web.dom.Span
-import org.jetbrains.compose.web.dom.Text
 
 /**
  * Renders a compact summary card for tabular or numeric statistics.
@@ -28,21 +28,19 @@ fun TablerStatCard(
       title = title,
       modifier = ClassNames.h100.modifier(),
     ) {
-      H1(attrs = { attr("class", ClassNames.h1Mb2) }) {
-        Text(value)
+      KH1(modifier = ClassNames.h1Mb2.modifier()) {
+        KText(value)
       }
 
       note?.let {
-        P(attrs = { attr("class", ClassNames.textSecondaryM0) }) {
-          Text(it)
+        KP(modifier = ClassNames.textSecondaryM0.modifier()) {
+          KText(it)
         }
       }
 
       badgeText?.let {
         Box(modifier = ClassNames.mt3.modifier()) {
-          Span(attrs = { attr("class", ClassNames.badge) }) {
-            Text(it)
-          }
+          KSpan(modifier = ClassNames.badge.modifier(), text = it)
         }
       }
     }

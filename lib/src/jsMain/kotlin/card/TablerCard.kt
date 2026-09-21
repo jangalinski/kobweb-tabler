@@ -4,10 +4,10 @@ import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KH3
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
-import org.jetbrains.compose.web.dom.H3
-import org.jetbrains.compose.web.dom.Text
 
 /**
  * Renders a standard Tabler card with an optional title.
@@ -21,8 +21,8 @@ fun TablerCard(
   Column(modifier = modifier.then(ClassNames.card.modifier())) {
     title?.let {
       Column(modifier = ClassNames.cardHeader.modifier()) {
-        H3(attrs = { attr("class", ClassNames.cardTitle) }) {
-          Text(it)
+        KH3(modifier = ClassNames.cardTitle.modifier()) {
+          KText(it)
         }
       }
     }

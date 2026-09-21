@@ -12,8 +12,8 @@ import org.jetbrains.compose.web.dom.Button
  * @param content composable button content.
  */
 @Composable
-fun KButton(modifier: Modifier = Modifier.Companion, content: @Composable () -> Unit) {
-    Button(attrs = modifier.toAttrs()) {
-        content()
-    }
+fun KButton(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+  Button(attrs = modifier.toAttrs()) {
+    content()
+  }
 }

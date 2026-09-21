@@ -2,11 +2,10 @@ package com.github.jangalinski.kobweb.tabler._app
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.compose.ContainerXL
-import com.varabyte.kobweb.compose.foundation.layout.RowScope
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KMain
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
-import com.varabyte.kobweb.compose.ui.toAttrs
-import org.jetbrains.compose.web.dom.Main
+import com.varabyte.kobweb.compose.ui.modifiers.id
 
 /**
  * Renders the semantic main-content block of a Tabler page.
@@ -26,9 +25,11 @@ fun TablerPageBody(
   modifier: Modifier = Modifier,
   content: @Composable () -> Unit,
 ) {
-  Main(attrs = modifier.then(Modifier.classNames("page-body")).toAttrs {
-    attr("id", "content")
-  }) {
+  KMain(
+    modifier = modifier
+      .then(Modifier.classNames("page-body"))
+      .then(Modifier.id("content"))
+  ) {
     ContainerXL {
       content()
     }

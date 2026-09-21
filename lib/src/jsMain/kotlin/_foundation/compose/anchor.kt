@@ -10,15 +10,24 @@ import org.jetbrains.compose.web.dom.A
  *
  * @param href destination URL written to the anchor's `href` attribute.
  * @param modifier attributes, classes, and styles applied to the anchor.
+ * @param onClickAction optional click handler; when provided, browser navigation is prevented.
  * @param content composable anchor content.
  */
 @Composable
 fun KAnchor(
   href: String,
   modifier: Modifier = Modifier,
+  onClickAction: (() -> Unit)? = null,
   content: @Composable () -> Unit
 ) {
-  A(href = href, attrs = modifier.toAttrs()) {
+  A(href = href, attrs = modifier.toAttrs {
+    onClickAction?.let { handler ->
+      onClick {
+        it.preventDefault()
+        handler()
+      }
+    }
+  }) {
     content()
   }
 }

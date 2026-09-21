@@ -3,21 +3,21 @@ package com.github.jangalinski.kobweb.tabler.tracking
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
+import com.github.jangalinski.kobweb.tabler._foundation.compose.documentElementById
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
-import kotlinx.browser.document
-import org.jetbrains.compose.web.dom.Div
-import org.w3c.dom.Element
 import kotlin.random.Random
 
 private external interface TablerTooltip {
   fun dispose()
 }
 
-private fun createTooltips(container: Element): Array<TablerTooltip> = js(
+private fun createTooltips(container: dynamic): Array<TablerTooltip> = js(
   """
     (() => {
       const Tooltip = window.tabler && window.tabler.Tooltip;
@@ -54,23 +54,22 @@ fun TablerTracking(
   val trackingId = remember { "tabler-tracking-${Random.nextInt(Int.MAX_VALUE).toUInt()}" }
 
   DisposableEffect(trackingId, blocks) {
-    val tooltips = document.getElementById(trackingId)?.let(::createTooltips).orEmpty()
+    val tooltips = documentElementById(trackingId)?.let(::createTooltips).orEmpty()
     onDispose { tooltips.forEach(TablerTooltip::dispose) }
   }
 
   Box(modifier = modifier.id(trackingId).then(ClassNames.tracking.modifier())) {
     blocks.forEach { block ->
-      Div(
-        attrs = {
-          classes(ClassNames.trackingBlock)
-          block.variantClass?.let(::classes)
-          block.tooltip?.let { tooltip ->
-            attr("data-bs-toggle", "tooltip")
-            attr("data-bs-placement", "top")
-            attr("title", tooltip)
-          }
-        },
-      )
+      KDiv(
+        modifier = ClassNames.trackingBlock.modifier()
+          .then(block.variantClass?.modifier() ?: Modifier)
+          .then(block.tooltip?.let { tooltip ->
+            Modifier
+              .attr("data-bs-toggle", "tooltip")
+              .attr("data-bs-placement", "top")
+              .attr("title", tooltip)
+          } ?: Modifier),
+      ) {}
     }
   }
 }

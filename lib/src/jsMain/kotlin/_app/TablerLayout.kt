@@ -1,15 +1,13 @@
 package com.github.jangalinski.kobweb.tabler._app
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._app.LocalTablerSiteConfig
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbar
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
-import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.data.getValue
 import com.varabyte.kobweb.core.layout.Layout
-import org.jetbrains.compose.web.dom.Div
 
 /**
  * Kobweb layout that renders the shared Tabler page shell around a route.
@@ -83,10 +81,8 @@ fun TablerLayout(
  * than a page route itself.
  */
 @Composable
-private fun TablerPage(block: @Composable () -> Unit) {
-  Div(attrs = ClassNames.page.modifier().toAttrs()) {
-    block()
-  }
+private fun TablerPage(content: @Composable () -> Unit) {
+  KDiv(modifier = ClassNames.page.modifier(), content = content)
 }
 
 /**
@@ -98,8 +94,6 @@ private fun TablerPage(block: @Composable () -> Unit) {
  * shared chrome surrounds the composable content supplied by a route.
  */
 @Composable
-private fun TablerPageWrapper(block: @Composable () -> Unit) {
-  Div(attrs = ClassNames.pageWrapper.modifier().toAttrs()) {
-    block()
-  }
+private fun TablerPageWrapper(content: @Composable () -> Unit) {
+  KDiv(modifier = ClassNames.pageWrapper.modifier(), content = content)
 }

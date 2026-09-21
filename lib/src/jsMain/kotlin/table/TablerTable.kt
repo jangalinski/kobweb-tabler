@@ -9,22 +9,26 @@ import com.github.jangalinski.kobweb.tabler.table.TablerTableData
 import com.github.jangalinski.kobweb.tabler.table.TablerTableResponsive
 import com.github.jangalinski.kobweb.tabler.table.TablerTableScope
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
-import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.Table
-import org.jetbrains.compose.web.dom.Tbody
-import org.jetbrains.compose.web.dom.Td
-import org.jetbrains.compose.web.dom.Th
-import org.jetbrains.compose.web.dom.Thead
-import org.jetbrains.compose.web.dom.Tr
-import org.w3c.dom.HTMLDivElement
+import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KHtmlDiv
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KTable
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KTbody
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KTd
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KTh
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KThead
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KTr
+import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.attr
+import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
 /** Renders a data-driven Tabler table with responsive, no-wrap, and sticky-header options. */
 @Composable
 fun TablerTable(data: TablerTableData) {
-  Div(attrs = {
-    data.responsive.className?.let(::classes)
-    prop({ element: HTMLDivElement, markup: String -> element.innerHTML = markup }, renderTableMarkup(data))
-  })
+  KHtmlDiv(
+    html = renderTableMarkup(data),
+    modifier = data.responsive.className?.modifier() ?: Modifier,
+  )
 }
 
 /**
@@ -57,32 +61,28 @@ fun TablerTable(
   block: TablerTableScope.() -> Unit,
 ) {
   val scope = TablerTableScope().apply(block)
-  Div(attrs = { responsive.className?.let(::classes) }) {
-    Table(attrs = {
-      classes(*ClassNames.table.trim().split(Regex("\\s+")).toTypedArray())
-      if (noWrap) classes(ClassNames.tableNoWrap)
-    }) {
+  KDiv(modifier = responsive.className?.modifier() ?: Modifier) {
+    KTable(
+      modifier = Modifier.classNames(*ClassNames.table.trim().split(Regex("\\s+")).toTypedArray())
+        .then(if (noWrap) ClassNames.tableNoWrap.modifier() else Modifier),
+    ) {
       scope.header?.let { headerScope ->
-        Thead(attrs = {
-          if (stickyHeader) classes(ClassNames.stickyTop)
-        }) {
-          Tr {
+        KThead(modifier = if (stickyHeader) ClassNames.stickyTop.modifier() else Modifier) {
+          KTr {
             headerScope.cells.forEach { cellContent ->
-              Th(attrs = { attr("scope", "col") }) { cellContent() }
+              KTh(modifier = Modifier.attr("scope", "col")) { cellContent() }
             }
           }
         }
       }
-      Tbody {
+      KTbody {
         scope.rows.forEach { rowScope ->
-          Tr(attrs = {
-            rowScope.variant?.let { classes(it.className) }
-          }) {
+          KTr(modifier = rowScope.variant?.className?.modifier() ?: Modifier) {
             rowScope.cells.forEach { cell ->
               if (cell.isRowHeader) {
-                Th(attrs = { attr("scope", "row") }) { cell.content() }
+                KTh(modifier = Modifier.attr("scope", "row")) { cell.content() }
               } else {
-                Td { cell.content() }
+                KTd { cell.content() }
               }
             }
           }

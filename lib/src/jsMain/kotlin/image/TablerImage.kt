@@ -4,7 +4,10 @@ import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.KobwebTabler.publicResourcePath
 import com.github.jangalinski.kobweb.tabler.image.Image
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
-import org.jetbrains.compose.web.dom.Img
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KImg
+import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.attr
+import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
 /**
  * Renders a Tabler image or inline SVG with the icon sizing used by the shared shell.
@@ -23,46 +26,29 @@ internal fun renderImage(image: Image?, defaultAlt: String, className: String) {
   when (image) {
     null -> Unit
     is Image.None -> Unit
-    is Image.ImageResource -> Img(
+    is Image.ImageResource -> KImg(
       src = publicResourcePath(image.resource),
       alt = image.altText ?: defaultAlt,
-      attrs = {
-        attr(
-          "class",
-          when (className) {
-            ClassNames.navbarBrandImage -> "${className} ${ClassNames.me2}"
-            ClassNames.navItemIcon -> "${className} ${ClassNames.me2}"
-            ClassNames.dropdownItemIcon -> "${className} ${ClassNames.me2}"
-            else -> className
-          },
-        )
-        size?.let {
-          attr("width", it.toString())
-          attr("height", it.toString())
-        }
-      },
+      modifier = imageModifier(className, size),
     )
-    is Image.InlineSvg -> Img(
+    is Image.InlineSvg -> KImg(
       src = svgDataUri(image.svg),
       alt = image.altText ?: defaultAlt,
-      attrs = {
-        attr(
-          "class",
-          when (className) {
-            ClassNames.navbarBrandImage -> "$className ${ClassNames.me2}"
-            ClassNames.navItemIcon -> "$className ${ClassNames.me2}"
-            ClassNames.dropdownItemIcon -> "$className ${ClassNames.me2}"
-            else -> className
-          },
-        )
-        size?.let {
-          attr("width", it.toString())
-          attr("height", it.toString())
-        }
-      },
+      modifier = imageModifier(className, size),
     )
   }
 }
+
+private fun imageModifier(className: String, size: Int?): Modifier = Modifier
+  .classNames(
+    className,
+    if (
+      className == ClassNames.navbarBrandImage ||
+      className == ClassNames.navItemIcon ||
+      className == ClassNames.dropdownItemIcon
+    ) ClassNames.me2 else "",
+  )
+  .then(size?.let { Modifier.attr("width", it.toString()).attr("height", it.toString()) } ?: Modifier)
 
 /**
  * Converts inline SVG markup into a data URI so it can be used as an image source.

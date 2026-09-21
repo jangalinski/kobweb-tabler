@@ -8,15 +8,17 @@ import com.github.jangalinski.kobweb.tabler.table.TablerTableResponsive
 import com.github.jangalinski.kobweb.tabler.table.TablerTableRows
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KAnchor
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KH3
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KHtmlDiv
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KLi
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KP
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KUl
 import com.varabyte.kobweb.compose.foundation.layout.Column
-import org.jetbrains.compose.web.dom.A
-import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.H3
-import org.jetbrains.compose.web.dom.Li
-import org.jetbrains.compose.web.dom.P
-import org.jetbrains.compose.web.dom.Text
-import org.jetbrains.compose.web.dom.Ul
-import org.w3c.dom.HTMLDivElement
+import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.attr
 
 /**
  * Renders a Tabler card that displays a data table flush against the card edges.
@@ -50,23 +52,23 @@ fun TablerTableCard(
   onPageChange: ((Int) -> Unit)? = null,
 ) {
   Column(modifier = ClassNames.card.modifier()) {
-    Div(attrs = { attr("class", ClassNames.cardHeader) }) {
-      Div {
-        H3(attrs = { attr("class", ClassNames.cardTitle) }) {
-          Text(title)
+    KDiv(modifier = ClassNames.cardHeader.modifier()) {
+      KDiv {
+        KH3(modifier = ClassNames.cardTitle.modifier()) {
+          KText(title)
         }
         subtitle?.let {
-          Div(attrs = { attr("class", "${ClassNames.textSecondary} ${ClassNames.mt1}") }) {
-            Text(it)
+          KDiv(modifier = "${ClassNames.textSecondary} ${ClassNames.mt1}".modifier()) {
+            KText(it)
           }
         }
       }
     }
     // Table rendered without its own responsive wrapper; the Div below provides it.
-    Div(attrs = {
-      data.responsive.className?.let(::classes)
-      prop({ element: HTMLDivElement, markup: String -> element.innerHTML = markup }, renderTableMarkup(data))
-    })
+    KHtmlDiv(
+      html = renderTableMarkup(data),
+      modifier = data.responsive.className?.modifier() ?: Modifier,
+    )
     pagination?.let { pag ->
       PaginationFooter(pagination = pag, onPageChange = onPageChange)
     }
@@ -118,22 +120,22 @@ private fun PaginationFooter(
   pagination: TablerPaginationData,
   onPageChange: ((Int) -> Unit)?,
 ) {
-  Div(attrs = { attr("class", ClassNames.cardFooter) }) {
-    Div(attrs = { attr("class", ClassNames.paginationRow) }) {
-      Div(attrs = { attr("class", ClassNames.paginationSummaryCol) }) {
+  KDiv(modifier = ClassNames.cardFooter.modifier()) {
+    KDiv(modifier = ClassNames.paginationRow.modifier()) {
+      KDiv(modifier = ClassNames.paginationSummaryCol.modifier()) {
         val pageSize = pagination.pageSize
         val totalItems = pagination.totalItems
         if (pageSize != null && totalItems != null) {
           val firstItem = if (totalItems == 0) 0 else (pagination.currentPage - 1) * pageSize + 1
           val lastItem = minOf(pagination.currentPage * pageSize, totalItems)
           val index = if (firstItem == lastItem) firstItem.toString() else "$firstItem to $lastItem"
-          P(attrs = { attr("class", "${ClassNames.m0} ${ClassNames.textSecondary}") }) {
-            Text(pagination.texts.summaryTemplate.replace("{index}", index).replace("{max}", totalItems.toString()))
+          KP(modifier = "${ClassNames.m0} ${ClassNames.textSecondary}".modifier()) {
+            KText(pagination.texts.summaryTemplate.replace("{index}", index).replace("{max}", totalItems.toString()))
           }
         }
       }
-      Div(attrs = { attr("class", ClassNames.paginationLinksCol) }) {
-        Ul(attrs = { attr("class", ClassNames.pagination) }) {
+      KDiv(modifier = ClassNames.paginationLinksCol.modifier()) {
+        KUl(modifier = ClassNames.pagination.modifier()) {
           PaginationItem(
             page = pagination.currentPage - 1,
             label = pagination.texts.previousPageLabel,
@@ -219,17 +221,15 @@ private fun paginationTokens(pagination: TablerPaginationData): List<PaginationT
 
 @Composable
 private fun PaginationEllipsis(label: String) {
-  Li(attrs = { attr("class", ClassNames.pageItemDisabled) }) {
-    A(attrs = {
-      attr("class", ClassNames.pageLink)
-      attr("href", "#")
-      attr("tabindex", "-1")
-      attr("aria-disabled", "true")
-      onClick {
-        it.preventDefault()
-      }
-    }) {
-      Text(label)
+  KLi(modifier = ClassNames.pageItemDisabled.modifier()) {
+    KAnchor(
+      href = "#",
+      modifier = ClassNames.pageLink.modifier()
+        .then(Modifier.attr("tabindex", "-1"))
+        .then(Modifier.attr("aria-disabled", "true")),
+      onClickAction = {},
+    ) {
+      KText(label)
     }
   }
 }
@@ -242,31 +242,21 @@ private fun PaginationItem(
   active: Boolean = false,
   onPageChange: ((Int) -> Unit)?,
 ) {
-  Li(attrs = {
-    attr("class", when {
-      disabled -> ClassNames.pageItemDisabled
-      active -> ClassNames.pageItemActive
-      else -> ClassNames.pageItem
-    })
-  }) {
-    A(attrs = {
-      attr("class", ClassNames.pageLink)
-      attr("href", "#")
-      if (disabled) {
-        attr("tabindex", "-1")
-        attr("aria-disabled", "true")
-        onClick {
-          it.preventDefault()
-        }
-      } else {
-        attr("data-page", page.toString())
-        onClick {
-          it.preventDefault()
-          onPageChange?.invoke(page)
-        }
-      }
-    }) {
-      Text(label)
+  KLi(
+    modifier = when {
+      disabled -> ClassNames.pageItemDisabled.modifier()
+      active -> ClassNames.pageItemActive.modifier()
+      else -> ClassNames.pageItem.modifier()
+    },
+  ) {
+    KAnchor(
+      href = "#",
+      modifier = ClassNames.pageLink.modifier()
+        .then(if (disabled) Modifier.attr("tabindex", "-1") else Modifier)
+        .then(if (disabled) Modifier.attr("aria-disabled", "true") else Modifier.attr("data-page", page.toString())),
+      onClickAction = if (disabled) ({}) else ({ onPageChange?.invoke(page) }),
+    ) {
+      KText(label)
     }
   }
 }

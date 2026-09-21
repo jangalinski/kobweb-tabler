@@ -5,6 +5,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.dom.Div
+import org.w3c.dom.HTMLDivElement
 
 /**
  * Internal DOM adapter for a div with class names.
@@ -29,4 +30,17 @@ fun KDiv(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
   Div(attrs = modifier.toAttrs()) {
     content()
   }
+}
+
+/**
+ * Internal DOM adapter for a div whose trusted HTML content is supplied as markup.
+ *
+ * @param html trusted HTML markup assigned to the div's `innerHTML` property.
+ * @param modifier attributes, classes, and styles applied to the div.
+ */
+@Composable
+fun KHtmlDiv(html: String, modifier: Modifier = Modifier) {
+  Div(attrs = modifier.toAttrs {
+    prop({ element: HTMLDivElement, markup: String -> element.innerHTML = markup }, html)
+  })
 }

@@ -1,16 +1,14 @@
 package com.github.jangalinski.kobweb.tabler.link
 
 import androidx.compose.runtime.Composable
-import org.jetbrains.compose.web.dom.A
-import org.jetbrains.compose.web.dom.Text
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KAnchor
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 
 @Composable
 fun TablerLink(href:String) {
 
-  A(attrs = {
-    attr("href", href)
-  }) {
-    Text(href)
+  KAnchor(href = href) {
+    KText(href)
   }
 
 }

@@ -10,5 +10,5 @@ import org.jetbrains.compose.web.dom.Text
  */
 @Composable
 fun KText(value: String) {
-    Text(value)
+  Text(value)
 }

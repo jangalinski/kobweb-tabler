@@ -4,9 +4,7 @@ import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.css.BaseCss.PRINT_NONE
 import com.github.jangalinski.kobweb.tabler._foundation.css.cssClass
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.varabyte.kobweb.compose.foundation.layout.RowScope
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.dom.Footer
 

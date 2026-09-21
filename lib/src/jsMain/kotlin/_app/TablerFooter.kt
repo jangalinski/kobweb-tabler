@@ -2,11 +2,9 @@ package com.github.jangalinski.kobweb.tabler._app
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.compose.ContainerXL
-import com.varabyte.kobweb.compose.foundation.layout.RowScope
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KFooter
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
-import com.varabyte.kobweb.compose.ui.toAttrs
-import org.jetbrains.compose.web.dom.Footer
 
 /**
  * Renders the footer block of a Tabler page shell.
@@ -25,9 +23,5 @@ fun TablerFooter(
   modifier: Modifier = Modifier,
   content: @Composable () -> Unit,
 ) {
-  Footer(attrs = modifier.then(Modifier.classNames("footer", "footer-transparent", "d-print-none")).toAttrs()) {
-    ContainerXL {
-      content()
-    }
-  }
+  KFooter(modifier, content)
 }

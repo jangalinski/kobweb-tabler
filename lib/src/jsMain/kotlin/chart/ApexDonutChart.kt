@@ -3,16 +3,16 @@ package com.github.jangalinski.kobweb.tabler.chart
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
+import com.github.jangalinski.kobweb.tabler._foundation.compose.documentElementById
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
-import kotlinx.browser.document
-import org.jetbrains.compose.web.dom.Div
 import kotlin.js.json
 import kotlin.random.Random
-import org.w3c.dom.Element
 
-private external class ApexCharts(element: Element, options: dynamic) {
+private external class ApexCharts(element: dynamic, options: dynamic) {
   fun render(): dynamic
 }
 
@@ -40,16 +40,15 @@ fun ApexDonutChart(
   }
 
   Box(modifier = modifier.classNames("w-100")) {
-    Div(
-      attrs = {
-        attr("id", chartId)
-        attr("style", "width: 100%; height: ${heightPx}px;")
-      },
-    )
+    KDiv(
+      modifier = Modifier
+        .attr("id", chartId)
+        .attr("style", "width: 100%; height: ${heightPx}px;"),
+    ) {}
   }
 
   LaunchedEffect(chartId, slices) {
-    val element = document.getElementById(chartId) ?: return@LaunchedEffect
+    val element = documentElementById(chartId) ?: return@LaunchedEffect
     val labels = slices.map { it.label }
     val series = slices.map { it.value }
     val options = json(

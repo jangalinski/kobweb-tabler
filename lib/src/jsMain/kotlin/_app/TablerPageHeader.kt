@@ -3,14 +3,13 @@ package com.github.jangalinski.kobweb.tabler._app
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.breadcrumb.TablerBreadcrumbs
 import com.github.jangalinski.kobweb.tabler.breadcrumb.BreadcrumbItem
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KH1
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KP
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.toAttrs
-import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.H1
-import org.jetbrains.compose.web.dom.P
-import org.jetbrains.compose.web.dom.Text
 
 /**
  * Renders the main Tabler page header block.
@@ -35,29 +34,26 @@ fun TablerPageHeader(
   breadcrumbs: List<BreadcrumbItem> = emptyList(),
   modifier: Modifier = Modifier,
 ) {
-  Div(
-    attrs = modifier.then(ClassNames.pageHeader.modifier()).toAttrs(),
-  ) {
-    Div(attrs = ClassNames.containerXl.modifier().toAttrs()) {
+  KDiv(modifier = modifier.then(ClassNames.pageHeader.modifier())) {
+    KDiv(modifier = ClassNames.containerXl.modifier()) {
       if (breadcrumbs.isNotEmpty()) {
         TablerBreadcrumbs(
           items = breadcrumbs,
           modifier = Modifier.then(ClassNames.mb2.modifier()),
         )
       }
-      Div(
-        attrs = ClassNames.row.modifier()
+      KDiv(
+        modifier = ClassNames.row.modifier()
           .then(ClassNames.g2.modifier())
-          .then(ClassNames.alignItemsCenter.modifier())
-          .toAttrs(),
+          .then(ClassNames.alignItemsCenter.modifier()),
       ) {
-        Div(attrs = ClassNames.pageHeaderCol.modifier().toAttrs()) {
-          H1(attrs = { attr("class", ClassNames.pageTitle) }) {
-            Text(title)
+        KDiv(modifier = ClassNames.pageHeaderCol.modifier()) {
+          KH1(modifier = ClassNames.pageTitle.modifier()) {
+            KText(title)
           }
           subtitle?.takeIf { it.isNotBlank() }?.let {
-            P(attrs = { attr("class", ClassNames.textSecondarySubheader) }) {
-              Text(it)
+            KP(modifier = ClassNames.textSecondarySubheader.modifier()) {
+              KText(it)
             }
           }
         }

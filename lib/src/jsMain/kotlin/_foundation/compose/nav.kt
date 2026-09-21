@@ -14,7 +14,7 @@ import org.jetbrains.compose.web.dom.Nav
  */
 @Composable
 fun KNav(label: String, modifier: Modifier = Modifier.Companion, content: @Composable () -> Unit) {
-    Nav(attrs = modifier.toAttrs { attr("aria-label", label) }) {
-        content()
-    }
+  Nav(attrs = modifier.toAttrs { attr("aria-label", label) }) {
+    content()
+  }
 }
