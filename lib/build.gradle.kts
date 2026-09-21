@@ -39,7 +39,7 @@ dependencies {
 }
 
 tasks.named("check") {
-  dependsOn(tasks.withType<Detekt>().matching { it.name.endsWith("SourceSet") })
+  dependsOn(tasks.named<Detekt>("detektJsMainSourceSet"))
 }
 
 base {
