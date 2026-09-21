@@ -47,7 +47,7 @@ class TablerIconsPluginTest {
 
     assertThat(source).isEqualTo(
       """
-        package com.github.jangalinski.kobweb.tabler.elements
+        package com.github.jangalinski.kobweb.tabler.icon
 
         import com.varabyte.kobweb.compose.ui.Modifier
         import com.varabyte.kobweb.compose.ui.modifiers.classNames

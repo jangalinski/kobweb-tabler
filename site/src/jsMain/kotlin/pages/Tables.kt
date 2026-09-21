@@ -1,7 +1,7 @@
 package com.github.jangalinski.kobweb.tabler.site.pages
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.components.TablerCards
+import com.github.jangalinski.kobweb.tabler.card.TablerCards
 import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
 import com.github.jangalinski.kobweb.tabler.site.siteLayoutData
 import com.github.jangalinski.kobweb.tabler.site.sitePageMeta

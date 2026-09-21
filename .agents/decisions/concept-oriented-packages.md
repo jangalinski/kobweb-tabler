@@ -33,17 +33,17 @@ badge/   badge API, badge data and badge CSS
 
 Two narrowly scoped technical packages support every concept:
 
-- `_compose` is the **internal DOM adapter**. It wraps Compose HTML and
+- `_foundation.compose` is the **internal DOM adapter**. It wraps Compose HTML and
   Kobweb modifier/attribute mechanics in helpers such as `KDiv` and `KNav`.
   It contains no Tabler component model or component-specific CSS catalogue.
-- `foundation` is the **semantic base**. It contains the small cross-concept
+- `_foundation` is the **semantic base**. It contains the small cross-concept
   vocabulary (`Component`, `Style`, `Behavior`, `Size`) and only other
   genuinely cross-concept abstractions. It does not contain DOM helpers or a
   catch-all CSS registry.
 
 There is no general `util` package. A helper belongs in its owning concept; a
-helper that only adapts Compose/Kobweb DOM belongs in `_compose`; a stable,
-cross-concept semantic primitive belongs in `foundation`.
+helper that only adapts Compose/Kobweb DOM belongs in `_foundation.compose`; a stable,
+cross-concept semantic primitive belongs in `_foundation`.
 
 ## Consequences
 
@@ -55,9 +55,8 @@ cross-concept semantic primitive belongs in `foundation`.
 - Existing technical packages are legacy migration sources. Do not move or
   delete their contents merely to satisfy the target structure; migrate a
   concept only when changing that concept and preserve public compatibility.
-- `foundation.Component` is the common rendering contract; component packages
+- `_foundation.Component` is the common rendering contract; component packages
   define their own concrete types such as `Icon` and `Badge`.
 - `@Composable` slots are deliberate escape hatches, not the default model for
   known Tabler roles. Prefer typed concept properties such as `Icon?` and
   `Badge?`.
-

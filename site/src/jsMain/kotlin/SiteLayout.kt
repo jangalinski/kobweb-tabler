@@ -1,7 +1,7 @@
 package com.github.jangalinski.kobweb.tabler.site
 
-import com.github.jangalinski.kobweb.tabler.models.TablerLayoutData
-import com.github.jangalinski.kobweb.tabler.models.TablerPageMeta
+import com.github.jangalinski.kobweb.tabler._app.TablerLayoutData
+import com.github.jangalinski.kobweb.tabler._app.TablerPageMeta
 
 /** Supplies route-specific layout state to the shared Tabler layout. */
 fun siteLayoutData(activeRoute: String): TablerLayoutData =

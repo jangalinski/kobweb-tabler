@@ -18,7 +18,7 @@ inserted into a page. See the [Tabler Icon documentation](https://docs.tabler.io
 
 ## Decision
 
-The `foundation` package defines the semantic marker vocabulary used by the
+The `_foundation` package defines the semantic marker vocabulary used by the
 library:
 
 - `Component` identifies a renderable Tabler UI concept.

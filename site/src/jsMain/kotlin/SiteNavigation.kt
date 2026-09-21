@@ -1,10 +1,10 @@
 package com.github.jangalinski.kobweb.tabler.site
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.LocalTablerAppState
-import com.github.jangalinski.kobweb.tabler.TablerTheme
+import com.github.jangalinski.kobweb.tabler._app.LocalTablerAppState
+import com.github.jangalinski.kobweb.tabler._app.TablerTheme
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
-import com.github.jangalinski.kobweb.tabler.models.url
+import com.github.jangalinski.kobweb.tabler._foundation.url
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarData
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarItem
 import org.jetbrains.compose.web.dom.A
@@ -95,7 +95,7 @@ fun SiteThemeToggle() {
           }
         },
       ) {
-        if (darkMode) TablerIcon.TI_SUN.compose() else TablerIcon.TI_MOON.compose()
+        if (darkMode) TablerIcon.TI_SUN() else TablerIcon.TI_MOON()
       }
     }
   }

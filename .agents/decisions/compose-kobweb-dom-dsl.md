@@ -13,19 +13,19 @@ DOM-specific implementation choices across the public component code.
 
 ## Decision
 
-The `_compose` package is the internal boundary for Compose/Kobweb DOM code.
+The `_foundation.compose` package is the internal boundary for Compose/Kobweb DOM code.
 It provides the library's small DOM DSL, including helpers such as `KDiv`,
 `KSpan`, `KHeader`, and `KFooter`, and accepts Kobweb `Modifier` instances
 directly.
 
-Composable code in this library MUST use the `_compose` DSL whenever it
+Composable code in this library MUST use the `_foundation.compose` DSL whenever it
 covers the required DOM element. New reusable DOM helpers belong in
-`_compose`; they should encapsulate direct use of Compose HTML primitives,
+`_foundation.compose`; they should encapsulate direct use of Compose HTML primitives,
 `toAttrs`, and related Kobweb implementation details.
 
-Direct Compose HTML primitives remain allowed only inside `_compose` or where
+Direct Compose HTML primitives remain allowed only inside `_foundation.compose` or where
 an exact element or attribute cannot yet be expressed by the DSL. In that
-case, add the smallest appropriate `_compose` helper before repeating the
+case, add the smallest appropriate `_foundation.compose` helper before repeating the
 primitive in more than one place.
 
 The DSL is internal implementation infrastructure. Public component APIs

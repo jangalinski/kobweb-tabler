@@ -2,7 +2,7 @@ package com.github.jangalinski.kobweb.tabler.site
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
-import com.github.jangalinski.kobweb.tabler.styles.ClassNames
+import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.varabyte.kobweb.compose.foundation.layout.RowScope
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Div

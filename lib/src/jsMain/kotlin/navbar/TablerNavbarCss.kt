@@ -1,7 +1,7 @@
 package com.github.jangalinski.kobweb.tabler.navbar
 
-import com.github.jangalinski.kobweb.tabler.styles.CssClass
-import com.github.jangalinski.kobweb.tabler.styles.LazyClassNameModifier
+import com.github.jangalinski.kobweb.tabler._foundation.css.CssClass
+import com.github.jangalinski.kobweb.tabler._foundation.css.LazyClassNameModifier
 import com.varabyte.kobweb.compose.ui.Modifier
 
 enum class TablerNavbarCss(val value: String, delegate: LazyClassNameModifier = LazyClassNameModifier(value)) : CssClass by delegate {

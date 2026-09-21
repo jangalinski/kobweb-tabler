@@ -3,6 +3,11 @@ package com.github.jangalinski.kobweb.tabler
 import assertk.assertThat
 import assertk.assertions.isEqualTo
 import assertk.assertions.isNull
+import com.github.jangalinski.kobweb.tabler._app.LocalTablerAppState
+import com.github.jangalinski.kobweb.tabler._app.ProvideTablerAppState
+import com.github.jangalinski.kobweb.tabler._app.TablerAppState
+import com.github.jangalinski.kobweb.tabler._app.TablerSettings
+import com.github.jangalinski.kobweb.tabler._app.TablerTheme
 import kotlinx.browser.document
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest

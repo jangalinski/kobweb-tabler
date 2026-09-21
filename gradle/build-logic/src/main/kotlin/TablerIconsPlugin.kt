@@ -126,7 +126,7 @@ internal fun parseTablerIconNames(css: String): List<String> =
     .toList()
 
 internal fun generateTablerIconSource(names: List<String>, version: String): String = buildString {
-  appendLine("package com.github.jangalinski.kobweb.tabler.elements")
+  appendLine("package com.github.jangalinski.kobweb.tabler.icon")
   appendLine()
   appendLine("import com.varabyte.kobweb.compose.ui.Modifier")
   appendLine("import com.varabyte.kobweb.compose.ui.modifiers.classNames")

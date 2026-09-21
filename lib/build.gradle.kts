@@ -73,7 +73,7 @@ dokka {
   }
   dokkaSourceSets.configureEach {
     includes.from(
-      fileTree("dokka") {
+      fileTree("src/jsMain/kotlin") {
         include("**/*.md")
       }
     )

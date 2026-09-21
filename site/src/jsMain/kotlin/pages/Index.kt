@@ -1,19 +1,18 @@
 package com.github.jangalinski.kobweb.tabler.site.pages
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.components.TablerCards
-import com.github.jangalinski.kobweb.tabler._compose.KDiv
-import com.github.jangalinski.kobweb.tabler.elements.TablerDivider
+import com.github.jangalinski.kobweb.tabler.card.TablerCards
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
+import com.github.jangalinski.kobweb.tabler.divider.TablerDivider
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon.TI_BRAND_GITHUB
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon.TI_FOOTSTEPS
-import com.github.jangalinski.kobweb.tabler.elements.TablerLink
-import com.github.jangalinski.kobweb.tabler.icon.invoke
+import com.github.jangalinski.kobweb.tabler.link.TablerLink
 import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
 import com.github.jangalinski.kobweb.tabler.site.siteLayoutData
 import com.github.jangalinski.kobweb.tabler.site.sitePageMeta
-import com.github.jangalinski.kobweb.tabler.styles.GridWidth
-import com.github.jangalinski.kobweb.tabler.styles.GridWidth.HALF
-import com.github.jangalinski.kobweb.tabler.styles.GridWidth.QUARTER
+import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
+import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.HALF
+import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.QUARTER
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.classNames

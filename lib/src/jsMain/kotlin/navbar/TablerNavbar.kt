@@ -1,21 +1,21 @@
 package com.github.jangalinski.kobweb.tabler.navbar
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._compose.BaseCss.CONTAINER_XL
-import com.github.jangalinski.kobweb.tabler._compose.BaseCss.PRINT_NONE
-import com.github.jangalinski.kobweb.tabler._compose.KAnchor
-import com.github.jangalinski.kobweb.tabler._compose.KButton
-import com.github.jangalinski.kobweb.tabler._compose.KDiv
-import com.github.jangalinski.kobweb.tabler._compose.KHeader
-import com.github.jangalinski.kobweb.tabler._compose.KLi
-import com.github.jangalinski.kobweb.tabler._compose.KNav
-import com.github.jangalinski.kobweb.tabler._compose.KSpan
-import com.github.jangalinski.kobweb.tabler._compose.KText
-import com.github.jangalinski.kobweb.tabler._compose.KUl
-import com.github.jangalinski.kobweb.tabler._compose.plus
-import com.github.jangalinski.kobweb.tabler.models.ExternalUrl
-import com.github.jangalinski.kobweb.tabler.models.PublicUrl
-import com.github.jangalinski.kobweb.tabler.models.Url
+import com.github.jangalinski.kobweb.tabler._foundation.css.BaseCss.CONTAINER_XL
+import com.github.jangalinski.kobweb.tabler._foundation.css.BaseCss.PRINT_NONE
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KAnchor
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KButton
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KHeader
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KLi
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KNav
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KUl
+import com.github.jangalinski.kobweb.tabler._foundation.css.plus
+import com.github.jangalinski.kobweb.tabler._foundation.ExternalUrl
+import com.github.jangalinski.kobweb.tabler._foundation.PublicUrl
+import com.github.jangalinski.kobweb.tabler._foundation.Url
 import com.github.jangalinski.kobweb.tabler.navbar.TablerBrand.Brand
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_EXPAND_MD
@@ -199,7 +199,7 @@ data object TablerNavbar {
 
   @Composable
   private fun renderItemContent(item: TablerNavbarItem) {
-    item.icon?.compose(Modifier.classNames("nav-link-icon"))
+    item.icon?.invoke(Modifier.classNames("nav-link-icon"))
     KDiv(modifier = Modifier.classNames("d-flex", "flex-column")) {
       KSpan(modifier = Modifier.classNames("nav-link-title"), text = item.title)
       item.caption?.let { caption ->

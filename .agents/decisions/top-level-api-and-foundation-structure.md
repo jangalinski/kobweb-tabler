@@ -28,7 +28,7 @@ feature, configuration, CSS, or DOM API belongs directly in the package root.
 
 Frequently used consumer entry points may be deliberately duplicated as
 curated nested facades on `KobwebTabler`, for example
-`KobwebTabler.Shell` and `KobwebTabler.Theme`. Those facades provide
+`KobwebTabler.App`. Those facades provide
 convenience factories, constants, and composition entry points while the
 authoritative types remain in their owning concept packages. A facade must
 delegate to the concept API; it must not create a second model hierarchy.
@@ -47,7 +47,7 @@ com.github.jangalinski.kobweb.tabler
 │   ├── compose/               # internal KDiv, KNav, attributes and modifiers
 │   ├── css/                   # CSS-class and modifier infrastructure
 │   └── bootstrap/             # genuine Bootstrap-level primitives only
-├── shell/                     # Tabler page shell and its configuration
+├── _app/                      # application integration, state, theme, and page shell
 ├── navbar/
 ├── card/
 ├── badge/
@@ -60,11 +60,14 @@ com.github.jangalinski.kobweb.tabler
 not a normal consumer-facing Tabler design element. It contains only concepts
 without a more specific owner. There is no `_common` or `util` package.
 
-The page shell is a concrete Tabler concept, so `TablerSiteConfig`,
-`TablerShellConfig`, page-shell layout code, and associated route-shell data
-belong in `shell`, not in `_foundation`. Their current names remain available
-through compatibility forwarding or deprecation during migration; this
-decision does not itself authorize a move or removal.
+`_app` is the public application-integration boundary. Its prefix makes clear
+that it is application infrastructure rather than a Tabler design component.
+It owns
+`TablerSiteConfig`, `TablerShellConfig`, application state, settings, theme,
+page-shell layout code, and associated route data. These types are not peer
+Tabler widgets such as `avatar` or `table`, and they do not belong in
+`_foundation`, because they are public, Tabler-specific, and intentionally
+opinionated about Kobweb application composition.
 
 ## Placement Rules
 

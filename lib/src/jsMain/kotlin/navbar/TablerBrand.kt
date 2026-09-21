@@ -1,15 +1,15 @@
 package com.github.jangalinski.kobweb.tabler.navbar
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._compose.Component
-import com.github.jangalinski.kobweb.tabler._compose.KDiv
-import com.github.jangalinski.kobweb.tabler._compose.plus
-import com.github.jangalinski.kobweb.tabler.models.HOME
-import com.github.jangalinski.kobweb.tabler.models.Url
+import com.github.jangalinski.kobweb.tabler._foundation.Component
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
+import com.github.jangalinski.kobweb.tabler._foundation.css.plus
+import com.github.jangalinski.kobweb.tabler._foundation.HOME
+import com.github.jangalinski.kobweb.tabler._foundation.Url
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_BRAND
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_BRAND_AUTODARK
-import com.github.jangalinski.kobweb.tabler.styles.PE_0
-import com.github.jangalinski.kobweb.tabler.styles.PE_MD_3
+import com.github.jangalinski.kobweb.tabler._foundation.css.PE_0
+import com.github.jangalinski.kobweb.tabler._foundation.css.PE_MD_3
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.navigation.BasePath
 import org.jetbrains.compose.web.dom.A
@@ -26,7 +26,7 @@ data object TablerBrand {
     /** A compact logo accompanied by a textual caption. */
     data class Logo(override val image: Url, val caption: String = "Tabler") : Brand {
       @Composable
-      override fun compose(modifier: Modifier) {
+      override fun invoke(modifier: Modifier) {
         A(href = BasePath.prependTo(href.value), attrs = {
           attr("class", "text-reset text-decoration-none")
           attr("aria-label", caption)
@@ -43,7 +43,7 @@ data object TablerBrand {
     /** A wordmark image without additional text. */
     data class Wordmark(override val image: Url) : Brand {
       @Composable
-      override fun compose(modifier: Modifier) {
+      override fun invoke(modifier: Modifier) {
         A(href = BasePath.prependTo(href.value), attrs = {
           attr("class", "text-reset text-decoration-none")
           attr("aria-label", "Home")
@@ -60,7 +60,7 @@ data object TablerBrand {
   @Composable
   operator fun invoke(brand: Brand) {
     KDiv(NAVBAR_BRAND + NAVBAR_BRAND_AUTODARK + PE_0 + PE_MD_3) {
-      brand.compose()
+      brand()
     }
   }
 }

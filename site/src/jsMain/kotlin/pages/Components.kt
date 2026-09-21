@@ -1,12 +1,12 @@
 package com.github.jangalinski.kobweb.tabler.site.pages
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.components.TablerCards
+import com.github.jangalinski.kobweb.tabler.card.TablerCards
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
 import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
 import com.github.jangalinski.kobweb.tabler.site.siteLayoutData
 import com.github.jangalinski.kobweb.tabler.site.sitePageMeta
-import com.github.jangalinski.kobweb.tabler.styles.GridWidth.HALF
+import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.HALF
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
@@ -30,7 +30,7 @@ fun Components() {
     card(title = "Statistics ..... 1", width = HALF) {
       P { Text("Stat cards are useful for compact values and summaries.") }
 
-      TablerIcon.entries.forEach { icon -> icon.compose() }
+      TablerIcon.entries.forEach { icon -> icon() }
     }
   }
 }

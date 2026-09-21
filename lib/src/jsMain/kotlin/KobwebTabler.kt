@@ -1,7 +1,12 @@
 package com.github.jangalinski.kobweb.tabler
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._compose.TablerLayout
+import com.github.jangalinski.kobweb.tabler._app.TablerLayout
+import com.github.jangalinski.kobweb.tabler._app.TablerSiteConfig
+import com.github.jangalinski.kobweb.tabler._app.ProvideTablerAppState
+import com.github.jangalinski.kobweb.tabler._app.ProvideTablerSiteConfig
+import com.github.jangalinski.kobweb.tabler._app.TablerSettings
+import com.github.jangalinski.kobweb.tabler._app.rememberTablerAppState
 import com.varabyte.kobweb.core.KobwebApp
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.layout.Layout

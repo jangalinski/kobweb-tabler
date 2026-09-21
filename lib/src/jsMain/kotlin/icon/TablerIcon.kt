@@ -1,8 +1,8 @@
 package com.github.jangalinski.kobweb.tabler.icon
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.styles.CssClass
-import com.github.jangalinski.kobweb.tabler.styles.LazyClassNameModifier
+import com.github.jangalinski.kobweb.tabler._foundation.css.CssClass
+import com.github.jangalinski.kobweb.tabler._foundation.css.LazyClassNameModifier
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
@@ -5210,7 +5210,7 @@ enum class TablerIcon(
   ;
 
   @Composable
-  override fun compose(modifier: Modifier) {
-    icon(this).compose(modifier)
+  override fun invoke(modifier: Modifier) {
+    icon(this)(modifier)
   }
 }

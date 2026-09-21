@@ -1,7 +1,7 @@
 package com.github.jangalinski.kobweb.tabler.navbar
 
 import com.github.jangalinski.kobweb.tabler.icon.Icon
-import com.github.jangalinski.kobweb.tabler.models.Url
+import com.github.jangalinski.kobweb.tabler._foundation.Url
 
 /** Immutable configuration for the primary Tabler navbar. */
 data class TablerNavbarData(
