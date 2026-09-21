@@ -1,0 +1,8 @@
+config:
+  validation: true
+  warningsAsErrors: false
+
+kobweb-tabler:
+  HelloWorldRule:
+    active: true
+    severity: warning

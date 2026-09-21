@@ -16,6 +16,8 @@ pluginManagement {
   includeBuild("gradle/build-logic")
 }
 
+includeBuild("gradle/detekt-rules")
+
 rootProject.name = "kobweb-tabler"
 
 include(":lib")

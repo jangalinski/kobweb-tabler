@@ -6,6 +6,7 @@ jetbrains-compose = "1.12.0"
 assertk = "0.28.1"
 kotlin = "2.4.20"
 dokka = "2.2.0"
+detekt = "2.0.0-alpha.6"
 
 cdn-tabler-core = "1.5.1"
 cdn-tabler-icons = "3.46.0"
@@ -26,9 +27,12 @@ kobwebx-serialization-kotlinx = { module = "com.varabyte.kobwebx:kobwebx-seriali
 kobweb-tabler = { module = "com.github.jangalinski.kobweb-tabler:kobweb-tabler", version.ref = "kobweb-tabler" }
 
 test-assertk = { module = "com.willowtreeapps.assertk:assertk", version.ref = "assertk" }
+detekt-api = { module = "dev.detekt:detekt-api", version.ref = "detekt" }
+detekt-test = { module = "dev.detekt:detekt-test", version.ref = "detekt" }
 
 [plugins]
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+detekt = { id = "dev.detekt", version.ref = "detekt" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 jetbrains-compose = { id = "org.jetbrains.compose", version.ref = "jetbrains-compose" }
 ktx-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
@@ -37,3 +41,4 @@ kobweb-library = { id = "com.varabyte.kobweb.library", version.ref = "kobweb" }
 kobweb-worker = { id = "com.varabyte.kobweb.worker", version.ref = "kobweb" }
 kobwebx-markdown = { id = "com.varabyte.kobwebx.markdown", version.ref = "kobweb" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

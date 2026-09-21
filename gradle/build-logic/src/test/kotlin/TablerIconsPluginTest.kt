@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.buildlogic
+package com.github.jangalinski.kobweb.tabler.gradle.buildlogic
 
 import assertk.assertThat
 import assertk.assertions.containsExactlyInAnyOrder

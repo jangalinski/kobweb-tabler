@@ -85,3 +85,14 @@ generate-dokka-html:
 [group("project")]
 generate-tabler-icon:
     @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateTablerIcon
+
+
+# build project
+[group("gradle")]
+build:
+  ./gradlew :lib:build :site:build
+
+# evaluate detekt rules
+[group("gradle")]
+detekt strict="false":
+  ./gradlew :lib:check -PtablerDetekt.strict={{strict}} --rerun-tasks

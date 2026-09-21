@@ -1,17 +1,45 @@
 import com.varabyte.kobweb.gradle.core.util.importCss
 import com.varabyte.kobweb.gradle.library.util.configAsKobwebLibrary
+import dev.detekt.gradle.Detekt
+import dev.detekt.gradle.extensions.DetektExtension
+import dev.detekt.gradle.extensions.FailOnSeverity
 import kotlinx.html.script
 import kotlinx.html.style
 import org.gradle.api.publish.maven.MavenPublication
 
 val KOBWEB_TABLER = "kobweb-tabler"
+val strictDetekt = providers.gradleProperty("tablerDetekt.strict")
+  .map { value ->
+    value.toBooleanStrictOrNull()
+      ?: error("tablerDetekt.strict must be true or false, but was '$value'.")
+  }
+  .getOrElse(false)
 
 plugins {
   `maven-publish`
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose.compiler)
+  alias(libs.plugins.detekt)
   alias(libs.plugins.dokka)
   alias(libs.plugins.kobweb.library)
+}
+
+extensions.configure<DetektExtension> {
+  config.setFrom(rootProject.file("gradle/detekt-rules/config.yml"))
+  disableDefaultRuleSets = true
+  failOnSeverity = if (strictDetekt) {
+    FailOnSeverity.Warning
+  } else {
+    FailOnSeverity.Error
+  }
+}
+
+dependencies {
+  add("detektPlugins", "com.github.jangalinski.kobweb.tabler.gradle:detekt-rules")
+}
+
+tasks.named("check") {
+  dependsOn(tasks.withType<Detekt>().matching { it.name.endsWith("SourceSet") })
 }
 
 base {
