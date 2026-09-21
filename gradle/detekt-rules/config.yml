@@ -3,6 +3,6 @@ config:
   warningsAsErrors: false
 
 kobweb-tabler:
-  HelloWorldRule:
+  FoundationComposeOnlyRule:
     active: true
     severity: warning

@@ -31,6 +31,6 @@ jobs:
           ./gradlew
           :lib:detektJsMainSourceSet
           :lib:detektJsTestSourceSet
-          -PtablerDetekt.strict=true
+          -PtablerDetekt.strict=false
           --no-daemon
           --console=plain

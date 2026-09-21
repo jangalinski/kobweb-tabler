@@ -95,4 +95,4 @@ build:
 # evaluate detekt rules
 [group("gradle")]
 detekt strict="false":
-  ./gradlew :lib:check -PtablerDetekt.strict={{strict}} --rerun-tasks
+  ./gradlew --no-daemon --no-watch-fs --console=plain :lib:check -PtablerDetekt.strict={{strict}} --rerun-tasks

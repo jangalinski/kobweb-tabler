@@ -18,6 +18,8 @@ class KobwebTablerRuleSetProvider : RuleSetProvider {
 
   override fun instance(): RuleSet = RuleSet(
     ruleSetId,
-    mapOf(RuleName("HelloWorldRule") to { config: Config -> HelloWorldRule(config) }),
+    mapOf(
+      RuleName("FoundationComposeOnlyRule") to { config: Config -> FoundationComposeOnlyRule(config) },
+    ),
   )
 }
