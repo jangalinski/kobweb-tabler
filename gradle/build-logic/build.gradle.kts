@@ -22,6 +22,10 @@ gradlePlugin {
       id = "com.github.jangalinski.kobweb.tabler.buildlogic.tabler-icons"
       implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.TablerIconsPlugin"
     }
+    create("tablerCssDocumentation") {
+      id = "com.github.jangalinski.kobweb.tabler.buildlogic.tabler-css-documentation"
+      implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.TablerCssDocumentationPlugin"
+    }
   }
 }
 

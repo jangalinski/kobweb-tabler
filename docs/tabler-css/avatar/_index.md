@@ -1,0 +1,27 @@
+# avatar
+
+23 generated entries grouped by category.
+
+- [`avatar`](avatar.md)
+- [`avatar-2xl`](avatar-2xl.md)
+- [`avatar-brand`](avatar-brand.md)
+- [`avatar-cover`](avatar-cover.md)
+- [`avatar-lg`](avatar-lg.md)
+- [`avatar-list`](avatar-list.md)
+- [`avatar-list-2xl`](avatar-list-2xl.md)
+- [`avatar-list-lg`](avatar-list-lg.md)
+- [`avatar-list-md`](avatar-list-md.md)
+- [`avatar-list-sm`](avatar-list-sm.md)
+- [`avatar-list-stacked`](avatar-list-stacked.md)
+- [`avatar-list-xl`](avatar-list-xl.md)
+- [`avatar-list-xs`](avatar-list-xs.md)
+- [`avatar-list-xxs`](avatar-list-xxs.md)
+- [`avatar-md`](avatar-md.md)
+- [`avatar-rounded`](avatar-rounded.md)
+- [`avatar-sm`](avatar-sm.md)
+- [`avatar-square`](avatar-square.md)
+- [`avatar-upload`](avatar-upload.md)
+- [`avatar-upload-text`](avatar-upload-text.md)
+- [`avatar-xl`](avatar-xl.md)
+- [`avatar-xs`](avatar-xs.md)
+- [`avatar-xxs`](avatar-xxs.md)

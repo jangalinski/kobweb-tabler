@@ -1,0 +1,26 @@
+# tabler/focus
+
+22 generated entries grouped by category.
+
+- [`focus-ring`](focus-ring.md)
+- [`focus-ring-azure`](focus-ring-azure.md)
+- [`focus-ring-blue`](focus-ring-blue.md)
+- [`focus-ring-cyan`](focus-ring-cyan.md)
+- [`focus-ring-danger`](focus-ring-danger.md)
+- [`focus-ring-dark`](focus-ring-dark.md)
+- [`focus-ring-green`](focus-ring-green.md)
+- [`focus-ring-indigo`](focus-ring-indigo.md)
+- [`focus-ring-info`](focus-ring-info.md)
+- [`focus-ring-light`](focus-ring-light.md)
+- [`focus-ring-lime`](focus-ring-lime.md)
+- [`focus-ring-muted`](focus-ring-muted.md)
+- [`focus-ring-orange`](focus-ring-orange.md)
+- [`focus-ring-pink`](focus-ring-pink.md)
+- [`focus-ring-primary`](focus-ring-primary.md)
+- [`focus-ring-purple`](focus-ring-purple.md)
+- [`focus-ring-red`](focus-ring-red.md)
+- [`focus-ring-secondary`](focus-ring-secondary.md)
+- [`focus-ring-success`](focus-ring-success.md)
+- [`focus-ring-teal`](focus-ring-teal.md)
+- [`focus-ring-warning`](focus-ring-warning.md)
+- [`focus-ring-yellow`](focus-ring-yellow.md)

@@ -1,0 +1,5 @@
+# Reviewed Tabler CSS decisions. Fields are tab-separated:
+# class	category	owner	status	description
+#
+# Leave a field empty to retain the generated value. The generator reads this file
+# and does not overwrite it, so it is the durable place for documentation review.
