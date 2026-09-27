@@ -3,7 +3,7 @@
 package com.github.jangalinski.kobweb.tabler.__trash.legacy_navigation
 
 import com.github.jangalinski.kobweb.tabler._foundation.TablerDsl
-import com.github.jangalinski.kobweb.tabler.image.Image
+import com.github.jangalinski.kobweb.tabler._foundation.Image
 
 /**
  * Hierarchical navigation model for Tabler menus.

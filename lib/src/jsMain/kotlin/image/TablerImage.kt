@@ -2,7 +2,7 @@ package com.github.jangalinski.kobweb.tabler.image
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.KobwebTabler.publicResourcePath
-import com.github.jangalinski.kobweb.tabler.image.Image
+import com.github.jangalinski.kobweb.tabler._foundation.Image
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KImg
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -26,8 +26,8 @@ internal fun renderImage(image: Image?, defaultAlt: String, className: String) {
   when (image) {
     null -> Unit
     is Image.None -> Unit
-    is Image.ImageResource -> KImg(
-      src = publicResourcePath(image.resource),
+    is Image.Resource -> KImg(
+      src = image.url.get(),
       alt = image.altText ?: defaultAlt,
       modifier = imageModifier(className, size),
     )

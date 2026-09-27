@@ -1,3 +1,15 @@
+pluginManagement {
+  repositories {
+    mavenLocal {
+      content {
+        includeGroupByRegex("io\\.toolisticon.*")
+      }
+    }
+    gradlePluginPortal()
+    mavenCentral()
+  }
+}
+
 dependencyResolutionManagement {
   repositories {
     mavenLocal {

@@ -12,10 +12,10 @@ import com.varabyte.kobweb.core.AppGlobals
 import com.varabyte.kobweb.navigation.Anchor
 import com.varabyte.kobweb.navigation.BasePath
 import com.varabyte.kobweb.navigation.remove
-import com.github.jangalinski.kobweb.tabler.image.Image
 import com.github.jangalinski.kobweb.tabler.image.renderImage
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
+import com.github.jangalinski.kobweb.tabler._foundation.Image
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Aside
 import org.jetbrains.compose.web.dom.Button

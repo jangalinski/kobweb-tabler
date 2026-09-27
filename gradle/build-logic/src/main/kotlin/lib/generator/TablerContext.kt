@@ -1,6 +1,6 @@
 package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.generator
 
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.LIB_ROOT_PACKAGE
+import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.PKG_ROOT
 import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.model.ColorsModel
 import com.squareup.kotlinpoet.ExperimentalKotlinPoetApi
 import io.toolisticon.kotlin.generation.spi.KotlinCodeGenerationSpiRegistry
@@ -13,5 +13,5 @@ class TablerContext(
 ) : KotlinCodeGenerationContextBase<TablerContext>(registry) {
   override val contextType = TablerContext::class
 
-  val basePackage = LIB_ROOT_PACKAGE
+  val basePackage = PKG_ROOT
 }

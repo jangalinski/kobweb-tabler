@@ -6,7 +6,7 @@ import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler._foundation.css.cssClass
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.github.jangalinski.kobweb.tabler._foundation.model.Initials
+import com.github.jangalinski.kobweb.tabler._foundation.Initials
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier

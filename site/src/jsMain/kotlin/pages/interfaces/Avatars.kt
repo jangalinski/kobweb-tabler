@@ -3,7 +3,7 @@ package com.github.jangalinski.kobweb.tabler.site.pages.interfaces
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.HALF
-import com.github.jangalinski.kobweb.tabler._foundation.model.Initials
+import com.github.jangalinski.kobweb.tabler._foundation.Initials
 import com.github.jangalinski.kobweb.tabler._foundation.widget.MarkdownText
 import com.github.jangalinski.kobweb.tabler.avatar.AvatarList
 import com.github.jangalinski.kobweb.tabler.avatar.IconAvatar

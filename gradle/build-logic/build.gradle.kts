@@ -1,7 +1,7 @@
 plugins {
   `kotlin-dsl`
   `java-gradle-plugin`
-  alias(libs.plugins.kotlinx.serialization)
+  id("org.jetbrains.kotlin.plugin.serialization") version embeddedKotlinVersion
 }
 
 dependencies {

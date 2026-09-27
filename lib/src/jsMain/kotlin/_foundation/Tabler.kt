@@ -2,7 +2,6 @@ package com.github.jangalinski.kobweb.tabler._foundation
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.lang.Supplier
-import com.github.jangalinski.kobweb.tabler._foundation.model.Initials
 import com.varabyte.kobweb.compose.ui.Modifier
 
 data object Tabler {

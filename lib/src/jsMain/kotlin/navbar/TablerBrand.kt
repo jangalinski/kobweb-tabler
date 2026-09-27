@@ -7,8 +7,8 @@ import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KImg
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.github.jangalinski.kobweb.tabler._foundation.resource.HOME
-import com.github.jangalinski.kobweb.tabler._foundation.resource.Url
+import com.github.jangalinski.kobweb.tabler._foundation.Url.Companion.HOME
+import com.github.jangalinski.kobweb.tabler._foundation.Url
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_BRAND
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_BRAND_AUTODARK
 import com.github.jangalinski.kobweb.tabler._foundation.css.PE_0

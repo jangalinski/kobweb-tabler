@@ -12,9 +12,9 @@ import com.github.jangalinski.kobweb.tabler._foundation.compose.KNav
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KUl
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.github.jangalinski.kobweb.tabler._foundation.resource.ExternalUrl
-import com.github.jangalinski.kobweb.tabler._foundation.resource.InternalUrl
-import com.github.jangalinski.kobweb.tabler._foundation.resource.Url
+import com.github.jangalinski.kobweb.tabler._foundation.Url
+import com.github.jangalinski.kobweb.tabler._foundation.Url.External
+import com.github.jangalinski.kobweb.tabler._foundation.Url.Internal
 import com.github.jangalinski.kobweb.tabler.navbar.TablerBrand.Brand
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_EXPAND_MD
@@ -95,7 +95,7 @@ data object TablerNavbar {
         .then(if (item.active) Modifier.classNames("active") else Modifier),
     ) {
       KAnchor(
-        href = item.url.resolve(),
+        href = item.url.get(),
         modifier = Modifier.classNames("nav-link").then(
           if (item.active) Modifier.classNames("active").attr("aria-current", "page") else Modifier,
         ),
@@ -155,7 +155,7 @@ data object TablerNavbar {
     when (item) {
       is TablerNavbarItem.Link -> KLi {
         KAnchor(
-          href = item.url.resolve(),
+          href = item.url.get(),
           modifier = Modifier.classNames("dropdown-item").then(
             if (item.active) Modifier.classNames("active").attr("aria-current", "page") else Modifier,
           ),
@@ -208,10 +208,5 @@ data object TablerNavbar {
     item.badge?.let { badge ->
       KSpan(modifier = Modifier.classNames("badge", "bg-${badge.color}"), text = badge.label)
     }
-  }
-
-  private fun Url.resolve(): String = when (this) {
-    is ExternalUrl -> value
-    is InternalUrl -> BasePath.prependTo(value)
   }
 }

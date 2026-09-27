@@ -3,7 +3,7 @@ package com.github.jangalinski.kobweb.tabler.site
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._app.LocalTablerAppState
 import com.github.jangalinski.kobweb.tabler._app.TablerTheme
-import com.github.jangalinski.kobweb.tabler._foundation.resource.url
+import com.github.jangalinski.kobweb.tabler._foundation.Url
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarData
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarItem
@@ -14,7 +14,7 @@ import org.jetbrains.compose.web.dom.Div
 fun siteNavbar(activeRoute: String) = TablerNavbarData(
   items = listOf(
     TablerNavbarItem.Link(
-      url = url(SiteRoutes.Home),
+      url = Url(SiteRoutes.Home),
       title = "Home",
       icon = TablerIcon.TI_HOME,
       active = activeRoute == SiteRoutes.Home,
@@ -24,13 +24,13 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
       icon = TablerIcon.TI_BOX,
       items = listOf(
         TablerNavbarItem.Link(
-          url = url(SiteRoutes.Avatars),
+          url = Url(SiteRoutes.Avatars),
           title = "Avatars",
           caption = "Display a photo, icon, or initials",
           active = activeRoute == SiteRoutes.Avatars,
         ),
         TablerNavbarItem.Link(
-          url = url(SiteRoutes.Colors),
+          url = Url(SiteRoutes.Colors),
           title = "Colors",
           caption = "Show colors, gradients, and hex values",
           active = activeRoute == SiteRoutes.Colors,
@@ -42,19 +42,19 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
       icon = TablerIcon.TI_SERVER,
       items = listOf(
         TablerNavbarItem.Link(
-          url = url(SiteRoutes.Components),
+          url = Url(SiteRoutes.Components),
           title = "Components",
           caption = "Reusable UI building blocks",
           active = activeRoute == SiteRoutes.Components,
         ),
         TablerNavbarItem.Link(
-          url = url(SiteRoutes.Elements),
+          url = Url(SiteRoutes.Elements),
           title = "Elements",
           caption = "Low-level Tabler elements",
           active = activeRoute == SiteRoutes.Elements,
         ),
         TablerNavbarItem.Link(
-          url = url(SiteRoutes.Tables),
+          url = Url(SiteRoutes.Tables),
           title = "Tables",
           caption = "Tabler table examples",
           active = activeRoute == SiteRoutes.Tables,
@@ -66,24 +66,24 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
       title = "Plugins",
       icon = TablerIcon.TI_PUZZLE,
       items = listOf(
-        TablerNavbarItem.Link(url = url(SiteRoutes.Home), title = "All plugins"),
-        TablerNavbarItem.Link(url = url(SiteRoutes.Home), title = "Marketplace"),
+        TablerNavbarItem.Link(url = Url(SiteRoutes.Home), title = "All plugins"),
+        TablerNavbarItem.Link(url = Url(SiteRoutes.Home), title = "Marketplace"),
         TablerNavbarItem.Section(
           title = "Installed",
           items = listOf(
-            TablerNavbarItem.Link(url = url(SiteRoutes.Home), title = "Analytics"),
-            TablerNavbarItem.Link(url = url(SiteRoutes.Home), title = "Backups"),
-            TablerNavbarItem.Link(url = url(SiteRoutes.Home), title = "Monitoring"),
+            TablerNavbarItem.Link(url = Url(SiteRoutes.Home), title = "Analytics"),
+            TablerNavbarItem.Link(url = Url(SiteRoutes.Home), title = "Backups"),
+            TablerNavbarItem.Link(url = Url(SiteRoutes.Home), title = "Monitoring"),
           ),
         ),
-        TablerNavbarItem.Link(url = url(SiteRoutes.Home), title = "Updates"),
-        TablerNavbarItem.Link(url = url(SiteRoutes.Home), title = "Plugin settings"),
-        TablerNavbarItem.Link(url = url(SiteRoutes.Home), title = "Developer tools"),
+        TablerNavbarItem.Link(url = Url(SiteRoutes.Home), title = "Updates"),
+        TablerNavbarItem.Link(url = Url(SiteRoutes.Home), title = "Plugin settings"),
+        TablerNavbarItem.Link(url = Url(SiteRoutes.Home), title = "Developer tools"),
       ),
       columns = 2,
     ),
     TablerNavbarItem.Link(
-      url = url(SiteRoutes.Home),
+      url = Url(SiteRoutes.Home),
       title = "Help",
       caption = "Documentation and support",
       icon = TablerIcon.TI_HELP_CIRCLE,
