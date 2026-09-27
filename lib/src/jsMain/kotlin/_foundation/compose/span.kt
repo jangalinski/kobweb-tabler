@@ -25,7 +25,7 @@ fun KSpan(modifier: Modifier = Modifier, text: String) {
  * @param content composable span content.
  */
 @Composable
-fun KSpan(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+fun KSpan(modifier: Modifier = Modifier, content: @Composable () -> Unit = {}) {
   Span(attrs = modifier.toAttrs()) {
     content()
   }

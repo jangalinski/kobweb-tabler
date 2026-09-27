@@ -6,4 +6,7 @@ data object SiteRoutes {
   const val Components = "/components"
   const val Elements = "/elements"
   const val Tables = "/elements/tables"
+
+  const val Avatars = "/interfaces/avatars"
+  const val Colors = "/interfaces/colors"
 }

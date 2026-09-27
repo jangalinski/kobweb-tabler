@@ -46,3 +46,8 @@ kotlin {
     }
   }
 }
+
+// Ignores duplicate resource files (keeps the first occurrence) when multiple sources provide the same file path (e.g. favicon.ico).
+tasks.named<Copy>("jsProcessResources") {
+  duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

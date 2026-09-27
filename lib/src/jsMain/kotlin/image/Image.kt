@@ -1,8 +1,6 @@
 package com.github.jangalinski.kobweb.tabler.image
 
-import com.varabyte.kobweb.compose.css.Background
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.varabyte.kobweb.compose.ui.modifiers.background
 
 sealed interface Image {
 

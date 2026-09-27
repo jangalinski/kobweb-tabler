@@ -1,5 +1,10 @@
 dependencyResolutionManagement {
   repositories {
+    mavenLocal {
+      content {
+        includeGroupByRegex("io\\.toolisticon.*")
+      }
+    }
     mavenCentral()
     maven(url = "https://jitpack.io")
     google()
@@ -8,6 +13,11 @@ dependencyResolutionManagement {
 
 pluginManagement {
   repositories {
+    mavenLocal {
+      content {
+        includeGroupByRegex("io\\.toolisticon.*")
+      }
+    }
     gradlePluginPortal()
     mavenCentral()
     google()

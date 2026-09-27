@@ -11,6 +11,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.id
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
+import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
 import kotlin.random.Random
 
 private external interface TablerTooltip {

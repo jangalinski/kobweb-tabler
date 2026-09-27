@@ -10,12 +10,11 @@ import com.github.jangalinski.kobweb.tabler._foundation.compose.KHeader
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KLi
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KNav
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KUl
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.github.jangalinski.kobweb.tabler._foundation.ExternalUrl
-import com.github.jangalinski.kobweb.tabler._foundation.PublicUrl
-import com.github.jangalinski.kobweb.tabler._foundation.Url
+import com.github.jangalinski.kobweb.tabler._foundation.resource.ExternalUrl
+import com.github.jangalinski.kobweb.tabler._foundation.resource.InternalUrl
+import com.github.jangalinski.kobweb.tabler._foundation.resource.Url
 import com.github.jangalinski.kobweb.tabler.navbar.TablerBrand.Brand
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_EXPAND_MD
@@ -213,6 +212,6 @@ data object TablerNavbar {
 
   private fun Url.resolve(): String = when (this) {
     is ExternalUrl -> value
-    is PublicUrl -> BasePath.prependTo(value)
+    is InternalUrl -> BasePath.prependTo(value)
   }
 }

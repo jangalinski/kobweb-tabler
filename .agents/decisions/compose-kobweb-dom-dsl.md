@@ -15,7 +15,7 @@ DOM-specific implementation choices across the public component code.
 
 The `_foundation.compose` package is the internal boundary for Compose/Kobweb DOM code.
 It provides the library's small DOM DSL, including helpers such as `KDiv`,
-`KSpan`, `KHeader`, and `KFooter`, and accepts Kobweb `Modifier` instances
+`KSpan`, `KHeader`, and `KFooter`, and accepts Kobweb `TablerModifier` instances
 directly.
 
 Composable code in this library MUST use the `_foundation.compose` DSL whenever it

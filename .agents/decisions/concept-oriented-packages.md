@@ -37,7 +37,7 @@ Two narrowly scoped technical packages support every concept:
   Kobweb modifier/attribute mechanics in helpers such as `KDiv` and `KNav`.
   It contains no Tabler component model or component-specific CSS catalogue.
 - `_foundation` is the **semantic base**. It contains the small cross-concept
-  vocabulary (`Component`, `Style`, `Behavior`, `Size`) and only other
+  vocabulary (`TablerComponent`, `TablerStyle`, `TablerBehavior`, `TablerSize`) and only other
   genuinely cross-concept abstractions. It does not contain DOM helpers or a
   catch-all CSS registry.
 

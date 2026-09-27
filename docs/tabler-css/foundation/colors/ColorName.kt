@@ -1,0 +1,598 @@
+package com.github.jangalinski.kobweb.tabler._foundation.css
+
+//bg-azure-lt
+//bg-azure
+//bg-bitbucket
+//bg-black
+//bg-blue-lt
+//bg-blue
+//bg-blur
+//bg-body-secondary
+//bg-body-tertiary
+//bg-body
+//bg-cover
+//bg-cyan-lt
+//bg-cyan
+//bg-danger-lt
+//bg-danger-subtle
+//bg-danger
+//bg-dark-lt
+//bg-dark-overlay
+//bg-dark-subtle
+//bg-dark
+//bg-dribbble
+//bg-facebook
+//bg-flickr
+//bg-github
+//bg-google
+//bg-gradient-from-azure
+//bg-gradient-from-blue
+//bg-gradient-from-cyan
+//bg-gradient-from-danger
+//bg-gradient-from-dark
+//bg-gradient-from-green
+//bg-gradient-from-indigo
+//bg-gradient-from-info
+//bg-gradient-from-inverted
+//bg-gradient-from-light
+//bg-gradient-from-lime
+//bg-gradient-from-muted
+//bg-gradient-from-orange
+//bg-gradient-from-pink
+//bg-gradient-from-primary
+//bg-gradient-from-purple
+//bg-gradient-from-red
+//bg-gradient-from-secondary
+//bg-gradient-from-success
+//bg-gradient-from-teal
+//bg-gradient-from-transparent
+//bg-gradient-from-warning
+//bg-gradient-from-white
+//bg-gradient-from-yellow
+//bg-gradient-to-azure
+//bg-gradient-to-b
+//bg-gradient-to-be
+//bg-gradient-to-blue
+//bg-gradient-to-bs
+//bg-gradient-to-cyan
+//bg-gradient-to-danger
+//bg-gradient-to-dark
+//bg-gradient-to-e
+//bg-gradient-to-green
+//bg-gradient-to-indigo
+//bg-gradient-to-info
+//bg-gradient-to-inverted
+//bg-gradient-to-light
+//bg-gradient-to-lime
+//bg-gradient-to-muted
+//bg-gradient-to-orange
+//bg-gradient-to-pink
+//bg-gradient-to-primary
+//bg-gradient-to-purple
+//bg-gradient-to-red
+//bg-gradient-to-s
+//bg-gradient-to-secondary
+//bg-gradient-to-success
+//bg-gradient-to-t
+//bg-gradient-to-te
+//bg-gradient-to-teal
+//bg-gradient-to-transparent
+//bg-gradient-to-ts
+//bg-gradient-to-warning
+//bg-gradient-to-white
+//bg-gradient-to-yellow
+//bg-gradient-via-azure
+//bg-gradient-via-blue
+//bg-gradient-via-cyan
+//bg-gradient-via-danger
+//bg-gradient-via-dark
+//bg-gradient-via-green
+//bg-gradient-via-indigo
+//bg-gradient-via-info
+//bg-gradient-via-inverted
+//bg-gradient-via-light
+//bg-gradient-via-lime
+//bg-gradient-via-muted
+//bg-gradient-via-orange
+//bg-gradient-via-pink
+//bg-gradient-via-primary
+//bg-gradient-via-purple
+//bg-gradient-via-red
+//bg-gradient-via-secondary
+//bg-gradient-via-success
+//bg-gradient-via-teal
+//bg-gradient-via-transparent
+//bg-gradient-via-warning
+//bg-gradient-via-white
+//bg-gradient-via-yellow
+//bg-gradient
+//bg-gray-100
+//bg-gray-200
+//bg-gray-300
+//bg-gray-400
+//bg-gray-50
+//bg-gray-500
+//bg-gray-600
+//bg-gray-700
+//bg-gray-800
+//bg-gray-900
+//bg-gray-950
+//bg-green-lt
+//bg-green
+//bg-indigo-lt
+//bg-indigo
+//bg-info-lt
+//bg-info-subtle
+//bg-info
+//bg-instagram
+//bg-inverted
+//bg-light-lt
+//bg-light-subtle
+//bg-light
+//bg-lime-lt
+//bg-lime
+//bg-linkedin
+//bg-muted-lt
+//bg-muted
+//bg-opacity-10
+//bg-opacity-100
+//bg-opacity-25
+//bg-opacity-50
+//bg-opacity-75
+//bg-orange-lt
+//bg-orange
+//bg-pattern-azure
+//bg-pattern-blue
+//bg-pattern-blueprint
+//bg-pattern-circles
+//bg-pattern-cross-dots
+//bg-pattern-cyan
+//bg-pattern-danger
+//bg-pattern-dark
+//bg-pattern-diagonal-2
+//bg-pattern-diagonal-stripes-2
+//bg-pattern-diagonal-stripes
+//bg-pattern-diagonal
+//bg-pattern-dots
+//bg-pattern-green
+//bg-pattern-grid-diagonal
+//bg-pattern-grid
+//bg-pattern-horizontal-stripes
+//bg-pattern-indigo
+//bg-pattern-info
+//bg-pattern-lg
+//bg-pattern-light
+//bg-pattern-lime
+//bg-pattern-lines-vertical
+//bg-pattern-lines
+//bg-pattern-md
+//bg-pattern-muted
+//bg-pattern-opacity-dark
+//bg-pattern-opacity-darker
+//bg-pattern-opacity-light
+//bg-pattern-opacity-lighter
+//bg-pattern-orange
+//bg-pattern-pink
+//bg-pattern-primary
+//bg-pattern-purple
+//bg-pattern-rectangles
+//bg-pattern-red
+//bg-pattern-secondary
+//bg-pattern-sm
+//bg-pattern-success
+//bg-pattern-teal
+//bg-pattern-transparent
+//bg-pattern-vertical-stripes
+//bg-pattern-warning
+//bg-pattern-xl
+//bg-pattern-yellow
+//bg-pattern-zigzag
+//bg-pink-lt
+//bg-pink
+//bg-pinterest
+//bg-primary-lt
+//bg-primary-subtle
+//bg-primary
+//bg-purple-lt
+//bg-purple
+//bg-red-lt
+//bg-red
+//bg-rss
+//bg-secondary-lt
+//bg-secondary-subtle
+//bg-secondary
+//bg-success-lt
+//bg-success-subtle
+//bg-success
+//bg-surface-backdrop
+//bg-surface-secondary
+//bg-surface-tertiary
+//bg-surface
+//bg-tabler
+//bg-teal-lt
+//bg-teal
+//bg-transparent
+//bg-twitter
+//bg-vimeo
+//bg-vk
+//bg-warning-lt
+//bg-warning-subtle
+//bg-warning
+//bg-white-lt
+//bg-white-overlay
+//bg-white
+//bg-x
+//bg-yellow-lt
+//bg-yellow
+//bg-youtube
+//border-0
+//border-1
+//border-2
+//border-3
+//border-4
+//border-5
+//border-azure
+//border-black
+//border-blue
+//border-bottom-0
+//border-bottom-wide
+//border-bottom
+//border-cyan
+//border-danger-subtle
+//border-danger
+//border-dark-subtle
+//border-dark
+//border-end-0
+//border-end-wide
+//border-end
+//border-green
+//border-indigo
+//border-info-subtle
+//border-info
+//border-light-subtle
+//border-light
+//border-lime
+//border-muted
+//border-opacity-10
+//border-opacity-100
+//border-opacity-25
+//border-opacity-50
+//border-opacity-75
+//border-orange
+//border-pink
+//border-primary-subtle
+//border-primary
+//border-purple
+//border-red
+//border-secondary-subtle
+//border-secondary
+//border-start-0
+//border-start-wide
+//border-start
+//border-success-subtle
+//border-success
+//border-teal
+//border-top-0
+//border-top-wide
+//border-top
+//border-warning-subtle
+//border-warning
+//border-white
+//border-wide
+//border-x-0
+//border-x-wide
+//border-x
+//border-y-0
+//border-y-wide
+//border-y
+//border-yellow
+//link-azure
+//link-blue
+//link-cyan
+//link-danger
+//link-dark
+//link-green
+//link-hoverable
+//link-indigo
+//link-info
+//link-light
+//link-lime
+//link-muted
+//link-offset-1-hover
+//link-offset-1
+//link-offset-2-hover
+//link-offset-2
+//link-offset-3-hover
+//link-offset-3
+//link-opacity-10-hover
+//link-opacity-10
+//link-opacity-100-hover
+//link-opacity-100
+//link-opacity-25-hover
+//link-opacity-25
+//link-opacity-50-hover
+//link-opacity-50
+//link-opacity-75-hover
+//link-opacity-75
+//link-orange
+//link-pink
+//link-primary
+//link-purple
+//link-red
+//link-secondary
+//link-success
+//link-teal
+//link-underline-azure
+//link-underline-blue
+//link-underline-cyan
+//link-underline-danger
+//link-underline-dark
+//link-underline-green
+//link-underline-indigo
+//link-underline-info
+//link-underline-light
+//link-underline-lime
+//link-underline-muted
+//link-underline-opacity-0-hover
+//link-underline-opacity-0
+//link-underline-opacity-10-hover
+//link-underline-opacity-10
+//link-underline-opacity-100-hover
+//link-underline-opacity-100
+//link-underline-opacity-25-hover
+//link-underline-opacity-25
+//link-underline-opacity-50-hover
+//link-underline-opacity-50
+//link-underline-opacity-75-hover
+//link-underline-opacity-75
+//link-underline-orange
+//link-underline-pink
+//link-underline-primary
+//link-underline-purple
+//link-underline-red
+//link-underline-secondary
+//link-underline-success
+//link-underline-teal
+//link-underline-warning
+//link-underline-yellow
+//link-underline
+//link-warning
+//link-white
+//link-yellow
+//text-azure-fg
+//text-azure
+//text-bg-azure
+//text-bg-blue
+//text-bg-cyan
+//text-bg-danger
+//text-bg-dark
+//text-bg-green
+//text-bg-indigo
+//text-bg-info
+//text-bg-light
+//text-bg-lime
+//text-bg-muted
+//text-bg-orange
+//text-bg-pink
+//text-bg-primary
+//text-bg-purple
+//text-bg-red
+//text-bg-secondary
+//text-bg-success
+//text-bg-teal
+//text-bg-warning
+//text-bg-white
+//text-bg-yellow
+//text-bitbucket-fg
+//text-black-50
+//text-black
+//text-blue-fg
+//text-blue
+//text-body-emphasis
+//text-body-secondary
+//text-body-tertiary
+//text-body
+//text-break
+//text-capitalize
+//text-center
+//text-correct
+//text-cyan-fg
+//text-cyan
+//text-danger-emphasis
+//text-danger-fg
+//text-danger
+//text-dark-emphasis
+//text-dark-fg
+//text-dark
+//text-decoration-line-through
+//text-decoration-none
+//text-decoration-underline
+//text-dribbble-fg
+//text-end
+//text-facebook-fg
+//text-flickr-fg
+//text-github-fg
+//text-google-fg
+//text-gray-100-fg
+//text-gray-100
+//text-gray-200-fg
+//text-gray-200
+//text-gray-300-fg
+//text-gray-300
+//text-gray-400-fg
+//text-gray-400
+//text-gray-50-fg
+//text-gray-50
+//text-gray-500-fg
+//text-gray-500
+//text-gray-600-fg
+//text-gray-600
+//text-gray-700-fg
+//text-gray-700
+//text-gray-800-fg
+//text-gray-800
+//text-gray-900-fg
+//text-gray-900
+//text-gray-950-fg
+//text-gray-950
+//text-green-fg
+//text-green
+//text-incorrect
+//text-indigo-fg
+//text-indigo
+//text-info-emphasis
+//text-info-fg
+//text-info
+//text-instagram-fg
+//text-lg-center
+//text-lg-end
+//text-lg-start
+//text-light-emphasis
+//text-light-fg
+//text-light
+//text-lime-fg
+//text-lime
+//text-linkedin-fg
+//text-lowercase
+//text-md-center
+//text-md-end
+//text-md-start
+//text-muted-fg
+//text-muted
+//text-nowrap
+//text-opacity-100
+//text-opacity-25
+//text-opacity-50
+//text-opacity-75
+//text-orange-fg
+//text-orange
+//text-pink-fg
+//text-pink
+//text-pinterest-fg
+//text-primary-emphasis
+//text-primary-fg
+//text-primary
+//text-purple-fg
+//text-purple
+//text-red-fg
+//text-red
+//text-reset
+//text-rss-fg
+//text-secondary-emphasis
+//text-secondary-fg
+//text-secondary
+//text-selected
+//text-sm-center
+//text-sm-end
+//text-sm-start
+//text-start
+//text-success-emphasis
+//text-success-fg
+//text-success
+//text-tabler-fg
+//text-teal-fg
+//text-teal
+//text-truncate
+//text-twitter-fg
+//text-uppercase
+//text-vimeo-fg
+//text-vk-fg
+//text-warning-emphasis
+//text-warning-fg
+//text-warning
+//text-white-50
+//text-white
+//text-wrap
+//text-x-fg
+//text-xl-center
+//text-xl-end
+//text-xl-start
+//text-xxl-center
+//text-xxl-end
+//text-xxl-start
+//text-yellow-fg
+//text-yellow
+//text-youtube-fg
+
+sealed interface ColorName {
+  val value: String
+}
+
+sealed interface ColorScope {
+  data object TEXT : ColorScope {
+    override operator fun plus(colorName: ColorName): String = "text-${colorName.value}"
+  }
+  data object BACKGROUND : ColorScope {
+    override operator fun plus(colorName: ColorName): String = "bg-${colorName.value}"
+  }
+
+  operator fun plus(colorName: ColorName): String
+}
+
+sealed interface ColorVariant {
+  data object LIGHT : ColorVariant
+  data object FOREGROUND : ColorVariant
+}
+
+val ColorName.displayName: String get() = value.replaceFirstChar { it.uppercase() }.replace("-", " ")
+
+enum class BaseColorName(override val value: String) : ColorName {
+  AZURE("azure"),
+  BLUE("blue"),
+  CYAN("cyan"),
+  GRAY("gray"),
+  GREEN("green"),
+  INDIGO("indigo"),
+  LIME("lime"),
+  ORANGE("orange"),
+  PINK("pink"),
+  PURPLE("purple"),
+  RED("red"),
+  TEAL("teal"),
+  YELLOW("yellow"),
+  WHITE("white")
+}
+
+enum class BrandColorName(override val value: String) : ColorName {
+  BITBUCKET("bitbucket"),
+  DRIBBLE("dribble"),
+  FACEBOOK("facebook"),
+  FLICKR("flickr"),
+  GITHUB("github"),
+  GOOGLE("google"),
+  INSTAGRAM("instagram"),
+  LINKEDIN("linkedin"),
+  PINTEREST("pinterest"),
+  RSS("rss"),
+  TABLER("tabler"),
+  TWITTER("twitter"),
+  VIMEO("vimeo"),
+  VK("vk"),
+  X("x"),
+  YOUTUBE("youtube")
+}
+
+enum class SemanticColorName(override val value: String) : ColorName {
+  DANGER("danger"),
+  INFO("info"),
+  LIGHT("light"),
+  DARK("dark"),
+  PRIMARY("primary"),
+  SECONDARY("secondary"),
+  SUCCESS("success"),
+  WARNING("warning")
+}
+
+enum class GrayColorName(override val value: String) : ColorName {
+  GRAY_50("gray-50"),
+  GRAY_100("gray-100"),
+  GRAY_200("gray-200"),
+  GRAY_300("gray-300"),
+  GRAY_400("gray-400"),
+  GRAY_500("gray-500"),
+  GRAY_600("gray-600"),
+  GRAY_700("gray-700"),
+  GRAY_800("gray-800"),
+  GRAY_900("gray-900"),
+  GRAY_950("gray-950")
+}

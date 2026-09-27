@@ -3,8 +3,8 @@ package com.github.jangalinski.kobweb.tabler.site
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._app.LocalTablerAppState
 import com.github.jangalinski.kobweb.tabler._app.TablerTheme
+import com.github.jangalinski.kobweb.tabler._foundation.resource.url
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
-import com.github.jangalinski.kobweb.tabler._foundation.url
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarData
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarItem
 import org.jetbrains.compose.web.dom.A
@@ -18,6 +18,24 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
       title = "Home",
       icon = TablerIcon.TI_HOME,
       active = activeRoute == SiteRoutes.Home,
+    ),
+    TablerNavbarItem.Section(
+      title = "Interfaces",
+      icon = TablerIcon.TI_BOX,
+      items = listOf(
+        TablerNavbarItem.Link(
+          url = url(SiteRoutes.Avatars),
+          title = "Avatars",
+          caption = "Display a photo, icon, or initials",
+          active = activeRoute == SiteRoutes.Avatars,
+        ),
+        TablerNavbarItem.Link(
+          url = url(SiteRoutes.Colors),
+          title = "Colors",
+          caption = "Show colors, gradients, and hex values",
+          active = activeRoute == SiteRoutes.Colors,
+        ),
+      ),
     ),
     TablerNavbarItem.Section(
       title = "Infrastructure",

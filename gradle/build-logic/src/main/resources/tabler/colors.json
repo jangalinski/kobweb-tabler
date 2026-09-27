@@ -1,0 +1,154 @@
+{
+  "base": [
+    {
+      "name": "Azure", "short": "az"
+    },
+    {
+      "name": "Blue", "short": "bl"
+    },
+    {
+      "name": "Cyan", "short": "cy"
+    },
+    {
+      "name": "Green", "short": "gn"
+    },
+    {
+      "name": "Indigo", "short": "id"
+    },
+    {
+      "name": "Lime", "short": "lm"
+    },
+    {
+      "name": "Orange", "short": "or"
+    },
+    {
+      "name": "Pink", "short": "pk"
+    },
+    {
+      "name": "Purple", "short": "pu"
+    },
+    {
+      "name": "Red", "short": "rd"
+    },
+    {
+      "name": "Teal", "short": "tl"
+    },
+    {
+      "name": "Yellow", "short": "yl"
+    },
+    {
+      "name": "White", "short": "wt", "hasLightMode": true
+    },
+    {
+      "name": "Black", "short": "bk", "hasLightMode": false
+    }
+  ],
+  "gray": [
+    {
+      "occupance": "50"
+    },
+    {
+      "occupance": "100"
+    },
+    {
+      "occupance": "200"
+    },
+    {
+      "occupance": "300"
+    },
+    {
+      "occupance": "400"
+    },
+    {
+      "occupance": "500"
+    },
+    {
+      "occupance": "600"
+    },
+    {
+      "occupance": "700"
+    },
+    {
+      "occupance": "800"
+    },
+    {
+      "occupance": "900"
+    },
+    {
+      "occupance": "950"
+    }
+  ],
+  "social": [
+    {
+      "name": "Facebook", "short": "fb"
+    },
+    {
+      "name": "Twitter", "short": "tw"
+    },
+    {
+      "name": "Instagram", "short": "ig"
+    },
+    {
+      "name": "LinkedIn", "short": "li"
+    },
+    {
+      "name": "X", "short": "x"
+    },
+    {
+      "name": "Google", "short": "gg"
+    },
+    {
+      "name": "Youtube", "short": "yt"
+    },
+    {
+      "name": "Vimeo", "short": "vm"
+    },
+    {
+      "name": "Dribbble", "short": "db"
+    },
+    {
+      "name": "Github", "short": "gh"
+    },
+    {
+      "name": "Pinterest", "short": "pt"
+    },
+    {
+      "name": "VK", "short": "vk"
+    },
+    {
+      "name": "RSS", "short": "rss", "icon": "rss"
+    },
+    {
+      "name": "Flickr", "short": "flr"
+    },
+    {
+      "name": "Bitbucket", "short": "bb"
+    },
+    {
+      "name": "Tabler", "short": "tb"
+    }
+  ],
+  "semantic": [
+    {
+      "name": "Danger", "short": "da"
+    },
+    {
+      "name": "Info", "short": "in"
+    },
+    {
+      "name": "Primary", "short": "pr"
+    },
+    {
+      "name": "Secondary", "short": "se"
+    },
+    {
+      "name": "Success", "short": "su"
+    },
+    {
+      "name": "Transparent", "short": "tr"
+    },
+    {
+      "name": "Warning", "short": "wa"
+    }
+  ]
+}

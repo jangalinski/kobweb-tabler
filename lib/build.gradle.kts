@@ -5,7 +5,6 @@ import dev.detekt.gradle.extensions.DetektExtension
 import dev.detekt.gradle.extensions.FailOnSeverity
 import kotlinx.html.script
 import kotlinx.html.style
-import org.gradle.api.publish.maven.MavenPublication
 
 val KOBWEB_TABLER = "kobweb-tabler"
 val strictDetekt = providers.gradleProperty("tablerDetekt.strict")
@@ -22,6 +21,10 @@ plugins {
   alias(libs.plugins.detekt)
   alias(libs.plugins.dokka)
   alias(libs.plugins.kobweb.library)
+  id("com.github.jangalinski.kobweb.tabler.buildlogic.kotlin-code-generation")
+
+  id("buildlogic.tabweb-lib")
+
 }
 
 extensions.configure<DetektExtension> {
@@ -50,11 +53,15 @@ kotlin {
   configAsKobwebLibrary(includeServer = false)
 
   sourceSets {
-    jsMain.dependencies {
-      implementation(libs.compose.runtime)
-      implementation(libs.compose.html.core)
-      implementation(libs.kobweb.core)
-      implementation(libs.kobweb.compose.js)
+    jsMain {
+      kotlin.srcDir(tasks.named("generateLibCode"))
+      dependencies {
+        implementation(libs.compose.runtime)
+        implementation(libs.compose.html.core)
+        implementation(libs.kobweb.core)
+        implementation(libs.kobweb.compose.js)
+        implementation(libs.jetbrains.markdown)
+      }
     }
 
     jsTest.dependencies {

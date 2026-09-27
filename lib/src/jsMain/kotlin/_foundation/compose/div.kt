@@ -14,7 +14,7 @@ import org.w3c.dom.HTMLDivElement
  * @param content composable div content.
  */
 @Composable
-fun KDiv(vararg classNames: String, content: @Composable () -> Unit) = KDiv(
+fun KDiv(vararg classNames: String, content: @Composable () -> Unit = {}) = KDiv(
   modifier = Modifier.classNames(*classNames),
   content = content
 )
@@ -26,7 +26,7 @@ fun KDiv(vararg classNames: String, content: @Composable () -> Unit) = KDiv(
  * @param content composable div content.
  */
 @Composable
-fun KDiv(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+fun KDiv(modifier: Modifier = Modifier, content: @Composable () -> Unit = {}) {
   Div(attrs = modifier.toAttrs()) {
     content()
   }

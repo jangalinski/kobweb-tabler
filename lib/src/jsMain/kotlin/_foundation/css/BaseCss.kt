@@ -1,8 +1,7 @@
 package com.github.jangalinski.kobweb.tabler._foundation.css
 
-import com.github.jangalinski.kobweb.tabler._foundation.css.CssClass
-import com.github.jangalinski.kobweb.tabler._foundation.css.LazyClassNameModifier
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
 /**
  * Combines this modifier with [other] in declaration order.
@@ -12,7 +11,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
  */
 operator fun Modifier.plus(other: Modifier): Modifier = then(other)
 
-enum class BaseCss(val value: String, delegate: LazyClassNameModifier = LazyClassNameModifier(value)) : CssClass by delegate {
+enum class BaseCss(val value: String) : CssClass  {
 
   /**
    * Standard wide content container used across the layout.
@@ -22,4 +21,14 @@ enum class BaseCss(val value: String, delegate: LazyClassNameModifier = LazyClas
   PRINT_NONE("d-print-none"),
 
   ;
+
+
+  private val modifier: Modifier by lazy {
+    Modifier.classNames(value)
+  }
+
+  override fun <R> fold(initial: R, operation: (R, Modifier.Element) -> R): R = modifier.fold(initial, operation)
+
+  override fun then(other: Modifier): Modifier = modifier.then(other)
+
 }

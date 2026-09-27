@@ -86,6 +86,16 @@ generate-dokka-html:
 generate-tabler-icon:
     @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateTablerIcon
 
+# generate kotlin code for tabler css
+[group("project")]
+generate-kotlin-code:
+    @./gradlew --no-daemon --no-watch-fs --console=plain :lib:generateKotlinCode
+
+# Generate the complete, version-pinned Tabler CSS reference for API planning.
+[group("project")]
+generate-tabler-css-docs:
+    @.agents/bin/gradlew-agent --no-watch-fs --console=plain generateTablerCssDocumentation
+
 
 # build project
 [group("gradle")]

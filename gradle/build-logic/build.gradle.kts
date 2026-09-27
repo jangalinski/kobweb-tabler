@@ -1,11 +1,22 @@
 plugins {
   `kotlin-dsl`
   `java-gradle-plugin`
+  alias(libs.plugins.kotlinx.serialization)
 }
 
 dependencies {
-  testImplementation(kotlin("test"))
+  implementation(platform(libs.bom.kotlin.code.generation))
+
+  implementation(libs.kotlinx.serialization.json)
+  implementation(libs.kotlin.code.generation)
+
+  testImplementation(kotlin("test-junit5"))
   testImplementation(libs.test.assertk)
+}
+
+configurations.all {
+  // TODO - only for SNAPSHOTS
+  resolutionStrategy.cacheChangingModulesFor(0, "seconds")
 }
 
 gradlePlugin {
@@ -25,6 +36,15 @@ gradlePlugin {
     create("tablerCssDocumentation") {
       id = "com.github.jangalinski.kobweb.tabler.buildlogic.tabler-css-documentation"
       implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.TablerCssDocumentationPlugin"
+    }
+    create("kotlinCodeGeneration") {
+      id = "com.github.jangalinski.kobweb.tabler.buildlogic.kotlin-code-generation"
+      implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.generation.KotlinCodeGenerationPlugin"
+    }
+
+    create("tabwebLib") {
+      id = "buildlogic.tabweb-lib"
+      implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.TabwebLibPlugin"
     }
   }
 }

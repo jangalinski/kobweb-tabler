@@ -21,10 +21,10 @@ inserted into a page. See the [Tabler Icon documentation](https://docs.tabler.io
 The `_foundation` package defines the semantic marker vocabulary used by the
 library:
 
-- `Component` identifies a renderable Tabler UI concept.
-- `Style`, `Behavior`, and `Size` identify the corresponding semantic facets.
+- `TablerComponent` identifies a renderable Tabler UI concept.
+- `TablerStyle`, `TablerBehavior`, and `TablerSize` identify the corresponding semantic facets.
 
-`Component` is the rendering boundary. Its canonical call-site syntax is
+`TablerComponent` is the rendering boundary. Its canonical call-site syntax is
 `component()` or `component(modifier)` through an `invoke` operator. The
 explicit `compose` function remains the implementation and compatibility
 boundary; it is not removed merely because `invoke` is more concise.
@@ -37,7 +37,7 @@ component.
 
 ## Consequences
 
-- Prefer a property with a concrete semantic type (`Icon`, `Badge`, `Size`,
+- Prefer a property with a concrete semantic type (`Icon`, `Badge`, `TablerSize`,
   etc.) when Tabler defines that role.
 - Add a new marker type or a focused sealed model when the role has known,
   reusable variants.
@@ -45,6 +45,6 @@ component.
   intentional customization seam that cannot be expressed by the semantic
   model. Document that seam explicitly.
 - Marker interfaces classify concepts; styling and DOM attributes continue to
-  be supplied through the internal Kobweb `Modifier` DSL.
+  be supplied through the internal Kobweb `TablerModifier` DSL.
 - New component APIs should mirror a documented Tabler concept and retain the
   relevant Tabler DOM and class structure in their renderer.

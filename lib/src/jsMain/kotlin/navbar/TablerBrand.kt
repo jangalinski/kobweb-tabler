@@ -1,14 +1,14 @@
 package com.github.jangalinski.kobweb.tabler.navbar
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.Component
+import com.github.jangalinski.kobweb.tabler._foundation.Tabler
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KAnchor
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KImg
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.github.jangalinski.kobweb.tabler._foundation.HOME
-import com.github.jangalinski.kobweb.tabler._foundation.Url
+import com.github.jangalinski.kobweb.tabler._foundation.resource.HOME
+import com.github.jangalinski.kobweb.tabler._foundation.resource.Url
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_BRAND
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_BRAND_AUTODARK
 import com.github.jangalinski.kobweb.tabler._foundation.css.PE_0
@@ -16,12 +16,11 @@ import com.github.jangalinski.kobweb.tabler._foundation.css.PE_MD_3
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
-import com.varabyte.kobweb.navigation.BasePath
 
 
 /** Renders the brand area used by a Tabler navbar. */
 data object TablerBrand {
-  sealed interface Brand : Component {
+  sealed interface Brand : Tabler.Component {
     val image: Url
     val href: Url get() = HOME
 
@@ -30,10 +29,10 @@ data object TablerBrand {
       @Composable
       override fun invoke(modifier: Modifier) {
         KAnchor(
-          href = BasePath.prependTo(href.value),
+          href = href.get(),
           modifier = Modifier.classNames("text-reset", "text-decoration-none").attr("aria-label", caption),
         ) {
-          KImg(src = image.value, alt = "", modifier = Modifier.classNames("navbar-brand-image"))
+          KImg(src = image.get(), alt = "", modifier = Modifier.classNames("navbar-brand-image"))
           KText(caption)
         }
       }
@@ -44,10 +43,10 @@ data object TablerBrand {
       @Composable
       override fun invoke(modifier: Modifier) {
         KAnchor(
-          href = BasePath.prependTo(href.value),
+          href = href.get(),
           modifier = Modifier.classNames("text-reset", "text-decoration-none").attr("aria-label", "Home"),
         ) {
-          KImg(src = image.value, alt = "", modifier = Modifier.classNames("navbar-brand-image"))
+          KImg(src = image.get(), alt = "", modifier = Modifier.classNames("navbar-brand-image"))
         }
       }
     }

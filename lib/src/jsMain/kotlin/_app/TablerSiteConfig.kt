@@ -2,10 +2,9 @@ package com.github.jangalinski.kobweb.tabler._app
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
-import com.github.jangalinski.kobweb.tabler._foundation.url
+import com.github.jangalinski.kobweb.tabler._foundation.resource.url
 import com.github.jangalinski.kobweb.tabler.navbar.TablerBrand
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarFactory
-import com.varabyte.kobweb.compose.foundation.layout.RowScope
 import com.varabyte.kobweb.core.AppGlobals
 
 /**

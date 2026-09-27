@@ -3,6 +3,8 @@ package com.github.jangalinski.kobweb.tabler.site.pages
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.card.TablerCards
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler.divider.TablerDivider
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon.TI_BRAND_GITHUB
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon.TI_FOOTSTEPS
@@ -13,19 +15,26 @@ import com.github.jangalinski.kobweb.tabler.site.sitePageMeta
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.HALF
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.QUARTER
+import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
+import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
+import com.varabyte.kobweb.compose.style.KobwebComposeStyleSheet.attr
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
+import com.varabyte.kobweb.compose.ui.modifiers.backgroundImage
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
 import com.varabyte.kobweb.compose.ui.modifiers.size
+import com.varabyte.kobweb.compose.ui.styleModifier
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
+import org.jetbrains.compose.web.css.backgroundImage
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.H3
+import org.jetbrains.compose.web.dom.Img
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
@@ -71,7 +80,27 @@ fun Index() {
         TablerLink(href = SiteRoutes.Elements)
       }
     }
+
     card(title = "Icons", width = HALF) {
+
+      KSpan(Modifier.classNames("avatar").then(Modifier.styleModifier {
+        backgroundImage("url(/avatars/jan-g-avatar.png)")
+      }))
+
+      KSpan(Modifier.classNames("avatar")) {
+        TablerIcon.TI_HOME()
+      }
+
+      KSpan(Modifier.classNames("avatar")) {
+        KText("JGX")
+      }
+
+      Img(src = "/avatars/jan-g-avatar.png", attrs = {
+        attr("width", "256")
+        attr("height", "256")
+        attr("alt", "Jan G Avatar")
+      })
+
       TI_BRAND_GITHUB(Modifier.fontSize(128.px).size(128.px).color(Colors.Pink))
       TI_FOOTSTEPS(Modifier.fontSize(128.px).size(128.px).color(Colors.Green))
     }
@@ -93,18 +122,9 @@ fun Index() {
       Text("These are the base colors. Each one has bg-* and text-* utilities, and the components use the same names for their color variants.")
 
       KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
-        colorCard("Blue")
-        colorCard("Azure")
-        colorCard("Indigo")
-        colorCard("Purple")
-        colorCard("Pink")
-        colorCard("Red")
-        colorCard("Orange")
-        colorCard("Yellow")
-        colorCard("Lime")
-        colorCard("Green")
-        colorCard("Teal")
-        colorCard("Cyan")
+        BackgroundColor.BASE.entries.forEach { color ->
+          colorCard(color.displayName, color.value)
+        }
       }
 
       TablerDivider()
@@ -113,18 +133,9 @@ fun Index() {
       Text("Every base color also has a light shade with the -lt suffix. It works as a background for text or an icon in the base color.")
 
       KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
-        colorCard("Blue Light", "bg-blue-lt")
-        colorCard("Azure Light", "bg-azure-lt")
-        colorCard("Indigo Light", "bg-indigo-lt")
-        colorCard("Purple Light", "bg-purple-lt")
-        colorCard("Pink Light", "bg-pink-lt")
-        colorCard("Red Light", "bg-red-lt")
-        colorCard("Orange Light", "bg-orange-lt")
-        colorCard("Yellow Light", "bg-yellow-lt")
-        colorCard("Lime Light", "bg-lime-lt")
-        colorCard("Green Light", "bg-green-lt")
-        colorCard("Teal Light", "bg-teal-lt")
-        colorCard("Cyan Light", "bg-cyan-lt")
+        BackgroundColor.LIGHT.entries.forEach { color ->
+          colorCard(color.displayName, color.value)
+        }
       }
 
       TablerDivider()
@@ -133,17 +144,9 @@ fun Index() {
       Text("The gray scale is used for backgrounds, borders and muted text. Tabler ships several gray palettes and switches between them with data-bs-theme-base.")
 
       KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
-        colorCard("Gray 50", "bg-gray-50")
-        colorCard("Gray 100", "bg-gray-100")
-        colorCard("Gray 200", "bg-gray-200")
-        colorCard("Gray 300", "bg-gray-300")
-        colorCard("Gray 400", "bg-gray-400")
-        colorCard("Gray 500", "bg-gray-500")
-        colorCard("Gray 600", "bg-gray-600")
-        colorCard("Gray 700", "bg-gray-700")
-        colorCard("Gray 800", "bg-gray-800")
-        colorCard("Gray 900", "bg-gray-900")
-        colorCard("Gray 950", "bg-gray-950")
+        BackgroundColor.GRAY.entries.forEach { color ->
+          colorCard(color.displayName, color.value)
+        }
       }
 
       TablerDivider()
@@ -152,22 +155,9 @@ fun Index() {
       Text("The brand colors of popular services are available too, for social buttons and icons.")
 
       KDiv(modifier = Modifier.classNames("row", "row-cols-4", "row-cols-md-6", "g-3", "g-md-4")) {
-        colorCard("Facebook", "bg-facebook")
-        colorCard("Twitter", "bg-twitter")
-        colorCard("X", "bg-x")
-        colorCard("Linkedin", "bg-linkedin")
-        colorCard("Google", "bg-google")
-        colorCard("Youtube", "bg-youtube")
-        colorCard("Vimeo", "bg-vimeo")
-        colorCard("Dribbble", "bg-dribbble")
-        colorCard("Github", "bg-github")
-        colorCard("Instagram", "bg-instagram")
-        colorCard("Pinterest", "bg-pinterest")
-        colorCard("VK", "bg-vk")
-        colorCard("RSS", "bg-rss")
-        colorCard("Flickr", "bg-flickr")
-        colorCard("Bitbucket", "bg-bitbucket")
-        colorCard("Tabler", "bg-tabler")
+        BackgroundColor.SOCIAL.entries.forEach { color ->
+          colorCard(color.displayName, color.value)
+        }
       }
     }
   }

@@ -1,8 +1,5 @@
 package com.github.jangalinski.kobweb.tabler._app
 
-import com.github.jangalinski.kobweb.tabler._app.LocalTablerSiteConfig
-import com.github.jangalinski.kobweb.tabler._app.TablerSiteConfig
-
 import androidx.compose.runtime.*
 import kotlinx.browser.document
 
