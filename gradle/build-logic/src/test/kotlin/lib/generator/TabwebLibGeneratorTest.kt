@@ -1,6 +1,6 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.generator
+package com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator
 
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.model.ColorsModel
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.model.ColorsModel
 import org.junit.jupiter.api.Test
 
 

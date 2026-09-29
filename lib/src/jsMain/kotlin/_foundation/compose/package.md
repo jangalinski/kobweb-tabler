@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler._foundation.compose
+# Package com.github.jangalinski.tabweb._foundation.compose
 
 Internal Compose/Kobweb DOM adapter layer. It provides `KDiv`, `KSpan`, `KAnchor`, and related helpers which accept Kobweb `TablerModifier` values directly.
 

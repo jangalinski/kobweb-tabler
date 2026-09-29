@@ -1,11 +1,11 @@
-package com.github.jangalinski.kobweb.tabler.button
+package com.github.jangalinski.tabweb.button
 
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.kobweb.tabler.KobwebTabler.button
-import com.github.jangalinski.kobweb.tabler.KobwebTabler.buttons
-import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
+import com.github.jangalinski.tabweb.KobwebTabler.button
+import com.github.jangalinski.tabweb.KobwebTabler.buttons
+import com.github.jangalinski.tabweb.icon.TablerIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Test

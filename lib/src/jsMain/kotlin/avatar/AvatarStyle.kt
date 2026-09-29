@@ -1,8 +1,8 @@
-package com.github.jangalinski.kobweb.tabler.avatar
+package com.github.jangalinski.tabweb.avatar
 
-import com.github.jangalinski.kobweb.tabler._foundation.Tabler
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebStyle
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebValue
+import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb._foundation.TabwebStyle
+import com.github.jangalinski.tabweb._foundation.TabwebValue
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 

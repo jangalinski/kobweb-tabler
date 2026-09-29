@@ -1,12 +1,12 @@
-package com.github.jangalinski.kobweb.tabler.button
+package com.github.jangalinski.tabweb.button
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.Tabler
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebComponent
-import com.github.jangalinski.kobweb.tabler._foundation.ariaLabel
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KButton
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
-import com.github.jangalinski.kobweb.tabler._foundation.css.plus
+import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb._foundation.TabwebComponent
+import com.github.jangalinski.tabweb._foundation.ariaLabel
+import com.github.jangalinski.tabweb._foundation.compose.KButton
+import com.github.jangalinski.tabweb._foundation.compose.KSpan
+import com.github.jangalinski.tabweb._foundation.css.plus
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 
@@ -61,7 +61,7 @@ interface Button : TabwebComponent {
      */
     operator fun invoke(
       text: String,
-      icon: com.github.jangalinski.kobweb.tabler.icon.Icon,
+      icon: com.github.jangalinski.tabweb.icon.Icon,
       iconPosition: ButtonIconPosition = ButtonIconPosition.LEFT,
       color: ButtonColor = ButtonColor.DEFAULT,
       style: ButtonStyle = ButtonStyle.DEFAULT,
@@ -93,7 +93,7 @@ interface Button : TabwebComponent {
      * @return a configured [Button] component instance.
      */
     operator fun invoke(
-      icon: com.github.jangalinski.kobweb.tabler.icon.Icon,
+      icon: com.github.jangalinski.tabweb.icon.Icon,
       ariaLabel: String,
       color: ButtonColor = ButtonColor.DEFAULT,
       style: ButtonStyle = ButtonStyle.DEFAULT,

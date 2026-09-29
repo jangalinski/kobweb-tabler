@@ -26,12 +26,12 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = "kobweb-tabler-examples"
+rootProject.name = "tabweb-examples"
 
 include(":tagessieg")
 
 includeBuild("../") {
   dependencySubstitution {
-    substitute(module("com.github.jangalinski.kobweb-tabler:kobweb-tabler")).using(project(":lib"))
+    substitute(module("com.github.jangalinski:tabweb")).using(project(":lib"))
   }
 }

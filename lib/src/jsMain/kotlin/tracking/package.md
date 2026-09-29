@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.tracking
+# Package com.github.jangalinski.tabweb.tracking
 
 Tabler tracking displays and their structured tracking-block model.
 

@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.gradle.detekt
+package com.github.jangalinski.tabweb.detekt
 
 import dev.detekt.api.Config
 import dev.detekt.api.Entity
@@ -38,7 +38,7 @@ class FoundationComposeOnlyRule(config: Config) : Rule(
     }
 
   private companion object {
-    const val ALLOWED_PACKAGE = "com.github.jangalinski.kobweb.tabler._foundation.compose"
+    const val ALLOWED_PACKAGE = "com.github.jangalinski.tabweb._foundation.compose"
 
     val BLOCKED_IMPORT_PREFIXES = listOf(
       "org.jetbrains.compose.web.dom.",

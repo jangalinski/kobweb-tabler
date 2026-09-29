@@ -4,7 +4,7 @@
 
 Pending — needs proof.
 
-Tracked by [issue #113](https://github.com/jangalinski/kobweb-tabler/issues/113).
+Tracked by [issue #113](https://github.com/jangalinski/tabweb/issues/113).
 
 ## Context
 

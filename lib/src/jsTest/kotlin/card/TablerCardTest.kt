@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.card
+package com.github.jangalinski.tabweb.card
 
 import assertk.assertThat
 import assertk.assertions.contains

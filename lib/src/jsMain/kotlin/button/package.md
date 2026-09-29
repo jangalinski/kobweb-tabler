@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.button
+# Package com.github.jangalinski.tabweb.button
 
 Typed Tabler buttons, their page-level DSL, and inline button lists.
 

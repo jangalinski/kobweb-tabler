@@ -1,6 +1,6 @@
-package com.github.jangalinski.kobweb.tabler.table
+package com.github.jangalinski.tabweb.table
 
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarData
+import com.github.jangalinski.tabweb.avatar.TablerAvatarData
 
 /**
  * Pure configuration for a Tabler table.

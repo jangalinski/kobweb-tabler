@@ -1,10 +1,10 @@
-package com.github.jangalinski.kobweb.tabler.table
+package com.github.jangalinski.tabweb.table
 
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.kobweb.tabler.table.*
+import com.github.jangalinski.tabweb.table.*
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import org.w3c.dom.HTMLElement

@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.table
+package com.github.jangalinski.tabweb.table
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf

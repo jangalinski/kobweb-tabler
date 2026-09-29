@@ -1,14 +1,14 @@
-package com.github.jangalinski.kobweb.tabler._app
+package com.github.jangalinski.tabweb._app
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.breadcrumb.TablerBreadcrumbs
-import com.github.jangalinski.kobweb.tabler.breadcrumb.BreadcrumbItem
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KH1
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KP
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
+import com.github.jangalinski.tabweb.breadcrumb.TablerBreadcrumbs
+import com.github.jangalinski.tabweb.breadcrumb.BreadcrumbItem
+import com.github.jangalinski.tabweb._foundation.compose.KDiv
+import com.github.jangalinski.tabweb._foundation.compose.KH1
+import com.github.jangalinski.tabweb._foundation.compose.KP
+import com.github.jangalinski.tabweb._foundation.compose.KText
+import com.github.jangalinski.tabweb._foundation.css.ClassNames
+import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**

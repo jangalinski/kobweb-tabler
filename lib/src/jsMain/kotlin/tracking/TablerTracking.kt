@@ -1,17 +1,17 @@
-package com.github.jangalinski.kobweb.tabler.tracking
+package com.github.jangalinski.tabweb.tracking
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.remember
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
-import com.github.jangalinski.kobweb.tabler._foundation.compose.documentElementById
+import com.github.jangalinski.tabweb._foundation.compose.KDiv
+import com.github.jangalinski.tabweb._foundation.compose.documentElementById
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.id
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
-import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
+import com.github.jangalinski.tabweb._foundation.css.ClassNames
+import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
+import com.github.jangalinski.tabweb.icon.TablerIcon
 import kotlin.random.Random
 
 private external interface TablerTooltip {

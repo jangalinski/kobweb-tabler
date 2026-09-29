@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.navbar
+# Package com.github.jangalinski.tabweb.navbar
 
 Responsive Tabler navbar, brand, navigation data, typed icon and badge slots, and nested dropdown rendering.
 

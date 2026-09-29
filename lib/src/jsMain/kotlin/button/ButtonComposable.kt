@@ -1,8 +1,8 @@
-package com.github.jangalinski.kobweb.tabler.button
+package com.github.jangalinski.tabweb.button
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebComposable
-import com.github.jangalinski.kobweb.tabler.icon.Icon
+import com.github.jangalinski.tabweb._foundation.TabwebComposable
+import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**

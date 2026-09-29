@@ -2,7 +2,7 @@ plugins {
   alias(libs.plugins.kotlin.jvm)
 }
 
-group = "com.github.jangalinski.kobweb.tabler.gradle"
+group = "com.github.jangalinski.tabweb"
 
 repositories {
   mavenCentral()

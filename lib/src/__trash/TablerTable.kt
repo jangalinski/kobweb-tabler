@@ -1,11 +1,11 @@
-package com.github.jangalinski.kobweb.tabler.table
+package com.github.jangalinski.tabweb.table
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.KobwebTabler.publicResourcePath
-import com.github.jangalinski.kobweb.tabler._foundation.compose.*
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
-import com.github.jangalinski.kobweb.tabler.image.svgDataUri
+import com.github.jangalinski.tabweb.KobwebTabler.publicResourcePath
+import com.github.jangalinski.tabweb._foundation.compose.*
+import com.github.jangalinski.tabweb._foundation.css.ClassNames
+import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
+import com.github.jangalinski.tabweb.image.svgDataUri
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.classNames

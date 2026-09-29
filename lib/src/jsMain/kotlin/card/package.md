@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.card
+# Package com.github.jangalinski.tabweb.card
 
 Tabler card layouts, card collections, and compact statistic cards.
 

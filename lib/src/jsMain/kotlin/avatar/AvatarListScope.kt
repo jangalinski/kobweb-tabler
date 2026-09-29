@@ -1,11 +1,11 @@
-package com.github.jangalinski.kobweb.tabler.avatar
+package com.github.jangalinski.tabweb.avatar
 
-import com.github.jangalinski.kobweb.tabler._foundation.Image
-import com.github.jangalinski.kobweb.tabler._foundation.Initials
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebComponentScope
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebDsl
-import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
-import com.github.jangalinski.kobweb.tabler.icon.Icon
+import com.github.jangalinski.tabweb._foundation.Image
+import com.github.jangalinski.tabweb._foundation.Initials
+import com.github.jangalinski.tabweb._foundation.TabwebComponentScope
+import com.github.jangalinski.tabweb._foundation.TabwebDsl
+import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
+import com.github.jangalinski.tabweb.icon.Icon
 
 /**
  * Provides the children for an avatar list DSL.

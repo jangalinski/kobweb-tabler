@@ -1,10 +1,10 @@
-package com.github.jangalinski.kobweb.tabler.site
+package com.github.jangalinski.tabweb.site
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import com.github.jangalinski.kobweb.tabler.KobwebTabler.KobwebTablerApp
-import com.github.jangalinski.kobweb.tabler._app.TablerShellConfig
-import com.github.jangalinski.kobweb.tabler._app.TablerSiteConfig
+import com.github.jangalinski.tabweb.KobwebTabler.KobwebTablerApp
+import com.github.jangalinski.tabweb._app.TablerShellConfig
+import com.github.jangalinski.tabweb._app.TablerSiteConfig
 import com.varabyte.kobweb.core.App
 import kotlinx.browser.document
 

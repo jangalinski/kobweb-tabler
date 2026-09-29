@@ -18,8 +18,8 @@ detekt = "2.0.0-alpha.6"
 cdn-tabler-core = "1.6.0"
 cdn-tabler-icons = "3.46.0"
 # Uncomment this line and comment out the release version below to verify main-SNAPSHOT.
-# kobweb-tabler = "main-SNAPSHOT"
-kobweb-tabler = "0.0.1"
+# tabweb = "main-SNAPSHOT"
+tabweb = "0.0.1"
 
 [libraries]
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
@@ -35,7 +35,7 @@ kobweb-compose-js = { module = "com.varabyte.kobweb:kobweb-compose-js", version.
 kobweb-worker = { module = "com.varabyte.kobweb:kobweb-worker", version.ref = "kobweb" }
 kobwebx-markdown = { module = "com.varabyte.kobwebx:kobwebx-markdown", version.ref = "kobweb" }
 kobwebx-serialization-kotlinx = { module = "com.varabyte.kobwebx:kobwebx-serialization-kotlinx", version.ref = "kobweb" }
-kobweb-tabler = { module = "com.github.jangalinski.kobweb-tabler:kobweb-tabler", version.ref = "kobweb-tabler" }
+tabweb = { module = "com.github.jangalinski:tabweb", version.ref = "tabweb" }
 
 jetbrains-markdown = { module = "org.jetbrains:markdown", version.ref = "markdown" }
 kotlin-code-generation = { module = "io.toolisticon.kotlin.generation:kotlin-code-generation" }

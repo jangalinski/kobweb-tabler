@@ -36,7 +36,7 @@ jobs:
 
       - name: Export documentation site
         run: >
-          sed -i 's/basePath: "\/"/basePath: "kobweb-tabler"/' site/.kobweb/conf.yaml &&
+          sed -i 's/basePath: "\/"/basePath: "tabweb"/' site/.kobweb/conf.yaml &&
           ./gradlew
           --no-daemon
           --no-watch-fs

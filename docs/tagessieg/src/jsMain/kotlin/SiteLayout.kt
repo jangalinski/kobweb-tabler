@@ -1,8 +1,8 @@
-package com.github.jangalinski.kobweb.tabler.example.tagessieg
+package com.github.jangalinski.tabweb.example.tagessieg
 
-import com.github.jangalinski.kobweb.tabler.models.BreadcrumbItem
-import com.github.jangalinski.kobweb.tabler.models.TablerLayoutData
-import com.github.jangalinski.kobweb.tabler.models.TablerPageMeta
+import com.github.jangalinski.tabweb.models.BreadcrumbItem
+import com.github.jangalinski.tabweb.models.TablerLayoutData
+import com.github.jangalinski.tabweb.models.TablerPageMeta
 
 /**
  * Builds the layout data consumed by the shared Tabler shell.

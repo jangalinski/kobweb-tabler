@@ -6,7 +6,7 @@ Accepted.
 
 ## Context
 
-`kobweb-tabler` recreates the combinations of components and styles used by the
+`tabweb` recreates the combinations of components and styles used by the
 Tabler reference site. Tabler's own CSS is the source of truth for styling,
 including class names, variants, responsive behavior, and layout conventions.
 
@@ -45,9 +45,9 @@ would not improve the rendered result.
 ## Consequences
 
 We do not get Silk's ready-made widgets, theme helpers, or styling utilities.
-When a Tabler feature needs such behavior, `kobweb-tabler` provides a focused
+When a Tabler feature needs such behavior, `tabweb` provides a focused
 composable, modifier, or data/configuration API and maps it to Tabler CSS.
 Document-level attributes and other page-shell behavior are handled by the
 site/layout integration directly.
 
-The decision is tracked by [issue #101](https://github.com/jangalinski/kobweb-tabler/issues/101).
+The decision is tracked by [issue #101](https://github.com/jangalinski/tabweb/issues/101).

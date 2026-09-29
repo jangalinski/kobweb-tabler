@@ -1,13 +1,13 @@
 @file:OptIn(ExperimentalKotlinPoetApi::class)
 
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib
+package com.github.jangalinski.tabweb.gradle.buildlogic.lib
 
 import com.squareup.kotlinpoet.ExperimentalKotlinPoetApi
 import com.squareup.kotlinpoet.MemberName
 import io.toolisticon.kotlin.generation.KotlinCodeGeneration.name.className
 
-const val PKG_ROOT = "com.github.jangalinski.kobweb.tabler"
-const val PKG_FOUNDATION = "com.github.jangalinski.kobweb.tabler._foundation"
+const val PKG_ROOT = "com.github.jangalinski.tabweb"
+const val PKG_FOUNDATION = "com.github.jangalinski.tabweb._foundation"
 
 val TABLER_COLOR = className(PKG_FOUNDATION, "Tabler")
   .nestedClass("Color")

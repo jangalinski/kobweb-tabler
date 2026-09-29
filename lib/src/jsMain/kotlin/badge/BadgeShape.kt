@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.badge
+package com.github.jangalinski.tabweb.badge
 
 /**
  * Enumerates the supported Tabler shapes for a [Badge].

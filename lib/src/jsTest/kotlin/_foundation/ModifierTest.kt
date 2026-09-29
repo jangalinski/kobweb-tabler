@@ -1,10 +1,10 @@
-package com.github.jangalinski.kobweb.tabler._foundation
+package com.github.jangalinski.tabweb._foundation
 
 import assertk.assertThat
 import assertk.assertions.contains
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
-import com.github.jangalinski.kobweb.tabler.KobwebTablerFixture
+import com.github.jangalinski.tabweb.KobwebTablerFixture
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Test

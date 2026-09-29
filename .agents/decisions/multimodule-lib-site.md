@@ -6,7 +6,7 @@ Accepted for issue #92 implementation after user approval.
 
 ## Context
 
-`kobweb-tabler` started as a single Kobweb library project at the repository root. The repository now needs a
+`tabweb` started as a single Kobweb library project at the repository root. The repository now needs a
 dedicated documentation/demo site that can be exported to GitHub Pages while keeping the published library stable for
 JitPack consumers.
 
@@ -18,7 +18,7 @@ Kobweb, Compose, and Tabler versions.
 
 Split the root build into two Gradle subprojects:
 
-- `:lib` contains the published `kobweb-tabler` Kobweb component library.
+- `:lib` contains the published `tabweb` Kobweb component library.
 - `:site` contains the repository documentation/demo Kobweb application.
 
 The repository root Gradle build becomes the common container for shared metadata and build wiring. `_examples` remains
@@ -28,7 +28,7 @@ a separate Gradle build and continues to consume the library through composite b
 
 JitPack must publish only `:lib`.
 
-The published artifact name must remain `kobweb-tabler`, even though the Gradle subproject is named `lib`. Do not let
+The published artifact name must remain `tabweb`, even though the Gradle subproject is named `lib`. Do not let
 the artifact coordinate drift to `lib`.
 
 Use the KotlinBootstrap JitPack shape, adapted for this repository:
@@ -37,7 +37,7 @@ Use the KotlinBootstrap JitPack shape, adapted for this repository:
 jdk:
   - openjdk17
 install:
-  - echo "Building only the kobweb-tabler library"
+  - echo "Building only the tabweb library"
   - chmod +x gradlew
   - ./gradlew :lib:clean :lib:publishToMavenLocal
 ```
@@ -47,13 +47,13 @@ install:
 GitHub Pages publishes the `:site` export at the repository Pages root:
 
 ```text
-/kobweb-tabler/
+/tabweb/
 ```
 
 The Pages workflow may also export selected examples from `_examples` and assemble them below:
 
 ```text
-/kobweb-tabler/examples/<example-name>/
+/tabweb/examples/<example-name>/
 ```
 
 This lets documentation pages link to live examples without making `_examples` part of the root Gradle build.
@@ -76,6 +76,6 @@ The implementation should prove all three consumers:
 ./gradlew :lib:jsBrowserTest --console=plain
 ./gradlew :site:compileKotlinJs --console=plain
 ./gradlew :site:kobwebExport --console=plain
-GRADLE_USER_HOME=/private/tmp/kobweb-tabler-gradle ./gradlew --no-daemon -p _examples :tagessieg:compileKotlinJs --console=plain
+GRADLE_USER_HOME=/private/tmp/tabweb-gradle ./gradlew --no-daemon -p _examples :tagessieg:compileKotlinJs --console=plain
 git diff --check
 ```

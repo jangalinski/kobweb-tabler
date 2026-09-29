@@ -1,12 +1,12 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib
+package com.github.jangalinski.tabweb.gradle.buildlogic.lib
 
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.exists
 import assertk.assertions.isEqualTo
 import assertk.assertions.isNotNull
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.model.ColorsModel
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.task.GenerateLibCodeTask
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.model.ColorsModel
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.task.GenerateLibCodeTask
 import org.gradle.api.Project
 import org.gradle.testfixtures.ProjectBuilder
 import java.io.File
@@ -43,7 +43,7 @@ class TabwebLibPluginTest {
 
     task()
 
-    val generatedFile = File(testOutputDir, "com/github/jangalinski/kobweb/tabler/_foundation/modifier/BackgroundColor.kt")
+    val generatedFile = File(testOutputDir, "com/github/jangalinski/tabweb/_foundation/modifier/BackgroundColor.kt")
     println("Generated file path: ${generatedFile.absolutePath}")
     if (generatedFile.exists()) {
       println("Generated file content:\n${generatedFile.readText()}")

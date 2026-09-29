@@ -1,9 +1,9 @@
-package com.github.jangalinski.kobweb.tabler._foundation.compose
+package com.github.jangalinski.tabweb._foundation.compose
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.css.BaseCss.PRINT_NONE
-import com.github.jangalinski.kobweb.tabler._foundation.css.cssClass
-import com.github.jangalinski.kobweb.tabler._foundation.css.plus
+import com.github.jangalinski.tabweb._foundation.css.BaseCss.PRINT_NONE
+import com.github.jangalinski.tabweb._foundation.css.cssClass
+import com.github.jangalinski.tabweb._foundation.css.plus
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.dom.Footer

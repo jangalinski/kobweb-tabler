@@ -1,7 +1,7 @@
-package com.github.jangalinski.kobweb.tabler.badge
+package com.github.jangalinski.tabweb.badge
 
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebContent
-import com.github.jangalinski.kobweb.tabler.icon.Icon
+import com.github.jangalinski.tabweb._foundation.TabwebContent
+import com.github.jangalinski.tabweb.icon.Icon
 
 /**
  * Represents the typed label and icon content supported by a [Badge].

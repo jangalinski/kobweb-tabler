@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler._app
+# Package com.github.jangalinski.tabweb._app
 
 Public application-integration support for Kobweb applications using Tabler. It owns application state, settings, theme selection, site configuration, and the shared page shell.
 

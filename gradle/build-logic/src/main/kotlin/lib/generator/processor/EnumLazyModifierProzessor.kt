@@ -1,8 +1,8 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.generator.processor
+package com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.processor
 
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.generator.TablerContext
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.generator.TabwebLibGenerator.Companion.MODIFIER_CLASS_NAMES
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.generator.TabwebLibGenerator.Companion.MODIFIER_TYPE
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.TablerContext
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.TabwebLibGenerator.Companion.MODIFIER_CLASS_NAMES
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.TabwebLibGenerator.Companion.MODIFIER_TYPE
 import com.squareup.kotlinpoet.*
 import io.toolisticon.kotlin.generation.KotlinCodeGeneration.builder.funBuilder
 import io.toolisticon.kotlin.generation.KotlinCodeGeneration.builder.propertyBuilder

@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler._foundation.css
+package com.github.jangalinski.tabweb._foundation.css
 
 data object TablerStyles {
   /** Badge class with an optional contextual background variant. */

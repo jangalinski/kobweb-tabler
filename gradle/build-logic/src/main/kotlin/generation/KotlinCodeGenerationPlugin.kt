@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.generation
+package com.github.jangalinski.tabweb.gradle.buildlogic.generation
 
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.ExperimentalKotlinPoetApi
@@ -24,11 +24,11 @@ abstract class GenerateKotlinCodeTask : DefaultTask() {
   @TaskAction
   fun generate() {
     val root = outputDirectory.get().asFile.toPath()
-    val packageDir = root.resolve("com/github/jangalinski/kobweb/tabler/generated")
+    val packageDir = root.resolve("com/github/jangalinski/tabweb/generated")
     Files.createDirectories(packageDir)
     val fooFile = packageDir.resolve("Foo.kt")
     val content = """
-      |package com.github.jangalinski.kobweb.tabler.generated
+      |package com.github.jangalinski.tabweb.generated
       |
       |/**
       | * Example generated data class.
@@ -41,7 +41,7 @@ abstract class GenerateKotlinCodeTask : DefaultTask() {
     Files.writeString(fooFile, content)
     logger.lifecycle("Generated Foo.kt at $fooFile")
 
-    KotlinCodeGeneration.buildDataClass(ClassName("com.github.jangalinski.kobweb.tabler.generated", "Bar")) {
+    KotlinCodeGeneration.buildDataClass(ClassName("com.github.jangalinski.tabweb.generated", "Bar")) {
       addConstructorProperty("name", String::class)
       addConstructorProperty("value", String::class)
     }.toFileSpec().get().writeTo(root)

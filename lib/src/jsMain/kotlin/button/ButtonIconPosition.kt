@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.button
+package com.github.jangalinski.tabweb.button
 
 /**
  * Selects the edge at which an icon is rendered beside a button label.

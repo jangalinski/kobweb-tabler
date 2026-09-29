@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.model
+package com.github.jangalinski.tabweb.gradle.buildlogic.lib.model
 
 import kotlinx.serialization.Serializable
 

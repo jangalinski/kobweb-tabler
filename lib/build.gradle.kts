@@ -6,7 +6,7 @@ import dev.detekt.gradle.extensions.FailOnSeverity
 import kotlinx.html.script
 import kotlinx.html.style
 
-val KOBWEB_TABLER = "kobweb-tabler"
+val TABWEB = "tabweb"
 val strictDetekt = providers.gradleProperty("tablerDetekt.strict")
   .map { value ->
     value.toBooleanStrictOrNull()
@@ -21,7 +21,7 @@ plugins {
   alias(libs.plugins.detekt)
   alias(libs.plugins.dokka)
   alias(libs.plugins.kobweb.library)
-  id("com.github.jangalinski.kobweb.tabler.buildlogic.kotlin-code-generation")
+  id("com.github.jangalinski.tabweb.buildlogic.kotlin-code-generation")
 
   id("buildlogic.tabweb-lib")
 
@@ -38,7 +38,7 @@ extensions.configure<DetektExtension> {
 }
 
 dependencies {
-  add("detektPlugins", "com.github.jangalinski.kobweb.tabler.gradle:detekt-rules")
+  add("detektPlugins", "com.github.jangalinski.tabweb:detekt-rules")
 }
 
 tasks.named("check") {
@@ -46,7 +46,7 @@ tasks.named("check") {
 }
 
 base {
-  archivesName.set(KOBWEB_TABLER)
+  archivesName.set(TABWEB)
 }
 
 kotlin {
@@ -79,15 +79,15 @@ kobweb {
         style {
           importCss(
             url = "https://cdn.jsdelivr.net/npm/@tabler/core@${libs.versions.cdn.tabler.core.get()}/dist/css/tabler.min.css",
-            layerName = KOBWEB_TABLER
+            layerName = TABWEB
           )
           importCss(
             url = "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@${libs.versions.cdn.tabler.core.get()}/dist/css/tabler-vendors.min.css",
-            layerName = KOBWEB_TABLER
+            layerName = TABWEB
           )
           importCss(
             url = "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@${libs.versions.cdn.tabler.icons.get()}/dist/tabler-icons.min.css",
-            layerName = KOBWEB_TABLER
+            layerName = TABWEB
           )
         }
         script {
@@ -103,7 +103,7 @@ kobweb {
 
 dokka {
   dokkaPublications.html {
-    moduleName.set(KOBWEB_TABLER)
+    moduleName.set(TABWEB)
     moduleVersion.set(project.version.toString())
   }
   dokkaSourceSets.configureEach {
@@ -118,8 +118,8 @@ dokka {
 publishing {
   publications.withType<MavenPublication>().configureEach {
     artifactId = when (name) {
-      "kotlinMultiplatform" -> KOBWEB_TABLER
-      "js" -> "$KOBWEB_TABLER-js"
+      "kotlinMultiplatform" -> TABWEB
+      "js" -> "$TABWEB-js"
       else -> artifactId
     }
   }

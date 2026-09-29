@@ -1,11 +1,11 @@
-package com.github.jangalinski.kobweb.tabler.icon
+package com.github.jangalinski.tabweb.icon
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.Tabler
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebFoundationComponent
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KI
-import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.github.jangalinski.kobweb.tabler._foundation.css.cssClass
+import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb._foundation.TabwebFoundationComponent
+import com.github.jangalinski.tabweb._foundation.compose.KI
+import com.github.jangalinski.tabweb._foundation.css.plus
+import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.varabyte.kobweb.compose.ui.Modifier
 
 val CSS_ICON = cssClass("icon")

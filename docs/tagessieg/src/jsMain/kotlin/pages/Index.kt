@@ -1,20 +1,20 @@
-@file:Layout("com.github.jangalinski.kobweb.tabler.layouts.TablerLayout")
+@file:Layout("com.github.jangalinski.tabweb.layouts.TablerLayout")
 
-package com.github.jangalinski.kobweb.tabler.example.tagessieg.pages
+package com.github.jangalinski.tabweb.example.tagessieg.pages
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.components.*
-import com.github.jangalinski.kobweb.tabler.example.tagessieg.SiteRoutes
-import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteBreadcrumbs
-import com.github.jangalinski.kobweb.tabler.example.tagessieg.siteLayoutData
-import com.github.jangalinski.kobweb.tabler.example.tagessieg.sitePageMeta
-import com.github.jangalinski.kobweb.tabler.models.*
-import com.github.jangalinski.kobweb.tabler.models.TablerAvatarContent.ImageResource
-import com.github.jangalinski.kobweb.tabler.styles.ClassNames
-import com.github.jangalinski.kobweb.tabler.styles.ClassNames.modifier
-import com.github.jangalinski.kobweb.tabler.styles.GridWidth
-import com.github.jangalinski.kobweb.tabler.styles.GridWidth.HALF
-import com.github.jangalinski.kobweb.tabler.styles.GridWidth.QUARTER
+import com.github.jangalinski.tabweb.components.*
+import com.github.jangalinski.tabweb.example.tagessieg.SiteRoutes
+import com.github.jangalinski.tabweb.example.tagessieg.siteBreadcrumbs
+import com.github.jangalinski.tabweb.example.tagessieg.siteLayoutData
+import com.github.jangalinski.tabweb.example.tagessieg.sitePageMeta
+import com.github.jangalinski.tabweb.models.*
+import com.github.jangalinski.tabweb.models.TablerAvatarContent.ImageResource
+import com.github.jangalinski.tabweb.styles.ClassNames
+import com.github.jangalinski.tabweb.styles.ClassNames.modifier
+import com.github.jangalinski.tabweb.styles.GridWidth
+import com.github.jangalinski.tabweb.styles.GridWidth.HALF
+import com.github.jangalinski.tabweb.styles.GridWidth.QUARTER
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute

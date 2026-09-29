@@ -1,9 +1,9 @@
-package com.github.jangalinski.kobweb.tabler.breadcrumb
+package com.github.jangalinski.tabweb.breadcrumb
 
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
-import com.github.jangalinski.kobweb.tabler.breadcrumb.BreadcrumbItem
+import com.github.jangalinski.tabweb.breadcrumb.BreadcrumbItem
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Ignore

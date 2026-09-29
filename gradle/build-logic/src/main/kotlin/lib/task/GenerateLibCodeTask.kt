@@ -1,7 +1,7 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.task
+package com.github.jangalinski.tabweb.gradle.buildlogic.lib.task
 
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.generator.TabwebLibGenerator
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.model.ColorsModel
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.TabwebLibGenerator
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.model.ColorsModel
 import org.gradle.api.DefaultTask
 import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.tasks.OutputDirectory

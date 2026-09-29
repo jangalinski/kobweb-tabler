@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler._app
+package com.github.jangalinski.tabweb._app
 
 import assertk.assertThat
 import assertk.assertions.contains

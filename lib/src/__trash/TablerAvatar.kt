@@ -1,16 +1,16 @@
-package com.github.jangalinski.kobweb.tabler.avatar
+package com.github.jangalinski.tabweb.avatar
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.KobwebTabler.publicResourcePath
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarContent
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarData
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarListData
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KImg
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
-import com.github.jangalinski.kobweb.tabler.image.svgDataUri
+import com.github.jangalinski.tabweb.KobwebTabler.publicResourcePath
+import com.github.jangalinski.tabweb.avatar.TablerAvatarContent
+import com.github.jangalinski.tabweb.avatar.TablerAvatarData
+import com.github.jangalinski.tabweb.avatar.TablerAvatarListData
+import com.github.jangalinski.tabweb._foundation.compose.KDiv
+import com.github.jangalinski.tabweb._foundation.compose.KImg
+import com.github.jangalinski.tabweb._foundation.compose.KSpan
+import com.github.jangalinski.tabweb._foundation.compose.KText
+import com.github.jangalinski.tabweb._foundation.css.ClassNames
+import com.github.jangalinski.tabweb.image.svgDataUri
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.classNames

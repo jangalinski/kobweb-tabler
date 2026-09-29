@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler._foundation.compose
+package com.github.jangalinski.tabweb._foundation.compose
 
 import kotlinx.browser.document
 

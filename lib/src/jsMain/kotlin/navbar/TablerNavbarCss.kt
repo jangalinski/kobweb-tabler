@@ -1,6 +1,6 @@
-package com.github.jangalinski.kobweb.tabler.navbar
+package com.github.jangalinski.tabweb.navbar
 
-import com.github.jangalinski.kobweb.tabler._foundation.css.CssClass
+import com.github.jangalinski.tabweb._foundation.css.CssClass
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 

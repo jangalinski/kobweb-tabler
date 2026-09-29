@@ -1,8 +1,8 @@
-package com.github.jangalinski.kobweb.tabler.example.tagessieg
+package com.github.jangalinski.tabweb.example.tagessieg
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
-import com.github.jangalinski.kobweb.tabler.styles.ClassNames
+import com.github.jangalinski.tabweb.styles.ClassNames
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Img
@@ -18,7 +18,7 @@ import org.jetbrains.compose.web.dom.Text
 fun siteFooter(): @Composable ColumnScope.() -> Unit = {
   Div(attrs = { attr("class", ClassNames.footerRow) }) {
     Div(attrs = { attr("class", ClassNames.footerLeft) }) {
-      Text("Generated with kobweb tabler")
+      Text("Generated with tabweb")
     }
 
     Div(attrs = { attr("class", ClassNames.footerRight) }) {
@@ -27,8 +27,8 @@ fun siteFooter(): @Composable ColumnScope.() -> Unit = {
         href = "https://github.com/bstdoom/tagessieg",
       )
       repoLink(
-        label = "jangalinski/kobweb-tabler",
-        href = "https://github.com/jangalinski/kobweb-tabler",
+        label = "jangalinski/tabweb",
+        href = "https://github.com/jangalinski/tabweb",
       )
     }
   }

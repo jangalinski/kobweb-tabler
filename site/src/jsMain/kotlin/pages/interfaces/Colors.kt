@@ -1,15 +1,15 @@
-package com.github.jangalinski.kobweb.tabler.site.pages.interfaces
+package com.github.jangalinski.tabweb.site.pages.interfaces
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
-import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
-import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
-import com.github.jangalinski.kobweb.tabler.avatar.AvatarStyle
-import com.github.jangalinski.kobweb.tabler.avatar.Avatar
-import com.github.jangalinski.kobweb.tabler.card.TablerCards
-import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
-import com.github.jangalinski.kobweb.tabler.site.siteLayoutData
-import com.github.jangalinski.kobweb.tabler.site.sitePageMeta
+import com.github.jangalinski.tabweb._foundation.compose.KDiv
+import com.github.jangalinski.tabweb._foundation.css.GridWidth
+import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
+import com.github.jangalinski.tabweb.avatar.AvatarStyle
+import com.github.jangalinski.tabweb.avatar.Avatar
+import com.github.jangalinski.tabweb.card.TablerCards
+import com.github.jangalinski.tabweb.site.SiteRoutes
+import com.github.jangalinski.tabweb.site.siteLayoutData
+import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.core.Page

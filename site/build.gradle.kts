@@ -1,15 +1,15 @@
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
 
-val useLocalKobwebTabler =
-  providers.gradleProperty("site.useLocalKobwebTabler")
+val useLocalTabweb =
+  providers.gradleProperty("site.useLocalTabweb")
     .map { value ->
       value.toBooleanStrictOrNull()
-        ?: error("site.useLocalKobwebTabler must be true or false, but was '$value'.")
+        ?: error("site.useLocalTabweb must be true or false, but was '$value'.")
     }
     .getOrElse(true)
 
 plugins {
-  id("com.github.jangalinski.kobweb.tabler.buildlogic.site-preview")
+  id("com.github.jangalinski.tabweb.buildlogic.site-preview")
   alias(libs.plugins.kotlin.multiplatform)
   alias(libs.plugins.compose.compiler)
   alias(libs.plugins.jetbrains.compose)
@@ -17,11 +17,11 @@ plugins {
 }
 
 kobweb {
-  pagesPackage = "com.github.jangalinski.kobweb.tabler.site.pages"
+  pagesPackage = "com.github.jangalinski.tabweb.site.pages"
 
   app {
     index {
-      description.set("Kobweb Tabler documentation and examples")
+      description.set("Tabweb documentation and examples")
     }
   }
 }
@@ -35,10 +35,10 @@ kotlin {
     }
 
     jsMain.dependencies {
-      if (useLocalKobwebTabler) {
+      if (useLocalTabweb) {
         implementation(project(":lib"))
       } else {
-        implementation(libs.kobweb.tabler)
+        implementation(libs.tabweb)
       }
       implementation(libs.compose.runtime)
       implementation(libs.compose.html.core)

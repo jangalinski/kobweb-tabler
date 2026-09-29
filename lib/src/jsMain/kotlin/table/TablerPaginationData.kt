@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.table
+package com.github.jangalinski.tabweb.table
 
 /**
  * Presentational pagination state for a Tabler table card.

@@ -2,7 +2,7 @@
 
 > Context for continuing implementation with Codex.
 >
-> The project is a `kobweb-tabler` library whose goal is to expose the
+> The project is a `tabweb` library whose goal is to expose the
 > Tabler design system idiomatically in Kobweb / Compose for Web. Tabler
 > is intentionally part of the public model; there is no requirement to
 > abstract the library away from Tabler.
@@ -383,7 +383,7 @@ internal fun TablerSettings.applyToDocument() {
 The actual attribute/value mapping must be checked against the exact
 Tabler version used by the project.
 
-Because this is `kobweb-tabler`, there is no need for a generic
+Because this is `tabweb`, there is no need for a generic
 `UiSettings -> FrameworkAdapter -> DOM` abstraction. Tabler terminology
 can be part of the public API and its attribute mapping can be an
 internal implementation detail.

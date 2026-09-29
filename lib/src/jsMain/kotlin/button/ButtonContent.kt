@@ -1,6 +1,6 @@
-package com.github.jangalinski.kobweb.tabler.button
+package com.github.jangalinski.tabweb.button
 
-import com.github.jangalinski.kobweb.tabler.icon.Icon
+import com.github.jangalinski.tabweb.icon.Icon
 
 /**
  * Represents the typed label and icon content supported by a [Button].

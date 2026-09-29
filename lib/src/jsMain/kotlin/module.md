@@ -1,6 +1,6 @@
-# Module kobweb-tabler
+# Module tabweb
 
-`kobweb-tabler` provides Tabler-inspired UI concepts for Kotlin/JS Kobweb applications.
+`tabweb` provides Tabler-inspired UI concepts for Kotlin/JS Kobweb applications.
 
 The library contributes Tabler CSS, Tabler Icons CSS, Tabler JavaScript, and ApexCharts through Kobweb library metadata. Applications can use the components without copying those assets into each site.
 

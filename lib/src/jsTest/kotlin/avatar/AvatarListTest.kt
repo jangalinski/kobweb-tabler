@@ -1,12 +1,12 @@
-package com.github.jangalinski.kobweb.tabler.avatar
+package com.github.jangalinski.tabweb.avatar
 
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.kobweb.tabler.KobwebTabler.avatar
-import com.github.jangalinski.kobweb.tabler.KobwebTabler.avatars
-import com.github.jangalinski.kobweb.tabler._foundation.Image
-import com.github.jangalinski.kobweb.tabler._foundation.Initials
+import com.github.jangalinski.tabweb.KobwebTabler.avatar
+import com.github.jangalinski.tabweb.KobwebTabler.avatars
+import com.github.jangalinski.tabweb._foundation.Image
+import com.github.jangalinski.tabweb._foundation.Initials
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Test

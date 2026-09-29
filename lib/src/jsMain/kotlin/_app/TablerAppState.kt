@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler._app
+package com.github.jangalinski.tabweb._app
 
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.getValue

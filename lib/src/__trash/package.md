@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.__trash
+# Package com.github.jangalinski.tabweb.__trash
 
 Deprecated implementation retained temporarily for inspection during the package migration. New application code must not depend on this package.
 

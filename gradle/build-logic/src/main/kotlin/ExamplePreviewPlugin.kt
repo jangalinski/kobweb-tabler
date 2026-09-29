@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic
+package com.github.jangalinski.tabweb.gradle.buildlogic
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.Plugin

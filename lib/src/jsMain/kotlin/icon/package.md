@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.icon
+# Package com.github.jangalinski.tabweb.icon
 
 Typed Tabler icon components and generated icon-name constants.
 

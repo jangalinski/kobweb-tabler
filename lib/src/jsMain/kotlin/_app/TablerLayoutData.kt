@@ -1,7 +1,7 @@
-package com.github.jangalinski.kobweb.tabler._app
+package com.github.jangalinski.tabweb._app
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.breadcrumb.BreadcrumbItem
+import com.github.jangalinski.tabweb.breadcrumb.BreadcrumbItem
 
 /**
  * Route-scoped content supplied to the shared Tabler Kobweb layout.

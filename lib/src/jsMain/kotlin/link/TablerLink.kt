@@ -1,8 +1,8 @@
-package com.github.jangalinski.kobweb.tabler.link
+package com.github.jangalinski.tabweb.link
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KAnchor
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
+import com.github.jangalinski.tabweb._foundation.compose.KAnchor
+import com.github.jangalinski.tabweb._foundation.compose.KText
 
 @Composable
 fun TablerLink(href:String) {

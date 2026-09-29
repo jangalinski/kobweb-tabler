@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic
+package com.github.jangalinski.tabweb.gradle.buildlogic
 
 import assertk.assertThat
 import assertk.assertions.containsExactlyInAnyOrder
@@ -47,7 +47,7 @@ class TablerIconsPluginTest {
 
     assertThat(source).isEqualTo(
       """
-        package com.github.jangalinski.kobweb.tabler.icon
+        package com.github.jangalinski.tabweb.icon
 
         import com.varabyte.kobweb.compose.ui.Modifier
         import com.varabyte.kobweb.compose.ui.modifiers.classNames

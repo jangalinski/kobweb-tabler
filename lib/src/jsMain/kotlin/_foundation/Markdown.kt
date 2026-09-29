@@ -1,7 +1,7 @@
-package com.github.jangalinski.kobweb.tabler._foundation
+package com.github.jangalinski.tabweb._foundation
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KHtmlDiv
+import com.github.jangalinski.tabweb._foundation.compose.KHtmlDiv
 import com.varabyte.kobweb.compose.ui.Modifier
 import org.intellij.markdown.MarkdownElementTypes
 import org.intellij.markdown.ast.ASTNode

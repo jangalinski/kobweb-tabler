@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.table
+# Package com.github.jangalinski.tabweb.table
 
 Tabler tables, table cards, structured cell models, composable table DSLs, and client-side pagination support.
 

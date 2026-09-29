@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.image
+# Package com.github.jangalinski.tabweb.image
 
 Image models and rendering helpers for Tabler components, including packaged resources and inline SVG data.
 

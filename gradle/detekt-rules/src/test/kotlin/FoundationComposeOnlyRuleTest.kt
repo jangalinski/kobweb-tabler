@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.gradle.detekt
+package com.github.jangalinski.tabweb.detekt
 
 import dev.detekt.api.Config
 import dev.detekt.test.lint
@@ -11,7 +11,7 @@ class FoundationComposeOnlyRuleTest {
   fun `reports a Compose DOM import outside the foundation DSL`() {
     val findings = FoundationComposeOnlyRule(Config.empty).lint(
       """
-      package com.github.jangalinski.kobweb.tabler.card
+      package com.github.jangalinski.tabweb.card
 
       import org.jetbrains.compose.web.dom.Div
       """.trimIndent(),
@@ -24,7 +24,7 @@ class FoundationComposeOnlyRuleTest {
   fun `reports a W3C DOM import outside the foundation DSL`() {
     val findings = FoundationComposeOnlyRule(Config.empty).lint(
       """
-      package com.github.jangalinski.kobweb.tabler.chart
+      package com.github.jangalinski.tabweb.chart
 
       import org.w3c.dom.Element
       """.trimIndent(),
@@ -37,7 +37,7 @@ class FoundationComposeOnlyRuleTest {
   fun `allows DOM imports in the foundation DSL`() {
     val findings = FoundationComposeOnlyRule(Config.empty).lint(
       """
-      package com.github.jangalinski.kobweb.tabler._foundation.compose
+      package com.github.jangalinski.tabweb._foundation.compose
 
       import org.jetbrains.compose.web.dom.Div
       import org.w3c.dom.Element
@@ -51,7 +51,7 @@ class FoundationComposeOnlyRuleTest {
   fun `ignores a legacy file with a deprecated top-level declaration`() {
     val findings = FoundationComposeOnlyRule(Config.empty).lint(
       """
-      package com.github.jangalinski.kobweb.tabler.__trash
+      package com.github.jangalinski.tabweb.__trash
 
       import org.jetbrains.compose.web.dom.Div
 

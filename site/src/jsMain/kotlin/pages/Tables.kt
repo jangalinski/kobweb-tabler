@@ -1,10 +1,10 @@
-package com.github.jangalinski.kobweb.tabler.site.pages
+package com.github.jangalinski.tabweb.site.pages
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.card.TablerCards
-import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
-import com.github.jangalinski.kobweb.tabler.site.siteLayoutData
-import com.github.jangalinski.kobweb.tabler.site.sitePageMeta
+import com.github.jangalinski.tabweb.card.TablerCards
+import com.github.jangalinski.tabweb.site.SiteRoutes
+import com.github.jangalinski.tabweb.site.siteLayoutData
+import com.github.jangalinski.tabweb.site.sitePageMeta
 import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute

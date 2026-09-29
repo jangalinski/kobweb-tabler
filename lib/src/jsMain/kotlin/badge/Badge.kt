@@ -1,15 +1,15 @@
-package com.github.jangalinski.kobweb.tabler.badge
+package com.github.jangalinski.tabweb.badge
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.Link
-import com.github.jangalinski.kobweb.tabler._foundation.Tabler
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebComponent
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KAnchor
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
-import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
-import com.github.jangalinski.kobweb.tabler.icon.Icon
+import com.github.jangalinski.tabweb._foundation.Link
+import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb._foundation.TabwebComponent
+import com.github.jangalinski.tabweb._foundation.compose.KAnchor
+import com.github.jangalinski.tabweb._foundation.compose.KSpan
+import com.github.jangalinski.tabweb._foundation.compose.KText
+import com.github.jangalinski.tabweb._foundation.css.plus
+import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
+import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**

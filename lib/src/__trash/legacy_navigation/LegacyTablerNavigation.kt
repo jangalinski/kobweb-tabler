@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.github.jangalinski.kobweb.tabler.__trash.legacy_navigation
+package com.github.jangalinski.tabweb.__trash.legacy_navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
@@ -12,10 +12,10 @@ import com.varabyte.kobweb.core.AppGlobals
 import com.varabyte.kobweb.navigation.Anchor
 import com.varabyte.kobweb.navigation.BasePath
 import com.varabyte.kobweb.navigation.remove
-import com.github.jangalinski.kobweb.tabler.image.renderImage
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
-import com.github.jangalinski.kobweb.tabler._foundation.Image
+import com.github.jangalinski.tabweb.image.renderImage
+import com.github.jangalinski.tabweb._foundation.css.ClassNames
+import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
+import com.github.jangalinski.tabweb._foundation.Image
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Aside
 import org.jetbrains.compose.web.dom.Button
@@ -35,7 +35,7 @@ import org.w3c.dom.events.Event
  * Sealed navigation specification for one Tabler page-shell navigation region.
  *
  * A [HeaderNavigation] and a [SidebarNavigation] can be supplied together via
- * [com.github.jangalinski.kobweb.tabler._foundation.TablerLayoutData] for the
+ * [com.github.jangalinski.tabweb._foundation.TablerLayoutData] for the
  * standard shell. Supplying one value through the legacy `navigation` slot is
  * still useful for condensed layouts.
  */

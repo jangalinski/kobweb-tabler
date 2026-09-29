@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler._foundation.css
+package com.github.jangalinski.tabweb._foundation.css
 
 
 val PE_0  = cssClass("pe-0")

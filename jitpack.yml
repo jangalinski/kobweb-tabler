@@ -1,6 +1,6 @@
 jdk:
   - openjdk17
 install:
-  - echo "Building only the kobweb-tabler library"
+  - echo "Building only the tabweb library"
   - chmod +x gradlew
   - ./gradlew :lib:clean :lib:publishToMavenLocal

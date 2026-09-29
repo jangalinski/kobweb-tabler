@@ -1,15 +1,15 @@
-# <img src=".idea/icon.svg" alt="" height="32" style="vertical-align: -0.18em;"> kobweb-tabler
+# <img src=".idea/icon.svg" alt="" height="32" style="vertical-align: -0.18em;"> tabweb
 
-[![kobweb-tabler](https://img.shields.io/badge/pages-kobweb_tabler-blue?logo=github&logoColor=white)](https://jangalinski.github.io/kobweb-tabler/)
-[![Detekt](https://github.com/jangalinski/kobweb-tabler/actions/workflows/detekt.yml/badge.svg)](https://github.com/jangalinski/kobweb-tabler/actions/workflows/detekt.yml)
-[![JitPack](https://jitpack.io/v/jangalinski/kobweb-tabler.svg)](https://jitpack.io/#jangalinski/kobweb-tabler)
+[![tabweb](https://img.shields.io/badge/pages-tabweb-blue?logo=github&logoColor=white)](https://jangalinski.github.io/tabweb/)
+[![Detekt](https://github.com/jangalinski/tabweb/actions/workflows/detekt.yml/badge.svg)](https://github.com/jangalinski/tabweb/actions/workflows/detekt.yml)
+[![JitPack](https://jitpack.io/v/jangalinski/tabweb.svg)](https://jitpack.io/#jangalinski/tabweb)
 [![Kotlin](https://img.shields.io/badge/Kotlin-2.4.20-blue?logo=kotlin)](https://kotlinlang.org/)
 [![Kobweb](https://img.shields.io/badge/kobweb-0.25.1-blue)](https://kobweb.varabyte.com/)
-[![API Docs](https://img.shields.io/badge/API_Reference-grey?logo=readthedocs)](https://jangalinski.github.io/kobweb-tabler/docs/)
+[![API Docs](https://img.shields.io/badge/API_Reference-grey?logo=readthedocs)](https://jangalinski.github.io/tabweb/docs/)
 
 > Build a Kobweb page that is either dynamically served or statically generated using Tabler layout and charts.
 
-Original kobweb-tabler source code is licensed under the Apache License,
+Original tabweb source code is licensed under the Apache License,
 Version 2.0. Third-party materials and references retain their respective
 licenses; see [NOTICE](NOTICE).
 
@@ -35,7 +35,7 @@ dependencyResolutionManagement {
 }
 
 dependencies {
-  implementation("com.github.jangalinski.kobweb-tabler:kobweb-tabler:0.0.1")
+  implementation("com.github.jangalinski:tabweb:0.0.1")
 }
 ```
 
@@ -46,7 +46,7 @@ The repository is public: consumers and GitHub Actions do not need JitPack crede
 JitPack can build the latest commit on a branch. To use the current `main` branch instead of a tagged release:
 
 ```kotlin
-implementation("com.github.jangalinski.kobweb-tabler:kobweb-tabler:main-SNAPSHOT")
+implementation("com.github.jangalinski:tabweb:main-SNAPSHOT")
 ```
 
 Snapshots are changing dependencies, so refresh Gradle's dependency cache when checking a new commit:
@@ -64,7 +64,7 @@ documentation](https://docs.jitpack.io/intro/#snapshots) for both forms.
 ### Project layout
 
 ```
-kobweb-tabler/
+tabweb/
 ├── build.gradle.kts    ← shared container build
 ├── lib/                ← published Kobweb Tabler library
 ├── site/               ← documentation/demo site exported to GitHub Pages
@@ -78,18 +78,18 @@ It is not a sub-project of the root build; it references the `:lib` project via 
 
 The root build contains two subprojects:
 
-- `:lib` is the published library. Its artifact name remains `kobweb-tabler` for JitPack consumers.
-- `:site` is the repository documentation site. GitHub Pages publishes it at `/kobweb-tabler/`.
+- `:lib` is the published library. Its artifact name remains `tabweb` for JitPack consumers.
+- `:site` is the repository documentation site. GitHub Pages publishes it at `/tabweb/`.
 
-GitHub Pages also publishes selected standalone examples below `/kobweb-tabler/examples/<example>/`. The first
-published example is `/kobweb-tabler/examples/tagessieg/`.
+GitHub Pages also publishes selected standalone examples below `/tabweb/examples/<example>/`. The first
+published example is `/tabweb/examples/tagessieg/`.
 
 ### How the examples use the local library
 
 The examples' shared version catalog declares a local development coordinate:
 
 ```kotlin
-implementation("com.github.jangalinski.kobweb-tabler:kobweb-tabler:0.0.1-SNAPSHOT")
+implementation("com.github.jangalinski:tabweb:0.0.1-SNAPSHOT")
 ```
 
 Its `settings.gradle.kts` uses `includeBuild("../")` with an explicit dependency substitution to replace that
@@ -144,7 +144,7 @@ test publication out of your normal `~/.m2` cache:
 
 ```bash
 VERSION=0.0.1 ./gradlew :lib:publishToMavenLocal \
-  -Dmaven.repo.local=/tmp/kobweb-tabler-m2
+  -Dmaven.repo.local=/tmp/tabweb-m2
 ```
 
 When that succeeds, create and push the matching release tag (replace the version for later releases):
@@ -163,11 +163,11 @@ Also compile the source-backed example to verify normal development usage:
 ```
 
 After pushing a release tag, JitPack publishes only `:lib` with Java 17 (see [`jitpack.yml`](jitpack.yml)).
-The Gradle subproject is named `lib`, but the published artifact remains `kobweb-tabler`.
+The Gradle subproject is named `lib`, but the published artifact remains `tabweb`.
 
 For a quick local verification using Tagessieg:
 
-1. In `gradle/libs.versions.toml`, change `kobweb-tabler` from `0.0.1-SNAPSHOT` to the release version, for example
+1. In `gradle/libs.versions.toml`, change `tabweb` from `0.0.1-SNAPSHOT` to the release version, for example
    `0.0.1`.
 2. Temporarily comment out the `includeBuild("../") { ... }` block in `_examples/settings.gradle.kts`.
 3. Run:

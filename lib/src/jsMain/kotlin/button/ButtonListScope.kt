@@ -1,7 +1,7 @@
-package com.github.jangalinski.kobweb.tabler.button
+package com.github.jangalinski.tabweb.button
 
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebDsl
-import com.github.jangalinski.kobweb.tabler.icon.Icon
+import com.github.jangalinski.tabweb._foundation.TabwebDsl
+import com.github.jangalinski.tabweb.icon.Icon
 
 /**
  * Provides the children for a button list DSL.

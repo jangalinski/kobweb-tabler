@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler._foundation
+package com.github.jangalinski.tabweb._foundation
 
 import com.varabyte.kobweb.navigation.BasePath
 import com.varabyte.kobweb.compose.css.functions.url as cssUrl

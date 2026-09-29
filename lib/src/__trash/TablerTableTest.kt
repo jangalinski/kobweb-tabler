@@ -1,13 +1,13 @@
-package com.github.jangalinski.kobweb.tabler.table
+package com.github.jangalinski.tabweb.table
 
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatar
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarContent
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarData
-import com.github.jangalinski.kobweb.tabler.table.*
+import com.github.jangalinski.tabweb.avatar.TablerAvatar
+import com.github.jangalinski.tabweb.avatar.TablerAvatarContent
+import com.github.jangalinski.tabweb.avatar.TablerAvatarData
+import com.github.jangalinski.tabweb.table.*
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest

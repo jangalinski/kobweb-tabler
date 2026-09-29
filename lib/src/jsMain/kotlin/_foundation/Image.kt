@@ -1,7 +1,7 @@
-package com.github.jangalinski.kobweb.tabler._foundation
+package com.github.jangalinski.tabweb._foundation
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KImg
+import com.github.jangalinski.tabweb._foundation.compose.KImg
 import com.varabyte.kobweb.compose.css.BackgroundImage
 import com.varabyte.kobweb.compose.ui.Modifier
 

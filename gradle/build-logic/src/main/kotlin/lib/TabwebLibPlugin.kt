@@ -1,7 +1,7 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib
+package com.github.jangalinski.tabweb.gradle.buildlogic.lib
 
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.BuildLogic
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.task.GenerateLibCodeTask
+import com.github.jangalinski.tabweb.gradle.buildlogic.BuildLogic
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.task.GenerateLibCodeTask
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

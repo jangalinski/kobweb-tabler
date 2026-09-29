@@ -44,11 +44,11 @@ kobweb {
         style {
           importCss(
             url = "https://cdn.jsdelivr.net/npm/@tabler/core@<TABLER_VERSION>/dist/css/tabler.min.css",
-            layerName = "kobweb-tabler"
+            layerName = "tabweb"
           )
           importCss(
             url = "https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@<ICONS_VERSION>/dist/tabler-icons.min.css",
-            layerName = "kobweb-tabler"
+            layerName = "tabweb"
           )
         }
         script {
@@ -376,13 +376,13 @@ val generateTablerRuntimeInfo by tasks.registering {
 
     doLast {
         val outputFile = generatedTablerRuntimeDir.get()
-            .file("com/github/jangalinski/kobweb/tabler/runtime/KobwebTablerRuntimeInfo.kt")
+            .file("com/github/jangalinski/tabweb/runtime/KobwebTablerRuntimeInfo.kt")
             .asFile
 
         outputFile.parentFile.mkdirs()
         outputFile.writeText(
             """
-            package com.github.jangalinski.kobweb.tabler.runtime
+            package com.github.jangalinski.tabweb.runtime
 
             object KobwebTablerRuntimeInfo {
                 const val TABLER_CORE_VERSION = "$tablerCoreVersion"
@@ -411,7 +411,7 @@ tasks.withType<KotlinCompilationTask<*>>().configureEach {
 The generated file will look like this:
 
 ```kotlin
-package com.github.jangalinski.kobweb.tabler.runtime
+package com.github.jangalinski.tabweb.runtime
 
 object KobwebTablerRuntimeInfo {
     const val TABLER_CORE_VERSION = "1.5.1"
@@ -430,7 +430,7 @@ Now your lazy loaders can build their CDN URLs from the generated runtime consta
 ```kotlin
 package your.package.assets
 
-import com.github.jangalinski.kobweb.tabler.runtime.KobwebTablerRuntimeInfo
+import com.github.jangalinski.tabweb.runtime.KobwebTablerRuntimeInfo
 
 object TablerFullCalendarLoader {
     private var loaded = false
@@ -463,7 +463,7 @@ If you want to inspect the version from browser dev tools or consume it from pla
 ```kotlin
 package your.package.runtime
 
-import com.github.jangalinski.kobweb.tabler.runtime.KobwebTablerRuntimeInfo
+import com.github.jangalinski.tabweb.runtime.KobwebTablerRuntimeInfo
 import kotlinx.browser.window
 import kotlin.js.json
 
@@ -498,7 +498,7 @@ window.__kobwebTabler.coreVersion
 
 ### Good fit for a library
 
-If you maintain a library such as `kobweb-tabler`, this pattern scales well:
+If you maintain a library such as `tabweb`, this pattern scales well:
 
 - keep `core` assets global
 - provide a loader per optional plugin
@@ -525,16 +525,16 @@ src/jsMain/kotlin/
     LazyFullCalendar.kt
   your/package/runtime/
     BrowserRuntimeInfo.kt
-build/generated/kobwebTablerRuntime/kotlin/
-  com/github/jangalinski/kobweb/tabler/runtime/
+build/generated/tabwebRuntime/kotlin/
+  com/github/jangalinski/tabweb/runtime/
     KobwebTablerRuntimeInfo.kt
 ```
 
 If your library grows, consider splitting plugin wrappers into separate modules:
 
-- `kobweb-tabler-core`
-- `kobweb-tabler-fullcalendar`
-- `kobweb-tabler-apexcharts`
+- `tabweb-core`
+- `tabweb-fullcalendar`
+- `tabweb-apexcharts`
 
 That gives consumers even more control over what they include.
 

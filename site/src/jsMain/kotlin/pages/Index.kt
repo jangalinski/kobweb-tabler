@@ -1,24 +1,24 @@
-package com.github.jangalinski.kobweb.tabler.site.pages
+package com.github.jangalinski.tabweb.site.pages
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.Image
-import com.github.jangalinski.kobweb.tabler._foundation.Url
-import com.github.jangalinski.kobweb.tabler.card.TablerCards
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
-import com.github.jangalinski.kobweb.tabler.divider.TablerDivider
-import com.github.jangalinski.kobweb.tabler.icon.TablerIcon.TI_BRAND_GITHUB
-import com.github.jangalinski.kobweb.tabler.icon.TablerIcon.TI_FOOTSTEPS
-import com.github.jangalinski.kobweb.tabler.link.TablerLink
-import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
-import com.github.jangalinski.kobweb.tabler.site.siteLayoutData
-import com.github.jangalinski.kobweb.tabler.site.sitePageMeta
-import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
-import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.HALF
-import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.QUARTER
-import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
-import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
+import com.github.jangalinski.tabweb._foundation.Image
+import com.github.jangalinski.tabweb._foundation.Url
+import com.github.jangalinski.tabweb.card.TablerCards
+import com.github.jangalinski.tabweb._foundation.compose.KDiv
+import com.github.jangalinski.tabweb._foundation.compose.KSpan
+import com.github.jangalinski.tabweb._foundation.compose.KText
+import com.github.jangalinski.tabweb.divider.TablerDivider
+import com.github.jangalinski.tabweb.icon.TablerIcon.TI_BRAND_GITHUB
+import com.github.jangalinski.tabweb.icon.TablerIcon.TI_FOOTSTEPS
+import com.github.jangalinski.tabweb.link.TablerLink
+import com.github.jangalinski.tabweb.site.SiteRoutes
+import com.github.jangalinski.tabweb.site.siteLayoutData
+import com.github.jangalinski.tabweb.site.sitePageMeta
+import com.github.jangalinski.tabweb._foundation.css.GridWidth
+import com.github.jangalinski.tabweb._foundation.css.GridWidth.HALF
+import com.github.jangalinski.tabweb._foundation.css.GridWidth.QUARTER
+import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
+import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.varabyte.kobweb.compose.style.KobwebComposeStyleSheet.attr
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
@@ -45,7 +45,7 @@ import org.jetbrains.compose.web.dom.Text
  */
 @InitRoute
 fun initIndexPage(ctx: InitRouteContext) {
-  ctx.data.add(sitePageMeta("kobweb-tabler", "Documentation and examples"))
+  ctx.data.add(sitePageMeta("tabweb", "Documentation and examples"))
   ctx.data.add(siteLayoutData(SiteRoutes.Home))
 }
 
@@ -69,14 +69,14 @@ fun Index() {
       width = QUARTER,
     )
     card(title = "Welcome", width = HALF) {
-      P { Text("This site is the live component showcase for kobweb-tabler.") }
+      P { Text("This site is the live component showcase for tabweb.") }
       P {
-        A(href = "https://jangalinski.github.io/kobweb-tabler/docs/", attrs = { attr("target", "_blank") }) {
+        A(href = "https://jangalinski.github.io/tabweb/docs/", attrs = { attr("target", "_blank") }) {
           Text("Open the API documentation")
         }
       }
       P {
-        TablerLink(href = "https://jangalinski.github.io/kobweb-tabler/docs/")
+        TablerLink(href = "https://jangalinski.github.io/tabweb/docs/")
       }
       P {
         TablerLink(href = SiteRoutes.Elements)

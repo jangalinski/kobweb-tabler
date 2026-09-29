@@ -1,9 +1,9 @@
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnPlugin
 import org.jetbrains.kotlin.gradle.targets.js.yarn.YarnRootExtension
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.TablerCssDocumentationExtension
+import com.github.jangalinski.tabweb.gradle.buildlogic.TablerCssDocumentationExtension
 
 plugins {
-  id("com.github.jangalinski.kobweb.tabler.buildlogic.tabler-css-documentation")
+  id("com.github.jangalinski.tabweb.buildlogic.tabler-css-documentation")
   alias(libs.plugins.kotlin.multiplatform) apply false
   alias(libs.plugins.compose.compiler) apply false
   alias(libs.plugins.detekt) apply false

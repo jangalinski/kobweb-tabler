@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic
+package com.github.jangalinski.tabweb.gradle.buildlogic
 
 import org.gradle.api.DefaultTask
 import org.gradle.api.Plugin
@@ -126,7 +126,7 @@ internal fun parseTablerIconNames(css: String): List<String> =
     .toList()
 
 internal fun generateTablerIconSource(names: List<String>, version: String): String = buildString {
-  appendLine("package com.github.jangalinski.kobweb.tabler.icon")
+  appendLine("package com.github.jangalinski.tabweb.icon")
   appendLine()
   appendLine("import com.varabyte.kobweb.compose.ui.Modifier")
   appendLine("import com.varabyte.kobweb.compose.ui.modifiers.classNames")

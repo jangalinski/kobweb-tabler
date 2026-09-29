@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.button
+package com.github.jangalinski.tabweb.button
 
 /**
  * Enumerates the supported Tabler corner shapes for a [Button].

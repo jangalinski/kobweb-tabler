@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler._foundation
+package com.github.jangalinski.tabweb._foundation
 
 import com.varabyte.kobweb.compose.css.BackgroundImage
 import com.varabyte.kobweb.compose.ui.Modifier

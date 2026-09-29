@@ -28,7 +28,7 @@ pluginManagement {
 
 includeBuild("gradle/detekt-rules")
 
-rootProject.name = "kobweb-tabler"
+rootProject.name = "tabweb"
 
 include(":lib")
 include(":site")

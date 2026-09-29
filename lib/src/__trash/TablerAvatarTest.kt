@@ -1,16 +1,16 @@
-package com.github.jangalinski.kobweb.tabler.avatar
+package com.github.jangalinski.tabweb.avatar
 
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarColor
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarContent
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarData
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarListData
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarShape
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarSize
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarStatus
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarStatusColor
+import com.github.jangalinski.tabweb.avatar.TablerAvatarColor
+import com.github.jangalinski.tabweb.avatar.TablerAvatarContent
+import com.github.jangalinski.tabweb.avatar.TablerAvatarData
+import com.github.jangalinski.tabweb.avatar.TablerAvatarListData
+import com.github.jangalinski.tabweb.avatar.TablerAvatarShape
+import com.github.jangalinski.tabweb.avatar.TablerAvatarSize
+import com.github.jangalinski.tabweb.avatar.TablerAvatarStatus
+import com.github.jangalinski.tabweb.avatar.TablerAvatarStatusColor
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Ignore

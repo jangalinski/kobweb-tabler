@@ -1,12 +1,12 @@
-package com.github.jangalinski.kobweb.tabler.avatar
+package com.github.jangalinski.tabweb.avatar
 
-import com.github.jangalinski.kobweb.tabler._foundation.Tabler
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebComponent
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebContent
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebFoundationComponent
-import com.github.jangalinski.kobweb.tabler._foundation.Initials as AvatarInitials
-import com.github.jangalinski.kobweb.tabler._foundation.Image as AvatarImage
-import com.github.jangalinski.kobweb.tabler.icon.Icon as AvatarIcon
+import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb._foundation.TabwebComponent
+import com.github.jangalinski.tabweb._foundation.TabwebContent
+import com.github.jangalinski.tabweb._foundation.TabwebFoundationComponent
+import com.github.jangalinski.tabweb._foundation.Initials as AvatarInitials
+import com.github.jangalinski.tabweb._foundation.Image as AvatarImage
+import com.github.jangalinski.tabweb.icon.Icon as AvatarIcon
 
 /**
  * Represents the supported typed content of an [Avatar].

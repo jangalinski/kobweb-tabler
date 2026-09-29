@@ -1,6 +1,6 @@
-package com.github.jangalinski.kobweb.tabler.button
+package com.github.jangalinski.tabweb.button
 
-import com.github.jangalinski.kobweb.tabler._foundation.css.cssClass
+import com.github.jangalinski.tabweb._foundation.css.cssClass
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**

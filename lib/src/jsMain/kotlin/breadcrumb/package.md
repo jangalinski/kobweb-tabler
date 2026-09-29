@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.breadcrumb
+# Package com.github.jangalinski.tabweb.breadcrumb
 
 Tabler breadcrumb rendering and the data model for a route's breadcrumb trail.
 

@@ -29,5 +29,6 @@ docs/kobweb-bootstrap/
 .kotlin/
 __pycache__/
 
+.junie/
 .env.agent
 .env.local

@@ -1,8 +1,8 @@
-package com.github.jangalinski.kobweb.tabler.site
+package com.github.jangalinski.tabweb.site
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
+import com.github.jangalinski.tabweb._foundation.css.ClassNames
 import com.varabyte.kobweb.compose.foundation.layout.RowScope
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Div
@@ -12,11 +12,11 @@ import org.jetbrains.compose.web.dom.Text
 fun siteFooter(): @Composable () -> Unit = {
   Div(attrs = { attr("class", ClassNames.footerRow) }) {
     Div(attrs = { attr("class", ClassNames.footerLeft) }) {
-      Text("kobweb-tabler component documentation")
+      Text("tabweb component documentation")
     }
     Div(attrs = { attr("class", ClassNames.footerRight) }) {
       A(
-        href = "https://github.com/jangalinski/kobweb-tabler",
+        href = "https://github.com/jangalinski/tabweb",
         attrs = {
           attr("class", ClassNames.footerLink)
           attr("target", "_blank")

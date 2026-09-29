@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.badge
+# Package com.github.jangalinski.tabweb.badge
 
 Tabler badge components, variants, sizes, and typed badge content used by other concept packages.
 

@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler._foundation.css
+package com.github.jangalinski.tabweb._foundation.css
 
 //bg-azure-lt
 //bg-azure

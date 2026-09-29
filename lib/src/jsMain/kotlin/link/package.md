@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.link
+# Package com.github.jangalinski.tabweb.link
 
 Small Tabler-oriented link composables.
 

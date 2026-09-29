@@ -1,10 +1,10 @@
-package com.github.jangalinski.kobweb.tabler._app
+package com.github.jangalinski.tabweb._app
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
-import com.github.jangalinski.kobweb.tabler._foundation.Url
-import com.github.jangalinski.kobweb.tabler.navbar.TablerBrand
-import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarFactory
+import com.github.jangalinski.tabweb._foundation.Url
+import com.github.jangalinski.tabweb.navbar.TablerBrand
+import com.github.jangalinski.tabweb.navbar.TablerNavbarFactory
 import com.varabyte.kobweb.core.AppGlobals
 
 /**
@@ -20,8 +20,8 @@ data class TablerSiteConfig(
 /** Shared page-shell defaults supplied by [TablerSiteConfig]. */
 data class TablerShellConfig(
   val brand: TablerBrand.Brand = TablerBrand.Brand.Logo(
-    image = Url("/kobweb-tabler/kobweb-tabler-logo.svg"),
-    caption = AppGlobals["title"] ?: "kobweb-tabler"
+    image = Url("/tabweb/tabweb-logo.svg"),
+    caption = AppGlobals["title"] ?: "tabweb"
   ),
   /** Primary navigation rendered below the brand header for the active route. */
   val navbar: TablerNavbarFactory = TablerNavbarFactory.None,

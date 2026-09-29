@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.badge
+package com.github.jangalinski.tabweb.badge
 
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames

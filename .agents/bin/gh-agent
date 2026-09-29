@@ -28,4 +28,4 @@ if [[ "$has_repo_arg" == true ]]; then
   exec gh "$@"
 fi
 
-exec gh "$@" --repo jangalinski/kobweb-tabler
+exec gh "$@" --repo jangalinski/tabweb

@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler
+package com.github.jangalinski.tabweb
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
@@ -25,13 +25,13 @@ data object KobwebTablerFixture {
 
     Div(
       attrs = modifier.toAttrs {
-        attr("data-kobweb-tabler-fixture", "modifier")
+        attr("data-tabweb-fixture", "modifier")
       },
     )
 
     SideEffect {
       val classAttribute = document
-        .querySelector("[data-kobweb-tabler-fixture=modifier]")
+        .querySelector("[data-tabweb-fixture=modifier]")
         ?.getAttribute("class")
         .orEmpty()
 

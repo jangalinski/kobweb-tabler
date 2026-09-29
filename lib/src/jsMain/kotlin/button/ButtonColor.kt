@@ -1,6 +1,6 @@
-package com.github.jangalinski.kobweb.tabler.button
+package com.github.jangalinski.tabweb.button
 
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebColor
+import com.github.jangalinski.tabweb._foundation.TabwebColor
 
 /**
  * Enumerates the Tabler theme, palette, and social colors available to a [Button].

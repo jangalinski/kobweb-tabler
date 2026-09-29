@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.site.data
+package com.github.jangalinski.tabweb.site.data
 
 interface RandomUser {
 }

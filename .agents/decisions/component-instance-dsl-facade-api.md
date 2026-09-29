@@ -123,7 +123,7 @@ Kotlin does not permit an on-demand (`.*`) import from an object. Consumers
 can import the specific facade entry point they use and call it unqualified:
 
 ```kotlin
-import com.github.jangalinski.kobweb.tabler.KobwebTabler.avatars
+import com.github.jangalinski.tabweb.KobwebTabler.avatars
 
 avatars {
   avatar {

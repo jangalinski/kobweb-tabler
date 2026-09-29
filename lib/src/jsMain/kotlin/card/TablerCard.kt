@@ -1,13 +1,13 @@
-package com.github.jangalinski.kobweb.tabler.card
+package com.github.jangalinski.tabweb.card
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KH3
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
+import com.github.jangalinski.tabweb._foundation.compose.KH3
+import com.github.jangalinski.tabweb._foundation.compose.KText
+import com.github.jangalinski.tabweb._foundation.css.ClassNames
+import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
 
 /**
  * Renders a standard Tabler card with an optional title.

@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.badge
+package com.github.jangalinski.tabweb.badge
 
 /**
  * Selects the edge at which an icon is rendered beside a badge label.

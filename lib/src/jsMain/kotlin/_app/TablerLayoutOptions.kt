@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler._app
+package com.github.jangalinski.tabweb._app
 
 /**
  * Configuration for the structural and behavioral variants of a Tabler page
@@ -10,7 +10,7 @@ package com.github.jangalinski.kobweb.tabler._app
  * configuration rather than separate layouts because the preview variants
  * share the same page, navigation, page-wrapper, main, and footer blocks.
  *
- * This model is intentionally not consumed by [com.github.jangalinski.kobweb.tabler._compose.TablerLayout]
+ * This model is intentionally not consumed by [com.github.jangalinski.tabweb._compose.TablerLayout]
  * yet. It establishes the type-safe configuration boundary for a later
  * layout implementation without changing the current layout behavior.
  *

@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler._foundation
+# Package com.github.jangalinski.tabweb._foundation
 
 Shared, non-widget infrastructure for the library. This package defines cross-concept semantic contracts such as `TablerComponent`, `TablerStyle`, `TablerBehavior`, and `TablerSize`, plus narrowly scoped shared value types.
 

@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.generation
+package com.github.jangalinski.tabweb.gradle.buildlogic.generation
 
 import assertk.assertThat
 import assertk.assertions.contains
@@ -34,10 +34,10 @@ class KotlinCodeGenerationPluginTest {
 
     task.generate()
 
-    val generatedFile = File(testOutputDir, "com/github/jangalinski/kobweb/tabler/generated/Foo.kt")
+    val generatedFile = File(testOutputDir, "com/github/jangalinski/tabweb/generated/Foo.kt")
     assertThat(generatedFile).exists()
     val expectedContent = """
-      |package com.github.jangalinski.kobweb.tabler.generated
+      |package com.github.jangalinski.tabweb.generated
       |
       |/**
       | * Example generated data class.

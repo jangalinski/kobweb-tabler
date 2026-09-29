@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.site
+package com.github.jangalinski.tabweb.site
 
 /** Base-path-independent routes used by the documentation site. */
 data object SiteRoutes {

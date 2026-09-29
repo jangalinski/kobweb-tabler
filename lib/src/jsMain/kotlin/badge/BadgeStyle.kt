@@ -1,7 +1,7 @@
-package com.github.jangalinski.kobweb.tabler.badge
+package com.github.jangalinski.tabweb.badge
 
-import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
+import com.github.jangalinski.tabweb._foundation.css.plus
+import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**

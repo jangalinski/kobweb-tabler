@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.breadcrumb
+package com.github.jangalinski.tabweb.breadcrumb
 
 /**
  * A single crumb in a Tabler breadcrumb trail.

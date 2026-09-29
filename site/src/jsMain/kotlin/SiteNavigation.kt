@@ -1,12 +1,12 @@
-package com.github.jangalinski.kobweb.tabler.site
+package com.github.jangalinski.tabweb.site
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._app.LocalTablerAppState
-import com.github.jangalinski.kobweb.tabler._app.TablerTheme
-import com.github.jangalinski.kobweb.tabler._foundation.Url
-import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
-import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarData
-import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarItem
+import com.github.jangalinski.tabweb._app.LocalTablerAppState
+import com.github.jangalinski.tabweb._app.TablerTheme
+import com.github.jangalinski.tabweb._foundation.Url
+import com.github.jangalinski.tabweb.icon.TablerIcon
+import com.github.jangalinski.tabweb.navbar.TablerNavbarData
+import com.github.jangalinski.tabweb.navbar.TablerNavbarItem
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.Div
 

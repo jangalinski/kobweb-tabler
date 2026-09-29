@@ -37,7 +37,7 @@ All other types belong to either a named Tabler concept package or to
 `_foundation`.
 
 ```text
-com.github.jangalinski.kobweb.tabler
+com.github.jangalinski.tabweb
 ├── KobwebTabler.kt            # the sole top-level public entry point
 ├── _foundation/               # shared basis; not a Tabler UI feature
 │   ├── Component.kt

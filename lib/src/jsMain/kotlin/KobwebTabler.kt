@@ -1,20 +1,20 @@
-package com.github.jangalinski.kobweb.tabler
+package com.github.jangalinski.tabweb
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._app.TablerLayout
-import com.github.jangalinski.kobweb.tabler._app.TablerSiteConfig
-import com.github.jangalinski.kobweb.tabler._app.ProvideTablerAppState
-import com.github.jangalinski.kobweb.tabler._app.ProvideTablerSiteConfig
-import com.github.jangalinski.kobweb.tabler._app.TablerSettings
-import com.github.jangalinski.kobweb.tabler._app.rememberTablerAppState
-import com.github.jangalinski.kobweb.tabler._foundation.Markdown
-import com.github.jangalinski.kobweb.tabler._foundation.Url.Internal
-import com.github.jangalinski.kobweb.tabler.avatar.AvatarComposable
-import com.github.jangalinski.kobweb.tabler.avatar.AvatarDsl
-import com.github.jangalinski.kobweb.tabler.badge.BadgeComposable
-import com.github.jangalinski.kobweb.tabler.badge.BadgeDsl
-import com.github.jangalinski.kobweb.tabler.button.ButtonComposable
-import com.github.jangalinski.kobweb.tabler.button.ButtonDsl
+import com.github.jangalinski.tabweb._app.TablerLayout
+import com.github.jangalinski.tabweb._app.TablerSiteConfig
+import com.github.jangalinski.tabweb._app.ProvideTablerAppState
+import com.github.jangalinski.tabweb._app.ProvideTablerSiteConfig
+import com.github.jangalinski.tabweb._app.TablerSettings
+import com.github.jangalinski.tabweb._app.rememberTablerAppState
+import com.github.jangalinski.tabweb._foundation.Markdown
+import com.github.jangalinski.tabweb._foundation.Url.Internal
+import com.github.jangalinski.tabweb.avatar.AvatarComposable
+import com.github.jangalinski.tabweb.avatar.AvatarDsl
+import com.github.jangalinski.tabweb.badge.BadgeComposable
+import com.github.jangalinski.tabweb.badge.BadgeDsl
+import com.github.jangalinski.tabweb.button.ButtonComposable
+import com.github.jangalinski.tabweb.button.ButtonDsl
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.core.KobwebApp
 import com.varabyte.kobweb.core.PageContext
@@ -25,8 +25,8 @@ data object KobwebTabler :
   AvatarComposable by AvatarDsl,
   BadgeComposable by BadgeDsl,
   ButtonComposable by ButtonDsl {
-  const val TABLER_LAYER = "kobweb-tabler"
-  const val TABLER_LAYOUT = "com.github.jangalinski.kobweb.tabler.KobwebTabler.Layout"
+  const val TABLER_LAYER = "tabweb"
+  const val TABLER_LAYOUT = "com.github.jangalinski.tabweb.KobwebTabler.Layout"
   val HOME = Internal("/")
 
   @Composable

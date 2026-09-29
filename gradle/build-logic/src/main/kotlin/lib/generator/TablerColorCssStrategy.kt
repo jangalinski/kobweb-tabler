@@ -1,9 +1,9 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.generator
+package com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator
 
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.*
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.generator.processor.EnumLazyModifierProzessor
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.model.TablerColorModel
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.model.TablerColorModel.Social
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.*
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.generator.processor.EnumLazyModifierProzessor
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.model.TablerColorModel
+import com.github.jangalinski.tabweb.gradle.buildlogic.lib.model.TablerColorModel.Social
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.ExperimentalKotlinPoetApi
 import com.squareup.kotlinpoet.KModifier

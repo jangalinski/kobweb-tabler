@@ -1,6 +1,6 @@
-package com.github.jangalinski.kobweb.tabler.avatar
+package com.github.jangalinski.tabweb.avatar
 
-import com.github.jangalinski.kobweb.tabler._foundation.css.cssClass
+import com.github.jangalinski.tabweb._foundation.css.cssClass
 
 /**
  * Maps the avatar model to the Tabler CSS classes used by its renderers.

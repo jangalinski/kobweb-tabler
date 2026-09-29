@@ -1,6 +1,6 @@
 # Kobweb / Silk Building Blocks
 
-This note collects the concrete building blocks that Kobweb exposes on top of Compose HTML and Kotlin/JS, with a focus on the layout primitives that are useful when building `kobweb-tabler`.
+This note collects the concrete building blocks that Kobweb exposes on top of Compose HTML and Kotlin/JS, with a focus on the layout primitives that are useful when building `tabweb`.
 
 Most of the reusable UI surface is in `kobweb-compose-js`; `kobweb-silk-js` mainly provides the `SilkApp` entry point and the color-mode aware startup wiring.
 
@@ -23,4 +23,4 @@ Most of the reusable UI surface is in `kobweb-compose-js`; `kobweb-silk-js` main
 
 - `SilkApp` is the only Silk-specific composable in the exported source surface that is immediately visible in the `kobweb-silk-js` source jar.
 - The layout primitives are in `kobweb-compose-js`, and they are the pieces you generally want to use when building Silk-first components.
-- `kobweb-tabler` should prefer these primitives over raw HTML wrappers wherever possible.
+- `tabweb` should prefer these primitives over raw HTML wrappers wherever possible.

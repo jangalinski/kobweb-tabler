@@ -1,9 +1,9 @@
 @file:Suppress("DEPRECATION")
 
-package com.github.jangalinski.kobweb.tabler.__trash.legacy_navigation
+package com.github.jangalinski.tabweb.__trash.legacy_navigation
 
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebDsl
-import com.github.jangalinski.kobweb.tabler._foundation.Image
+import com.github.jangalinski.tabweb._foundation.TabwebDsl
+import com.github.jangalinski.tabweb._foundation.Image
 
 /**
  * Hierarchical navigation model for Tabler menus.

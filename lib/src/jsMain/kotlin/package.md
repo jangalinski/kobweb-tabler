@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler
+# Package com.github.jangalinski.tabweb
 
 The root package intentionally exposes only [KobwebTabler], the library entry point for Kobweb integration. Import concrete UI APIs from their owning concept package.
 

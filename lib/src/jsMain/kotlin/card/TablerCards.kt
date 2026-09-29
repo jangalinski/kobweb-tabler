@@ -1,16 +1,16 @@
-package com.github.jangalinski.kobweb.tabler.card
+package com.github.jangalinski.tabweb.card
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebDsl
+import com.github.jangalinski.tabweb._foundation.TabwebDsl
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.ColumnScope
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
-import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
-import com.github.jangalinski.kobweb.tabler.table.TablerPaginationData
-import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
-import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.QUARTER
+import com.github.jangalinski.tabweb._foundation.css.ClassNames
+import com.github.jangalinski.tabweb._foundation.css.ClassNames.modifier
+import com.github.jangalinski.tabweb.table.TablerPaginationData
+import com.github.jangalinski.tabweb._foundation.css.GridWidth
+import com.github.jangalinski.tabweb._foundation.css.GridWidth.QUARTER
 
 /**
  * Scoped builder for card-only Tabler grids.

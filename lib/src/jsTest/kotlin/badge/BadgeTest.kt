@@ -1,15 +1,15 @@
-package com.github.jangalinski.kobweb.tabler.badge
+package com.github.jangalinski.tabweb.badge
 
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.kobweb.tabler.KobwebTabler.badge
-import com.github.jangalinski.kobweb.tabler.KobwebTabler.badges
-import com.github.jangalinski.kobweb.tabler._foundation.Link
-import com.github.jangalinski.kobweb.tabler._foundation.Url
-import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
-import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
+import com.github.jangalinski.tabweb.KobwebTabler.badge
+import com.github.jangalinski.tabweb.KobwebTabler.badges
+import com.github.jangalinski.tabweb._foundation.Link
+import com.github.jangalinski.tabweb._foundation.Url
+import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
+import com.github.jangalinski.tabweb.icon.TablerIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest
 import kotlin.test.Test

@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.table
+package com.github.jangalinski.tabweb.table
 
 import androidx.compose.runtime.Composable
 
@@ -49,7 +49,7 @@ internal class TablerTableDslCell(
 )
 
 /**
- * Top-level scope for building a [com.github.jangalinski.kobweb.tabler.table.TablerTable]
+ * Top-level scope for building a [com.github.jangalinski.tabweb.table.TablerTable]
  * using the composable DSL.
  *
  * Example:

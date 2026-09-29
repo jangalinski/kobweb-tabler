@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.divider
+# Package com.github.jangalinski.tabweb.divider
 
 Tabler divider composables for separating related content regions.
 

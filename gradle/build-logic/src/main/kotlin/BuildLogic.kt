@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic
+package com.github.jangalinski.tabweb.gradle.buildlogic
 
 data object BuildLogic {
   // marker for root project

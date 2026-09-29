@@ -1,4 +1,4 @@
-package com.github.jangalinski.kobweb.tabler.avatar
+package com.github.jangalinski.tabweb.avatar
 
 /**
  * Pure configuration for a Tabler avatar.

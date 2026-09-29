@@ -22,29 +22,29 @@ configurations.all {
 gradlePlugin {
   plugins {
     create("tagessiegPreview") {
-      id = "com.github.jangalinski.kobweb.tabler.buildlogic.tagessieg-preview"
-      implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.ExamplePreviewPlugin"
+      id = "com.github.jangalinski.tabweb.buildlogic.tagessieg-preview"
+      implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.ExamplePreviewPlugin"
     }
     create("sitePreview") {
-      id = "com.github.jangalinski.kobweb.tabler.buildlogic.site-preview"
-      implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.SitePreviewPlugin"
+      id = "com.github.jangalinski.tabweb.buildlogic.site-preview"
+      implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.SitePreviewPlugin"
     }
     create("tablerIcons") {
-      id = "com.github.jangalinski.kobweb.tabler.buildlogic.tabler-icons"
-      implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.TablerIconsPlugin"
+      id = "com.github.jangalinski.tabweb.buildlogic.tabler-icons"
+      implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.TablerIconsPlugin"
     }
     create("tablerCssDocumentation") {
-      id = "com.github.jangalinski.kobweb.tabler.buildlogic.tabler-css-documentation"
-      implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.TablerCssDocumentationPlugin"
+      id = "com.github.jangalinski.tabweb.buildlogic.tabler-css-documentation"
+      implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.TablerCssDocumentationPlugin"
     }
     create("kotlinCodeGeneration") {
-      id = "com.github.jangalinski.kobweb.tabler.buildlogic.kotlin-code-generation"
-      implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.generation.KotlinCodeGenerationPlugin"
+      id = "com.github.jangalinski.tabweb.buildlogic.kotlin-code-generation"
+      implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.generation.KotlinCodeGenerationPlugin"
     }
 
     create("tabwebLib") {
       id = "buildlogic.tabweb-lib"
-      implementationClass = "com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.TabwebLibPlugin"
+      implementationClass = "com.github.jangalinski.tabweb.gradle.buildlogic.lib.TabwebLibPlugin"
     }
   }
 }

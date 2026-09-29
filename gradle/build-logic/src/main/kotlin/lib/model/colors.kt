@@ -1,6 +1,6 @@
-package com.github.jangalinski.kobweb.tabler.gradle.buildlogic.lib.model
+package com.github.jangalinski.tabweb.gradle.buildlogic.lib.model
 
-import com.github.jangalinski.kobweb.tabler.gradle.buildlogic.BuildLogic.loadResource
+import com.github.jangalinski.tabweb.gradle.buildlogic.BuildLogic.loadResource
 import kotlinx.serialization.InternalSerializationApi
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.builtins.ListSerializer

@@ -1,4 +1,4 @@
-# Package com.github.jangalinski.kobweb.tabler.chart
+# Package com.github.jangalinski.tabweb.chart
 
 Small chart wrappers that integrate browser-side JavaScript chart libraries with Kobweb pages while retaining a Kotlin-first API.
 

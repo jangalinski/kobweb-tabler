@@ -1,12 +1,12 @@
-package com.github.jangalinski.kobweb.tabler.button
+package com.github.jangalinski.tabweb.button
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler.icon.Icon
+import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.onClick
 
 /**
- * The button DSL implementation delegated through [com.github.jangalinski.kobweb.tabler.KobwebTabler].
+ * The button DSL implementation delegated through [com.github.jangalinski.tabweb.KobwebTabler].
  */
 data object ButtonDsl : ButtonComposable {
   @Composable
