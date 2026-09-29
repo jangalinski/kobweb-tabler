@@ -1,13 +1,10 @@
 package com.github.jangalinski.kobweb.tabler.avatar
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.*
 import com.github.jangalinski.kobweb.tabler._foundation.Tabler
+import com.github.jangalinski.kobweb.tabler._foundation.takeIf
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.github.jangalinski.kobweb.tabler.avatar._.AVATAR_LIST
-import com.github.jangalinski.kobweb.tabler.avatar._.AVATAR_LIST_STACKED
-import com.github.jangalinski.kobweb.tabler.avatar._.AvatarListSize
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
@@ -15,6 +12,15 @@ import com.varabyte.kobweb.compose.ui.Modifier
  */
 interface AvatarList : Tabler.Component {
   companion object {
+    /**
+     * Creates a list containing one configured [Avatar].
+     */
+    operator fun invoke(
+      avatars: Avatar,
+      stacked: Boolean = false,
+      size: AvatarListSize = AvatarListSize.DEFAULT,
+    ): AvatarList = invoke(stacked, size, listOf(avatars))
+
     operator fun invoke(
       stacked: Boolean = false,
       size: AvatarListSize = AvatarListSize.DEFAULT,
@@ -38,7 +44,7 @@ interface AvatarList : Tabler.Component {
 
   @Composable
   override fun invoke(modifier: Modifier) {
-    KDiv(modifier = AVATAR_LIST + AVATAR_LIST_STACKED.takeIf(stacked) + size + modifier) {
+    KDiv(modifier = AvatarCss.avatarList + AvatarCss.avatarListStacked.takeIf(stacked) + size + modifier) {
       avatars.forEach { it.invoke() }
     }
   }

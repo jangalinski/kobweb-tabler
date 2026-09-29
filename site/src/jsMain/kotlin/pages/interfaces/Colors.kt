@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
-import com.github.jangalinski.kobweb.tabler.avatar._.AvatarStyle
+import com.github.jangalinski.kobweb.tabler.avatar.AvatarStyle
 import com.github.jangalinski.kobweb.tabler.avatar.Avatar
 import com.github.jangalinski.kobweb.tabler.card.TablerCards
 import com.github.jangalinski.kobweb.tabler.site.SiteRoutes

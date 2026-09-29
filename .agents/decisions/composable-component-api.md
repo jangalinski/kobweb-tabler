@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted.
+Superseded by [Component Instance, DSL, and Facade API](component-instance-dsl-facade-api.md).
 
 ## Decision
 

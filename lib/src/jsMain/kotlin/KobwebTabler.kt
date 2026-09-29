@@ -10,14 +10,14 @@ import com.github.jangalinski.kobweb.tabler._app.rememberTablerAppState
 import com.github.jangalinski.kobweb.tabler._foundation.Markdown
 import com.github.jangalinski.kobweb.tabler._foundation.Url.Internal
 import com.github.jangalinski.kobweb.tabler.avatar.AvatarComposable
-import com.github.jangalinski.kobweb.tabler.avatar.TabwebAvatar
+import com.github.jangalinski.kobweb.tabler.avatar.AvatarDsl
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.core.KobwebApp
 import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.navigation.BasePath
 
-data object KobwebTabler : AvatarComposable by TabwebAvatar {
+data object KobwebTabler : AvatarComposable by AvatarDsl {
   const val TABLER_LAYER = "kobweb-tabler"
   const val TABLER_LAYOUT = "com.github.jangalinski.kobweb.tabler.KobwebTabler.Layout"
   val HOME = Internal("/")

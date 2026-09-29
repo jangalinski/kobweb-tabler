@@ -8,10 +8,6 @@ import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
 import com.github.jangalinski.kobweb.tabler._foundation.modifier
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
-import com.github.jangalinski.kobweb.tabler.avatar._.AVATAR
-import com.github.jangalinski.kobweb.tabler.avatar._.AvatarContent
-import com.github.jangalinski.kobweb.tabler.avatar._.AvatarSize
-import com.github.jangalinski.kobweb.tabler.avatar._.AvatarStyle
 import com.github.jangalinski.kobweb.tabler.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 
@@ -64,7 +60,7 @@ interface Avatar : Tabler.Component {
 
   @Composable
   override fun invoke(modifier: Modifier) {
-    val modifiers = AVATAR + size + style
+    val modifiers = AvatarCss.avatar + size + style
 
     when (content) {
       is AvatarContent.Image -> {

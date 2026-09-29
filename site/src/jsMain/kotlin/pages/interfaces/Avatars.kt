@@ -11,8 +11,8 @@ import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor.BASE.WHITE
 import com.github.jangalinski.kobweb.tabler.avatar.Avatar
 import com.github.jangalinski.kobweb.tabler.avatar.AvatarList
-import com.github.jangalinski.kobweb.tabler.avatar._.AvatarListSize
-import com.github.jangalinski.kobweb.tabler.avatar._.AvatarSize
+import com.github.jangalinski.kobweb.tabler.avatar.AvatarListSize
+import com.github.jangalinski.kobweb.tabler.avatar.AvatarSize
 import com.github.jangalinski.kobweb.tabler.card.TablerCards
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
 import com.github.jangalinski.kobweb.tabler.site.SiteRoutes

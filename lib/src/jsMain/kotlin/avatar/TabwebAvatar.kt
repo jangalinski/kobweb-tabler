@@ -1,63 +1,32 @@
 package com.github.jangalinski.kobweb.tabler.avatar
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.*
-import com.github.jangalinski.kobweb.tabler._foundation.TabwebDsl
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
-import com.github.jangalinski.kobweb.tabler._foundation.css.cssClass
-import com.github.jangalinski.kobweb.tabler.avatar.TabwebAvatar.AvatarListScope
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * A Tabler avatar component.
+ * Compatibility entry point for the former avatar DSL object.
  */
-data object TabwebAvatar : AvatarComposable {
-  const val CLASS = "avatar"
+@Deprecated("Use AvatarDsl or KobwebTabler.avatars.", ReplaceWith("AvatarDsl"))
+data object TabwebAvatar {
 
-  @Composable
-  override fun avatars(
-    stacked: Boolean,
-    modifier: Modifier,
-    content: @Composable AvatarListScope.() -> Unit
-  ) {
-    val scope = AvatarListScope()
-    KDiv(modifier = CSS.AVATAR_LIST + CSS.AVATAR_LIST_STACKED.takeIf(stacked) + modifier) {
-      scope.content()
-    }
-  }
-
-  @TabwebDsl
-  class AvatarScope internal constructor() {
-
-
-
-    @Composable
-    fun avatar() {
-
-    }
-  }
-
-  @TabwebDsl
-  class AvatarListScope internal constructor() {
-    private val avatars = mutableListOf<Avatar>()
-
-    operator fun plus(avatar: Avatar) {
-      avatars.add(avatar)
-    }
-
-
-
-    //val stacked: Modifier get() = Modifier.classNames(CSS.AVATAR_LIST_STACKED)
-  }
-
-}
-
-
-internal interface AvatarComposable {
+  /** Renders a list from the legacy `+Avatar(...)` builder syntax. */
   @Composable
   fun avatars(
     stacked: Boolean = false,
     modifier: Modifier = Modifier,
-    content: @Composable AvatarListScope.() -> Unit
-  )
+    content: @Composable AvatarListScope.() -> Unit,
+  ) {
+    val scope = AvatarListScope()
+    scope.content()
+    AvatarList(stacked = stacked, avatars = scope.avatars)(modifier)
+  }
+
+  /** Compatibility scope for the former `TabwebAvatar.avatars` builder. */
+  class AvatarListScope internal constructor() {
+    internal val avatars = mutableListOf<Avatar>()
+
+    operator fun plus(avatar: Avatar) {
+      avatars.add(avatar)
+    }
+  }
 }
