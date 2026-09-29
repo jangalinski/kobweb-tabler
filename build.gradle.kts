@@ -19,7 +19,7 @@ extensions.configure<TablerCssDocumentationExtension> {
 
 allprojects {
   group = providers.environmentVariable("GROUP").orElse("com.github.jangalinski").get()
-  version = providers.environmentVariable("VERSION").orElse("0.0.1-SNAPSHOT").get()
+  version = providers.environmentVariable("VERSION").orElse("0.0.2-SNAPSHOT").get()
 }
 
 plugins.withType<YarnPlugin> {

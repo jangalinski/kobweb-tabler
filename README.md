@@ -35,7 +35,7 @@ dependencyResolutionManagement {
 }
 
 dependencies {
-  implementation("com.github.jangalinski:tabweb:0.0.1")
+  implementation("com.github.jangalinski:tabweb:0.0.2")
 }
 ```
 
@@ -89,7 +89,7 @@ published example is `/tabweb/examples/tagessieg/`.
 The examples' shared version catalog declares a local development coordinate:
 
 ```kotlin
-implementation("com.github.jangalinski:tabweb:0.0.1-SNAPSHOT")
+implementation("com.github.jangalinski:tabweb:0.0.2-SNAPSHOT")
 ```
 
 Its `settings.gradle.kts` uses `includeBuild("../")` with an explicit dependency substitution to replace that
@@ -143,15 +143,15 @@ Before creating a Git tag, test the exact release version locally. Using a tempo
 test publication out of your normal `~/.m2` cache:
 
 ```bash
-VERSION=0.0.1 ./gradlew :lib:publishToMavenLocal \
+VERSION=0.0.2 ./gradlew :lib:publishToMavenLocal \
   -Dmaven.repo.local=/tmp/tabweb-m2
 ```
 
 When that succeeds, create and push the matching release tag (replace the version for later releases):
 
 ```bash
-git tag -a 0.0.1 -m "Release 0.0.1"
-git push origin 0.0.1
+git tag -a 0.0.2 -m "Release 0.0.2"
+git push origin 0.0.2
 ```
 
 Also compile the source-backed example to verify normal development usage:
@@ -167,8 +167,8 @@ The Gradle subproject is named `lib`, but the published artifact remains `tabweb
 
 For a quick local verification using Tagessieg:
 
-1. In `gradle/libs.versions.toml`, change `tabweb` from `0.0.1-SNAPSHOT` to the release version, for example
-   `0.0.1`.
+1. In `gradle/libs.versions.toml`, change `tabweb` from `0.0.2-SNAPSHOT` to the release version, for example
+   `0.0.2`.
 2. Temporarily comment out the `includeBuild("../") { ... }` block in `_examples/settings.gradle.kts`.
 3. Run:
 
