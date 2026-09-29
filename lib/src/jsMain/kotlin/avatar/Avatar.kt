@@ -18,6 +18,15 @@ import com.varabyte.kobweb.compose.ui.Modifier
 interface Avatar : Tabler.Component {
 
   companion object {
+    /**
+     * Creates an [Avatar] that renders an icon.
+     *
+     * @param content the icon shown by the avatar.
+     * @param size the avatar size.
+     * @param color the background color applied behind the icon.
+     * @param style the avatar shape and presentation style.
+     * @return an icon-backed [Avatar] component instance.
+     */
     operator fun invoke(
       content: Icon,
       size: AvatarSize = AvatarSize.DEFAULT,
@@ -30,6 +39,15 @@ interface Avatar : Tabler.Component {
       override val style: AvatarStyle = style
     }
 
+    /**
+     * Creates an [Avatar] that renders initials.
+     *
+     * @param content the initials shown by the avatar.
+     * @param size the avatar size.
+     * @param color the background color applied behind the initials.
+     * @param style the avatar shape and presentation style.
+     * @return an initials-backed [Avatar] component instance.
+     */
     operator fun invoke(
       content: Initials,
       size: AvatarSize = AvatarSize.DEFAULT,
@@ -42,6 +60,14 @@ interface Avatar : Tabler.Component {
       override val style: AvatarStyle = style
     }
 
+    /**
+     * Creates an [Avatar] that renders a resource image as its background.
+     *
+     * @param content the resource image used as the avatar background.
+     * @param size the avatar size.
+     * @param style the avatar shape and presentation style.
+     * @return an image-backed [Avatar] component instance.
+     */
     operator fun invoke(
       content: Image.Resource,
       size: AvatarSize = AvatarSize.DEFAULT,
@@ -53,9 +79,24 @@ interface Avatar : Tabler.Component {
     }
   }
 
+  /**
+   * The typed image, icon, or initials rendered by this avatar.
+   */
   val content: AvatarContent
+
+  /**
+   * The configured avatar size.
+   */
   val size: AvatarSize get() = AvatarSize.DEFAULT
+
+  /**
+   * The background color used for icon and initials avatars.
+   */
   val color: BackgroundColor get() = BackgroundColor.DEFAULT
+
+  /**
+   * The avatar shape and presentation style.
+   */
   val style: AvatarStyle get() = AvatarStyle.DEFAULT
 
   @Composable

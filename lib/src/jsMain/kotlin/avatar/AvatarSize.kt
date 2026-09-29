@@ -4,7 +4,9 @@ import com.github.jangalinski.kobweb.tabler._foundation.Tabler
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
-/** The supported Tabler sizes for an [Avatar]. */
+/**
+ * Enumerates the supported Tabler sizes for an [Avatar].
+ */
 enum class AvatarSize(private val value: String) : Tabler.Size, Tabler.Supplier<String> {
   XXS("avatar-xxs"),
   XS("avatar-xs"),

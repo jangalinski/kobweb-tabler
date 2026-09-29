@@ -7,33 +7,6 @@ import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler.icon.Icon
 
 /**
- * Provides the children for an avatar list DSL.
- */
-@TabwebDsl
-class AvatarListScope internal constructor() {
-  internal val avatars = mutableListOf<Avatar>()
-
-  /**
-   * Adds an already configured [Avatar] to this list.
-   */
-  fun avatar(avatar: Avatar) {
-    avatars += avatar
-  }
-
-  /**
-   * Adds an avatar whose content is selected by the nested [AvatarScope].
-   */
-  fun avatar(
-    size: AvatarSize = AvatarSize.DEFAULT,
-    color: BackgroundColor = BackgroundColor.DEFAULT,
-    style: AvatarStyle = AvatarStyle.DEFAULT,
-    content: AvatarScope.() -> Unit,
-  ) {
-    avatars += AvatarScope(size, color, style).apply(content).build()
-  }
-}
-
-/**
  * Selects the typed content of an avatar declared in an [AvatarListScope].
  */
 @TabwebDsl
@@ -46,6 +19,9 @@ class AvatarScope internal constructor(
 
   /**
    * Selects an icon avatar with the enclosing avatar properties.
+   *
+   * @param icon the icon shown by the avatar.
+   * @return `Unit` after the icon content has been selected.
    */
   fun icon(icon: Icon) {
     setAvatar(Avatar(content = icon, size = size, color = color, style = style))
@@ -53,6 +29,9 @@ class AvatarScope internal constructor(
 
   /**
    * Selects an initials avatar with the enclosing avatar properties.
+   *
+   * @param initials the initials shown by the avatar.
+   * @return `Unit` after the initials content has been selected.
    */
   fun initials(initials: Initials) {
     setAvatar(Avatar(content = initials, size = size, color = color, style = style))
@@ -60,9 +39,21 @@ class AvatarScope internal constructor(
 
   /**
    * Selects an image avatar with the enclosing avatar properties.
+   *
+   * @param image the resource image used as the avatar background.
+   * @return `Unit` after the image content has been selected.
    */
   fun image(image: Image.Resource) {
     setAvatar(Avatar(content = image, size = size, style = style))
+  }
+  /**
+   * Selects an image avatar with the enclosing avatar properties.
+   *
+   * @param image the resource image used as the avatar background.
+   * @return `Unit` after the image content has been selected.
+   */
+  fun image(url: String) {
+    setAvatar(Avatar(content = Image(url), size = size, style = style))
   }
 
   internal fun build(): Avatar = requireNotNull(avatar) {

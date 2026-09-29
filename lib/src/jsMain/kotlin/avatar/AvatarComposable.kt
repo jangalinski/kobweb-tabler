@@ -7,10 +7,22 @@ import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 
-/** Page-level composable entry points for the avatar concept. */
+/**
+ * Provides page-level composable entry points for the avatar concept.
+ */
 interface AvatarComposable {
 
-  /** Renders an icon [Avatar] without creating an instance at the call site. */
+  /**
+   * Creates and renders an icon [Avatar] without requiring an intermediate
+   * component instance at the call site.
+   *
+   * @param content the icon shown by the avatar.
+   * @param size the avatar size.
+   * @param color the background color applied behind the icon.
+   * @param style the avatar shape and presentation style.
+   * @param modifier additional attributes and styles applied to the avatar root.
+   * @return `Unit` after the avatar has been emitted into the current composition.
+   */
   @Composable
   fun avatar(
     content: Icon,
@@ -20,7 +32,17 @@ interface AvatarComposable {
     modifier: Modifier = Modifier,
   )
 
-  /** Renders an initials [Avatar] without creating an instance at the call site. */
+  /**
+   * Creates and renders an initials [Avatar] without requiring an intermediate
+   * component instance at the call site.
+   *
+   * @param content the initials shown by the avatar.
+   * @param size the avatar size.
+   * @param color the background color applied behind the initials.
+   * @param style the avatar shape and presentation style.
+   * @param modifier additional attributes and styles applied to the avatar root.
+   * @return `Unit` after the avatar has been emitted into the current composition.
+   */
   @Composable
   fun avatar(
     content: Initials,
@@ -30,7 +52,16 @@ interface AvatarComposable {
     modifier: Modifier = Modifier,
   )
 
-  /** Renders an image [Avatar] without creating an instance at the call site. */
+  /**
+   * Creates and renders an image [Avatar] without requiring an intermediate
+   * component instance at the call site.
+   *
+   * @param content the resource image used as the avatar background.
+   * @param size the avatar size.
+   * @param style the avatar shape and presentation style.
+   * @param modifier additional attributes and styles applied to the avatar root.
+   * @return `Unit` after the avatar has been emitted into the current composition.
+   */
   @Composable
   fun avatar(
     content: Image.Resource,
@@ -39,7 +70,15 @@ interface AvatarComposable {
     modifier: Modifier = Modifier,
   )
 
-  /** Renders an [AvatarList] built by the typed [AvatarListScope] DSL. */
+  /**
+   * Creates and renders an [AvatarList] from typed child declarations.
+   *
+   * @param stacked whether child avatars overlap in the Tabler stacked-list layout.
+   * @param size the size applied to every avatar in the list.
+   * @param modifier additional attributes and styles applied to the list root.
+   * @param content the DSL block that adds avatars to the list.
+   * @return `Unit` after the list has been emitted into the current composition.
+   */
   @Composable
   fun avatars(
     stacked: Boolean = false,

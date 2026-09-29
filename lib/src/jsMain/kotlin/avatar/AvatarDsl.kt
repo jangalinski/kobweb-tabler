@@ -7,7 +7,9 @@ import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 
-/** The avatar DSL implementation delegated through [com.github.jangalinski.kobweb.tabler.KobwebTabler]. */
+/**
+ * The avatar DSL implementation delegated through [com.github.jangalinski.kobweb.tabler.KobwebTabler].
+ */
 data object AvatarDsl : AvatarComposable {
 
   @Composable

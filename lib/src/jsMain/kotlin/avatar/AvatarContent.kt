@@ -5,14 +5,28 @@ import com.github.jangalinski.kobweb.tabler._foundation.Initials as AvatarInitia
 import com.github.jangalinski.kobweb.tabler._foundation.Image as AvatarImage
 import com.github.jangalinski.kobweb.tabler.icon.Icon as AvatarIcon
 
-/** The supported typed content of an [Avatar]. */
+/**
+ * Represents the supported typed content of an [Avatar].
+ */
 sealed interface AvatarContent {
-  /** An icon rendered inside an avatar. */
+  /**
+   * Represents an icon rendered inside an avatar.
+   *
+   * @property content the icon rendered by the avatar.
+   */
   data class Icon(val content: AvatarIcon) : AvatarContent, Tabler.Component by content
 
-  /** Initials rendered inside an avatar. */
+  /**
+   * Represents initials rendered inside an avatar.
+   *
+   * @property content the initials rendered by the avatar.
+   */
   data class Initials(val content: AvatarInitials) : AvatarContent, Tabler.Component by content
 
-  /** A resource image rendered as an avatar background. */
+  /**
+   * Represents a resource image rendered as an avatar background.
+   *
+   * @property content the image rendered by the avatar.
+   */
   data class Image(val content: AvatarImage.Resource) : AvatarContent, Tabler.Component by content
 }

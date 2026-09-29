@@ -14,6 +14,11 @@ interface AvatarList : Tabler.Component {
   companion object {
     /**
      * Creates a list containing one configured [Avatar].
+     *
+     * @param avatars the single avatar in the list.
+     * @param stacked whether child avatars overlap in the Tabler stacked-list layout.
+     * @param size the size applied to every avatar in the list.
+     * @return an [AvatarList] containing [avatars].
      */
     operator fun invoke(
       avatars: Avatar,
@@ -21,12 +26,28 @@ interface AvatarList : Tabler.Component {
       size: AvatarListSize = AvatarListSize.DEFAULT,
     ): AvatarList = invoke(stacked, size, listOf(avatars))
 
+    /**
+     * Creates a list containing the supplied avatars.
+     *
+     * @param stacked whether child avatars overlap in the Tabler stacked-list layout.
+     * @param size the size applied to every avatar in the list.
+     * @param avatars the avatars in display order.
+     * @return an [AvatarList] containing [avatars].
+     */
     operator fun invoke(
       stacked: Boolean = false,
       size: AvatarListSize = AvatarListSize.DEFAULT,
       vararg avatars: Avatar
     ) : AvatarList = invoke(stacked, size, avatars.toList())
 
+    /**
+     * Creates a list containing the supplied avatars.
+     *
+     * @param stacked whether child avatars overlap in the Tabler stacked-list layout.
+     * @param size the size applied to every avatar in the list.
+     * @param avatars the avatars in display order.
+     * @return an [AvatarList] containing [avatars].
+     */
     operator fun invoke(
       stacked: Boolean = false,
       size: AvatarListSize = AvatarListSize.DEFAULT,
@@ -38,8 +59,19 @@ interface AvatarList : Tabler.Component {
     }
   }
 
+  /**
+   * Whether child avatars overlap in the Tabler stacked-list layout.
+   */
   val stacked: Boolean
+
+  /**
+   * The size applied to every avatar in the list.
+   */
   val size: AvatarListSize
+
+  /**
+   * The avatars rendered in display order.
+   */
   val avatars: List<Avatar>
 
   @Composable

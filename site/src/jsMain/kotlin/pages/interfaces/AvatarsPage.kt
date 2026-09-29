@@ -1,18 +1,16 @@
 package com.github.jangalinski.kobweb.tabler.site.pages.interfaces
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.kobweb.tabler.KobwebTabler.avatars
 import com.github.jangalinski.kobweb.tabler.KobwebTabler.markdown
 import com.github.jangalinski.kobweb.tabler._foundation.Image
-import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
-import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.HALF
 import com.github.jangalinski.kobweb.tabler._foundation.Initials
+import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
-import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor.BASE
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor.BASE.WHITE
 import com.github.jangalinski.kobweb.tabler.avatar.Avatar
 import com.github.jangalinski.kobweb.tabler.avatar.AvatarList
 import com.github.jangalinski.kobweb.tabler.avatar.AvatarListSize
-import com.github.jangalinski.kobweb.tabler.avatar.AvatarSize
 import com.github.jangalinski.kobweb.tabler.card.TablerCards
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
 import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
@@ -22,8 +20,6 @@ import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.core.data.add
 import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
-import org.jetbrains.compose.web.dom.P
-import org.jetbrains.compose.web.dom.Text
 
 @InitRoute
 fun initAvatarsPage(ctx: InitRouteContext) {
@@ -33,7 +29,7 @@ fun initAvatarsPage(ctx: InitRouteContext) {
 
 @Page(routeOverride = SiteRoutes.Avatars)
 @Composable
-fun Avatars() {
+fun AvatarsPage() {
   TablerCards {
     card(title = "Default Avatar", width = GridWidth.THIRD) {
       markdown("The base `.avatar` element — a placeholder box for a photo, icon, or initials.")
@@ -95,6 +91,17 @@ fun Avatars() {
   TablerCards {
     card(title = "Simple avatar", width = GridWidth.THIRD) {
       markdown("Show a photo by setting it as the `background-image` of the avatar.")
+
+      avatars {
+        avatar(content = Image("https://randomuser.me/api/portraits/women/91.jpg"))
+        avatar(content = Image("https://randomuser.me/api/portraits/men/11.jpg"))
+        avatar(content = Image("https://randomuser.me/api/portraits/women/68.jpg"))
+        avatar(content = Image("https://randomuser.me/api/portraits/men/20.jpg"))
+        avatar(content = Image("https://randomuser.me/api/portraits/women/12.jpg"))
+        avatar(content = Image("https://randomuser.me/api/portraits/men/12.jpg"))
+        avatar(content = Image("https://randomuser.me/api/portraits/women/16.jpg"))
+        avatar(content = Image("https://randomuser.me/api/portraits/men/16.jpg"))
+      }
 
       AvatarList(
         stacked = false,

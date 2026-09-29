@@ -23,9 +23,7 @@ class AvatarListTest {
         avatar(size = AvatarSize.S, style = AvatarStyle.SQUARE) {
           initials(Initials("AB"))
         }
-        avatar {
-          image(Image("https://example.test/avatar.jpg"))
-        }
+        avatar(Image("https://example.test/avatar.jpg"))
       }
     }
 

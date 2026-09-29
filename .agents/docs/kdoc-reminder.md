@@ -5,6 +5,10 @@ This note exists so the shared library stays readable while the Kobweb POC is st
 ## Reminder
 
 - Add KDocs to new public declarations in `kobweb-tabler`.
+- Use a multi-line KDoc block for public functions, factory overloads, and DSL
+  verbs. Describe the behavior, document every parameter with `@param`, and
+  document the result with `@return` (including `Unit` for composable and DSL
+  functions).
 - Explain the reason for layout and navigation helpers, not just their mechanics.
 - Keep the comments explicit for now, even if they feel verbose.
 - It is fine to remove or shorten them later once the API has stabilized.

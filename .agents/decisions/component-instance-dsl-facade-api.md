@@ -31,7 +31,8 @@ concept is rendered by this library:
 avatar/
   Avatar.kt             # typed renderable component contract and factories
   AvatarList.kt         # composite component contract and factories
-  _scope.kt             # builders that create component instances
+  AvatarListScope.kt    # list builder that creates component instances
+  AvatarScope.kt        # nested avatar-content builder
   AvatarComposable.kt   # page-level composable entry points
   AvatarDsl.kt          # AvatarComposable implementation
   AvatarSize.kt         # typed concept option
@@ -260,9 +261,9 @@ invent unstable IDs on every recomposition.
   Use arbitrary composable slots only as explicit, documented escape hatches.
 - Keep a `*Spec` / `*Data` model distinct from runtime state whenever data must
   be generated, serialized, diffed, or tested without a browser.
-- Put concept-specific scopes in that concept package, conventionally in
-  `_scope.kt`; keep them internal where they are not part of the intended DSL
-  surface.
+- Put concept-specific scopes in that concept package, in files named after
+  their scope type; keep them internal where they are not part of the intended
+  DSL surface.
 - Delegate only non-conflicting page-level `*Composable` methods through
   `KobwebTabler`. Keep generic child verbs scoped to avoid facade ambiguity.
 - Do not promise `import KobwebTabler.*`: Kotlin prohibits star imports from

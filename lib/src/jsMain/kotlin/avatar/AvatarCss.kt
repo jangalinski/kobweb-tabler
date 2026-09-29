@@ -2,11 +2,13 @@ package com.github.jangalinski.kobweb.tabler.avatar
 
 import com.github.jangalinski.kobweb.tabler._foundation.css.cssClass
 
-/** Internal mapping between the avatar model and Tabler CSS classes. */
-internal object AvatarCss {
-  const val className = "avatar"
+/**
+ * Maps the avatar model to the Tabler CSS classes used by its renderers.
+ */
+internal data object AvatarCss {
+  const val CLASS = "avatar"
 
-  val avatar = cssClass(className)
-  val avatarList = cssClass("$className-list")
-  val avatarListStacked = cssClass("$className-list-stacked")
+  val avatar = cssClass(CLASS)
+  val avatarList = cssClass("$CLASS-list")
+  val avatarListStacked = cssClass("$CLASS-list-stacked")
 }

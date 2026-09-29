@@ -4,7 +4,9 @@ import com.github.jangalinski.kobweb.tabler._foundation.Tabler
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
-/** The supported Tabler shape and presentation styles for an [Avatar]. */
+/**
+ * Enumerates the supported Tabler shape and presentation styles for an [Avatar].
+ */
 enum class AvatarStyle(private val value: String) : Tabler.Style, Tabler.Supplier<String> {
   CIRCLE("avatar-circle"),
   ROUNDED("avatar-rounded"),
