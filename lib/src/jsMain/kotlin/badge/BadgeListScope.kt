@@ -1,6 +1,8 @@
 package com.github.jangalinski.kobweb.tabler.badge
 
 import com.github.jangalinski.kobweb.tabler._foundation.TabwebDsl
+import com.github.jangalinski.kobweb.tabler._foundation.Link
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebComponentScope
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler.icon.Icon
 
@@ -8,7 +10,7 @@ import com.github.jangalinski.kobweb.tabler.icon.Icon
  * Provides the children for a badge list DSL.
  */
 @TabwebDsl
-class BadgeListScope internal constructor() {
+class BadgeListScope internal constructor() : TabwebComponentScope {
   internal val badges = mutableListOf<Badge>()
 
   /**
@@ -28,6 +30,8 @@ class BadgeListScope internal constructor() {
    * @param color background color for a solid or light badge, and the border color for an outline badge.
    * @param style visual treatment for the badge.
    * @param size size of the badge.
+   * @param shape shape of the badge.
+   * @param link optional destination that renders this badge as an anchor.
    * @return `Unit` after the configured badge has been added to this list.
    */
   fun badge(
@@ -35,8 +39,10 @@ class BadgeListScope internal constructor() {
     color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
     style: BadgeStyle = BadgeStyle.DEFAULT,
     size: BadgeSize = BadgeSize.DEFAULT,
+    shape: BadgeShape = BadgeShape.DEFAULT,
+    link: Link? = null,
   ) {
-    badge(Badge(text = text, color = color, style = style, size = size))
+    badge(Badge(text = text, color = color, style = style, size = size, shape = shape, link = link))
   }
 
   /**
@@ -48,6 +54,8 @@ class BadgeListScope internal constructor() {
    * @param color background color for a solid or light badge, and the border color for an outline badge.
    * @param style visual treatment for the badge.
    * @param size size of the badge.
+   * @param shape shape of the badge.
+   * @param link optional destination that renders this badge as an anchor.
    * @return `Unit` after the configured badge has been added to this list.
    */
   fun badge(
@@ -57,8 +65,10 @@ class BadgeListScope internal constructor() {
     color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
     style: BadgeStyle = BadgeStyle.DEFAULT,
     size: BadgeSize = BadgeSize.DEFAULT,
+    shape: BadgeShape = BadgeShape.DEFAULT,
+    link: Link? = null,
   ) {
-    badge(Badge(text = text, icon = icon, iconPosition = iconPosition, color = color, style = style, size = size))
+    badge(Badge(text = text, icon = icon, iconPosition = iconPosition, color = color, style = style, size = size, shape = shape, link = link))
   }
 
   /**
@@ -68,6 +78,8 @@ class BadgeListScope internal constructor() {
    * @param color background color for a solid or light badge, and the border color for an outline badge.
    * @param style visual treatment for the badge.
    * @param size size of the badge.
+   * @param shape shape of the badge.
+   * @param link optional destination that renders this badge as an anchor.
    * @return `Unit` after the configured badge has been added to this list.
    */
   fun badge(
@@ -75,7 +87,9 @@ class BadgeListScope internal constructor() {
     color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
     style: BadgeStyle = BadgeStyle.DEFAULT,
     size: BadgeSize = BadgeSize.DEFAULT,
+    shape: BadgeShape = BadgeShape.DEFAULT,
+    link: Link? = null,
   ) {
-    badge(Badge(icon = icon, color = color, style = style, size = size))
+    badge(Badge(icon = icon, color = color, style = style, size = size, shape = shape, link = link))
   }
 }

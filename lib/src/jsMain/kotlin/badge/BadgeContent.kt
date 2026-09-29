@@ -1,11 +1,12 @@
 package com.github.jangalinski.kobweb.tabler.badge
 
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebContent
 import com.github.jangalinski.kobweb.tabler.icon.Icon
 
 /**
  * Represents the typed label and icon content supported by a [Badge].
  */
-sealed interface BadgeContent {
+sealed interface BadgeContent : TabwebContent{
   /**
    * Text-only badge content.
    *

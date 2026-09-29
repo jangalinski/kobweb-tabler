@@ -1,16 +1,16 @@
 package com.github.jangalinski.kobweb.tabler.avatar
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.Tabler
-import com.github.jangalinski.kobweb.tabler._foundation.takeIf
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebComponent
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
+import com.github.jangalinski.kobweb.tabler._foundation.takeIf
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
  * A Tabler avatar list component keeps all [Avatar]s in the same line together.
  */
-interface AvatarList : Tabler.Component {
+interface AvatarList : TabwebComponent {
   companion object {
     /**
      * Creates a list containing one configured [Avatar].

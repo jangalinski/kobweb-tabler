@@ -1,0 +1,19 @@
+package com.github.jangalinski.kobweb.tabler.button
+
+/**
+ * Enumerates the supported Tabler sizes for a [Button].
+ */
+enum class ButtonSize {
+  SMALL,
+  MEDIUM,
+  LARGE,
+  EXTRA_LARGE,
+  ;
+
+  companion object {
+    /**
+     * Default size used when no explicit size is supplied.
+     */
+    val DEFAULT = MEDIUM
+  }
+}

@@ -2,6 +2,7 @@ package com.github.jangalinski.kobweb.tabler.icon
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.Tabler
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebFoundationComponent
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KI
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
 import com.github.jangalinski.kobweb.tabler._foundation.css.cssClass
@@ -15,7 +16,7 @@ val CSS_ICON = cssClass("icon")
  * @see [TablerIcon] for a list of all available icons.
  * @see https://docs.tabler.io/ui/components/icons for more information about Tabler icons.
  */
-fun interface Icon : Tabler.Component
+fun interface Icon : TabwebFoundationComponent
 
 @Composable
 fun icon(icon: Modifier) = Icon { modifier ->

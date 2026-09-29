@@ -6,6 +6,8 @@ import assertk.assertions.doesNotContain
 import assertk.assertions.isEqualTo
 import com.github.jangalinski.kobweb.tabler.KobwebTabler.badge
 import com.github.jangalinski.kobweb.tabler.KobwebTabler.badges
+import com.github.jangalinski.kobweb.tabler._foundation.Link
+import com.github.jangalinski.kobweb.tabler._foundation.Url
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
@@ -14,6 +16,11 @@ import kotlin.test.Test
 
 @OptIn(ComposeWebExperimentalTestsApi::class)
 class BadgeTest {
+
+  private val documentationLink = object : Link {
+    override val href = Url("/interfaces/badges")
+    override val text = "Badge documentation"
+  }
 
   @Test
   fun rendersInstancesAndDslBadgesWithSupportedVariants() = runTest {
@@ -63,5 +70,22 @@ class BadgeTest {
     assertThat(root.querySelectorAll(".ti-check").length).isEqualTo(1)
     assertThat(root.querySelectorAll(".ti-arrow-right").length).isEqualTo(1)
     assertThat(root.querySelectorAll(".ti-star").length).isEqualTo(1)
+  }
+
+  @Test
+  fun rendersLinkedBadgesAsAnchors() = runTest {
+    composition {
+      Badge(text = "Linked", shape = BadgeShape.PILL, link = documentationLink)()
+      badge(text = "DSL", link = documentationLink)
+      badges {
+        badge(text = "List", link = documentationLink)
+      }
+    }
+
+    val links = root.querySelectorAll("a.badge")
+
+    assertThat(links.length).isEqualTo(3)
+    assertThat(root.innerHTML).contains("badge-pill")
+    assertThat(root.innerHTML).contains("href=\"/interfaces/badges\"")
   }
 }

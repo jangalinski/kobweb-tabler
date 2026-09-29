@@ -8,7 +8,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 /**
  * A sealed interface representing an image, which can be either an inline SVG, an image resource, or none.
  */
-sealed interface Image : Tabler.FoundationComponent {
+sealed interface Image : TabwebFoundationComponent {
 
   companion object {
     operator fun invoke(

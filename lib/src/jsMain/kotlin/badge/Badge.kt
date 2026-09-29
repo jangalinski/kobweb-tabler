@@ -1,8 +1,12 @@
 package com.github.jangalinski.kobweb.tabler.badge
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.kobweb.tabler._foundation.Link
 import com.github.jangalinski.kobweb.tabler._foundation.Tabler
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebComponent
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KAnchor
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler.icon.Icon
@@ -11,7 +15,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 /**
  * A small Tabler label used to show a status, count, or tag.
  */
-interface Badge : Tabler.Component {
+interface Badge : TabwebComponent {
   companion object {
     /**
      * Creates a configured [Badge].
@@ -20,6 +24,8 @@ interface Badge : Tabler.Component {
      * @param color background color for a solid or light badge, and the border color for an outline badge.
      * @param style visual treatment for the badge.
      * @param size size of the badge.
+     * @param shape shape of the badge.
+     * @param link optional destination that renders this badge as an anchor.
      * @return a configured [Badge] component instance.
      */
     operator fun invoke(
@@ -27,11 +33,15 @@ interface Badge : Tabler.Component {
       color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
       style: BadgeStyle = BadgeStyle.DEFAULT,
       size: BadgeSize = BadgeSize.DEFAULT,
+      shape: BadgeShape = BadgeShape.DEFAULT,
+      link: Link? = null,
     ): Badge = object : Badge {
       override val content = BadgeContent.Text(text)
       override val color = color
       override val style = style
       override val size = size
+      override val shape = shape
+      override val link = link
     }
 
     /**
@@ -43,6 +53,8 @@ interface Badge : Tabler.Component {
      * @param color background color for a solid or light badge, and the border color for an outline badge.
      * @param style visual treatment for the badge.
      * @param size size of the badge.
+     * @param shape shape of the badge.
+     * @param link optional destination that renders this badge as an anchor.
      * @return a configured [Badge] component instance.
      */
     operator fun invoke(
@@ -52,11 +64,15 @@ interface Badge : Tabler.Component {
       color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
       style: BadgeStyle = BadgeStyle.DEFAULT,
       size: BadgeSize = BadgeSize.DEFAULT,
+      shape: BadgeShape = BadgeShape.DEFAULT,
+      link: Link? = null,
     ): Badge = object : Badge {
       override val content = BadgeContent.TextWithIcon(text, icon, iconPosition)
       override val color = color
       override val style = style
       override val size = size
+      override val shape = shape
+      override val link = link
     }
 
     /**
@@ -66,6 +82,8 @@ interface Badge : Tabler.Component {
      * @param color background color for a solid or light badge, and the border color for an outline badge.
      * @param style visual treatment for the badge.
      * @param size size of the badge.
+     * @param shape shape of the badge.
+     * @param link optional destination that renders this badge as an anchor.
      * @return a configured [Badge] component instance.
      */
     operator fun invoke(
@@ -73,11 +91,15 @@ interface Badge : Tabler.Component {
       color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
       style: BadgeStyle = BadgeStyle.DEFAULT,
       size: BadgeSize = BadgeSize.DEFAULT,
+      shape: BadgeShape = BadgeShape.DEFAULT,
+      link: Link? = null,
     ): Badge = object : Badge {
       override val content = BadgeContent.IconOnly(icon)
       override val color = color
       override val style = style
       override val size = size
+      override val shape = shape
+      override val link = link
     }
   }
 
@@ -101,20 +123,35 @@ interface Badge : Tabler.Component {
    */
   val size: BadgeSize
 
+  /**
+   * Shape applied to the badge.
+   */
+  val shape: BadgeShape get() = BadgeShape.DEFAULT
+
+  /**
+   * Optional destination that renders this badge as an anchor.
+   */
+  val link: Link? get() = null
+
   @Composable
   override fun invoke(modifier: Modifier) {
-    val modifiers = BadgeCss.badge + style.toBadgeModifier(color) + size.toBadgeModifier() + modifier
+    val modifiers = BadgeCss.badge + style.toBadgeModifier(color) + size.toBadgeModifier() + BadgeCss.shape(shape) + modifier
 
-    when (val content = content) {
-      is BadgeContent.Text -> KSpan(modifier = modifiers, text = content.value)
-      is BadgeContent.TextWithIcon -> KSpan(modifier = modifiers) {
-        if (content.position == BadgeIconPosition.LEFT) content.icon()
-        KSpan(text = content.text)
-        if (content.position == BadgeIconPosition.RIGHT) content.icon()
-      }
-      is BadgeContent.IconOnly -> KSpan(modifier = modifiers + BadgeCss.iconOnly) {
-        content.icon()
+    @Composable
+    fun content() {
+      when (val content = content) {
+        is BadgeContent.Text -> KText(content.value)
+        is BadgeContent.TextWithIcon -> {
+          if (content.position == BadgeIconPosition.LEFT) content.icon()
+          KText(content.text)
+          if (content.position == BadgeIconPosition.RIGHT) content.icon()
+        }
+        is BadgeContent.IconOnly -> content.icon()
       }
     }
+
+    val rootModifier = if (content is BadgeContent.IconOnly) modifiers + BadgeCss.iconOnly else modifiers
+    link?.let { KAnchor(href = it.href, modifier = rootModifier, content = ::content) }
+      ?: KSpan(modifier = rootModifier, content = ::content)
   }
 }

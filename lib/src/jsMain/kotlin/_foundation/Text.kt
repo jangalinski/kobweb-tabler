@@ -1,18 +1,23 @@
 package com.github.jangalinski.kobweb.tabler._foundation
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KAnchor
+import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.varabyte.kobweb.compose.ui.Modifier
 
-interface Link : TabwebFoundationComponent {
-  val href: Url
-  val text: String
+interface Text : TabwebTextComponent {
 
   @Composable
   override fun invoke(modifier: Modifier) {
-    KAnchor(href = href, modifier = modifier) {
-      KText(text)
+    if (value.trim().isEmpty())
+      return
+
+    if (modifier == Modifier) {
+      KText(value)
+    } else {
+      KSpan(modifier) {
+        KText(value)
+      }
     }
   }
 }

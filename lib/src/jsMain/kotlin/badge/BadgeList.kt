@@ -2,6 +2,7 @@ package com.github.jangalinski.kobweb.tabler.badge
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.Tabler
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebComponent
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -9,7 +10,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 /**
  * A Tabler wrapper that spaces [Badge]s inline.
  */
-interface BadgeList : Tabler.Component {
+interface BadgeList : TabwebComponent {
   companion object {
     /**
      * Creates a list containing the supplied badges.

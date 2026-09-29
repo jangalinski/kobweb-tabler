@@ -3,6 +3,7 @@ package com.github.jangalinski.kobweb.tabler.navbar
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.KobwebTabler.HOME
 import com.github.jangalinski.kobweb.tabler._foundation.Tabler
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebComponent
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KAnchor
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KImg
@@ -20,7 +21,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
 /** Renders the brand area used by a Tabler navbar. */
 data object TablerBrand {
-  sealed interface Brand : Tabler.Component {
+  sealed interface Brand : TabwebComponent {
     val image: Url
     val href: Url get() = HOME
 

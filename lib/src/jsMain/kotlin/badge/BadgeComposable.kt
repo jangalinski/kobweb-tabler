@@ -1,6 +1,8 @@
 package com.github.jangalinski.kobweb.tabler.badge
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.kobweb.tabler._foundation.Link
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebComposable
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -8,7 +10,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 /**
  * Provides page-level composable entry points for the badge concept.
  */
-interface BadgeComposable {
+interface BadgeComposable : TabwebComposable {
 
   /**
    * Creates and renders a [Badge] without requiring an intermediate component instance at the call site.
@@ -17,6 +19,8 @@ interface BadgeComposable {
    * @param color background color for a solid or light badge, and the border color for an outline badge.
    * @param style visual treatment for the badge.
    * @param size size of the badge.
+   * @param shape shape of the badge.
+   * @param link optional destination that renders this badge as an anchor.
    * @param modifier additional attributes and styles applied to the badge root.
    * @return `Unit` after the badge has been emitted into the current composition.
    */
@@ -26,6 +30,8 @@ interface BadgeComposable {
     color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
     style: BadgeStyle = BadgeStyle.DEFAULT,
     size: BadgeSize = BadgeSize.DEFAULT,
+    shape: BadgeShape = BadgeShape.DEFAULT,
+    link: Link? = null,
     modifier: Modifier = Modifier,
   )
 
@@ -38,6 +44,8 @@ interface BadgeComposable {
    * @param color background color for a solid or light badge, and the border color for an outline badge.
    * @param style visual treatment for the badge.
    * @param size size of the badge.
+   * @param shape shape of the badge.
+   * @param link optional destination that renders this badge as an anchor.
    * @param modifier additional attributes and styles applied to the badge root.
    * @return `Unit` after the badge has been emitted into the current composition.
    */
@@ -49,6 +57,8 @@ interface BadgeComposable {
     color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
     style: BadgeStyle = BadgeStyle.DEFAULT,
     size: BadgeSize = BadgeSize.DEFAULT,
+    shape: BadgeShape = BadgeShape.DEFAULT,
+    link: Link? = null,
     modifier: Modifier = Modifier,
   )
 
@@ -59,6 +69,8 @@ interface BadgeComposable {
    * @param color background color for a solid or light badge, and the border color for an outline badge.
    * @param style visual treatment for the badge.
    * @param size size of the badge.
+   * @param shape shape of the badge.
+   * @param link optional destination that renders this badge as an anchor.
    * @param modifier additional attributes and styles applied to the badge root.
    * @return `Unit` after the badge has been emitted into the current composition.
    */
@@ -68,6 +80,8 @@ interface BadgeComposable {
     color: BackgroundColor = BackgroundColor.SEMANTIC.PRIMARY,
     style: BadgeStyle = BadgeStyle.DEFAULT,
     size: BadgeSize = BadgeSize.DEFAULT,
+    shape: BadgeShape = BadgeShape.DEFAULT,
+    link: Link? = null,
     modifier: Modifier = Modifier,
   )
 

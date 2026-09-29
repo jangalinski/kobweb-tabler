@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.Image
 import com.github.jangalinski.kobweb.tabler._foundation.Initials
 import com.github.jangalinski.kobweb.tabler._foundation.Tabler
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebComponent
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
 import com.github.jangalinski.kobweb.tabler._foundation.modifier
@@ -15,7 +16,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
  * An avatar shows a user's picture, initials or an icon in a fixed-size
  * circle or square, with sizes, statuses and stacked lists.
  */
-interface Avatar : Tabler.Component {
+interface Avatar : TabwebComponent {
 
   companion object {
     /**

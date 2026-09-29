@@ -3,7 +3,7 @@ package com.github.jangalinski.kobweb.tabler._foundation
 import com.varabyte.kobweb.navigation.BasePath
 import com.varabyte.kobweb.compose.css.functions.url as cssUrl
 
-sealed interface Url : Tabler.Supplier<String> {
+sealed interface Url : TabwebValue<String> {
   companion object {
     operator fun invoke(value: String): Url = when {
       value.startsWith("http") -> External(value)

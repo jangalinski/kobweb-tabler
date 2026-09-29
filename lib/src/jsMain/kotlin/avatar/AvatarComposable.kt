@@ -3,6 +3,7 @@ package com.github.jangalinski.kobweb.tabler.avatar
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.Image
 import com.github.jangalinski.kobweb.tabler._foundation.Initials
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebComposable
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -10,7 +11,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 /**
  * Provides page-level composable entry points for the avatar concept.
  */
-interface AvatarComposable {
+interface AvatarComposable : TabwebComposable{
 
   /**
    * Creates and renders an icon [Avatar] without requiring an intermediate

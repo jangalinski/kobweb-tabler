@@ -3,6 +3,8 @@ package com.github.jangalinski.kobweb.tabler.site.pages.interfaces
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.KobwebTabler.badge
 import com.github.jangalinski.kobweb.tabler.KobwebTabler.badges
+import com.github.jangalinski.kobweb.tabler._foundation.Link
+import com.github.jangalinski.kobweb.tabler._foundation.Url
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KH1
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KH2
@@ -14,6 +16,7 @@ import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
 import com.github.jangalinski.kobweb.tabler.badge.BadgeIconPosition
+import com.github.jangalinski.kobweb.tabler.badge.BadgeShape
 import com.github.jangalinski.kobweb.tabler.badge.BadgeSize
 import com.github.jangalinski.kobweb.tabler.badge.BadgeStyle
 import com.github.jangalinski.kobweb.tabler.card.TablerCards
@@ -27,6 +30,11 @@ import com.varabyte.kobweb.core.init.InitRoute
 import com.varabyte.kobweb.core.init.InitRouteContext
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
+
+private data object BadgesPageLink : Link {
+  override val href = Url(SiteRoutes.Badges)
+  override val text = "Badges"
+}
 
 @InitRoute
 fun initBadgesPage(ctx: InitRouteContext) {
@@ -64,6 +72,16 @@ fun BadgesPage() {
         BackgroundColor.BASE.entries.forEach { color ->
           badge(text = color.displayName, icon = TablerIcon.TI_STAR, color = color)
         }
+      }
+    }
+    card(title = "Badge with link", width = GridWidth.HALF) {
+      badges {
+        badge(text = "Primary", color = BackgroundColor.SEMANTIC.PRIMARY, link = BadgesPageLink)
+        badge(text = "Success", color = BackgroundColor.SEMANTIC.SUCCESS, link = BadgesPageLink)
+        badge(text = "Pill", color = BackgroundColor.BASE.PURPLE, shape = BadgeShape.PILL, link = BadgesPageLink)
+        badge(text = "Icon", icon = TablerIcon.TI_STAR, color = BackgroundColor.BASE.YELLOW, link = BadgesPageLink)
+        badge(text = "Small", size = BadgeSize.S, link = BadgesPageLink)
+        badge(text = "Large", size = BadgeSize.L, link = BadgesPageLink)
       }
     }
     card(title = "In headings", width = GridWidth.HALF) {

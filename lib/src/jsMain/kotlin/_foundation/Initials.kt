@@ -11,7 +11,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
  * @property value The string value of the initials. Must be at most 3 characters long.
  * @throws IllegalArgumentException if the value is longer than 3 characters.
  */
-value class Initials(private val value: String) : Tabler.Component, Tabler.Supplier<String> {
+value class Initials(private val value: String) : TabwebFoundationComponent, TabwebValue<String> {
   init {
     require(value.length <= 3) { "Initials must be at most 3 characters long" }
   }

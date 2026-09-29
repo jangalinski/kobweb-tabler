@@ -20,7 +20,7 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
       active = activeRoute == SiteRoutes.Home,
     ),
     TablerNavbarItem.Section(
-      title = "Interfaces",
+      title = "Interface",
       icon = TablerIcon.TI_BOX,
       items = listOf(
         TablerNavbarItem.Link(
@@ -34,6 +34,12 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
           title = "Badges",
           caption = "Show labels, statuses, and counts",
           active = activeRoute == SiteRoutes.Badges,
+        ),
+        TablerNavbarItem.Link(
+          url = Url(SiteRoutes.Buttons),
+          title = "Buttons",
+          caption = "Invoke actions in every Tabler style",
+          active = activeRoute == SiteRoutes.Buttons,
         ),
         TablerNavbarItem.Link(
           url = Url(SiteRoutes.Colors),

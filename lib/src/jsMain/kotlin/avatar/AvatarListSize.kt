@@ -1,13 +1,14 @@
 package com.github.jangalinski.kobweb.tabler.avatar
 
-import com.github.jangalinski.kobweb.tabler._foundation.Tabler
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebSize
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebValue
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
 /**
  * Enumerates the supported Tabler sizes for an [AvatarList].
  */
-enum class AvatarListSize(private val value: String) : Tabler.Size, Tabler.Supplier<String> {
+enum class AvatarListSize(private val value: String) : TabwebSize, TabwebValue<String>, Modifier {
   XXS("avatar-list-xxs"),
   XS("avatar-list-xs"),
   S("avatar-list-sm"),

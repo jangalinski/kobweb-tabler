@@ -15,7 +15,7 @@ import org.intellij.markdown.parser.MarkdownParser
  */
 data class Markdown(
   val markdown: String
-) : Tabler.FoundationComponent {
+) : TabwebFoundationComponent {
 
   companion object {
 
