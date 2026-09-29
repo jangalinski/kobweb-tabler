@@ -18,8 +18,8 @@ detekt = "2.0.0-alpha.6"
 cdn-tabler-core = "1.6.0"
 cdn-tabler-icons = "3.46.0"
 # Uncomment this line and comment out the release version below to verify main-SNAPSHOT.
-# tabweb = "main-SNAPSHOT"
-tabweb = "0.0.2"
+tabweb = "main-SNAPSHOT"
+#tabweb = "0.0.2"
 
 [libraries]
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
