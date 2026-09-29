@@ -8,5 +8,6 @@ data object SiteRoutes {
   const val Tables = "/elements/tables"
 
   const val Avatars = "/interfaces/avatars"
+  const val Badges = "/interfaces/badges"
   const val Colors = "/interfaces/colors"
 }

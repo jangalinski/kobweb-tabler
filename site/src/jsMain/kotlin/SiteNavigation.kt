@@ -30,6 +30,12 @@ fun siteNavbar(activeRoute: String) = TablerNavbarData(
           active = activeRoute == SiteRoutes.Avatars,
         ),
         TablerNavbarItem.Link(
+          url = Url(SiteRoutes.Badges),
+          title = "Badges",
+          caption = "Show labels, statuses, and counts",
+          active = activeRoute == SiteRoutes.Badges,
+        ),
+        TablerNavbarItem.Link(
           url = Url(SiteRoutes.Colors),
           title = "Colors",
           caption = "Show colors, gradients, and hex values",

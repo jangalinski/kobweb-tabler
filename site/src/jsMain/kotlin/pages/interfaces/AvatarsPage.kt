@@ -102,22 +102,6 @@ fun AvatarsPage() {
         avatar(content = Image("https://randomuser.me/api/portraits/women/16.jpg"))
         avatar(content = Image("https://randomuser.me/api/portraits/men/16.jpg"))
       }
-
-      AvatarList(
-        stacked = false,
-        size = AvatarListSize.DEFAULT,
-        avatars = listOf(
-          Avatar(content = Image("https://randomuser.me/api/portraits/women/91.jpg")),
-          Avatar(content = Image("https://randomuser.me/api/portraits/men/11.jpg")),
-          Avatar(content = Image("https://randomuser.me/api/portraits/women/68.jpg")),
-          Avatar(content = Image("https://randomuser.me/api/portraits/men/20.jpg")),
-          Avatar(content = Image("https://randomuser.me/api/portraits/women/12.jpg")),
-          Avatar(content = Image("https://randomuser.me/api/portraits/men/12.jpg")),
-          Avatar(content = Image("https://randomuser.me/api/portraits/women/16.jpg")),
-          Avatar(content = Image("https://randomuser.me/api/portraits/men/16.jpg")),
-        )
-      )()
     }
-
   }
 }
