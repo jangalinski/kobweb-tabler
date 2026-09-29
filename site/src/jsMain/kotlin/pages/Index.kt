@@ -97,13 +97,11 @@ fun Index() {
         KText("JGX")
       }
 
-      Image.Resource(url = Url("/avatars/jan-g-avatar.png"))
-
-      Img(src = "/avatars/jan-g-avatar.png", attrs = {
-        attr("width", "256")
-        attr("height", "256")
-        attr("alt", "Jan G Avatar")
-      })
+      Image.Resource(
+        url = Url("/avatars/jan-g-avatar.png"),
+        modifier = Modifier.size(256.px),
+        altText = "Jan G Avatar"
+      )()
 
       TI_BRAND_GITHUB(Modifier.fontSize(128.px).size(128.px).color(Colors.Pink))
       TI_FOOTSTEPS(Modifier.fontSize(128.px).size(128.px).color(Colors.Green))
