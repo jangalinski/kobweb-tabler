@@ -1,6 +1,7 @@
 package com.github.jangalinski.kobweb.tabler._foundation.compose
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.kobweb.tabler._foundation.Url
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.dom.A
@@ -31,3 +32,11 @@ fun KAnchor(
     content()
   }
 }
+
+@Composable
+fun KAnchor(
+  href: Url,
+  modifier: Modifier = Modifier,
+  onClickAction: (() -> Unit)? = null,
+  content: @Composable () -> Unit
+) = KAnchor(href = href.get(), modifier = modifier, onClickAction = onClickAction, content = content)

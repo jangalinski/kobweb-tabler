@@ -1,21 +1,30 @@
-package com.github.jangalinski.kobweb.tabler.avatar
+package com.github.jangalinski.kobweb.tabler.avatar._
 
 import com.github.jangalinski.kobweb.tabler._foundation.Tabler
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 
-enum class AvatarStyle(val value : String) : Tabler.Style{
-  CIRCLE("avatar-circle"),
-  ROUNDED("avatar-rounded"),
-  SQUARE("avatar-square"),
-  UPLOAD("avatar-upload"),
+enum class AvatarSize(private val value: String) : Tabler.Size, Tabler.Supplier<String> {
+  XXS("avatar-xxs"),
+  XS("avatar-xs"),
+  S("avatar-sm"),
+  M(""),
+  L("avatar-lg"),
+  XL("avatar-xl"),
+  XXL("avatar-2xl"),
   ;
 
+  companion object {
+    val DEFAULT = M
+  }
+
   private val modifier: Modifier by lazy {
-    Modifier.classNames(value)
+    if (value.isEmpty()) Modifier else Modifier.classNames(value)
   }
 
   override fun <R> fold(initial: R, operation: (R, Modifier.Element) -> R): R = modifier.fold(initial, operation)
 
   override fun then(other: Modifier): Modifier = modifier.then(other)
+
+  override fun get() = value
 }

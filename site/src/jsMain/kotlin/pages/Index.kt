@@ -1,6 +1,8 @@
 package com.github.jangalinski.kobweb.tabler.site.pages
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.kobweb.tabler._foundation.Image
+import com.github.jangalinski.kobweb.tabler._foundation.Url
 import com.github.jangalinski.kobweb.tabler.card.TablerCards
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KSpan
@@ -94,6 +96,8 @@ fun Index() {
       KSpan(Modifier.classNames("avatar")) {
         KText("JGX")
       }
+
+      Image.Resource(url = Url("/avatars/jan-g-avatar.png"))
 
       Img(src = "/avatars/jan-g-avatar.png", attrs = {
         attr("width", "256")

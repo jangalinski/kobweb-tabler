@@ -2,7 +2,7 @@
 
 package com.github.jangalinski.kobweb.tabler.__trash.legacy_navigation
 
-import com.github.jangalinski.kobweb.tabler._foundation.TablerDsl
+import com.github.jangalinski.kobweb.tabler._foundation.TabwebDsl
 import com.github.jangalinski.kobweb.tabler._foundation.Image
 
 /**
@@ -48,7 +48,7 @@ sealed interface NavigationItem {
 /**
  * Builder for hierarchical Tabler navigation items.
  */
-@TablerDsl
+@TabwebDsl
 class NavigationItemsBuilder internal constructor() {
 
   private val _items = mutableListOf<NavigationItem>()
@@ -98,7 +98,7 @@ class NavigationItemsBuilder internal constructor() {
 /**
  * Builder for dropdown children. Only simple links are allowed here.
  */
-@TablerDsl
+@TabwebDsl
 class NavigationDropdownItemsBuilder internal constructor() {
 
   private val _items = mutableListOf<NavigationItem.Link>()

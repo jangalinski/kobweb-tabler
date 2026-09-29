@@ -1,6 +1,7 @@
 package com.github.jangalinski.kobweb.tabler._foundation.compose
 
 import androidx.compose.runtime.Composable
+import com.varabyte.kobweb.compose.ui.Modifier
 import org.jetbrains.compose.web.dom.Text
 
 /**

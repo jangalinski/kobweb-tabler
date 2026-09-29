@@ -1,10 +1,11 @@
 package com.github.jangalinski.kobweb.tabler._foundation
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.kobweb.tabler._foundation.lang.Supplier
 import com.varabyte.kobweb.compose.ui.Modifier
 
 data object Tabler {
+
+  interface TablerType
 
   /**
    * Controls runtime behavior, dynamic animations, and interactive states, for example
@@ -46,7 +47,7 @@ data object Tabler {
    * Defines the base root container or foundational element of a UI component, for example
    * standalone elements (`accordion`, `card`, `btn`, `modal`, `table`).
    */
-  fun interface Component : ComposableType {
+  fun interface Component : ComposableType, TablerType {
 
     @Composable
     operator fun invoke(modifier: Modifier)
@@ -54,6 +55,8 @@ data object Tabler {
     @Composable
     operator fun invoke() = invoke(Modifier)
   }
+
+  fun interface FoundationComponent : Component
 
   /**
    * Specifies alignment, placement edges, opening direction, or layout orientation,
@@ -93,4 +96,21 @@ data object Tabler {
    * or backdrop effects (modal-blur).
    */
   interface Style : Modifier
+
+  /**
+   * A functional interface that represents a supplier of results.
+   *
+   * This interface is used to provide a way to generate or supply values on demand.
+   *
+   * @param T the type of results supplied by this supplier
+   */
+  fun interface Supplier<T> {
+    fun get(): T
+  }
 }
+
+/**
+ * Marks Tabler DSL receivers so nested layout blocks stay scoped to Tabler-specific builders.
+ */
+@DslMarker
+annotation class TabwebDsl

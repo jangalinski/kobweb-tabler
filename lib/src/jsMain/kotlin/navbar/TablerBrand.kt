@@ -1,13 +1,13 @@
 package com.github.jangalinski.kobweb.tabler.navbar
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.kobweb.tabler.KobwebTabler.HOME
 import com.github.jangalinski.kobweb.tabler._foundation.Tabler
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KAnchor
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KImg
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KText
 import com.github.jangalinski.kobweb.tabler._foundation.css.plus
-import com.github.jangalinski.kobweb.tabler._foundation.Url.Companion.HOME
 import com.github.jangalinski.kobweb.tabler._foundation.Url
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_BRAND
 import com.github.jangalinski.kobweb.tabler.navbar.TablerNavbarCss.NAVBAR_BRAND_AUTODARK

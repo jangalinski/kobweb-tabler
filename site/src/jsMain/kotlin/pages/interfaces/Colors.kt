@@ -4,11 +4,8 @@ import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
 import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
+import com.github.jangalinski.kobweb.tabler.avatar._.AvatarStyle
 import com.github.jangalinski.kobweb.tabler.avatar.Avatar
-import com.github.jangalinski.kobweb.tabler.avatar.AvatarSize
-import com.github.jangalinski.kobweb.tabler.avatar.AvatarStyle
-import com.github.jangalinski.kobweb.tabler.avatar.IconAvatar
-import com.github.jangalinski.kobweb.tabler.avatar.InitialsAvatar
 import com.github.jangalinski.kobweb.tabler.card.TablerCards
 import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
 import com.github.jangalinski.kobweb.tabler.site.siteLayoutData
@@ -38,20 +35,18 @@ fun color(names: List<BackgroundColor>) {
           KDiv(Modifier.classNames("col-auto")) {
 
             if (name is BackgroundColor.SOCIAL) {
-              IconAvatar(
-                icon = name.icon,
+              Avatar(
+                content = name.icon,
                 color = name,
                 style = AvatarStyle.SQUARE,
               )(name.textFg)
             } else {
-              InitialsAvatar(
-                initials = name.initials,
+              Avatar(
+                content = name.initials,
                 color = name,
                 style = AvatarStyle.SQUARE,
               )(name.textFg)
             }
-
-
           }
           KDiv(Modifier.classNames("col")) {
             Text(name.displayName)

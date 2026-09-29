@@ -1,13 +1,10 @@
 package com.github.jangalinski.kobweb.tabler._foundation
 
-import com.github.jangalinski.kobweb.tabler._foundation.lang.Supplier
 import com.varabyte.kobweb.navigation.BasePath
 import com.varabyte.kobweb.compose.css.functions.url as cssUrl
 
-sealed interface Url : Supplier<String> {
+sealed interface Url : Tabler.Supplier<String> {
   companion object {
-    val HOME = Internal("/")
-
     operator fun invoke(value: String): Url = when {
       value.startsWith("http") -> External(value)
       value.startsWith("/") -> Internal(value)

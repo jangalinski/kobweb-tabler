@@ -2,22 +2,10 @@ package com.github.jangalinski.kobweb.tabler.table
 
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.kobweb.tabler.KobwebTabler.publicResourcePath
-import com.github.jangalinski.kobweb.tabler.avatar.TablerAvatarContent
-import com.github.jangalinski.kobweb.tabler.image.svgDataUri
-import com.github.jangalinski.kobweb.tabler.table.TablerTableCell
-import com.github.jangalinski.kobweb.tabler.table.TablerTableData
-import com.github.jangalinski.kobweb.tabler.table.TablerTableResponsive
-import com.github.jangalinski.kobweb.tabler.table.TablerTableScope
+import com.github.jangalinski.kobweb.tabler._foundation.compose.*
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames
 import com.github.jangalinski.kobweb.tabler._foundation.css.ClassNames.modifier
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KDiv
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KHtmlDiv
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KTable
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KTbody
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KTd
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KTh
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KThead
-import com.github.jangalinski.kobweb.tabler._foundation.compose.KTr
+import com.github.jangalinski.kobweb.tabler.image.svgDataUri
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.attr
 import com.varabyte.kobweb.compose.ui.modifiers.classNames

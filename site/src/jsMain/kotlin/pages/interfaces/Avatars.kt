@@ -1,13 +1,18 @@
 package com.github.jangalinski.kobweb.tabler.site.pages.interfaces
 
 import androidx.compose.runtime.Composable
+import com.github.jangalinski.kobweb.tabler.KobwebTabler.markdown
+import com.github.jangalinski.kobweb.tabler._foundation.Image
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth
 import com.github.jangalinski.kobweb.tabler._foundation.css.GridWidth.HALF
 import com.github.jangalinski.kobweb.tabler._foundation.Initials
-import com.github.jangalinski.kobweb.tabler._foundation.widget.MarkdownText
+import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor
+import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor.BASE
+import com.github.jangalinski.kobweb.tabler._foundation.modifier.BackgroundColor.BASE.WHITE
+import com.github.jangalinski.kobweb.tabler.avatar.Avatar
 import com.github.jangalinski.kobweb.tabler.avatar.AvatarList
-import com.github.jangalinski.kobweb.tabler.avatar.IconAvatar
-import com.github.jangalinski.kobweb.tabler.avatar.InitialsAvatar
+import com.github.jangalinski.kobweb.tabler.avatar._.AvatarListSize
+import com.github.jangalinski.kobweb.tabler.avatar._.AvatarSize
 import com.github.jangalinski.kobweb.tabler.card.TablerCards
 import com.github.jangalinski.kobweb.tabler.icon.TablerIcon
 import com.github.jangalinski.kobweb.tabler.site.SiteRoutes
@@ -31,7 +36,7 @@ fun initAvatarsPage(ctx: InitRouteContext) {
 fun Avatars() {
   TablerCards {
     card(title = "Default Avatar", width = GridWidth.THIRD) {
-      MarkdownText("The base `.avatar` element — a placeholder box for a photo, icon, or initials.")
+      markdown("The base `.avatar` element — a placeholder box for a photo, icon, or initials.")
 
 //      KSpan(modifier = cssAvatar) {
 
@@ -50,54 +55,62 @@ fun Avatars() {
 //      }
 //      }
       AvatarList(
-        avatars = arrayOf(IconAvatar(icon = TablerIcon.TI_USER), InitialsAvatar(initials = Initials("AB")))
+        avatars = arrayOf(Avatar(content = TablerIcon.TI_USER), Avatar(content = Initials("AB")))
 
-      )
+      )()
 
     }
 
     card(title = "Avatar with icon", width = GridWidth.THIRD) {
-      MarkdownText("Put an icon inside the `avatar` instead of a photo.")
+      markdown("Put an icon inside the `avatar` instead of a photo.")
 
       AvatarList(
-        IconAvatar(icon = TablerIcon.TI_USER),
-        IconAvatar(icon = TablerIcon.TI_SETTINGS),
-        IconAvatar(icon = TablerIcon.TI_CAR),
-        IconAvatar(icon = TablerIcon.TI_BALLOON),
-        IconAvatar(icon = TablerIcon.TI_USERS),
-        IconAvatar(icon = TablerIcon.TI_USERS_GROUP),
-        IconAvatar(icon = TablerIcon.TI_APPS),
-        IconAvatar(icon = TablerIcon.TI_GHOST),
-      )
+        stacked = false,
+        size = AvatarListSize.DEFAULT,
+        Avatar(content = TablerIcon.TI_USER, color = WHITE),
+        Avatar(content = TablerIcon.TI_SETTINGS, color = WHITE),
+        Avatar(content = TablerIcon.TI_CAR, color = WHITE),
+        Avatar(content = TablerIcon.TI_BALLOON, color = WHITE),
+        Avatar(content = TablerIcon.TI_USERS, color = WHITE),
+        Avatar(content = TablerIcon.TI_USERS_GROUP, color = WHITE),
+        Avatar(content = TablerIcon.TI_APPS, color = WHITE),
+        Avatar(content = TablerIcon.TI_GHOST, color = WHITE),
+      )()
+
+    }
+
+    card(title = "Avatar icon colors", width = GridWidth.THIRD) {
+      markdown("Combine an icon avatar with any theme color.")
+
+      AvatarList(
+        stacked = false,
+        size = AvatarListSize.DEFAULT,
+        avatars = BackgroundColor.LIGHT.entries.map {
+          Avatar(content = TablerIcon.TI_USER, color = it)
+        }
+      )()
 
     }
   }
   TablerCards {
-    card(title = "Cards", width = HALF) {
-      P { Text("TablerCard and TablerCards provide the basic card layout.") }
+    card(title = "Simple avatar", width = GridWidth.THIRD) {
+      markdown("Show a photo by setting it as the `background-image` of the avatar.")
 
-      MarkdownText(
-        """
-        Avatars display a photo, icon, or initials to represent a person, brand, or status.
-
-        ## Usage
-        ```kotlin
-
-        TablerAvatar(
-            src = "https://avatars.githubusercontent.com/u/12345678?v=4",
-            alt = "User Avatar",
-            size = TablerAvatarSize.Medium,
-            )
-
-        ```
-      """.trimIndent()
-      )
-
+      AvatarList(
+        stacked = false,
+        size = AvatarListSize.DEFAULT,
+        avatars = listOf(
+          Avatar(content = Image("https://randomuser.me/api/portraits/women/91.jpg")),
+          Avatar(content = Image("https://randomuser.me/api/portraits/men/11.jpg")),
+          Avatar(content = Image("https://randomuser.me/api/portraits/women/68.jpg")),
+          Avatar(content = Image("https://randomuser.me/api/portraits/men/20.jpg")),
+          Avatar(content = Image("https://randomuser.me/api/portraits/women/12.jpg")),
+          Avatar(content = Image("https://randomuser.me/api/portraits/men/12.jpg")),
+          Avatar(content = Image("https://randomuser.me/api/portraits/women/16.jpg")),
+          Avatar(content = Image("https://randomuser.me/api/portraits/men/16.jpg")),
+        )
+      )()
     }
-    card(title = "Statistics ..... 1", width = HALF) {
-      P { Text("Stat cards are useful for compact values and summaries.") }
 
-      TablerIcon.entries.forEach { icon -> icon() }
-    }
   }
 }
