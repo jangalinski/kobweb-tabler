@@ -8,7 +8,7 @@ import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * The avatar DSL implementation delegated through [com.github.jangalinski.tabweb.KobwebTabler].
+ * The avatar DSL implementation delegated through [com.github.jangalinski.tabweb.Tabweb].
  */
 data object AvatarDsl : AvatarComposable {
 

@@ -22,12 +22,12 @@ The library package root exposes exactly one primary entry point:
 KobwebTabler
 ```
 
-`KobwebTabler` may provide a small, discoverable set of nested entry-point
+`Tabweb` may provide a small, discoverable set of nested entry-point
 functions, constants, and application helpers. No additional standalone
 feature, configuration, CSS, or DOM API belongs directly in the package root.
 
 Frequently used consumer entry points may be deliberately duplicated as
-curated nested facades on `KobwebTabler`, for example
+curated nested facades on `Tabweb`, for example
 `KobwebTabler.App`. Those facades provide
 convenience factories, constants, and composition entry points while the
 authoritative types remain in their owning concept packages. A facade must
@@ -84,9 +84,9 @@ opinionated about Kobweb application composition.
 ## Consequences
 
 - New work does not add APIs to the package root unless it extends
-  `KobwebTabler` directly.
+  `Tabweb` directly.
 - User-facing convenience access is exposed through a small
-  `KobwebTabler` facade rather than restoring root-level declarations.
+  `Tabweb` facade rather than restoring root-level declarations.
 - New work does not add to the technical `components`, `styles`, `layouts`, or
   `models` packages.
 - Package migration is incremental and compatibility-preserving. Existing

@@ -6,7 +6,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.onClick
 
 /**
- * The button DSL implementation delegated through [com.github.jangalinski.tabweb.KobwebTabler].
+ * The button DSL implementation delegated through [com.github.jangalinski.tabweb.Tabweb].
  */
 data object ButtonDsl : ButtonComposable {
   @Composable

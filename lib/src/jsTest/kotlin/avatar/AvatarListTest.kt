@@ -3,8 +3,8 @@ package com.github.jangalinski.tabweb.avatar
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.tabweb.KobwebTabler.avatar
-import com.github.jangalinski.tabweb.KobwebTabler.avatars
+import com.github.jangalinski.tabweb.Tabweb.avatar
+import com.github.jangalinski.tabweb.Tabweb.avatars
 import com.github.jangalinski.tabweb._foundation.Image
 import com.github.jangalinski.tabweb._foundation.Initials
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi

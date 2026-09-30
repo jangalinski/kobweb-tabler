@@ -8,6 +8,7 @@ import com.github.jangalinski.tabweb._app.ProvideTablerSiteConfig
 import com.github.jangalinski.tabweb._app.TablerSettings
 import com.github.jangalinski.tabweb._app.rememberTablerAppState
 import com.github.jangalinski.tabweb._foundation.Markdown
+import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.Url.Internal
 import com.github.jangalinski.tabweb.avatar.AvatarComposable
 import com.github.jangalinski.tabweb.avatar.AvatarDsl
@@ -21,13 +22,13 @@ import com.varabyte.kobweb.core.PageContext
 import com.varabyte.kobweb.core.layout.Layout
 import com.varabyte.kobweb.navigation.BasePath
 
-data object KobwebTabler :
+data object Tabweb :
   AvatarComposable by AvatarDsl,
   BadgeComposable by BadgeDsl,
   ButtonComposable by ButtonDsl {
   const val TABLER_LAYER = "tabweb"
-  const val TABLER_LAYOUT = "com.github.jangalinski.tabweb.KobwebTabler.Layout"
-  val HOME = Internal("/")
+  const val TABLER_LAYOUT = "com.github.jangalinski.tabweb.Tabweb.Layout"
+  val HOME = Url("/")
 
   @Composable
   fun markdown(markdown: String, modifier: Modifier = Modifier) {

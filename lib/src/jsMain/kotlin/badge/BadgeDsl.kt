@@ -3,13 +3,12 @@ package com.github.jangalinski.tabweb.badge
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.TabwebComponentDsl
-import com.github.jangalinski.tabweb._foundation.TabwebDsl
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
 import com.github.jangalinski.tabweb.icon.Icon
 import com.varabyte.kobweb.compose.ui.Modifier
 
 /**
- * The badge DSL implementation delegated through [com.github.jangalinski.tabweb.KobwebTabler].
+ * The badge DSL implementation delegated through [com.github.jangalinski.tabweb.Tabweb].
  */
 data object BadgeDsl : TabwebComponentDsl, BadgeComposable {
   @Composable

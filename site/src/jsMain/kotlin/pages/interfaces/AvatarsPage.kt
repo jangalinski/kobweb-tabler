@@ -1,8 +1,8 @@
 package com.github.jangalinski.tabweb.site.pages.interfaces
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb.KobwebTabler.avatars
-import com.github.jangalinski.tabweb.KobwebTabler.markdown
+import com.github.jangalinski.tabweb.Tabweb.avatars
+import com.github.jangalinski.tabweb.Tabweb.markdown
 import com.github.jangalinski.tabweb._foundation.Image
 import com.github.jangalinski.tabweb._foundation.Initials
 import com.github.jangalinski.tabweb._foundation.css.GridWidth

@@ -1,7 +1,6 @@
 package com.github.jangalinski.tabweb.image
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb.KobwebTabler.publicResourcePath
 import com.github.jangalinski.tabweb._foundation.Image
 import com.github.jangalinski.tabweb._foundation.css.ClassNames
 import com.github.jangalinski.tabweb._foundation.compose.KImg

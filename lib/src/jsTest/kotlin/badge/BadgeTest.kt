@@ -4,8 +4,8 @@ import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.doesNotContain
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.tabweb.KobwebTabler.badge
-import com.github.jangalinski.tabweb.KobwebTabler.badges
+import com.github.jangalinski.tabweb.Tabweb.badge
+import com.github.jangalinski.tabweb.Tabweb.badges
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor

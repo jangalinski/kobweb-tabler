@@ -109,7 +109,7 @@ facade. For example, `avatar { initials(...) }`, `card { ... }`, and
 
 ### 3. One stable facade
 
-`KobwebTabler` is the single convenience entry point. It implements component
+`Tabweb` is the single convenience entry point. It implements component
 function interfaces by delegation:
 
 ```kotlin
@@ -132,7 +132,7 @@ avatars {
 }
 ```
 
-Alternatively, import `KobwebTabler` once and use qualified calls, or make it
+Alternatively, import `Tabweb` once and use qualified calls, or make it
 the receiver of a local DSL section:
 
 ```kotlin
@@ -265,10 +265,10 @@ invent unstable IDs on every recomposition.
   their scope type; keep them internal where they are not part of the intended
   DSL surface.
 - Delegate only non-conflicting page-level `*Composable` methods through
-  `KobwebTabler`. Keep generic child verbs scoped to avoid facade ambiguity.
+  `Tabweb`. Keep generic child verbs scoped to avoid facade ambiguity.
 - Do not promise `import KobwebTabler.*`: Kotlin prohibits star imports from
   objects. Import a specific member such as `KobwebTabler.avatars`, or import
-  `KobwebTabler` for qualified calls or a local `with(KobwebTabler)` receiver.
+  `Tabweb` for qualified calls or a local `with(KobwebTabler)` receiver.
 - The supported Tabler preview structures remain the compatibility boundary;
   this pattern does not authorize arbitrary combinations of Tabler classes.
 

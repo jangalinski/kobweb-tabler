@@ -2,7 +2,7 @@ package com.github.jangalinski.tabweb.site
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import com.github.jangalinski.tabweb.KobwebTabler.KobwebTablerApp
+import com.github.jangalinski.tabweb.Tabweb.KobwebTablerApp
 import com.github.jangalinski.tabweb._app.TablerShellConfig
 import com.github.jangalinski.tabweb._app.TablerSiteConfig
 import com.varabyte.kobweb.core.App

@@ -3,8 +3,8 @@ package com.github.jangalinski.tabweb.button
 import assertk.assertThat
 import assertk.assertions.contains
 import assertk.assertions.isEqualTo
-import com.github.jangalinski.tabweb.KobwebTabler.button
-import com.github.jangalinski.tabweb.KobwebTabler.buttons
+import com.github.jangalinski.tabweb.Tabweb.button
+import com.github.jangalinski.tabweb.Tabweb.buttons
 import com.github.jangalinski.tabweb.icon.TablerIcon
 import org.jetbrains.compose.web.testutils.ComposeWebExperimentalTestsApi
 import org.jetbrains.compose.web.testutils.runTest

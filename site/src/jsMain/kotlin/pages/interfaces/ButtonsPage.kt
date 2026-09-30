@@ -1,8 +1,7 @@
 package com.github.jangalinski.tabweb.site.pages.interfaces
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb.KobwebTabler.button
-import com.github.jangalinski.tabweb.KobwebTabler.buttons
+import com.github.jangalinski.tabweb.Tabweb.buttons
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.css.GridWidth
 import com.github.jangalinski.tabweb.button.ButtonColor

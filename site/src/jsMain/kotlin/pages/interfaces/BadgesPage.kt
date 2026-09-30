@@ -1,8 +1,8 @@
 package com.github.jangalinski.tabweb.site.pages.interfaces
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb.KobwebTabler.badge
-import com.github.jangalinski.tabweb.KobwebTabler.badges
+import com.github.jangalinski.tabweb.Tabweb.badge
+import com.github.jangalinski.tabweb.Tabweb.badges
 import com.github.jangalinski.tabweb._foundation.Link
 import com.github.jangalinski.tabweb._foundation.Url
 import com.github.jangalinski.tabweb._foundation.compose.KDiv

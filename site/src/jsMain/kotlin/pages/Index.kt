@@ -3,26 +3,24 @@ package com.github.jangalinski.tabweb.site.pages
 import androidx.compose.runtime.Composable
 import com.github.jangalinski.tabweb._foundation.Image
 import com.github.jangalinski.tabweb._foundation.Url
-import com.github.jangalinski.tabweb.card.TablerCards
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
 import com.github.jangalinski.tabweb._foundation.compose.KSpan
 import com.github.jangalinski.tabweb._foundation.compose.KText
+import com.github.jangalinski.tabweb._foundation.css.GridWidth
+import com.github.jangalinski.tabweb._foundation.css.GridWidth.HALF
+import com.github.jangalinski.tabweb._foundation.css.GridWidth.QUARTER
+import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
+import com.github.jangalinski.tabweb.card.TablerCards
 import com.github.jangalinski.tabweb.divider.TablerDivider
+import com.github.jangalinski.tabweb.icon.TablerIcon
 import com.github.jangalinski.tabweb.icon.TablerIcon.TI_BRAND_GITHUB
 import com.github.jangalinski.tabweb.icon.TablerIcon.TI_FOOTSTEPS
 import com.github.jangalinski.tabweb.link.TablerLink
 import com.github.jangalinski.tabweb.site.SiteRoutes
 import com.github.jangalinski.tabweb.site.siteLayoutData
 import com.github.jangalinski.tabweb.site.sitePageMeta
-import com.github.jangalinski.tabweb._foundation.css.GridWidth
-import com.github.jangalinski.tabweb._foundation.css.GridWidth.HALF
-import com.github.jangalinski.tabweb._foundation.css.GridWidth.QUARTER
-import com.github.jangalinski.tabweb._foundation.modifier.BackgroundColor
-import com.github.jangalinski.tabweb.icon.TablerIcon
-import com.varabyte.kobweb.compose.style.KobwebComposeStyleSheet.attr
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
-import com.varabyte.kobweb.compose.ui.modifiers.backgroundImage
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.color
 import com.varabyte.kobweb.compose.ui.modifiers.fontSize
@@ -36,7 +34,6 @@ import org.jetbrains.compose.web.css.backgroundImage
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.A
 import org.jetbrains.compose.web.dom.H3
-import org.jetbrains.compose.web.dom.Img
 import org.jetbrains.compose.web.dom.P
 import org.jetbrains.compose.web.dom.Text
 
@@ -99,7 +96,7 @@ fun Index() {
 
       Image.Resource(
         url = Url("/avatars/jan-g-avatar.png"),
-        modifier = Modifier.size(256.px),
+        modifier = Modifier.size(128.px),
         altText = "Jan G Avatar"
       )()
 

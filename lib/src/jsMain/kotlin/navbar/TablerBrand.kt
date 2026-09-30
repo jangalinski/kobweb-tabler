@@ -1,8 +1,7 @@
 package com.github.jangalinski.tabweb.navbar
 
 import androidx.compose.runtime.Composable
-import com.github.jangalinski.tabweb.KobwebTabler.HOME
-import com.github.jangalinski.tabweb._foundation.Tabler
+import com.github.jangalinski.tabweb.Tabweb.HOME
 import com.github.jangalinski.tabweb._foundation.TabwebComponent
 import com.github.jangalinski.tabweb._foundation.compose.KAnchor
 import com.github.jangalinski.tabweb._foundation.compose.KDiv
